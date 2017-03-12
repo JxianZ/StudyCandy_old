@@ -61,7 +61,9 @@
 </div>
 <script type="text/javascript" src="../static/js/jquery.js"></script>
 <script type="text/javascript">
+
     //登录功能 start
+
     $(function(){
         $("#lgsubmit").click(function(){
             var username = $("#userinput").val();
@@ -72,7 +74,7 @@
                     "password":password
                 };
                 $.ajax({
-                    url :spring/login,
+                    url :"login",
                     data: data,
                     type: "POST",
                     dataType: "json",
@@ -93,10 +95,13 @@
     });
     //检查用户名密码是否合法
     function check(username,password){
-
+		if(username.length>0&&password.length>5)return true;
+		else return false;
     }
     //登录功能 end
+
     //登录框清除文字 start
+
     $(function(){
         var text="请输入用户名";
         $("#userinput").focus(function() {
