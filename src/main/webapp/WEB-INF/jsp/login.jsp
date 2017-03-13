@@ -9,37 +9,145 @@
 <link rel="stylesheet" type="text/css" href="../static/css/loginstyle.css">
 </head>
 <body>
-		<div class="loginheader">
-			<div class="headerimg">
-				<img src="../static/img/logo-image.png">
+<div class="page">
+	<div class="header">
+		<div><img src="../static/img/logo-image.png"></div>
+		<div>学糖</div>
+		<div class="l-r">注册</div>
+	</div>
+	<div class="lrbody">
+		<div class="bodymain">
+			<div class="loginbody">
+				<div class="lgform">
+					<div class="lgword">登录</div>
+					<div class="lginput">
+						<div class="lglogo">
+							<img src="../static/img/userlogo.gif">
+						</div>
+						<div class="lgtext">
+							<input type="text" name="username" value="请输入用户名" id="userinput">
+						</div>
+					</div>
+					<div class="lginput">
+						<div class="lglogo">
+							<img src="../static/img/passwordlogo.gif">
+						</div>
+						<div class="lgtext" id="lgpswd">
+							<input type="text" name="password" value="请输入密码" id="passwordinput">
+						</div>
+					</div>
+					<div class="lgasi">
+						<div class="rmb">
+							<label id="rmblabel1"><input type="checkbox" value="" id="rmblabel2"/>记住账号</label>
+						</div>
+						<div class="found">忘记密码</div>
+					</div>
+					<div class="lgconfirm">
+						<div class="confirmbtn" id="lgsubmit">登录</div>
+					</div>
+				</div>
 			</div>
-			<div class="brand"><a href="#"><h1 id="h">学糖</h1></a></div>
 		</div>
-		<div class="loginbody">
-			<div class="lg">
-				<div class="lghead">
-				</br>
-				<h1>登录</h1> <br>
+	</div>
+	<div class="cd">
+		<div class="more">
+			<div class="moreleft">推荐课程：</div>
+			<div class="moreright">查看更多<span>>>></span></div>
+		</div>
+	</div>
+	<div class="footer">
+		企业合作 | 人才招聘 | 联系我们 | 常见问题 | 意见反馈 | Copyright&copy;2017.JxianZ.Company name All Rights Reserved.
+	</div>
+</div>
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
 
-				</div>
-				<form name="login" method="post" action="/user/login">
-				<div class="lgbody">
-				用户名：&nbsp;&nbsp;<input type="text" name="username"></br></br>
-				密&nbsp;码：&nbsp;&nbsp;<input type="password" name="password"></br></br>
-				
-				</div>
-				<div class="lgfooter">
-				图片验证码：<input name="image"></br></br></br>&nbsp;&nbsp;
-					<input type="submit" value="提交">
-					<input type="reset" value="重置">
-					<h5><a href="">&nbsp;忘记密码&nbsp;</a></h5>
-				</div>
-				</form>
-			</div>
-		</div>
-		<div class="loginfooter">
-			<div class="copy">Copyright &copy; 2017.yxm.Company name All rights reserved.</div>
-			
-		</div>
+    //登录功能 start
+
+    $(function(){
+        $("#lgsubmit").click(function(){
+            var username = $("#userinput").val();
+            var password = $("#passwordinput").val();
+            if(check(username,password)){
+                var data = {
+                    "username":username,
+                    "password":password
+                };
+                $.ajax({
+                    url :"login",
+                    data: data,
+                    type: "POST",
+                    dataType: "json",
+                    success: function () {
+                        alert("success");
+                    },
+                    error: function(XMLHttpRequest,textStatus, errorThrown) {
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus);
+                    },
+                });
+            }
+            else{
+                alert("用户名或密码不合法");
+            }
+        });
+    });
+    //检查用户名密码是否合法
+    function check(username,password){
+		if(username.length>0&&password.length>5)return true;
+		else return false;
+    }
+    //登录功能 end
+
+    //登录框清除文字 start
+
+    $(function(){
+        var text="请输入用户名";
+        $("#userinput").focus(function() {
+            $(this).val()!=text ||$(this).val("");
+        });
+        $("#userinput").blur(function() {
+            $(this).val()!="" || $(this).val(text);
+        });
+    });
+    $(function(){
+        var text="请输入密码";
+        $("#passwordinput").focus(function() {
+            $(this).val("");
+            $(this).attr('type','password');
+        });
+        $("#passwordinput").blur(function() {
+            $(this).val()!="" || $(this).val(text);
+            $(this).val()!=text || $(this).attr('type','text');
+        });
+    });
+    //登录框清除文字 end
+
+    //登录框一些按钮，手型的效果 start
+    $(function(){
+        $("#lgsubmit").mouseover(function(){
+            $(this).css("background-color","#0c6271");
+            $(this).css("cursor","pointer");
+        });
+        $("#lgsubmit").mouseout(function(){
+            $(this).css("background-color","#1498b0");
+            $(this).css("cursor","default");
+        });
+        $("#rmblabel1").mouseover(function(){
+            $(this).css("cursor","pointer");
+        });
+        $("#rmblabel1").mouseout(function(){
+            $(this).css("cursor","default");
+        });
+        $("#rmblabel2").mouseover(function(){
+            $(this).css("cursor","pointer");
+        });
+        $("#rmblabel2").mouseout(function(){
+            $(this).css("cursor","default");
+        });
+    })
+    //登录框一些按钮，手型的效果 end
+</script>
 </body>
 </html>
