@@ -11,7 +11,6 @@
         <result column="pwd_salt" property="pwdSalt" jdbcType="VARCHAR"/>
         <result column="create_time" property="createTime" jdbcType="DATE"/>
         <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
-        <result column="is_delete" property="isDelete" jdbcType="SMALLINT"/>
     </resultMap>
 
     <select id="selectUserById" parameterType="java.lang.Long" resultMap="UserBaseMap">

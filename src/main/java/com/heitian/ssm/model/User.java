@@ -15,7 +15,6 @@ public class User {
     private String pwdSalt;
     private Date createTime;
     private Date modifyTime;
-    private Short isDelete;
 
     public Long getId() {
         return id;
@@ -81,11 +80,4 @@ public class User {
         this.modifyTime = modifyTime;
     }
 
-    public Short getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Short isDelete) {
-        this.isDelete = isDelete;
-    }
 }
