@@ -50,9 +50,3 @@ Temporary Items
 /.idea
 /target
 /**/resources/*.properties
-/sc-cas/**
-/sc-cas/pom.xml
-sc-common/src/test/
-sc-daos/src/test/
-sc-usercenter-api/src/test/
-sc-usercenter/src/main/resources/
