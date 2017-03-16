@@ -8,3 +8,14 @@
 ###3.16-17 完成辅导室界面，实现预约功能
 ###3.18-19 完成辅导室抛单功能
 ###3.20-22 产品修补
+
+-------
+
+##技术细节
+
+####Runtime
+* JDK>=1.8
+####技术选型
+* Spring + Spring MVC + MyBatis 
+* Shiro + Spring Session + CAS
+* FreeMaker（*）
