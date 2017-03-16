@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,11 +20,12 @@ import javax.servlet.http.HttpSession;
 public class FooController extends BaseController {
     public static final Logger logger = Logger.getLogger(FooController.class);
 
-    FooController(){
+    FooController() {
         super();
     }
+
     @RequestMapping("/")
-    public String FooHandler(HttpServletRequest request, HttpServletResponse response, Model model){
+    public String FooHandler(HttpServletRequest request, HttpServletResponse response, Model model) {
         HttpSession session = this.httpSession;
         logger.info(session.getCreationTime());
         return "index";

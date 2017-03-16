@@ -1,7 +1,8 @@
 package com.studycandy.controller;
 
-import com.studycandy.service.IUserService;
+import com.studycandy.core.base.BaseController;
 import com.studycandy.model.User;
+import com.studycandy.service.IUserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,41 +17,41 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+// @RequestMapping("/user")
+public class UserController extends BaseController {
 
     private Logger log = Logger.getLogger(UserController.class);
     @Resource
     private IUserService userService;
 
     @RequestMapping("/")
-    public String me(HttpServletRequest request, Model model){
-        return mine(request,model);
+    public String me(HttpServletRequest request, Model model) {
+        return mine(request, model);
     }
 
     @RequestMapping("/mine")
-    public String mine(HttpServletRequest request, Model model){
-        User user=null;
-        user=(User) request.getSession().getAttribute("user");
-        if (user!=null){
+    public String mine(HttpServletRequest request, Model model) {
+        User user = null;
+        user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
             return "user";
         }
         return "login";
     }
 
     @RequestMapping("/showUser")
-    public String showUser(HttpServletRequest request, Model model){
+    public String showUser(HttpServletRequest request, Model model) {
         log.info("查询所有用户信息");
         List<User> userList = userService.getAllUser();
-        model.addAttribute("userList",userList);
+        model.addAttribute("userList", userList);
         return "showUser";
     }
 
     @RequestMapping("/log")
-    public String log(HttpServletRequest request, Model model){
-        User user=null;
-        user=(User) request.getSession().getAttribute("user");
-        if (user!=null){
+    public String log(HttpServletRequest request, Model model) {
+        User user = null;
+        user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
             return "user";
         }
         log.info("用户跳转到登录界面");
@@ -58,24 +59,24 @@ public class UserController {
     }
 
     @RequestMapping("/login")
-    public String login(HttpServletRequest request, Model model){
-        User user=null;
-        user=(User) request.getSession().getAttribute("user");
-        if (user!=null){
+    public String login(HttpServletRequest request, Model model) {
+        User user = null;
+        user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
             return "user";
         }
         log.info("用户登录");
         user = null;
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        if (username==null||"".equals(username)||password==null||"".equals(password)){
-            model.addAttribute("flag","请将登录信息填写完整");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        if (username == null || "".equals(username) || password == null || "".equals(password)) {
+            model.addAttribute("flag", "请将登录信息填写完整");
             return "login";
         }
-        String image=request.getParameter("image");
-        user=userService.getUserByName(username);
-        if (user==null){
-            model.addAttribute("flag","未找到该用户！");
+        String image = request.getParameter("image");
+        user = userService.getUserByName(username);
+        if (user == null) {
+            model.addAttribute("flag", "未找到该用户！");
             return "login";
         }
         /*
@@ -83,15 +84,15 @@ public class UserController {
             model.addAttribute("flag","用户名或密码错误");
             return "login";
         }*/
-        request.getSession().setAttribute("user",user);
+        request.getSession().setAttribute("user", user);
         return "user";
     }
 
     @RequestMapping("/reg")
-    public String reg(HttpServletRequest request, Model model){
-        User user=null;
-        user=(User) request.getSession().getAttribute("user");
-        if (user!=null){
+    public String reg(HttpServletRequest request, Model model) {
+        User user = null;
+        user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
             return "user";
         }
         log.info("用户跳转到注册界面");
@@ -99,28 +100,28 @@ public class UserController {
     }
 
     @RequestMapping("/register")
-    public String register(HttpServletRequest request, Model model){
-        User user=null;
-        user=(User) request.getSession().getAttribute("user");
-        if (user!=null){
+    public String register(HttpServletRequest request, Model model) {
+        User user = null;
+        user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
             return "user";
         }
         log.info("用户注册");
-        user=null;
-        String username=request.getParameter("username");
-        user=userService.getUserByName(username);
-        if (user!=null){
-            model.addAttribute("flag","该用户名已被注册！");
+        user = null;
+        String username = request.getParameter("username");
+        user = userService.getUserByName(username);
+        if (user != null) {
+            model.addAttribute("flag", "该用户名已被注册！");
             return "register";
         }
-        String password=request.getParameter("password");
-        if (username==null||"".equals(username)||password==null||"".equals(password)){
-            model.addAttribute("flag","请将注册信息填写完整");
+        String password = request.getParameter("password");
+        if (username == null || "".equals(username) || password == null || "".equals(password)) {
+            model.addAttribute("flag", "请将注册信息填写完整");
             return "register";
         }
-        userService.setUser(username,password);
-        user=userService.getUserByName(username);
-        request.getSession().setAttribute("user",user);
+        userService.setUser(username, password);
+        user = userService.getUserByName(username);
+        request.getSession().setAttribute("user", user);
         return "user";
     }
 }

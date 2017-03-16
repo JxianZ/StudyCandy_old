@@ -12,6 +12,7 @@
         <module>sc-usercenter</module>
         <module>sc-daos</module>
         <module>sc-usercenter-api</module>
+        <module>sc-usercenter-daos</module>
     </modules>
 
     <name>StudyCandy</name>
