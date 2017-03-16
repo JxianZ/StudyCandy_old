@@ -12,7 +12,7 @@
         另外，如果使用了mybatis-generator-maven-plugin，那么在pom.xml中定义的properties都可以直接在generatorConfig.xml中使用
      -->
     <properties resource="jdbc.properties" />
-    <classPathEntry location="G:\\Runtime\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.39\\mysql-connector-java-5.1.39.jar" />
+    <classPathEntry location="${jdbc.driver.location}" />
     <!-- 在MBG工作的时候，需要额外加载的依赖包
         location属性指明加载jar/zip包的全路径
      -->
@@ -52,7 +52,7 @@
         </commentGenerator>
 
         <!-- 必须要有的，使用这个配置链接数据库
-            @TODO:是否可以扩展
+
          -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="${jdbcUrl}"

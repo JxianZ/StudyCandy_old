@@ -15,7 +15,7 @@
 
 ####Runtime
 * JDK>=1.8
-####采用框架
+####技术选型
 * Spring + Spring MVC + MyBatis 
 * Shiro + Spring Session + CAS
-* FreeMaker
+* FreeMaker（*）

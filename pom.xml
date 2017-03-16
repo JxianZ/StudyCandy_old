@@ -10,6 +10,9 @@
         <module>sc-common</module>
         <module>sc-main</module>
         <module>sc-usercenter</module>
+        <module>sc-daos</module>
+        <module>sc-cas</module>
+        <module>sc-usercenter-api</module>
     </modules>
 
     <name>StudyCandy</name>
@@ -37,6 +40,11 @@
             <dependency>
                 <groupId>com.studycandy</groupId>
                 <artifactId>sc-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.studycandy</groupId>
+                <artifactId>sc-daos</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

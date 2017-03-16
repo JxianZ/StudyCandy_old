@@ -12,36 +12,9 @@
 
     <description>
         Project SC
-        * 公用类 Entitys,DAOs
+        * 公用类
         * Base类
     </description>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <configuration>
-                    <overwrite>true</overwrite>
-                </configuration>
-            </plugin>
-        </plugins>
-        <!-- 编译时识别src/main/java下的xml文件-->
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
 
     <dependencies>
         <dependency>

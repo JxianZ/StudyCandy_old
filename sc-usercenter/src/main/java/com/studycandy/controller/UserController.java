@@ -1,7 +1,6 @@
 package com.studycandy.controller;
 
 import com.studycandy.service.IUserService;
-import com.studycandy.util.MD5String;
 import com.studycandy.model.User;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;

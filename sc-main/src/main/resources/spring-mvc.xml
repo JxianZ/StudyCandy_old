@@ -12,7 +12,7 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <!-- 自动扫描  @Controller-->
-    <context:component-scan base-package="com.heitian.ssm.controller"/>
+    <context:component-scan base-package="com.studycandy.controller"/>
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
@@ -40,13 +40,17 @@
     </bean>
 
     <!-- 文件上传配置 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 默认编码 -->
-        <property name="defaultEncoding" value="UTF-8"/>
-        <!-- 上传文件大小限制为31M，31*1024*1024 -->
-        <property name="maxUploadSize" value="32505856"/>
-        <!-- 内存中的最大值 -->
-        <property name="maxInMemorySize" value="4096"/>
+    <!-- todo 此处使用zframe 未验证可行性 可能会报错-->
+    <bean id="multipartResolver" class="com.zlzkj.core.base.MyMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 		设置上传文件的最大尺寸 -->
+        <property name="maxUploadSize" value="1024000000"/>
+        <property name="excludeUrl">
+            <list>
+                <!--               如果请求中包含以下路径，则不进行拦截   -->
+                <value>/vod/upload/flash</value>
+            </list>
+        </property>
     </bean>
     
 </beans>

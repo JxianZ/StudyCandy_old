@@ -16,6 +16,10 @@
             <groupId>com.studycandy</groupId>
             <artifactId>sc-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.studycandy</groupId>
+            <artifactId>sc-daos</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>jstl</groupId>
