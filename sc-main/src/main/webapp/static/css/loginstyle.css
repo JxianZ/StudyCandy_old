@@ -1,0 +1,209 @@
+.page {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.header {
+    background-color: #b5b5b5;
+    height: 60px;
+    width: 100%;
+    position: relative;
+}
+
+.header > div {
+    float: left;
+    font-size: 27px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.header img {
+    height: 50px;
+    margin: 5px 20px 5px 300px;
+}
+
+.header > .l-r {
+    font-family: "微软雅黑";
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 75px;
+    float: right;
+    margin-right: 300px;
+}
+
+.lrbody {
+    width: 100%;
+    height: 500px;
+    background-color: #9097b1;
+}
+
+.bodymain {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    background-color: #d08a3d;
+    margin: 0 auto;
+}
+
+.loginbody {
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    width: 350px;
+    height: 230px;
+    background-color: #FFFFFF;
+}
+
+.lgform {
+    width: 300px;
+    height: 200px;
+    margin: 25px;
+}
+
+.lgword {
+    text-indent: 5px;
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: black;
+    letter-spacing: 10px;
+}
+
+.lginput {
+    margin-bottom: 1px;
+    position: relative;
+    clear: both;
+    width: 295px;
+    height: 40px;
+}
+
+.lglogo {
+    border-top: solid 1px #afb3b5;
+    float: left;
+    width: 40px;
+    height: 39px;
+}
+
+.lglogo img {
+    width: 100%;
+    height: 100%
+}
+
+#lgpswd input[type='text'] {
+    border-top: none;
+}
+
+.lgtext {
+    width: 298px;
+    height: 37px;
+}
+
+.lgtext input[type='text'] {
+    text-indent: 5px;
+    color: #848b8d;
+    font-size: 14px;
+    height: 37px;
+    width: 250px;
+    border: solid 1px #afb3b5;
+}
+
+.lgtext input[type='password'] {
+    text-indent: 5px;
+    color: #848b8d;
+    font-size: 14px;
+    height: 37px;
+    width: 250px;
+    border: solid 1px #afb3b5;
+}
+
+.lgasi {
+    position: relative;
+    width: 295px;
+    height: 40px;
+}
+
+.lgasi label {
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 12px;
+}
+
+.lgasi input[type='checkbox'] {
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+}
+
+.rmb {
+    float: left;
+}
+
+.found {
+    float: right;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #b1b0b0;
+    line-height: 40px;
+}
+
+.lgconfirm {
+    clear: both;
+    width: 295px;
+    height: 40px;
+}
+
+.confirmbtn {
+    margin: 0 auto;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #1498b0;
+}
+
+.cd {
+    font-size: 16px;
+    line-height: 40px;
+    width: 100%;
+    height: 120px;
+    padding-bottom: 80px;
+}
+
+.cd span {
+    color: #ababab;
+}
+
+.moreleft {
+    margin-left: 20px;
+    float: left;
+}
+
+.moreright {
+    margin-right: 20px;
+    float: right;
+}
+
+.more {
+    margin: 30px auto 0 auto;
+    width: 70%;
+    height: 40px;
+    border: solid 1px #ffb3bb;
+}
+
+.footer {
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 70px;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #959595;
+}
