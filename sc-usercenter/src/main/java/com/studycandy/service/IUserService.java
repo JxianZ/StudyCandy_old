@@ -4,9 +4,6 @@ import com.studycandy.model.User;
 
 import java.util.List;
 
-/**
- * Created by Zhangxq on 2016/7/15.
- */
 public interface IUserService {
 
     List<User> getAllUser();
@@ -17,5 +14,5 @@ public interface IUserService {
 
     User getUserByName(String username);
 
-    void setUser(String username,String password);
+    void setUser(String username, String password);
 }

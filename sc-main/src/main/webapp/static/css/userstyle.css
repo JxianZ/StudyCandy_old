@@ -1,27 +1,30 @@
 
-.usermsg{
-	position: relative;
-	width: 100%;
-	height: 250px;
-	background: url(../img/bg/userbg.png); 
+.usermsg {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: url(../img/bg/userbg.png);
 }
-.userphoto{
-	float: left;
-	margin: 55px 40px 55px 100px;
-	height: 140px;
-	width: 140px;
-	border-radius: 70px;
-	border:2px solid #766a6a;
+
+.userphoto {
+    float: left;
+    margin: 55px 40px 55px 100px;
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+    border: 2px solid #766a6a;
 }
-.userphoto img{
-	width: 100%;
-	height: 100%;
-	border-radius: 70px;
+
+.userphoto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
 }
-.usermain{
-	height: 100px;
-	float: left;
-	margin: 75px 0;
+
+.usermain {
+    height: 100px;
+    float: left;
+    margin: 75px 0;
 }
 
 /*.choose{
@@ -36,105 +39,115 @@
 	border-radius: 4px;
 	font-weight: bold;
 }*/
-.uname{
-	font-family: "黑体";
-	margin: 25px 0;
-	color: #FFFFFF;
-	font-size: 48px;
-}
-.ulv{
-	color: #FFFFFF;
-	font-size: 13px;
-	text-align: center;
-	line-height: 16px;
-	letter-spacing: 1px;
-	height: 16px;
-	width: 40px;
-	background-color: #ac61b3;
-	border-radius: 4px;
-}
-.userpro{
-	height: 100px;
-	margin: 100px;
-	color: #FFFFFF;
-	float: left;
-}
-.uschool{
-	margin-bottom: 30px;
-	font-size: 24px;
-}
-.upro{
-	color: #ccc5c5;
-	font-size: 16px;
-}
-.usersts{
-	font-family: "微软雅黑";
-	font-size: 14px;
-	position: absolute;
-	bottom: 20px;
-	left: 280px;
-	color: #FFFFFF;
-}
-.tab{
-	margin: 0 auto;
+.uname {
+    font-family: "黑体";
+    margin: 25px 0;
+    color: #FFFFFF;
+    font-size: 48px;
 }
 
-.tab_menu ul{
-	margin: 10px auto;
-	width:660px;
+.ulv {
+    color: #FFFFFF;
+    font-size: 13px;
+    text-align: center;
+    line-height: 16px;
+    letter-spacing: 1px;
+    height: 16px;
+    width: 40px;
+    background-color: #ac61b3;
+    border-radius: 4px;
 }
 
-.tab_menu li{
-	list-style-type:none;
-	height: 28px;
-	width: 68px;
-	float: left;
-	text-align: center;
-	margin: 0 30px;
-	line-height: 28px;
-	font-size: 16px;
-	color: #7A797A;
+.userpro {
+    height: 100px;
+    margin: 100px;
+    color: #FFFFFF;
+    float: left;
 }
 
-.tab_menu li.on{
-	border-bottom: solid #756f6f 2px;
-	color: #E03DD7;
+.uschool {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.upro {
+    color: #ccc5c5;
+    font-size: 16px;
+}
+
+.usersts {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    position: absolute;
+    bottom: 20px;
+    left: 280px;
+    color: #FFFFFF;
+}
+
+.tab {
+    margin: 0 auto;
+}
+
+.tab_menu ul {
+    margin: 10px auto;
+    width: 660px;
+}
+
+.tab_menu li {
+    list-style-type: none;
+    height: 28px;
+    width: 68px;
+    float: left;
+    text-align: center;
+    margin: 0 30px;
+    line-height: 28px;
+    font-size: 16px;
+    color: #7A797A;
+}
+
+.tab_menu li.on {
+    border-bottom: solid #756f6f 2px;
+    color: #E03DD7;
 }
 
 .tab_box {
-	margin: 80px auto;
-	clear: both;
+    margin: 80px auto;
+    clear: both;
 }
 
-.tab .tab_box > div{
-	text-align: center;
-	position: absolute;
-	display: none;
-	margin: 20px;
+.tab .tab_box > div {
+    text-align: center;
+    position: absolute;
+    display: none;
+    margin: 20px;
 }
 
-.tab .tab_box > div:first-child{
-	display: block;
+.tab .tab_box > div:first-child {
+    display: block;
 }
-.footerb{
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	height: 100px;
-	background-color: black;
+
+.footerb {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    background-color: black;
 }
-.footerlogo{
-	float: left;
-	width: 80px;
-	height: 80px;
-	margin: 10px 50px 10px 30%;
+
+.footerlogo {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 10px 50px 10px 30%;
 }
-.footerlogo img{
-	width: 100%;
-	height: 100%;
+
+.footerlogo img {
+    width: 100%;
+    height: 100%;
 }
-.footerword{
-	color: #FFFFFF;
-	line-height: 100px;
-	float: left;
+
+.footerword {
+    color: #FFFFFF;
+    line-height: 100px;
+    float: left;
 }

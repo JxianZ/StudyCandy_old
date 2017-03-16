@@ -23,7 +23,8 @@
         <div class="navbar-inner">
             <div class="container">
                 <!-- Responsive navbar -->
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </a>
                 <h1 class="brand"><a href="../static/index.jsp" tppabs="#">学糖</a></h1>
                 <!-- navigation -->
@@ -58,11 +59,11 @@
     <div class="tab_menu">
         <ul>
             <li class="on">个人资料</li>
-            <li >管理发布</li>
+            <li>管理发布</li>
             <li>私人笔记</li>
             <li>课程管理</li>
         </ul>
-    </div >
+    </div>
     <div class="tab_box">
         <div>？？？？？？？</div>
         <div>？？？？？？？？？？？？？？？？？</div>
@@ -83,19 +84,21 @@
 
 <script src="../static/js/jquery.js"></script>
 <script type="text/javascript">
-    $(function(){
-        $(".tab_menu ul li").click(function(){$(this).addClass("on").siblings().removeClass("on");
-            var index=$(this).index();
-            $(".tab_box > div").eq(index).show().siblings().hide();});
-    })
-    $(function(){
-        $(".tab_menu ul li").mouseover(function(){
-            $(this).css("font-weight","bold");
-            $(this).css("cursor","pointer");
+    $(function () {
+        $(".tab_menu ul li").click(function () {
+            $(this).addClass("on").siblings().removeClass("on");
+            var index = $(this).index();
+            $(".tab_box > div").eq(index).show().siblings().hide();
         });
-        $(".tab_menu ul li").mouseout(function(){
-            $(this).css("font-weight","normal");
-            $(this).css("cursor","default");
+    })
+    $(function () {
+        $(".tab_menu ul li").mouseover(function () {
+            $(this).css("font-weight", "bold");
+            $(this).css("cursor", "pointer");
+        });
+        $(".tab_menu ul li").mouseout(function () {
+            $(this).css("font-weight", "normal");
+            $(this).css("cursor", "default");
         });
     })
 </script>

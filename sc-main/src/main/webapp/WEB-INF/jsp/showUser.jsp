@@ -13,10 +13,10 @@
     <title>用户信息列表</title>
 </head>
 <body>
-    <c:if test="${!empty userList}">
-        <c:forEach var="user" items="${userList}">
-            姓名：${user.userName} &nbsp;&nbsp;手机号：${user.userPhone} &nbsp;&nbsp;邮箱：${user.userEmail} &nbsp;&nbsp;<br>
-        </c:forEach>
-    </c:if>
+<c:if test="${!empty userList}">
+    <c:forEach var="user" items="${userList}">
+        姓名：${user.userName} &nbsp;&nbsp;手机号：${user.userPhone} &nbsp;&nbsp;邮箱：${user.userEmail} &nbsp;&nbsp;<br>
+    </c:forEach>
+</c:if>
 </body>
 </html>
