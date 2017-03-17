@@ -20,6 +20,5 @@
 * Tomcat >= 7
 #### 技术选型
 * Spring + Spring MVC + MyBatis 
-* Shiro + Spring Session
-* FreeMaker (*)
+* Shiro + Spring Sessio
 
