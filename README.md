@@ -21,5 +21,3 @@
 #### 技术选型
 * Spring + Spring MVC + MyBatis 
 * Shiro + Spring Session
-* FreeMaker (*)
-
