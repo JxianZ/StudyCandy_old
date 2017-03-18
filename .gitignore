@@ -49,4 +49,3 @@ Temporary Items
 *.iml
 /.idea
 /target
-/**/resources/*.properties

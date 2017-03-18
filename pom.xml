@@ -7,12 +7,7 @@
     <version>1.0</version>
 
     <modules>
-        <module>sc-common</module>
         <module>sc-main</module>
-        <module>sc-usercenter</module>
-        <module>sc-daos</module>
-        <module>sc-usercenter-api</module>
-        <module>sc-usercenter-daos</module>
     </modules>
 
     <name>StudyCandy</name>
@@ -34,8 +29,9 @@
         <slf4j.version>1.7.18</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
+         
 
-    <dependencyManagement>
+<!--    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.studycandy</groupId>
@@ -48,7 +44,7 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- 添加jstl依赖 -->
+            &lt;!&ndash; 添加jstl依赖 &ndash;&gt;
             <dependency>
                 <groupId>jstl</groupId>
                 <artifactId>jstl</artifactId>
@@ -61,7 +57,7 @@
                 <version>7.0</version>
             </dependency>
 
-            <!-- 添加junit4依赖 -->
+            &lt;!&ndash; 添加junit4依赖 &ndash;&gt;
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -69,7 +65,7 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- 添加spring核心依赖 -->
+            &lt;!&ndash; 添加spring核心依赖 &ndash;&gt;
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
@@ -126,16 +122,16 @@
                 <version>${spring.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- spring end -->
+            &lt;!&ndash; spring end &ndash;&gt;
 
-            <!-- Spring Session -->
+            &lt;!&ndash; Spring Session &ndash;&gt;
             <dependency>
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session</artifactId>
                 <version>${spring.session.version}</version>
             </dependency>
 
-            <!-- shiro dependencies -->
+            &lt;!&ndash; shiro dependencies &ndash;&gt;
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-aspectj</artifactId>
@@ -163,43 +159,43 @@
                 <artifactId>shiro-cas</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
-            <!-- shiro end -->
+            &lt;!&ndash; shiro end &ndash;&gt;
 
-            <!-- 添加mybatis依赖 -->
+            &lt;!&ndash; 添加mybatis依赖 &ndash;&gt;
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
 
-            <!-- 添加mybatis/spring整合包依赖 -->
+            &lt;!&ndash; 添加mybatis/spring整合包依赖 &ndash;&gt;
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>1.2.2</version>
             </dependency>
 
-            <!-- 添加mysql驱动依赖 -->
+            &lt;!&ndash; 添加mysql驱动依赖 &ndash;&gt;
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-driver.version}</version>
             </dependency>
-            <!-- 添加数据库连接池依赖 -->
+            &lt;!&ndash; 添加数据库连接池依赖 &ndash;&gt;
             <dependency>
                 <groupId>commons-dbcp</groupId>
                 <artifactId>commons-dbcp</artifactId>
                 <version>1.2.2</version>
             </dependency>
 
-            <!-- 添加fastjson -->
+            &lt;!&ndash; 添加fastjson &ndash;&gt;
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.1.41</version>
             </dependency>
 
-            <!-- 添加日志相关jar包 -->
+            &lt;!&ndash; 添加日志相关jar包 &ndash;&gt;
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -216,20 +212,20 @@
                 <version>${slf4j.version}</version>
             </dependency>
 
-            <!-- log end -->
-            <!-- 映入JSON -->
+            &lt;!&ndash; log end &ndash;&gt;
+            &lt;!&ndash; 映入JSON &ndash;&gt;
             <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
                 <version>1.9.13</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+            &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core &ndash;&gt;
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
                 <version>2.8.0</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+            &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
@@ -255,6 +251,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+	-->
+
     <build>
         <finalName>StudyCandy</finalName>
         <pluginManagement>
