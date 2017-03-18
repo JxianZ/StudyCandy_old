@@ -49,3 +49,6 @@ Temporary Items
 *.iml
 /.idea
 /target
+sc-main/src/main/resources/application.properties
+sc-main/src/main/resources/static/
+sc-main/src/main/resources/templates/
