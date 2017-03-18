@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="multipartResolver" class="com.zlzkj.core.base.MyMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 		设置上传文件的最大尺寸 -->
+        <property name="maxUploadSize" value="1024000000"/>
+        <property name="excludeUrl">
+            <list>
+                <!--               如果请求中包含以下路径，则不进行拦截   -->
+                <value>/vod/upload/flash</value>
+            </list>
+        </property>
+    </bean>
+</beans>
