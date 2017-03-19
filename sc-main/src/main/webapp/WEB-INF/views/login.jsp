@@ -6,12 +6,12 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/loginstyle.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/loginstyle.css">
 </head>
 <body>
 <div class="page">
     <div class="header">
-        <div><img src="../static/img/logo-image.png"></div>
+        <div><img src="${__static__}/img/logo-image.png"></div>
         <div>学糖</div>
         <div class="l-r">注册</div>
     </div>
@@ -22,7 +22,7 @@
                     <div class="lgword">登录</div>
                     <div class="lginput">
                         <div class="lglogo">
-                            <img src="../static/img/userlogo.gif">
+                            <img src="${__static__}/img/userlogo.gif">
                         </div>
                         <div class="lgtext">
                             <input type="text" name="username" value="请输入用户名" id="userinput">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="lginput">
                         <div class="lglogo">
-                            <img src="../static/img/passwordlogo.gif">
+                            <img src="${__static__}/img/passwordlogo.gif">
                         </div>
                         <div class="lgtext" id="lgpswd">
                             <input type="text" name="password" value="请输入密码" id="passwordinput">
@@ -59,7 +59,7 @@
         企业合作 | 人才招聘 | 联系我们 | 常见问题 | 意见反馈 | Copyright&copy;2017.JxianZ.Company name All Rights Reserved.
     </div>
 </div>
-<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
 <script type="text/javascript">
 
     //登录功能 start

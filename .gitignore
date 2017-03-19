@@ -48,7 +48,7 @@ Temporary Items
 
 *.iml
 /.idea
+/classes
 /target
-sc-main/src/main/resources/application.properties
-sc-main/src/main/resources/static/
-sc-main/src/main/resources/templates/
+!/**/main/resources/application.properties
+classes/

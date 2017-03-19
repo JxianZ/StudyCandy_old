@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexController extends BaseController {
     private Logger logger = Logger.getLogger(this.getClass());
 
-    @RequestMapping(value = {"index","/"})
+    @RequestMapping(value = {"index", "/"})
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
         logger.info("index");
 
