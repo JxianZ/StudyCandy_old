@@ -1,6 +1,5 @@
 package com.studycandy.conf;
 
-import flybear.hziee.core.base.ExceptionHandler;
 import flybear.hziee.core.util.SpringContextUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

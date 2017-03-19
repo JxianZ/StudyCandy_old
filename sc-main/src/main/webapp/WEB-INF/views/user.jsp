@@ -12,10 +12,10 @@
     <meta charset="utf-8">
     <title>个人中心</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/userstyle.css">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/userstyle.css">
+    <link href="${__static__}/css/style.css" rel="stylesheet">
     <!-- skin color -->
-    <link rel="shortcut icon" href="../static/img/favicon.ico">
+    <link rel="shortcut icon" href="${__static__}/img/favicon.ico">
 </head>
 <body>
 <div class="navbar-wrapper">
@@ -26,7 +26,7 @@
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                         class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </a>
-                <h1 class="brand"><a href="../static/index.jsp" tppabs="#">学糖</a></h1>
+                <h1 class="brand"><a href="${__static__}/index.jsp" tppabs="#">学糖</a></h1>
                 <!-- navigation -->
                 <nav class="pull-right nav-collapse collapse">
                     <ul id="menu-main" class="nav">
@@ -43,7 +43,7 @@
     </div>
 </div>
 <div class="usermsg">
-    <div class="userphoto"><img src="../static/img/userphoto.jpg"></div>
+    <div class="userphoto"><img src="${__static__}/img/userphoto.jpg"></div>
     <div class="usermain">
         <!-- <div class="choose">显示昵称</div> -->
         <div class="uname">这里是用户名</div>
@@ -74,7 +74,7 @@
 
 <div class="footerb">
     <div class="footerlogo">
-        <img src="../static/img/logo-image.png">
+        <img src="${__static__}/img/logo-image.png">
     </div>
     <div class="footerword">
         &copy;Copyright 2017. yxm. All rights reserved.
@@ -82,7 +82,7 @@
 </div>
 
 
-<script src="../static/js/jquery.js"></script>
+<script src="${__static__}/js/jquery.js"></script>
 <script type="text/javascript">
     $(function () {
         $(".tab_menu ul li").click(function () {

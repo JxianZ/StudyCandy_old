@@ -6,12 +6,12 @@
     <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="../static/css/registerstyle.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/registerstyle.css">
 </head>
 <body>
 <div class="registerheader">
     <div class="headerimg">
-        <img src="../static/img/logo-image.png">
+        <img src="${__static__}/img/logo-image.png">
     </div>
     <div class="brand"><a href="#"><h1 id="h">学糖</h1></a></div>
 </div>
