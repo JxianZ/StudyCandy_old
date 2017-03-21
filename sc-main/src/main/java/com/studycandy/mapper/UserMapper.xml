@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studycandy.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.model.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_username" jdbcType="VARCHAR" property="userUsername"/>
+        <result column="user_password" jdbcType="VARCHAR" property="userPassword"/>
+        <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
+        <result column="user_email" jdbcType="VARCHAR" property="userEmail"/>
+        <result column="user_phone" jdbcType="VARCHAR" property="userPhone"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.studycandy.model.User">
+    insert into s_user (id, user_username,
+      user_password, user_nickname, user_email, 
+      user_phone)
+    values (#{id,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR},
+      #{userPassword,jdbcType=VARCHAR}, #{userNickname,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.User">
+    update s_user
+    set user_username = #{userUsername,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_nickname = #{userNickname,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user_username, user_password, user_nickname, user_email, user_phone
+    from s_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_username, user_password, user_nickname, user_email, user_phone
+    from s_user
+  </select>
+    <select id="selectByUserName" resultMap="BaseResultMap">
+        SELECT user_username
+        FROM s_user
+        WHERE user_username = #{userUsername,jdbcType=VARCHAR}
+    </select>
+</mapper>

@@ -3,8 +3,6 @@ package com.studycandy.model;
 public class User {
     private Integer id;
 
-    private Integer userId;
-
     private String userUsername;
 
     private String userPassword;
@@ -21,14 +19,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getUserUsername() {
