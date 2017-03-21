@@ -105,7 +105,7 @@ public class UserController extends BaseController {
         log.info("用户注册");
         user = null;
         String username = request.getParameter("username");
-        //user=userService.getUserByName(username);
+        user = userService.getUserByUserName(username);
         if (user != null) {
             model.addAttribute("flag", "该用户名已被注册！");
             return "register";
@@ -115,8 +115,10 @@ public class UserController extends BaseController {
             model.addAttribute("flag", "请将注册信息填写完整");
             return "register";
         }
+        user = new User();
+        user.setUserUsername(username);
+        user.setUserPassword(password);
         userService.setUser(user);
-        //user=userService.getUserByName(username);
         request.getSession().setAttribute("user", user);
         return "user";
     }

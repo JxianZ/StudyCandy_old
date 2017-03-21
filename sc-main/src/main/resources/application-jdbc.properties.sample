@@ -3,4 +3,3 @@ jdbc.driverClasss=com.mysql.jdbc.Driver
 jdbc.url= #your_server
 jdbc.username= #your_username
 jdbc.password= #your_password
-jdbc.prefix=s_
