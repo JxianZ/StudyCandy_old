@@ -18,13 +18,13 @@ public interface UserService {
 
     User loginGetObj(String username, String password);
 
-    User editPassword(Integer userId,String password,String editPassword);
+    User editPassword(Integer userId, String password, String editPassword);
 
-    User editNickname(Integer userId,String nickname);
+    User editNickname(Integer userId, String nickname);
 
-    User editEmail(Integer userId,String email);
+    User editEmail(Integer userId, String email);
 
-    User editPhone(Integer userId,String phone);
+    User editPhone(Integer userId, String phone);
 
     List<User> search(String condition);
 }

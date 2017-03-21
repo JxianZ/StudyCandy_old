@@ -1,6 +1,5 @@
 package com.studycandy.controller;
 
-import com.studycandy.annotation.Role;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.User;
 import com.studycandy.service.UserService;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
