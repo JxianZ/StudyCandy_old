@@ -44,18 +44,13 @@ public class UserController extends BaseController {
             return "user";
         }
         log.info("用户登录");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (username == null || "".equals(username) || password == null || "".equals(password)) {
-            model.addAttribute("flag", "请将登录信息填写完整");
-            return "login";
-        }
-        User user = userService.checkOut(username,password);
-        if (user!=null){
-            model.addAttribute("flag","用户名或密码错误");
-            return "login";
-        }
-        request.getSession().setAttribute("user", user);
+
+//        User user = userService.checkOut(username,password);
+//        if (user!=null){
+//            model.addAttribute("flag","用户名或密码错误");
+//            return "login";
+//        }
+//        request.getSession().setAttribute("user", user);
         return "user";
     }
 
