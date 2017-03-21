@@ -54,8 +54,8 @@
         <!-- 必须要有的，使用这个配置链接数据库
 
          -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="${jdbc.jdbcUrl}"
+        <jdbcConnection driverClass="${jdbc.driverClasss}"
+                        connectionURL="${jdbc.url}"
                         userId="${jdbc.username}"
                         password="${jdbc.password}">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
@@ -141,8 +141,15 @@
             <property name="rootInterface" value=""/>
              -->
         </javaClientGenerator>
-        <table tableName="s_user" domainObjectName="User">
-        </table>
+        <table tableName="s_coach" domainObjectName="Coach"/>
+        <table tableName="s_comment" domainObjectName="Comment"/>
+        <table tableName="s_credit" domainObjectName="Credit"/>
+        <table tableName="s_post" domainObjectName="Post"/>
+        <table tableName="s_question" domainObjectName="Question"/>
+        <table tableName="s_school" domainObjectName="School"/>
+        <table tableName="s_user" domainObjectName="User"/>
+        <table tableName="s_user_info" domainObjectName="UserInfo"/>
+        <table tableName="s_user_sec" domainObjectName="UserSec"/>
         <!-- 选择一个table来生成相关文件，可以有一个或多个table，必须要有table元素
             选择的table会生成一下文件：
             1，SQL map文件
