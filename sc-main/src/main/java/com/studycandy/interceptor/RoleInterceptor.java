@@ -24,7 +24,7 @@ public class RoleInterceptor implements HandlerInterceptor {
     private Environment env;
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        logger.debug(env.getProperty("sc.loginUrl"));
+
         return true;
     }
 
