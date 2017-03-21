@@ -21,34 +21,17 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/")
-    public String me(HttpServletRequest request, Model model) {
-        return mine(request, model);
-    }
-
-    @RequestMapping("/mine")
+    @RequestMapping(value = {"mine", "/"})
     public String mine(HttpServletRequest request, Model model) {
-        User user = null;
-        user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         return "login";
     }
 
-    @RequestMapping("/showUser")
-    public String showUser(HttpServletRequest request, Model model) {
-        log.info("查询所有用户信息");
-        List<User> userList = userService.getAllUser();
-        model.addAttribute("userList", userList);
-        return "showUser";
-    }
-
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
-        User user = null;
-        user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         log.info("用户跳转到登录界面");
@@ -57,38 +40,28 @@ public class UserController extends BaseController {
 
     @RequestMapping("/login")
     public String login(HttpServletRequest request, Model model) {
-        User user = null;
-        user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         log.info("用户登录");
-        user = null;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if (username == null || "".equals(username) || password == null || "".equals(password)) {
             model.addAttribute("flag", "请将登录信息填写完整");
             return "login";
         }
-        String image = request.getParameter("image");
-        //user=userService.getUserByName(username);
-        if (user == null) {
-            model.addAttribute("flag", "未找到该用户！");
-            return "login";
-        }
-/*        if (!user.getUserPwd().equals(MD5String.getMD5Str(password))){
+        User user = userService.checkOut(username,password);
+        if (user!=null){
             model.addAttribute("flag","用户名或密码错误");
             return "login";
-        }*/
+        }
         request.getSession().setAttribute("user", user);
         return "user";
     }
 
     @RequestMapping("/reg")
     public String reg(HttpServletRequest request, Model model) {
-        User user = null;
-        user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         log.info("用户跳转到注册界面");
@@ -97,16 +70,12 @@ public class UserController extends BaseController {
 
     @RequestMapping("/register")
     public String register(HttpServletRequest request, Model model) {
-        User user = null;
-        user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
+        if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         log.info("用户注册");
-        user = null;
         String username = request.getParameter("username");
-        user=userService.getUserByUserName(username);
-        if (user != null) {
+        if (userService.getUserByUsername(username) != null) {
             model.addAttribute("flag", "该用户名已被注册！");
             return "register";
         }
@@ -115,10 +84,38 @@ public class UserController extends BaseController {
             model.addAttribute("flag", "请将注册信息填写完整");
             return "register";
         }
-        user = new User();
+        User user = new User();
         user.setUserUsername(username);
         user.setUserPassword(password);
         userService.setUser(user);
+        request.getSession().setAttribute("user", user);
+        return "user";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(HttpServletRequest request, Model model){
+        User user = (User)request.getSession().getAttribute("user");
+        if (user == null){
+            model.addAttribute("flag","用户未登录");
+            return "log";
+        }else{
+            String password = (String)request.getSession().getAttribute("password");
+            String editPassword = (String)request.getSession().getAttribute("editpassword");
+            String nickname = (String)request.getSession().getAttribute("nickname");
+            String email = (String)request.getSession().getAttribute("email");
+            String phone = (String)request.getSession().getAttribute("phone");
+            if (password != null && editPassword!=null){
+                user = userService.editPassword(user.getId(),password,editPassword);
+            }else if (nickname != null) {
+                user = userService.editNickname(user.getId(), nickname);
+            }else if (email != null){
+                user = userService.editEmail(user.getId(),email);
+            }else if (phone != null){
+                user = userService.editPhone(user.getId(),phone);
+            }else{
+                model.addAttribute("flag","请将更改信息填写完整");
+            }
+        }
         request.getSession().setAttribute("user", user);
         return "user";
     }

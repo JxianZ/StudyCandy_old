@@ -2,6 +2,7 @@ package com.studycandy.service;
 
 import com.studycandy.model.User;
 
+import javax.swing.text.StyledEditorKit;
 import java.util.List;
 
 /**
@@ -14,5 +15,15 @@ public interface UserService {
 
     void setUser(User u);
 
-    User getUserByUserName(String username);
+    User getUserByUsername(String username);
+
+    User checkOut(String username,String password);
+
+    User editPassword(Integer userId,String password,String editPassword);
+
+    User editNickname(Integer userId,String nickname);
+
+    User editEmail(Integer userId,String email);
+
+    User editPhone(Integer userId,String phone);
 }

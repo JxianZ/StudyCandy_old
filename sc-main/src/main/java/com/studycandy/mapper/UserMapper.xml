@@ -40,7 +40,7 @@
     from s_user
   </select>
     <select id="selectByUserName" resultMap="BaseResultMap">
-        SELECT user_username
+        SELECT id, user_username, user_password, user_nickname, user_email, user_phone
         FROM s_user
         WHERE user_username = #{userUsername,jdbcType=VARCHAR}
     </select>
