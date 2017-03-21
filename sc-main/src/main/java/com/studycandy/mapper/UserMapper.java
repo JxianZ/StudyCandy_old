@@ -14,16 +14,6 @@ public interface UserMapper {
     List<User> selectAll();
 
     int updateByPrimaryKey(User record);
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    User selectByUsername(String username);
 
     List<User>find(String condition);
-=======
->>>>>>> master
-=======
-
-    List<User>find(String condition);
->>>>>>> master
 }
