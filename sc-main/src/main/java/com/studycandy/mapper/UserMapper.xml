@@ -56,15 +56,5 @@
         select id, user_username, user_password, user_nickname, user_email, user_phone
     from s_user
   </select>
-<<<<<<< HEAD
->>>>>>> master
-=======
-    <select id="find" resultMap="BaseResultMap">
-        SELECT id, user_username, user_password, user_nickname, user_email, user_phone
-        from s_user WHERE TRUE
-        <if test="username!=null">AND username LIKE #{username}</if>
-        <if test="email!=null">AND email LIKE #{email}</if>
-        <if test="phone!=null">AND phone LIKE #{phone}</if>
-    </select>
 >>>>>>> master
 </mapper>
