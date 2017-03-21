@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -26,25 +27,25 @@
                 <div class="part1 on">
                     <div class="textlabel">
                         <div class="labeltext"><label>用户名</label></div>
-                        <div class="labelinput"><input type="text" name="username"></div>
+                        <div class="labelinput"><input type="text" name="username" id="usernamein"></div>
                     </div>
                     <div class="textlabel_two">
                         <div class="labeltext"><label>密码</label></div>
-                        <div class="labelinput"><input type="password" name="password"></div>
+                        <div class="labelinput"><input type="password" name="password" id="passwordin"></div>
                     </div>
                     <div class="asslabel">
                         字母，数字或者英文符号，最短8位，区分大小写
                     </div>
                     <div class="textlabel_two">
                         <div class="labeltext"><label>确认密码</label></div>
-                        <div class="labelinput"><input type="password" name="passwordconfirm"></div>
+                        <div class="labelinput"><input type="password" name="passwordconfirm" id="password2in"></div>
                     </div>
                     <div class="asslabel">
                         请再次输入密码
                     </div>
                     <div class="textlabel">
                         <div class="labeltext"><label>邮箱</label></div>
-                        <div class="labelinput"><input type="text" name="email"></div>
+                        <div class="labelinput"><input type="text" name="email" id="emailin"></div>
                     </div>
                     <div class="textlabel_two">
                         <div class="labeltext"><label>验证码</label></div>
@@ -213,8 +214,21 @@
 
     $(function(){
         $("#regnext").click(function(){
+            var username = $("#usernamein").val();
+            var password = $("#passwordin").val();
+            var passwordconfirm = $("#password2in").val();
+            var email = $("#emailin").val();
             if($("#codeinput").val().toUpperCase()!=code){
-                alert("验证码错误，请重试！");
+                alert("验证码错误，请重试");
+            }
+            else if(password!=passwordconfirm){
+                alert("密码不一致");
+            }
+            else if(username==""||password==""||passwordconfirm==""||email==""){
+                alert("请江信息填写完整");
+            }
+            else if(password.length<9||passwordconfirm<9){
+                alert("密码长度过短");
             }
             else{
                 $(".part1").removeClass("on");
@@ -244,18 +258,54 @@
     });
     $(function(){
         $("#regsnow").click(function(){
+            var username = $("#usernamein").val();
+            var password = $("#passwordin").val();
+            var passwordconfirm = $("#password2in").val();
+            var email = $("#emailin").val();
             if($("#codeinput").val().toUpperCase()!=code){
-                alert("验证码错误，请重试！");
+                alert("验证码错误，请重试");
+            }
+            else if(password!=passwordconfirm){
+                alert("密码不一致");
+            }
+            else if(username==""||password==""||passwordconfirm==""||email==""){
+                alert("请江信息填写完整");
+            }
+            else if(password.length<9||passwordconfirm<9){
+                alert("密码长度过短");
             }
             else{
-                $(".part1").removeClass("on");
-                $(".part1").addClass("off");
-                $(".part3").removeClass("off");
-                $(".part3").addClass("on");
-                $("#nav1").removeClass("nav_on");
-                $("#nav3").addClass("nav_on");
-                $("#tri1").removeClass("t_on");
-                $("#tri2").removeClass("t_off");
+                var data = {
+                    "username": username,
+                    "password": password,
+                    "email":email
+                };
+                $.ajax({
+                    url: "/user/register",
+                    data: data,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (r) {
+                        if(r.status==0) {
+                            $(".part1").removeClass("on");
+                            $(".part1").addClass("off");
+                            $(".part3").removeClass("off");
+                            $(".part3").addClass("on");
+                            $("#nav1").removeClass("nav_on");
+                            $("#nav3").addClass("nav_on");
+                            $("#tri1").removeClass("t_on");
+                            $("#tri2").removeClass("t_off");
+                        }
+                        else{
+                            alert(r.info);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus);
+                    },
+                });
             }
         });
     });

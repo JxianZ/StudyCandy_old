@@ -12,7 +12,7 @@
     <div class="header">
         <div><img src="${__static__}/img/logo-image.png"></div>
         <div>学糖</div>
-        <div class="l-r">注册</div>
+        <div class="l-r"><a href="/user/reg">注册</a></div>
     </div>
     <div class="lrbody">
         <div class="bodymain">

@@ -32,6 +32,18 @@
     float: right;
     margin-right: 300px;
 }
+.l-r a{
+    text-decoration: none;
+}
+.l-r a:link{
+    color: #FFFFFF;
+}
+.l-r a:visited{
+    color: #FFFFFF;
+}
+.l-r a:hover{
+    color: #FFFFFF;
+}
 
 .lrbody {
     width: 100%;
