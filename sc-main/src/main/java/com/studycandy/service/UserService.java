@@ -14,7 +14,17 @@ public interface UserService {
 
     void setUser(User u);
 
-    User getUserByUserName(String username);
+    User getUserByUsername(String username);
 
     User loginGetObj(String username, String password);
+
+    User editPassword(Integer userId,String password,String editPassword);
+
+    User editNickname(Integer userId,String nickname);
+
+    User editEmail(Integer userId,String email);
+
+    User editPhone(Integer userId,String phone);
+
+    List<User> search(String condition);
 }
