@@ -116,7 +116,7 @@
                 </div>
                 <div class="part3 off">
                     <div class="sucre">
-                        <div class="srimg"><img src="img/icons/suc.png"></div>
+                        <div class="srimg"><img src="${__static__}/img/icons/suc.png"></div>
                         <div class="srmsg">恭喜xxx用户，您已注册成功</div>
                     </div>
                     <div class="part3btn">
@@ -221,6 +221,9 @@
             if($("#codeinput").val().toUpperCase()!=code){
                 alert("验证码错误，请重试");
             }
+            else if(!$("#agr2").is(':checked')){
+                alert("您必须先同意我们的协议方可注册");
+            }
             else if(password!=passwordconfirm){
                 alert("密码不一致");
             }
@@ -264,6 +267,9 @@
             var email = $("#emailin").val();
             if($("#codeinput").val().toUpperCase()!=code){
                 alert("验证码错误，请重试");
+            }
+            else if(!$("#agr2").is(':checked')){
+                alert("您必须先同意我们的协议方可注册");
             }
             else if(password!=passwordconfirm){
                 alert("密码不一致");

@@ -77,8 +77,13 @@
                     data: data,
                     type: "POST",
                     dataType: "json",
-                    success: function () {
-                        alert("success");
+                    success: function (r) {
+                        if(r.status==0){
+                            $(location).attr('href',"/user/mine");
+                        }
+                        else{
+                            alert("?"+r.info);
+                        }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         alert(XMLHttpRequest.status);
