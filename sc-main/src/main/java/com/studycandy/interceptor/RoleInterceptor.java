@@ -1,6 +1,8 @@
 package com.studycandy.interceptor;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,9 +20,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RoleInterceptor implements HandlerInterceptor {
     private Logger logger = Logger.getLogger(RoleInterceptor.class);
-
+    @Autowired
+    private Environment env;
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+
         return true;
     }
 
