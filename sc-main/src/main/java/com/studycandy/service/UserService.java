@@ -26,4 +26,6 @@ public interface UserService {
     User editEmail(Integer userId,String email);
 
     User editPhone(Integer userId,String phone);
+
+    List<User> search(String condition);
 }

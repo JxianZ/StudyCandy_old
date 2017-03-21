@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String username) {
-        return userMapper.selectByUserName(username);
+        return userMapper.selectByUsername(username);
     }
 
     @Override
@@ -82,5 +82,11 @@ public class UserServiceImpl implements UserService {
         user.setUserPhone(phone);
         userMapper.updateByPrimaryKey(user);
         return user;
+    }
+
+    @Override
+    public List<User> search(String condition) {
+
+        return null;
     }
 }

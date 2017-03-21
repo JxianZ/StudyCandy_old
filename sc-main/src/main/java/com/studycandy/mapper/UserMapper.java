@@ -15,5 +15,7 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    User selectByUserName(String username);
+    User selectByUsername(String username);
+
+    List<User>find(String condition);
 }

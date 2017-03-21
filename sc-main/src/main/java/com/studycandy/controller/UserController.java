@@ -119,4 +119,17 @@ public class UserController extends BaseController {
         request.getSession().setAttribute("user", user);
         return "user";
     }
+
+    @RequestMapping("logout")
+    public String logout(HttpServletRequest request,Model model){
+        request.getSession().setAttribute("user",null);
+        return "login";
+    }
+
+    @RequestMapping("/search")
+    public String search(HttpServletRequest request,Model model){
+        String condition = (String)request.getSession().getAttribute("condition");
+//        userService
+        return "search";
+    }
 }
