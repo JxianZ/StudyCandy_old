@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.studycandy.mapper.QuestionMapper">
-    <resultMap id="BaseResultMap" type="com.studycandy.model.Question">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-        <result column="question_status" property="questionStatus" jdbcType="INTEGER"/>
-        <result column="question_premise" property="questionPremise" jdbcType="INTEGER"/>
-        <result column="premise_content" property="premiseContent" jdbcType="VARCHAR"/>
-        <result column="question_content" property="questionContent" jdbcType="VARCHAR"/>
-        <result column="question_mode" property="questionMode" jdbcType="INTEGER"/>
-        <result column="question_reward" property="questionReward" jdbcType="INTEGER"/>
-        <result column="question_answer_id" property="questionAnswerId" jdbcType="INTEGER"/>
-        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
-        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
-    </resultMap>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <resultMap id="BaseResultMap" type="com.studycandy.model.Question">
+    <id column="id" property="id" jdbcType="INTEGER"/>
+    <result column="user_id" property="userId" jdbcType="INTEGER"/>
+    <result column="question_status" property="questionStatus" jdbcType="INTEGER"/>
+    <result column="question_premise" property="questionPremise" jdbcType="INTEGER"/>
+    <result column="premise_content" property="premiseContent" jdbcType="VARCHAR"/>
+    <result column="question_content" property="questionContent" jdbcType="VARCHAR"/>
+    <result column="question_mode" property="questionMode" jdbcType="INTEGER"/>
+    <result column="question_reward" property="questionReward" jdbcType="INTEGER"/>
+    <result column="question_answer_id" property="questionAnswerId" jdbcType="INTEGER"/>
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from s_question
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.studycandy.model.Question">
+  <insert id="insert" parameterType="com.studycandy.model.Question">
     insert into s_question (id, user_id, question_status, 
       question_premise, premise_content, question_content, 
       question_mode, question_reward, question_answer_id, 
@@ -28,7 +28,7 @@
       #{questionMode,jdbcType=INTEGER}, #{questionReward,jdbcType=INTEGER}, #{questionAnswerId,jdbcType=INTEGER}, 
       #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
   </insert>
-    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Question">
+  <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Question">
     update s_question
     set user_id = #{userId,jdbcType=INTEGER},
       question_status = #{questionStatus,jdbcType=INTEGER},
@@ -42,13 +42,13 @@
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select id, user_id, question_status, question_premise, premise_content, question_content, 
     question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
     from s_question
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selectAll" resultMap="BaseResultMap">
     select id, user_id, question_status, question_premise, premise_content, question_content, 
     question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
     from s_question
