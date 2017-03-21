@@ -1,5 +1,6 @@
 package com.studycandy.controller;
 
+import com.studycandy.annotation.Role;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.User;
 import com.studycandy.service.UserService;
@@ -8,9 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+
+import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 
 @Controller
@@ -21,9 +28,23 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
+<<<<<<< HEAD
     @RequestMapping(value = {"mine", "/"})
     public String mine(HttpServletRequest request, Model model) {
         if (request.getSession().getAttribute("user") != null) {
+=======
+    @RequestMapping("/")
+    public String me(HttpServletRequest request, Model model) {
+        return mine(request, model);
+    }
+
+    @Role(0)
+    @RequestMapping("/mine")
+    public String mine(HttpServletRequest request, Model model) {
+        User user = this.getCurrentUser();
+        if (user != null) {
+            model.addAttribute("user", user);
+>>>>>>> master
             return "user";
         }
         return "login";
@@ -31,15 +52,21 @@ public class UserController extends BaseController {
 
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
+<<<<<<< HEAD
         if (request.getSession().getAttribute("user") != null) {
+=======
+        User user = this.getCurrentUser();
+        if (user != null) {
+>>>>>>> master
             return "user";
         }
-        log.info("用户跳转到登录界面");
-        return "login";
+        log.debug("用户跳转到登录界面");
+        return "redirect:/user/login";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = GET)
     public String login(HttpServletRequest request, Model model) {
+<<<<<<< HEAD
         if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
@@ -52,6 +79,27 @@ public class UserController extends BaseController {
 //        }
 //        request.getSession().setAttribute("user", user);
         return "user";
+=======
+        return "login";
+    }
+
+    /**
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "/login", method = POST)
+    public String login(HttpServletRequest request, HttpServletResponse response, Model model,
+                        @RequestParam String username,
+                        @RequestParam String password) {
+        User entity = userService.loginGetObj(username, password);
+        if (entity == null) {
+            return ajaxReturn(response, null, "用户名或密码错误", -1);
+        } else {
+            this.getHttpSession().setAttribute(SESSION_CURRENT_USER, entity);
+            return ajaxReturn(response, entity, "登陆成功", 0);
+        }
+>>>>>>> master
     }
 
     @RequestMapping("/reg")
@@ -63,14 +111,19 @@ public class UserController extends BaseController {
         return "register";
     }
 
-    @RequestMapping("/register")
+    @RequestMapping(value = "/register", method = POST)
     public String register(HttpServletRequest request, Model model) {
         if (request.getSession().getAttribute("user") != null) {
             return "user";
         }
         log.info("用户注册");
         String username = request.getParameter("username");
+<<<<<<< HEAD
         if (userService.getUserByUsername(username) != null) {
+=======
+        user = userService.getUserByUserName(username);
+        if (user != null) {
+>>>>>>> master
             model.addAttribute("flag", "该用户名已被注册！");
             return "register";
         }
@@ -86,6 +139,7 @@ public class UserController extends BaseController {
         request.getSession().setAttribute("user", user);
         return "user";
     }
+<<<<<<< HEAD
 
     @RequestMapping("/edit")
     public String edit(HttpServletRequest request, Model model){
@@ -128,3 +182,6 @@ public class UserController extends BaseController {
         return "search";
     }
 }
+=======
+}
+>>>>>>> master

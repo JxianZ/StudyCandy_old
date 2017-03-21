@@ -13,7 +13,7 @@
         <result column="question_answer_id" property="questionAnswerId" jdbcType="INTEGER"/>
         <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
-    </resultMap>
+  </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from s_question
     where id = #{id,jdbcType=INTEGER}

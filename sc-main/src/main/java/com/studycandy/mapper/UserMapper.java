@@ -14,8 +14,11 @@ public interface UserMapper {
     List<User> selectAll();
 
     int updateByPrimaryKey(User record);
+<<<<<<< HEAD
 
     User selectByUsername(String username);
 
     List<User>find(String condition);
+=======
+>>>>>>> master
 }

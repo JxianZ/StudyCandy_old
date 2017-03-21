@@ -15,6 +15,7 @@ public interface UserService {
 
     void setUser(User u);
 
+<<<<<<< HEAD
     User getUserByUsername(String username);
 
     User checkOut(String username,String password);
@@ -28,4 +29,9 @@ public interface UserService {
     User editPhone(Integer userId,String phone);
 
     List<User> search(String condition);
+=======
+    User getUserByUserName(String username);
+
+    User loginGetObj(String username, String password);
+>>>>>>> master
 }

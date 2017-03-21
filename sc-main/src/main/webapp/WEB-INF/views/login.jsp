@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="${__static__}/css/loginstyle.css">
 </head>
@@ -13,7 +12,7 @@
     <div class="header">
         <div><img src="${__static__}/img/logo-image.png"></div>
         <div>学糖</div>
-        <div class="l-r">注册</div>
+        <div class="l-r"><a href="/user/reg">注册</a></div>
     </div>
     <div class="lrbody">
         <div class="bodymain">
@@ -78,8 +77,13 @@
                     data: data,
                     type: "POST",
                     dataType: "json",
-                    success: function () {
-                        alert("success");
+                    success: function (r) {
+                        if(r.status==0){
+                            $(location).attr('href',"/user/mine");
+                        }
+                        else{
+                            alert("?"+r.info);
+                        }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         alert(XMLHttpRequest.status);
