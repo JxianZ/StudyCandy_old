@@ -120,7 +120,7 @@
                         <div class="srmsg">恭喜xxx用户，您已注册成功</div>
                     </div>
                     <div class="part3btn">
-                        <div><a href="/user/mine">个人主页</a></div>
+                        <div>立即登录</div>
                     </div>
                     <div class="recom">
                         <div class="retitle">推荐课程</div>
