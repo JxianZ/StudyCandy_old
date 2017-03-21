@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -51,5 +52,20 @@ public class UserServiceImpl implements UserService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public User loginGetObj(String username, String password) {
+        HashMap<String, Object> where = new HashMap<String, Object>();
+        where.put("user_username", username);
+        where.put("user_password", password);
+        SQLBuilder sb = SQLBuilder.getSQLBuilder(User.class);
+        String sql = sb.fields("id")
+                .where(where).selectSql();
+        List<Row> list = sqlRunner.select(sql);
+        if (list.size() > 0)
+            return this.getUserById(list.get(0).getInt("id"));
+        else
+            return null;
     }
 }

@@ -6,5 +6,5 @@ package com.studycandy.annotation;
  * Time: 2017/3/21
  */
 public @interface Role {
-
+    int value() default -1;
 }
