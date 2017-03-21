@@ -117,7 +117,7 @@
             targetPackage/targetProject:同javaModelGenerator
          -->
         <sqlMapGenerator targetPackage="com.studycandy.mapper"
-                         targetProject="src/main/resource/mapper">
+                         targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
