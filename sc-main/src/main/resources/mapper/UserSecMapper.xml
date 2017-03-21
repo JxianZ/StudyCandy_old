@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.mapper.UserSecMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.model.UserSec">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_question1" property="userQuestion1" jdbcType="VARCHAR"/>
+        <result column="user_question2" property="userQuestion2" jdbcType="VARCHAR"/>
+        <result column="user_question3" property="userQuestion3" jdbcType="VARCHAR"/>
+        <result column="user_answer1" property="userAnswer1" jdbcType="VARCHAR"/>
+        <result column="user_answer2" property="userAnswer2" jdbcType="VARCHAR"/>
+        <result column="user_answer3" property="userAnswer3" jdbcType="VARCHAR"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_user_sec
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.studycandy.model.UserSec">
+    insert into s_user_sec (id, user_question1, user_question2, 
+      user_question3, user_answer1, user_answer2, 
+      user_answer3)
+    values (#{id,jdbcType=INTEGER}, #{userQuestion1,jdbcType=VARCHAR}, #{userQuestion2,jdbcType=VARCHAR}, 
+      #{userQuestion3,jdbcType=VARCHAR}, #{userAnswer1,jdbcType=VARCHAR}, #{userAnswer2,jdbcType=VARCHAR}, 
+      #{userAnswer3,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.UserSec">
+    update s_user_sec
+    set user_question1 = #{userQuestion1,jdbcType=VARCHAR},
+      user_question2 = #{userQuestion2,jdbcType=VARCHAR},
+      user_question3 = #{userQuestion3,jdbcType=VARCHAR},
+      user_answer1 = #{userAnswer1,jdbcType=VARCHAR},
+      user_answer2 = #{userAnswer2,jdbcType=VARCHAR},
+      user_answer3 = #{userAnswer3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id, user_question1, user_question2, user_question3, user_answer1, user_answer2, 
+    user_answer3
+    from s_user_sec
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_question1, user_question2, user_question3, user_answer1, user_answer2, 
+    user_answer3
+    from s_user_sec
+  </select>
+</mapper>
