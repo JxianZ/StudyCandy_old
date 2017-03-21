@@ -13,4 +13,6 @@ public interface UserService {
     User getUserById(Integer userId);
 
     void setUser(User u);
+
+    User getUserByUserName(String username);
 }
