@@ -26,7 +26,7 @@
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                         class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </a>
-                <h1 class="brand"><a href="${__static__}/index.jsp" tppabs="#">学糖</a></h1>
+                <h1 class="brand"><a href="/" tppabs="#">学糖</a></h1>
                 <!-- navigation -->
                 <nav class="pull-right nav-collapse collapse">
                     <ul id="menu-main" class="nav">
