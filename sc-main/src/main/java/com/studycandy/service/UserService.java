@@ -15,4 +15,6 @@ public interface UserService {
     void setUser(User u);
 
     User getUserByUserName(String username);
+
+    User loginGetObj(String username, String password);
 }

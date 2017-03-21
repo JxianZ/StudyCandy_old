@@ -73,7 +73,7 @@
                     "password": password
                 };
                 $.ajax({
-                    url: "login",
+                    url: "/user/login",
                     data: data,
                     type: "POST",
                     dataType: "json",
