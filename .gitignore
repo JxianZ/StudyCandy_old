@@ -47,8 +47,17 @@ Temporary Items
 .apdisk
 
 *.iml
+*.log
 /.idea
 /classes
 /target
-!/**/main/resources/application.properties
-classes/
+<!-- Before All -->
+
+*.properties
+
+<!-- After All -->
+!/**/.mvn/**
+!/**/src/main/resources/application.properties
+!/**/src/main/resources/application-*.properties
+/**/src/main/resources/application-jdbc.properties
+sc-main/target/
