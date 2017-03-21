@@ -105,7 +105,7 @@ public class UserController extends BaseController {
         log.info("用户注册");
         user = null;
         String username = request.getParameter("username");
-        user=userService.getUserByUserName(username);
+        user = userService.getUserByUserName(username);
         if (user != null) {
             model.addAttribute("flag", "该用户名已被注册！");
             return "register";
