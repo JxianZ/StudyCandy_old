@@ -1,0 +1,184 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.navbar1{
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	height: 60px;
+	background: rgb(155,155,155);
+}
+
+.logo{
+	float: left;
+	margin-left: 100px;
+	cursor: pointer;
+}
+
+.logo ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	line-height: 60px;
+}
+
+.logo ul li{
+	float: left;
+	font-family: "华文琥珀";
+	color: white;
+	font-size: 30px;
+}
+
+.logo img{
+	width: 50px;
+	height: 50px;
+}
+
+.navbar1_inner{
+	float: right;	
+}
+
+.navbar1_inner ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	line-height: 60px;
+	margin-right: 20px;
+}
+
+.navbar1_inner ul li{
+	float: left;
+}
+
+.navbar1_inner ul li a{
+	font-family: "华文琥珀";
+	color:white;
+	font-size: 20px;
+	text-decoration:none;
+}
+
+.navbar1_inner img{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.footer{
+	clear: both;
+	height: 50px;
+	background: rgb(144,144,144);
+}
+
+.footer_inner{
+	line-height: 50px;
+	width: 500px;
+	margin:0 auto;
+	color: white;
+}
+
+.footer_inner ul{
+	list-style: none;
+	padding-left: 0px;
+}
+
+.footer_inner ul li{
+	float: left;
+}
+
+.footer_inner a{
+	color: white;
+	text-decoration:none;
+}
+
+.ad{
+	height: 300px;
+	background: #2f2f2f
+}
+
+.switch{
+	background: rgb(230,230,227);
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.switch a{
+	color: rgb(73,73,73);
+	text-decoration:none;
+	line-height: 80px;
+	margin-bottom: 0px;
+}
+
+.content_inner{
+	background: rgb(230,230,227);
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 10px;
+	min-height: 500px;
+}
+
+.post{
+	background:white;
+	padding-left: 20px;
+	color: rgb(173,173,173);
+	min-height: 150px;
+}
+
+.post h6{
+	float: right;
+}
+
+.pageNavbar{
+	width: 300px;
+	margin:  0 auto;
+	clear: both;
+}
+
+.pageNavbar_inner{
+	list-style: none;
+	padding-left: 0px;
+	line-height: 50px;
+}
+
+.pageNavbar_inner a{
+	color: black;
+	text-decoration:none;
+}
+
+.pageNavbar_inner li{
+	float: left;
+}
+
+.pageList{
+	list-style: none;
+	padding-left: 0px;
+}
+.haha{
+	display: none;
+	position: fixed;
+	top: 25%;
+	left:35%;
+	background-color: #A6A6A6;
+}
+.haha > .hahasub{
+	width : 80px;
+	height: 30px;
+	margin: 15px auto;
+	background-color: #858585;
+	color: #FFFFFF;
+	line-height: 30px;
+	text-align: center;
+
+}
+.haha textarea{
+	font-size: 16px;
+	height: 300px;
+	width: 300px;
+}
+.haha input[type='text']{
+	width: 300px;
+}
+.haha > div{
+	margin: 20px 10px;
+}
