@@ -277,7 +277,7 @@
             else if(username==""||password==""||passwordconfirm==""||email==""){
                 alert("请江信息填写完整");
             }
-            else if(password.length<9||passwordconfirm<9){
+            else if(password.length<9||passwordconfirm.length<9){
                 alert("密码长度过短");
             }
             else{
