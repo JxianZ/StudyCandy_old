@@ -9,30 +9,30 @@
         <result column="credit_evaluate" property="creditEvaluate" jdbcType="INTEGER"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_credit
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_credit
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.Credit">
-    insert into s_credit (id, user_id, credit_from_id, 
-      credit_content, credit_evaluate)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{creditFromId,jdbcType=INTEGER}, 
-      #{creditContent,jdbcType=VARCHAR}, #{creditEvaluate,jdbcType=INTEGER})
-  </insert>
+        insert into s_credit (id, user_id, credit_from_id,
+        credit_content, credit_evaluate)
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{creditFromId,jdbcType=INTEGER},
+        #{creditContent,jdbcType=VARCHAR}, #{creditEvaluate,jdbcType=INTEGER})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Credit">
-    update s_credit
-    set user_id = #{userId,jdbcType=INTEGER},
-      credit_from_id = #{creditFromId,jdbcType=INTEGER},
-      credit_content = #{creditContent,jdbcType=VARCHAR},
-      credit_evaluate = #{creditEvaluate,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_credit
+        set user_id = #{userId,jdbcType=INTEGER},
+        credit_from_id = #{creditFromId,jdbcType=INTEGER},
+        credit_content = #{creditContent,jdbcType=VARCHAR},
+        credit_evaluate = #{creditEvaluate,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_id, credit_from_id, credit_content, credit_evaluate
-    from s_credit
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_id, credit_from_id, credit_content, credit_evaluate
+        from s_credit
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, credit_from_id, credit_content, credit_evaluate
-    from s_credit
-  </select>
+        select id, user_id, credit_from_id, credit_content, credit_evaluate
+        from s_credit
+    </select>
 </mapper>

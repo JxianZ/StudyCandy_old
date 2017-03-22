@@ -1,5 +1,6 @@
 package com.studycandy.controller;
 
+import com.studycandy.annotation.Role;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.Post;
 import com.studycandy.service.PostService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -33,6 +35,7 @@ public class SquareController extends BaseController {
         return null;
     }
 
+    @Role
     @RequestMapping(value = "addpost", method = POST)
     public String addPost(HttpServletRequest request, HttpServletResponse response, Model model,
                           @RequestParam String title,
@@ -40,7 +43,10 @@ public class SquareController extends BaseController {
         Post entity = new Post();
         entity.setPostTitle(title);
         entity.setPostContent(content);
-        entity.setGmtCreate(new Date());
+        entity.setGmtCreate(
+                new Timestamp(new Date().getTime())
+        );
+        entity.setUserId(this.getCurrentUser().getId());
 
         try {
             postService.save(entity);

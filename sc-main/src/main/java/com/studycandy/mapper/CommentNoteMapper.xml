@@ -14,41 +14,41 @@
         <result column="follow_id" property="followId" jdbcType="INTEGER"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_comment_note
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_comment_note
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.CommentNote">
-    insert into s_comment_note (id, note_id, user_id, 
-      comment_content, gmt_create, gmt_modified, 
-      like_num, today_num, unlike_num, 
-      follow_id)
-    values (#{id,jdbcType=INTEGER}, #{noteId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{commentContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, #{unlikeNum,jdbcType=INTEGER}, 
-      #{followId,jdbcType=INTEGER})
-  </insert>
+        insert into s_comment_note (id, note_id, user_id,
+        comment_content, gmt_create, gmt_modified,
+        like_num, today_num, unlike_num,
+        follow_id)
+        values (#{id,jdbcType=INTEGER}, #{noteId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
+        #{commentContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, #{unlikeNum,jdbcType=INTEGER},
+        #{followId,jdbcType=INTEGER})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.CommentNote">
-    update s_comment_note
-    set note_id = #{noteId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      comment_content = #{commentContent,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      like_num = #{likeNum,jdbcType=INTEGER},
-      today_num = #{todayNum,jdbcType=INTEGER},
-      unlike_num = #{unlikeNum,jdbcType=INTEGER},
-      follow_id = #{followId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_comment_note
+        set note_id = #{noteId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=INTEGER},
+        comment_content = #{commentContent,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        like_num = #{likeNum,jdbcType=INTEGER},
+        today_num = #{todayNum,jdbcType=INTEGER},
+        unlike_num = #{unlikeNum,jdbcType=INTEGER},
+        follow_id = #{followId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num, 
-    today_num, unlike_num, follow_id
-    from s_comment_note
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, follow_id
+        from s_comment_note
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num, 
-    today_num, unlike_num, follow_id
-    from s_comment_note
-  </select>
+        select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, follow_id
+        from s_comment_note
+    </select>
 </mapper>
