@@ -18,12 +18,11 @@ import java.util.List;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
+    private static Logger logger = Logger.getLogger(UserService.class);
     @Autowired
     private UserMapper userMapper;
     @Autowired
     private SqlRunner sqlRunner;
-
-    private static Logger logger = Logger.getLogger(UserService.class);
 
     public User getUserById(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
@@ -74,9 +73,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User editPassword(Integer userId, String password, String editPassword) {
         User user = getUserById(userId);
-        if (!user.getUserPassword().equals(MD5String.getMD5Str(password))){
+        if (!user.getUserPassword().equals(MD5String.getMD5Str(password))) {
             return null;
-        }else{
+        } else {
             user.setUserPassword(MD5String.getMD5Str(editPassword));
             userMapper.updateByPrimaryKey(user);
             return user;

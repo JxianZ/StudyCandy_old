@@ -16,45 +16,45 @@
         <result column="rank_date" property="rankDate" jdbcType="TIMESTAMP"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_user_info
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_user_info
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.UserInfo">
-    insert into s_user_info (id, user_school_id, user_stu_id, 
-      user_gender, user_id_card, user_lv, 
-      user_money, user_integral, user_birth, 
-      user_motto, user_rank, rank_date
-      )
-    values (#{id,jdbcType=INTEGER}, #{userSchoolId,jdbcType=INTEGER}, #{userStuId,jdbcType=INTEGER}, 
-      #{userGender,jdbcType=VARCHAR}, #{userIdCard,jdbcType=VARCHAR}, #{userLv,jdbcType=INTEGER}, 
-      #{userMoney,jdbcType=INTEGER}, #{userIntegral,jdbcType=INTEGER}, #{userBirth,jdbcType=DATE}, 
-      #{userMotto,jdbcType=VARCHAR}, #{userRank,jdbcType=VARCHAR}, #{rankDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
+        insert into s_user_info (id, user_school_id, user_stu_id,
+        user_gender, user_id_card, user_lv,
+        user_money, user_integral, user_birth,
+        user_motto, user_rank, rank_date
+        )
+        values (#{id,jdbcType=INTEGER}, #{userSchoolId,jdbcType=INTEGER}, #{userStuId,jdbcType=INTEGER},
+        #{userGender,jdbcType=VARCHAR}, #{userIdCard,jdbcType=VARCHAR}, #{userLv,jdbcType=INTEGER},
+        #{userMoney,jdbcType=INTEGER}, #{userIntegral,jdbcType=INTEGER}, #{userBirth,jdbcType=DATE},
+        #{userMotto,jdbcType=VARCHAR}, #{userRank,jdbcType=VARCHAR}, #{rankDate,jdbcType=TIMESTAMP}
+        )
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.UserInfo">
-    update s_user_info
-    set user_school_id = #{userSchoolId,jdbcType=INTEGER},
-      user_stu_id = #{userStuId,jdbcType=INTEGER},
-      user_gender = #{userGender,jdbcType=VARCHAR},
-      user_id_card = #{userIdCard,jdbcType=VARCHAR},
-      user_lv = #{userLv,jdbcType=INTEGER},
-      user_money = #{userMoney,jdbcType=INTEGER},
-      user_integral = #{userIntegral,jdbcType=INTEGER},
-      user_birth = #{userBirth,jdbcType=DATE},
-      user_motto = #{userMotto,jdbcType=VARCHAR},
-      user_rank = #{userRank,jdbcType=VARCHAR},
-      rank_date = #{rankDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_user_info
+        set user_school_id = #{userSchoolId,jdbcType=INTEGER},
+        user_stu_id = #{userStuId,jdbcType=INTEGER},
+        user_gender = #{userGender,jdbcType=VARCHAR},
+        user_id_card = #{userIdCard,jdbcType=VARCHAR},
+        user_lv = #{userLv,jdbcType=INTEGER},
+        user_money = #{userMoney,jdbcType=INTEGER},
+        user_integral = #{userIntegral,jdbcType=INTEGER},
+        user_birth = #{userBirth,jdbcType=DATE},
+        user_motto = #{userMotto,jdbcType=VARCHAR},
+        user_rank = #{userRank,jdbcType=VARCHAR},
+        rank_date = #{rankDate,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money, 
-    user_integral, user_birth, user_motto, user_rank, rank_date
-    from s_user_info
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money,
+        user_integral, user_birth, user_motto, user_rank, rank_date
+        from s_user_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money, 
-    user_integral, user_birth, user_motto, user_rank, rank_date
-    from s_user_info
-  </select>
+        select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money,
+        user_integral, user_birth, user_motto, user_rank, rank_date
+        from s_user_info
+    </select>
 </mapper>

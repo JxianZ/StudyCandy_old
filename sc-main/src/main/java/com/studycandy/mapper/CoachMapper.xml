@@ -11,34 +11,34 @@
         <result column="coach_reward" property="coachReward" jdbcType="VARCHAR"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_coach
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_coach
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.Coach">
-    insert into s_coach (id, user_id, coach_id, 
-      coach_status, coach_content, coach_mode, 
-      coach_reward)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{coachId,jdbcType=INTEGER}, 
-      #{coachStatus,jdbcType=INTEGER}, #{coachContent,jdbcType=VARCHAR}, #{coachMode,jdbcType=INTEGER}, 
-      #{coachReward,jdbcType=VARCHAR})
-  </insert>
+        insert into s_coach (id, user_id, coach_id,
+        coach_status, coach_content, coach_mode,
+        coach_reward)
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{coachId,jdbcType=INTEGER},
+        #{coachStatus,jdbcType=INTEGER}, #{coachContent,jdbcType=VARCHAR}, #{coachMode,jdbcType=INTEGER},
+        #{coachReward,jdbcType=VARCHAR})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Coach">
-    update s_coach
-    set user_id = #{userId,jdbcType=INTEGER},
-      coach_id = #{coachId,jdbcType=INTEGER},
-      coach_status = #{coachStatus,jdbcType=INTEGER},
-      coach_content = #{coachContent,jdbcType=VARCHAR},
-      coach_mode = #{coachMode,jdbcType=INTEGER},
-      coach_reward = #{coachReward,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_coach
+        set user_id = #{userId,jdbcType=INTEGER},
+        coach_id = #{coachId,jdbcType=INTEGER},
+        coach_status = #{coachStatus,jdbcType=INTEGER},
+        coach_content = #{coachContent,jdbcType=VARCHAR},
+        coach_mode = #{coachMode,jdbcType=INTEGER},
+        coach_reward = #{coachReward,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_id, coach_id, coach_status, coach_content, coach_mode, coach_reward
-    from s_coach
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_id, coach_id, coach_status, coach_content, coach_mode, coach_reward
+        from s_coach
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, coach_id, coach_status, coach_content, coach_mode, coach_reward
-    from s_coach
-  </select>
+        select id, user_id, coach_id, coach_status, coach_content, coach_mode, coach_reward
+        from s_coach
+    </select>
 </mapper>
