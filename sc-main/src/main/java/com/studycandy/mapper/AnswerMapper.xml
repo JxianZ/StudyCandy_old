@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.mapper.AnswerMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.model.Answer">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="question_id" property="questionId" jdbcType="INTEGER"/>
+        <result column="answer_content" property="answerContent" jdbcType="VARCHAR"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_answer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.studycandy.model.Answer">
+    insert into s_answer (id, user_id, question_id, 
+      answer_content, gmt_create, gmt_modified
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, 
+      #{answerContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Answer">
+    update s_answer
+    set user_id = #{userId,jdbcType=INTEGER},
+      question_id = #{questionId,jdbcType=INTEGER},
+      answer_content = #{answerContent,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id, user_id, question_id, answer_content, gmt_create, gmt_modified
+    from s_answer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_id, question_id, answer_content, gmt_create, gmt_modified
+    from s_answer
+  </select>
+</mapper>
