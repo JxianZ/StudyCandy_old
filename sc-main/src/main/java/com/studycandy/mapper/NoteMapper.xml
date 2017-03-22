@@ -14,41 +14,41 @@
         <result column="unlike_num" property="unlikeNum" jdbcType="INTEGER"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_note
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_note
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.Note">
-    insert into s_note (id, user_id, note_title, 
-      note_content, gmt_create, gmt_modified, 
-      is_published, like_num, today_num, 
-      unlike_num)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR}, 
-      #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{isPublished,jdbcType=INTEGER}, #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, 
-      #{unlikeNum,jdbcType=INTEGER})
-  </insert>
+        insert into s_note (id, user_id, note_title,
+        note_content, gmt_create, gmt_modified,
+        is_published, like_num, today_num,
+        unlike_num)
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR},
+        #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
+        #{isPublished,jdbcType=INTEGER}, #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER},
+        #{unlikeNum,jdbcType=INTEGER})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Note">
-    update s_note
-    set user_id = #{userId,jdbcType=INTEGER},
-      note_title = #{noteTitle,jdbcType=VARCHAR},
-      note_content = #{noteContent,jdbcType=VARCHAR},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      is_published = #{isPublished,jdbcType=INTEGER},
-      like_num = #{likeNum,jdbcType=INTEGER},
-      today_num = #{todayNum,jdbcType=INTEGER},
-      unlike_num = #{unlikeNum,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_note
+        set user_id = #{userId,jdbcType=INTEGER},
+        note_title = #{noteTitle,jdbcType=VARCHAR},
+        note_content = #{noteContent,jdbcType=VARCHAR},
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        is_published = #{isPublished,jdbcType=INTEGER},
+        like_num = #{likeNum,jdbcType=INTEGER},
+        today_num = #{todayNum,jdbcType=INTEGER},
+        unlike_num = #{unlikeNum,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published, 
-    like_num, today_num, unlike_num
-    from s_note
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published,
+        like_num, today_num, unlike_num
+        from s_note
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published, 
-    like_num, today_num, unlike_num
-    from s_note
-  </select>
+        select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published,
+        like_num, today_num, unlike_num
+        from s_note
+    </select>
 </mapper>

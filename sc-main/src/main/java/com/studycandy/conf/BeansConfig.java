@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeansConfig {
     private static Logger logger = Logger.getRootLogger();
+
     @Bean
     public SpringContextUtil springContextUtil() {
         logger.info("springContextUtil....");
