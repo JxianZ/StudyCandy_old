@@ -13,40 +13,40 @@
         <result column="rank_day" property="rankDay" jdbcType="INTEGER"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_rank_day
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_rank_day
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.RankDay">
-    insert into s_rank_day (id, user_id, sign_score, 
-      note_score, course_score, task_score, 
-      total_score, final_score, rank_day
-      )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{signScore,jdbcType=INTEGER}, 
-      #{noteScore,jdbcType=INTEGER}, #{courseScore,jdbcType=INTEGER}, #{taskScore,jdbcType=INTEGER}, 
-      #{totalScore,jdbcType=INTEGER}, #{finalScore,jdbcType=INTEGER}, #{rankDay,jdbcType=INTEGER}
-      )
-  </insert>
+        insert into s_rank_day (id, user_id, sign_score,
+        note_score, course_score, task_score,
+        total_score, final_score, rank_day
+        )
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{signScore,jdbcType=INTEGER},
+        #{noteScore,jdbcType=INTEGER}, #{courseScore,jdbcType=INTEGER}, #{taskScore,jdbcType=INTEGER},
+        #{totalScore,jdbcType=INTEGER}, #{finalScore,jdbcType=INTEGER}, #{rankDay,jdbcType=INTEGER}
+        )
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.RankDay">
-    update s_rank_day
-    set user_id = #{userId,jdbcType=INTEGER},
-      sign_score = #{signScore,jdbcType=INTEGER},
-      note_score = #{noteScore,jdbcType=INTEGER},
-      course_score = #{courseScore,jdbcType=INTEGER},
-      task_score = #{taskScore,jdbcType=INTEGER},
-      total_score = #{totalScore,jdbcType=INTEGER},
-      final_score = #{finalScore,jdbcType=INTEGER},
-      rank_day = #{rankDay,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_rank_day
+        set user_id = #{userId,jdbcType=INTEGER},
+        sign_score = #{signScore,jdbcType=INTEGER},
+        note_score = #{noteScore,jdbcType=INTEGER},
+        course_score = #{courseScore,jdbcType=INTEGER},
+        task_score = #{taskScore,jdbcType=INTEGER},
+        total_score = #{totalScore,jdbcType=INTEGER},
+        final_score = #{finalScore,jdbcType=INTEGER},
+        rank_day = #{rankDay,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_id, sign_score, note_score, course_score, task_score, total_score, 
-    final_score, rank_day
-    from s_rank_day
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_id, sign_score, note_score, course_score, task_score, total_score,
+        final_score, rank_day
+        from s_rank_day
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, sign_score, note_score, course_score, task_score, total_score, 
-    final_score, rank_day
-    from s_rank_day
-  </select>
+        select id, user_id, sign_score, note_score, course_score, task_score, total_score,
+        final_score, rank_day
+        from s_rank_day
+    </select>
 </mapper>
