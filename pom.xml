@@ -8,6 +8,9 @@
 
     <modules>
         <module>sc-main</module>
+        <module>sc-a2c-core</module>
+        <module>sc-a2c-client</module>
+        <module>sc-a2c</module>
     </modules>
 
     <name>StudyCandy</name>
