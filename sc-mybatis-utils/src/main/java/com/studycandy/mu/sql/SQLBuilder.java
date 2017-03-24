@@ -37,11 +37,14 @@ public class SQLBuilder {
     private String groupString;
     private List<String> tableFields = new ArrayList<>();
     private String lastSql;
+    private String prefix;
 
     private SQLBuilder() {
     }
 
     private SQLBuilder(Class<?> poClass) {
+        if (prefix == null)
+            setPrefix();
         setTableName(parseTableName(poClass));
         setPojoName(poClass.getSimpleName());
         //将类的属性变成字段名，方式是驼峰转下划线
@@ -51,8 +54,24 @@ public class SQLBuilder {
         }
     }
 
+    public SQLBuilder getSQLBuilder(Class<?> poClass, String prefix) {
+        this.prefix = prefix;
+        return new SQLBuilder(poClass);
+    }
+
     public static SQLBuilder getSQLBuilder(Class<?> poClass) {
         return new SQLBuilder(poClass);
+    }
+
+    private void setPrefix() {
+        InputStream in = SQLBuilder.class.getResourceAsStream("/jdbc.properties");
+        Properties p = new Properties();
+        try {
+            p.load(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        prefix = Fn.nullToEmpty(p.getProperty("jdbc.prefix"));
     }
 
     /**
@@ -416,15 +435,8 @@ public class SQLBuilder {
     public String parseTableName(Class<?> poClass) {
         Table table = poClass.getAnnotation(Table.class);
         String tableName = "";
-        if (table == null) { //实体类不存在table注解则自动按规则解析表名
-            InputStream in = SQLBuilder.class.getResourceAsStream("/jdbc.properties");
-            Properties p = new Properties();
-            try {
-                p.load(in);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            tableName = Fn.nullToEmpty(p.getProperty("jdbc.prefix")) + Fn.underscoreName(poClass.getSimpleName());
+        if (table == null) {
+            tableName = prefix + Fn.underscoreName(poClass.getSimpleName());
         } else {
             tableName = table.name(); //实体类直接读取table注解
         }
