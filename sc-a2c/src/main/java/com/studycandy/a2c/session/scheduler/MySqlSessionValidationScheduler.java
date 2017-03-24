@@ -1,6 +1,6 @@
 package com.studycandy.a2c.session.scheduler;
 
-import com.github.zhangkaitao.shiro.chapter23.utils.SerializableUtils;
+import com.studycandy.a2c.util.SerializableUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.*;
