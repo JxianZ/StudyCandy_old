@@ -2,8 +2,8 @@ package com.studycandy.core;
 
 import com.studycandy.model.User;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
@@ -15,18 +15,16 @@ import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
  */
 public class BaseController extends flybear.hziee.core.base.BaseController {
     private static Logger logger = Logger.getLogger(BaseController.class);
-    @Autowired
-    private HttpSession httpSession;
 
     public BaseController() {
     }
 
-    protected HttpSession getHttpSession() {
-        return httpSession;
+    protected HttpSession getHttpSession(HttpServletRequest request) {
+        return request.getSession();
     }
 
-    protected User getCurrentUser() {
-        User cu = (User) httpSession.getAttribute(SESSION_CURRENT_USER);
+    protected User getCurrentUser(HttpServletRequest request) {
+        User cu = (User) getHttpSession(request).getAttribute(SESSION_CURRENT_USER);
         logger.debug(cu);
         return cu;
     }
