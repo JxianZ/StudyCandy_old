@@ -38,6 +38,7 @@ public class UserController extends BaseController {
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+
             return "user";
         }
         log.info("用户跳转到登录界面");
@@ -65,6 +66,7 @@ public class UserController extends BaseController {
     @RequestMapping("/reg")
     public String reg(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+
             return "user";
         }
         log.info("用户跳转到注册界面");
