@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.a2c.mapper.UserAppRoleMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.a2c.model.UserAppRole">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="app_id" property="appId" jdbcType="INTEGER"/>
+        <result column="role_ids" property="roleIds" jdbcType="VARCHAR"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from s_a2c_user_app_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.studycandy.a2c.model.UserAppRole">
+    insert into s_a2c_user_app_role (id, user_id, app_id, 
+      role_ids)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{appId,jdbcType=INTEGER}, 
+      #{roleIds,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.a2c.model.UserAppRole">
+    update s_a2c_user_app_role
+    set user_id = #{userId,jdbcType=BIGINT},
+      app_id = #{appId,jdbcType=INTEGER},
+      role_ids = #{roleIds,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select id, user_id, app_id, role_ids
+    from s_a2c_user_app_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_id, app_id, role_ids
+    from s_a2c_user_app_role
+  </select>
+</mapper>
