@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.a2c.mapper.AppMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.a2c.model.App">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="app_name" property="appName" jdbcType="VARCHAR"/>
+        <result column="app_key" property="appKey" jdbcType="VARCHAR"/>
+        <result column="app_secret" property="appSecret" jdbcType="VARCHAR"/>
+        <result column="available" property="available" jdbcType="BIT"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_a2c_app
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.studycandy.a2c.model.App">
+    insert into s_a2c_app (id, app_name, app_key, 
+      app_secret, available)
+    values (#{id,jdbcType=INTEGER}, #{appName,jdbcType=VARCHAR}, #{appKey,jdbcType=VARCHAR}, 
+      #{appSecret,jdbcType=VARCHAR}, #{available,jdbcType=BIT})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.a2c.model.App">
+    update s_a2c_app
+    set app_name = #{appName,jdbcType=VARCHAR},
+      app_key = #{appKey,jdbcType=VARCHAR},
+      app_secret = #{appSecret,jdbcType=VARCHAR},
+      available = #{available,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id, app_name, app_key, app_secret, available
+    from s_a2c_app
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, app_name, app_key, app_secret, available
+    from s_a2c_app
+  </select>
+</mapper>
