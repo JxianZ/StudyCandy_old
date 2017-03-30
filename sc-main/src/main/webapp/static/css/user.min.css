@@ -1,8 +1,8 @@
 .login-wrapper{
-    background: url("${__static__}/img/bg/log-bg.png");
+    background: url("../img/bg/log-bg.png");
 }
 .login-cd-body{
-    background: url("${__static__}/img/bg/log-cd-test.png");
+    background: url("../img/bg/log-cd-test.png");
     height: 500px;
 }
 .login-main{

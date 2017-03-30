@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册</title>
     <link href="${__static__}/css/bootstrap.min.css" rel="stylesheet">
@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-md-3 col-sm-4">
-                                <div class="code-img"><img src="img/codetest.png"></div>
+                                <div class="code-img"><img src="${__static__}/img/codetest.png"></div>
                             </div>
                         </div>
                         <div class="form-group reg-agree">
