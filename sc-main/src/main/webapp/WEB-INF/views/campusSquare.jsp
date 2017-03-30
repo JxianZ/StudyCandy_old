@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,27 +34,15 @@
 			<a href="#">最热</a>
 		</div>
 		<div class="content_inner">
+			<c:forEach items="${postlist}" var="post">
 			<div class="post">
-				<h2>题目</h2>
-				<h5>标签</h5>
+				<h2>${post.postTitle}</h2>
+				<h5>${post.postContent}</h5>
 				<h6 style="margin-right: 20px;">发布时间</h6>
 				<h6>回复&nbsp;</h6>
 				<h6>00&nbsp;</h6>
 			</div>
-			<div class="post">
-				<h2>题目</h2>
-				<h5>标签</h5>
-				<h6 style="margin-right: 20px;">发布时间</h6>
-				<h6>回复&nbsp;</h6>
-				<h6>00&nbsp;</h6>
-			</div>
-			<div class="post">
-				<h2>题目</h2>
-				<h5>标签</h5>
-				<h6 style="margin-right: 20px;">发布时间</h6>
-				<h6>回复&nbsp;</h6>
-				<h6>00&nbsp;</h6>
-			</div>
+			</c:forEach>
 		</div>
 		<div class="pageNavbar">
 			<ul class="pageNavbar_inner">
@@ -80,7 +69,7 @@
 				<li><a href="#">尾页</a></li>
 			</ul>
 		</div>
-		<a href="ha.html" style="clear:both;margin-left:200px;">发帖</a>
+		<a href="#" style="clear:both;margin-left:200px;" id="ha">发帖</a>
 	<div class="haha">
 		<div><label>标题&nbsp;<input type="text" name="title" id="titlein"></label></div>
 		<div><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="content" id="contentin"> </textarea></label></div>
@@ -102,10 +91,14 @@
 	<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
 	<script type="text/javascript">
 		$(function () {
+			$("#ha").click(function () {
+                $(".haha").toggle(600);
+            });
+        });
+		$(function () {
 			$("#hahabtn").click(function () {
-				$(".haha").toggle(600);
-				var title = $("titlein").val();
-				var content= $("contentin").val();
+				var title = $("#titlein").val();
+				var content= $("#contentin").val();
 				var data = {
 				    "title":  title,
 					"content":content

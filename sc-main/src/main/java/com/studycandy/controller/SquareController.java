@@ -32,7 +32,7 @@ public class SquareController extends BaseController {
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
         model.addAttribute("postlist", postService.getAllPost());
-        return null;
+        return "campusSquare";
     }
 
     @Role

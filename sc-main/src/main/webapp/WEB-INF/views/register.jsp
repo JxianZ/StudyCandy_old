@@ -1,331 +1,303 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册</title>
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/regstyle.css">
+    <link href="${__static__}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${__static__}/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/user.min.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<div class="page">
-    <div class="header">
-        <div><img src="${__static__}/img/logo-image.png"></div>
-        <div>学糖</div>
-    </div>
 
-    <div class="body">
-        <div class="regbody">
-            <div class="reg_nav">
-                <div id="nav1" class="nav_on" >1.基本信息</div>
-                <div id="tri1" class="tri t_on" ></div>
-                <div id="nav2">2.信息完善</div>
-                <div id="tri2" class="tri t_off"></div>
-                <div id="nav3">3.注册成功</div>
+<!-- nav-html start -->
+
+<nav class="navbar navbar-inverse navbar-cover">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-logo" href="#"><img src="${__static__}/img/logo.png"></a>
+                <a class="navbar-brand navbar-logo" href="#">学糖</a>
             </div>
-            <div class="reg_tab">
-                <div class="part1 on">
-                    <div class="textlabel">
-                        <div class="labeltext"><label>用户名</label></div>
-                        <div class="labelinput"><input type="text" name="username" id="usernamein"></div>
-                    </div>
-                    <div class="textlabel_two">
-                        <div class="labeltext"><label>密码</label></div>
-                        <div class="labelinput"><input type="password" name="password" id="passwordin"></div>
-                    </div>
-                    <div class="asslabel">
-                        字母，数字或者英文符号，最短8位，区分大小写
-                    </div>
-                    <div class="textlabel_two">
-                        <div class="labeltext"><label>确认密码</label></div>
-                        <div class="labelinput"><input type="password" name="passwordconfirm" id="password2in"></div>
-                    </div>
-                    <div class="asslabel">
-                        请再次输入密码
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>邮箱</label></div>
-                        <div class="labelinput"><input type="text" name="email" id="emailin"></div>
-                    </div>
-                    <div class="textlabel_two">
-                        <div class="labeltext"><label>验证码</label></div>
-                        <div class="labelinput"><input type="text" id="codeinput" style="width:118px;"></div>
-                    </div>
-                    <div class="rightlabel">
-                        <div class="canv">
-                            <div><canvas id="canvas" width="120" height="40"></canvas></div>
-                            <div><a href="#" id="changeImg">换一张</a></div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-ul">
+                    <li><a href="#">大教室</a></li>
+                    <li><a href="#">辅导室</a></li>
+                    <li><a href="#">自习室</a></li>
+                    <li><a href="#">校园广场</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索...">
                         </div>
-                    </div>
-                    <div class="agreement">
-                        <label id="agr"><input type="checkbox" value="" id="agr2"/>我同意并遵守<a href="#">《xxx协议》</a></label>
-                    </div>
-                    <div class="part1btn">
-                        <div class="part1next" id="regnext">下一步</div>
-                        <div class="part1now" id="regsnow">直接完成</div>
-                    </div>
-                </div>
-                <div class="part2 off">
-                    <div class="textlabel">
-                        <div class="labeltext"><label>真实姓名</label></div>
-                        <div class="labelinput"><input type="text" name="realname"></div>
-                    </div>
-                    <div class="textlabel sexra">
-                        <div class="labeltext"><label>性别</label></div>
-                        <div class="labelinput">
-                            <label><input type="radio" name="usersex" value="male">&nbsp;男</label>
-                            <label><input type="radio" name="usersex" value="female">&nbsp;女</label>
-                        </div>
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>身份证号</label></div>
-                        <div class="labelinput"><input type="text" name="usercode"></div>
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>手机号</label></div>
-                        <div class="labelinput"><input type="text" name="phone"></div>
-                    </div>
-                    <div class="textlabel_two">
-                        <div class="labeltext"><label>验证码</label></div>
-                        <div class="labelinput" style="width:118px;"><input type="text" id="codeinput" name="username" style="width:118px;"></div>
-                        <div class="labelsend">获取验证码</div>
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>学校</label></div>
-                        <div class="labelinput">
-                            <select></select>
-                            <select style="margin-right:0;"></select>
-                        </div>
-                    </div>
-                    <div class="rightlabel">
-                        <select></select>
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>专业</label></div>
-                        <div class="labelinput"><input type="text" name="major"></div>
-                    </div>
-                    <div class="textlabel">
-                        <div class="labeltext"><label>学号</label></div>
-                        <div class="labelinput"><input type="text" name="stdid"></div>
-                    </div>
-                    <div class="line2"></div>
-                    <div class="part1btn">
-                        <div class="part1next" id="regreturn">上一步</div>
-                        <div class="part1now" id="regcfm">完成注册</div>
-                    </div>
-                </div>
-                <div class="part3 off">
-                    <div class="sucre">
-                        <div class="srimg"><img src="${__static__}/img/icons/suc.png"></div>
-                        <div class="srmsg">恭喜xxx用户，您已注册成功</div>
-                    </div>
-                    <div class="part3btn">
-                        <div><a href="/user/mine">个人主页</a></div>
-                    </div>
-                    <div class="recom">
-                        <div class="retitle">推荐课程</div>
-                        <div class="relesson">
-                            <div>
-                                <div class="relessontitle">XX系</div>
-                                <div class="relessons1">课程名</div>
-                                <div class="relessons2">简介xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                            </div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="reg_cd">
-                &nbsp;&nbsp;这里是广告呀
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </form>
+
+                    <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">消息</a></li>
+                            <li><a href="#">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a class="navbar-login" href="user/login">登录</a></li>-->
+                    <!--<li><a class="navbar-login" href="user/register">注册</a></li>-->
+                </ul>
             </div>
         </div>
     </div>
-    <div class="footer">
-        企业合作 | 人才招聘 | 联系我们 | 常见问题 | 意见反馈 | Copyright&copy;2017.JxianZ.Company name All Rights Reserved.
+</nav>
+
+<!-- nav-html end -->
+
+<!-- ************************************************************************************************************** -->
+
+<!-- reg-min start -->
+
+<div class="container-fluid login-wrapper">
+    <div class="container reg-body">
+        <div class="row hidden-xs">
+            <div class="col-md-4 col-sm-4 reg-col">
+                <div id="reg-nav1" class="reg-nav  reg-nav-on">1.基本信息</div>
+            </div>
+            <div class="col-md-4 col-sm-4 reg-col">
+                <div id="reg-nav2"class="reg-nav">2.信息完善</div>
+            </div>
+            <div class="col-md-4 col-sm-4 reg-col">
+                <div id="reg-nav3"class="reg-nav">3.注册成功</div>
+            </div>
+        </div>
+        <div class="row reg-form">
+            <div class="col-md-6 col-sm-6 col-xs-10 col-xs-offset-1">
+
+                <!--  reg-part1 start -->
+
+                <div class="reg-part1 on">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputusername" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="inputusername">
+                                <span id="usernamespan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpassword" class="col-sm-2 control-label">密码</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="password" class="form-control" id="inputpassword">
+                                <span id="passwordspan" class="help-block">字母，数字或者英文符号，最短8位，区分大小写</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword" class="col-sm-2 control-label">确认密码</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="password" class="form-control" id="confirmpassword">
+                                <span id="cfmpasswordspan" class="help-block">请再次输入密码</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputemail" class="col-sm-2 control-label">邮箱</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="email" class="form-control" id="inputemail">
+                                <span id="emailspan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputemail" class="col-sm-2 control-label">验证码</label>
+                            <div class="col-md-3 col-sm-4">
+                                <input type="text" class="form-control" id="codeinput">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-md-3 col-sm-4">
+                                <div class="code-img"><img src="img/codetest.png"></div>
+                            </div>
+                        </div>
+                        <div class="form-group reg-agree">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="check-agree"> 我同意并遵守<a href="#">《xxx协议》</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="reg-part1-btnarea">
+                                    <button type="button" class="btn btn-info disabled" id="part1next">下一步</button>
+                                    <button type="button" class="btn btn-info disabled" id="part1now">直接完成</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--  reg-part1 end -->
+
+                <!--  reg-part2 start -->
+
+                <div class="reg-part2 off">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputusername" class="col-sm-2 control-label">真实姓名</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="inputrealname">
+                                <span id="realnamespan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group reg-sex">
+                            <label class="col-sm-2 control-label">性别</label>
+                            <div class="col-md-8 col-sm-10">
+                                <label class="radio-inline">
+                                    <input type="radio" name="usersex" id="inlineRadio1" value="male"> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="usersex" id="inlineRadio2" value="female"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpassword" class="col-sm-2 control-label">身份证号</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="usercodeinput">
+                                <span id="usercodespan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword" class="col-sm-2 control-label">手机号</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="email" class="form-control" id="phoneinput">
+                                <span id="phonespan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">验证码</label>
+                            <div class="col-md-3 col-sm-4">
+                                <input type="text" class="form-control" id="phonecodeinput">
+                            </div>
+                            <div class="col-md-2 col-sm-3">
+                                <button type="button" id="myButton" class="btn btn-primary" autocomplete="off">
+                                    发送验证码
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group reg-select">
+                            <label class="col-sm-2 control-label">学校</label>
+                            <div class="col-md-4 col-sm-5">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-5">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group reg-select">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-md-8 col-sm-10">
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpassword" class="col-sm-2 control-label">专业</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="">
+                                <span id="" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpassword" class="col-sm-2 control-label">学号</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="">
+                                <span id="" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="reg-part1-btnarea">
+                                    <button type="button" class="btn btn-info" id="part2re">上一步</button>
+                                    <button type="button" class="btn btn-info" id="part2now">完成注册</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--  reg-part2 end -->
+                <div class="reg-part3 off">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="reg-success">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;&nbsp;恭喜xxx用户，您已注册成功
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="reg-login">
+                            <button type="button" class="btn btn-info" id="">直接登录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-5 hidden-xs">
+                广告
+            </div>
+        </div>
     </div>
 </div>
-<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
-<script>
-    var code="";
-    /**生成一个随机数**/
-    function randomNum(min,max){
-        return Math.floor( Math.random()*(max-min)+min);
-    }
-    /**生成一个随机色**/
-    function randomColor(min,max){
-        var r = randomNum(min,max);
-        var g = randomNum(min,max);
-        var b = randomNum(min,max);
-        return "rgb("+r+","+g+","+b+")";
-    }
-    drawPic();
-    document.getElementById("changeImg").onclick = function(e){
-        e.preventDefault();
-        drawPic();
-    }
 
-    /**绘制验证码图片**/
-    function drawPic(){
-        var canvas=document.getElementById("canvas");
-        var width=canvas.width;
-        var height=canvas.height;
-        var ctx = canvas.getContext('2d');
-        ctx.textBaseline = 'bottom';
+<!-- reg-min end -->
 
-        /**绘制背景色**/
-        ctx.fillStyle = randomColor(180,240); //颜色若太深可能导致看不清
-        ctx.fillRect(0,0,width,height);
-        /**绘制文字**/
-        code="";
-        var str = 'ABCEFGHJKLMNPQRSTWXY123456789';
-        for(var i=0; i<4; i++){
-            var txt = str[randomNum(0,str.length)];
-            ctx.fillStyle = randomColor(50,160);  //随机生成字体颜色
-            ctx.font = randomNum(15,40)+'px SimHei'; //随机生成字体大小
-            var x = 10+i*25;
-            var y = randomNum(25,45);
-            var deg = randomNum(-45, 45);
-            //修改坐标原点和旋转角度
-            ctx.translate(x,y);
-            ctx.rotate(deg*Math.PI/180);
-            ctx.fillText(txt, 0,0);
-            //恢复坐标原点和旋转角度
-            ctx.rotate(-deg*Math.PI/180);
-            ctx.translate(-x,-y);
-            code=code+txt;
-        }
-        /**绘制干扰线**/
-        for(var i=0; i<8; i++){
-            ctx.strokeStyle = randomColor(40,180);
-            ctx.beginPath();
-            ctx.moveTo( randomNum(0,width), randomNum(0,height) );
-            ctx.lineTo( randomNum(0,width), randomNum(0,height) );
-            ctx.stroke();
-        }
-        /**绘制干扰点**/
-        for(var i=0; i<100; i++){
-            ctx.fillStyle = randomColor(0,255);
-            ctx.beginPath();
-            ctx.arc(randomNum(0,width),randomNum(0,height), 1, 0, 2*Math.PI);
-            ctx.fill();
-        }
-    }
-    /** 注册按钮 **/
+<!-- ************************************************************************************************************** -->
 
-    $(function(){
-        $("#regnext").click(function(){
-            var username = $("#usernamein").val();
-            var password = $("#passwordin").val();
-            var passwordconfirm = $("#password2in").val();
-            var email = $("#emailin").val();
-            if($("#codeinput").val().toUpperCase()!=code){
-                alert("验证码错误，请重试");
-            }
-            else if(!$("#agr2").is(':checked')){
-                alert("您必须先同意我们的协议方可注册");
-            }
-            else if(password!=passwordconfirm){
-                alert("密码不一致");
-            }
-            else if(username==""||password==""||passwordconfirm==""||email==""){
-                alert("请江信息填写完整");
-            }
-            else if(password.length<8||passwordconfirm.length<8){
-                alert("密码长度过短");
-            }
-            else{
-                $(".part1").removeClass("on");
-                $(".part1").addClass("off");
-                $(".part2").removeClass("off");
-                $(".part2").addClass("on");
-                $("#nav1").removeClass("nav_on");
-                $("#nav2").addClass("nav_on");
-                $("#tri1").removeClass("t_on");
-                $("#tri2").removeClass("t_off");
-                $("#tri2").addClass("t_on");
-            }
-        });
-    });
-    $(function(){
-        $("#regreturn").click(function(){
-            $(".part1").removeClass("off");
-            $(".part1").addClass("on");
-            $(".part2").removeClass("on");
-            $(".part2").addClass("off");
-            $("#nav1").addClass("nav_on");
-            $("#nav2").removeClass("nav_on");
-            $("#tri1").addClass("t_on");
-            $("#tri2").removeClass("t_on");
-            $("#tri2").addClass("t_off");
-        });
-    });
-    $(function(){
-        $("#regsnow").click(function(){
-            var username = $("#usernamein").val();
-            var password = $("#passwordin").val();
-            var passwordconfirm = $("#password2in").val();
-            var email = $("#emailin").val();
-            if($("#codeinput").val().toUpperCase()!=code){
-                alert("验证码错误，请重试");
-            }
-            else if(!$("#agr2").is(':checked')){
-                alert("您必须先同意我们的协议方可注册");
-            }
-            else if(password!=passwordconfirm){
-                alert("密码不一致");
-            }
-            else if(username==""||password==""||passwordconfirm==""||email==""){
-                alert("请江信息填写完整");
-            }
-            else if(password.length<9||passwordconfirm.length<9){
-                alert("密码长度过短");
-            }
-            else{
-                var data = {
-                    "username": username,
-                    "password": password,
-                    "email":email
-                };
-                $.ajax({
-                    url: "/user/register",
-                    data: data,
-                    type: "POST",
-                    dataType: "json",
-                    success: function (r) {
-                        if(r.status==0) {
-                            $(".part1").removeClass("on");
-                            $(".part1").addClass("off");
-                            $(".part3").removeClass("off");
-                            $(".part3").addClass("on");
-                            $("#nav1").removeClass("nav_on");
-                            $("#nav3").addClass("nav_on");
-                            $("#tri1").removeClass("t_on");
-                            $("#tri2").removeClass("t_off");
-                        }
-                        else{
-                            alert(r.info);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    },
-                });
-            }
-        });
-    });
-    $(function(){
-        $("#regcfm").click(function(){
-            $(".part2").removeClass("on");
-            $(".part2").addClass("off");
-            $(".part3").removeClass("off");
-            $(".part3").addClass("on");
-            $("#nav2").removeClass("nav_on");
-            $("#nav3").addClass("nav_on");
-            $("#tri2").removeClass("t_on");
-        });
-    });
-</script>
+<!-- footer-html start -->
+
+<footer>
+    <div class="copyright">
+        <span>Copyright © <a href="http://expo.bootcss.com">学糖</a></span> |
+        <span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></span> | 聚Xian庄 版权所有
+    </div>
+</footer>
+
+<!-- footer-html end -->
+
+<!-- ************************************************************************************************************** -->
+<!--  js file  -->
+<script src="${__static__}/js/jquery.js"></script>
+<script src="${__static__}/js/bootstrap.min.js"></script>
+<script src="${__static__}/js/carousel.js"></script>
+<script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/user.min.js"></script>
 </body>
 </html>

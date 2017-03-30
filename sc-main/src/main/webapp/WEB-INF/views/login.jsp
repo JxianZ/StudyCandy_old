@@ -1,157 +1,129 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
-<!DOCTYPE HTML>
-<html lang="zh-cn">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/loginstyle.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link href="${__static__}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${__static__}/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/user.min.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<div class="page">
-    <div class="header">
-        <div><img src="${__static__}/img/logo-image.png"></div>
-        <div>学糖</div>
-        <div class="l-r"><a href="/user/reg">注册</a></div>
+
+<!-- nav-html start -->
+
+<nav class="navbar navbar-inverse navbar-cover">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-logo" href="#"><img src="${__static__}/img/logo.png"></a>
+                <a class="navbar-brand navbar-logo" href="#">学糖</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-ul">
+                    <li><a href="#">大教室</a></li>
+                    <li><a href="#">辅导室</a></li>
+                    <li><a href="#">自习室</a></li>
+                    <li><a href="#">校园广场</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索...">
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </form>
+
+                    <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">消息</a></li>
+                            <li><a href="#">个人中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a class="navbar-login" href="user/login">登录</a></li>-->
+                    <!--<li><a class="navbar-login" href="user/register">注册</a></li>-->
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="lrbody">
-        <div class="bodymain">
-            <div class="loginbody">
-                <div class="lgform">
-                    <div class="lgword">登录</div>
-                    <div class="lginput">
-                        <div class="lglogo">
-                            <img src="${__static__}/img/userlogo.gif">
-                        </div>
-                        <div class="lgtext">
-                            <input type="text" name="username" value="请输入用户名" id="userinput">
-                        </div>
+</nav>
+
+<!-- nav-html end -->
+
+<!-- ************************************************************************************************************** -->
+
+<!-- login-min start -->
+
+<div class="container-fluid login-wrapper">
+    <div class="container login-cd-body">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-7 col-sm-5 col-sm-offset-6 col-xs-10 col-xs-offset-1 login-main">
+                <div class="login-form">
+                    <h3>登录</h3>
+                    <div class="form-group has-feedback">
+                        <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                        <input type="text" class="form-control" id="username">
                     </div>
-                    <div class="lginput">
-                        <div class="lglogo">
-                            <img src="${__static__}/img/passwordlogo.gif">
-                        </div>
-                        <div class="lgtext" id="lgpswd">
-                            <input type="text" name="password" value="请输入密码" id="passwordinput">
-                        </div>
+                    <div class="form-group has-feedback">
+                        <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+                        <input type="text" class="form-control" id="password">
                     </div>
-                    <div class="lgasi">
-                        <div class="rmb">
-                            <label id="rmblabel1"><input type="checkbox" value="" id="rmblabel2"/>记住账号</label>
-                        </div>
-                        <div class="found">忘记密码</div>
+                    <div class="login-assi">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="" value=""> 记住我
+                        </label>
+                        <a class="right" href="#">忘记密码</a>
                     </div>
-                    <div class="lgconfirm">
-                        <div class="confirmbtn" id="lgsubmit">登录</div>
-                    </div>
+                    <button type="button" class="btn btn-primary login-btn">登录</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="cd">
-        <div class="more">
-            <div class="moreleft">推荐课程：</div>
-            <div class="moreright">查看更多<span>>>></span></div>
-        </div>
-    </div>
-    <div class="footer">
-        企业合作 | 人才招聘 | 联系我们 | 常见问题 | 意见反馈 | Copyright&copy;2017.JxianZ.Company name All Rights Reserved.
-    </div>
 </div>
-<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
-<script type="text/javascript">
 
-    //登录功能 start
+<!-- login-min end -->
 
-    $(function () {
-        $("#lgsubmit").click(function () {
-            var username = $("#userinput").val();
-            var password = $("#passwordinput").val();
-            if (check(username, password)) {
-                var data = {
-                    "username": username,
-                    "password": password
-                };
-                $.ajax({
-                    url: "/user/login",
-                    data: data,
-                    type: "POST",
-                    dataType: "json",
-                    success: function (r) {
-                        if(r.status==0){
-                            $(location).attr('href',"/user/mine");
-                        }
-                        else{
-                            alert("?"+r.info);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    },
-                });
-            }
-            else {
-                alert("用户名或密码不合法");
-            }
-        });
-    });
-    //检查用户名密码是否合法
-    function check(username, password) {
-        if (username.length > 0 && password.length > 5)return true;
-        else return false;
-    }
-    //登录功能 end
+<!-- ************************************************************************************************************** -->
 
-    //登录框清除文字 start
+<div class="container login-more">
 
-    $(function () {
-        var text = "请输入用户名";
-        $("#userinput").focus(function () {
-            $(this).val() != text || $(this).val("");
-        });
-        $("#userinput").blur(function () {
-            $(this).val() != "" || $(this).val(text);
-        });
-    });
-    $(function () {
-        var text = "请输入密码";
-        $("#passwordinput").focus(function () {
-            $(this).val("");
-            $(this).attr('type', 'password');
-        });
-        $("#passwordinput").blur(function () {
-            $(this).val() != "" || $(this).val(text);
-            $(this).val() != text || $(this).attr('type', 'text');
-        });
-    });
-    //登录框清除文字 end
+</div>
 
-    //登录框一些按钮，手型的效果 start
-    $(function () {
-        $("#lgsubmit").mouseover(function () {
-            $(this).css("background-color", "#0c6271");
-            $(this).css("cursor", "pointer");
-        });
-        $("#lgsubmit").mouseout(function () {
-            $(this).css("background-color", "#1498b0");
-            $(this).css("cursor", "default");
-        });
-        $("#rmblabel1").mouseover(function () {
-            $(this).css("cursor", "pointer");
-        });
-        $("#rmblabel1").mouseout(function () {
-            $(this).css("cursor", "default");
-        });
-        $("#rmblabel2").mouseover(function () {
-            $(this).css("cursor", "pointer");
-        });
-        $("#rmblabel2").mouseout(function () {
-            $(this).css("cursor", "default");
-        });
-    })
-    //登录框一些按钮，手型的效果 end
-</script>
+<!-- ************************************************************************************************************** -->
+
+<!-- footer-html start -->
+
+<footer>
+    <div class="copyright">
+        <span>Copyright © <a href="http://expo.bootcss.com">学糖</a></span> |
+        <span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></span> | 聚Xian庄 版权所有
+    </div>
+</footer>
+
+<!-- footer-html end -->
+
+<!-- ************************************************************************************************************** -->
+
+<!--  js file  -->
+<script src="${__static__}/js/jquery.js"></script>
+<script src="${__static__}/js/bootstrap.min.js"></script>
+<script src="${__static__}/js/carousel.js"></script>
+<script src="${__static__}/js/style-assit.js"></script>
+
 </body>
 </html>
