@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<%@include file="include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 
 <!-- xs-download-html start -->
 
@@ -321,7 +321,7 @@
 
 <!-- square-html end -->
 
-<%@include file="include/footer.jsp"%>
+<%@include file="../include/footer.jsp"%>
 <!-- ************************************************************************************************************** -->
 
 <!--  js file  -->

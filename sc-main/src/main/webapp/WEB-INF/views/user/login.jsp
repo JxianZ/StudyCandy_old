@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<%@include file="include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 
 <!-- login-min start -->
 
@@ -58,7 +58,7 @@
 
 <!-- ************************************************************************************************************** -->
 
-<%@include file="include/footer.jsp"%>
+<%@include file="../include/footer.jsp"%>
 
 <!--  js file  -->
 <script src="${__static__}/js/jquery.js"></script>

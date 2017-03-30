@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<%@include file="include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 
 <!-- reg-min start -->
 
@@ -231,7 +231,7 @@
 
 <!-- reg-min end -->
 
-<%@include file="include/footer.jsp"%>
+<%@include file="../include/footer.jsp"%>
 
 <!-- ************************************************************************************************************** -->
 <!--  js file  -->
