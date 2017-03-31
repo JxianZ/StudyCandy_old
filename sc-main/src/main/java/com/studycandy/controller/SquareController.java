@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -45,7 +47,7 @@ public class SquareController extends BaseController {
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
         model.addAttribute("allpostlist", postService.getAllPost());
-        return "campusSquare";
+        return "square/campusSquare";
     }
     @RequestMapping(value = "/addpost", method = POST)
     public String addPost(HttpServletRequest request, HttpServletResponse response, Model model,
@@ -57,7 +59,7 @@ public class SquareController extends BaseController {
         entity.setGmtCreate(
                 new Timestamp(new Date().getTime())
         );
-      
+        entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setUserId(this.getCurrentUser(request).getId());
 
         try {
@@ -66,6 +68,18 @@ public class SquareController extends BaseController {
             return ajaxReturn(response, null, "", -1);
         }
         return ajaxReturn(response, null, "发帖成功！", 0);
+    }
+    //支持ajax取出帖子最新
+    @RequestMapping(value = "/postList", method = GET)
+    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+            List<Post> list= new ArrayList<Post>();
+            List<Post> t =  postService.getAllPost();
+            int t_size = t.size(),m = 0;
+            m=t_size>5 ? 5 : t_size;
+            for(int i =1;i<=m;i++){
+                list.add(t.get(t.size()-i));
+            }
+        return ajaxReturn(response, list, "", 0);
     }
     //获取用户发布的所有帖子
     @RequestMapping(value = "/allpost")
@@ -81,7 +95,7 @@ public class SquareController extends BaseController {
         //判断是否是帖子主人删除
         if(this.getCurrentUser(request).getId()==postService.getPostById(id).getUserId())
             postService.deleteById(id);
-        return "campusSquare";
+        return "square/campusSquare";
     }
     //获取单个帖子详细界面
     @RequestMapping(value = "/postview/{id}")
