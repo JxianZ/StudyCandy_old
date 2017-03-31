@@ -23,6 +23,6 @@ public class IndexController extends BaseController {
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
         logger.info("index");
         logger.debug(this.getCurrentUser(request));
-        return "index";
+        return "index/index";
     }
 }

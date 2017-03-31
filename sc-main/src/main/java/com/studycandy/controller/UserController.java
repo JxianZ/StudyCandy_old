@@ -47,7 +47,7 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/login", method = GET)
     public String login(HttpServletRequest request, Model model) {
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = POST)
@@ -75,7 +75,7 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/register",method = GET)
     public String register(HttpServletRequest request,Model model){
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = POST)
