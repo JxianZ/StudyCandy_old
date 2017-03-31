@@ -49,4 +49,10 @@
       today_num, unlike_num
       from s_post
     </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num
+        from s_post
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.studycandy.service;
 
 import com.studycandy.mapper.PostMapper;
 import com.studycandy.model.Post;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +24,21 @@ public class PostService {
 
     public List<Post> getAllPost() {
         return mapper.selectAll();
+    }
+
+    public List<Post> getUserPostList(Integer userId){
+        return mapper.selectByUserId(userId);
+    }
+
+    public int deleteById(Integer id){
+        return  mapper.deleteByPrimaryKey(id);
+    }
+
+    public int modifyPost(Post post){
+        return mapper.updateByPrimaryKey(post);
+    }
+
+    public Post getPostById(Integer id){
+        return mapper.selectByPrimaryKey(id);
     }
 }

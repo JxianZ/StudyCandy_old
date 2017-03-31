@@ -14,4 +14,6 @@ public interface AnswerMapper {
     List<Answer> selectAll();
 
     int updateByPrimaryKey(Answer record);
+
+    List<Answer> selectByQuestionId(Integer questionId);
 }
