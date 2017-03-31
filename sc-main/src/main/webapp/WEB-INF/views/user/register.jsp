@@ -135,7 +135,7 @@
                         <div class="form-group">
                             <label for="confirmpassword" class="col-sm-2 control-label">手机号</label>
                             <div class="col-md-8 col-sm-10">
-                                <input type="email" class="form-control" id="phoneinput">
+                                <input type="text" class="form-control" id="phoneinput">
                                 <span id="phonespan" class="help-block"></span>
                             </div>
                         </div>
@@ -186,15 +186,15 @@
                         <div class="form-group">
                             <label for="inputpassword" class="col-sm-2 control-label">专业</label>
                             <div class="col-md-8 col-sm-10">
-                                <input type="text" class="form-control" id="">
-                                <span id="" class="help-block"></span>
+                                <input type="text" class="form-control" id="inputmajor">
+                                <span id="majorspan" class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputpassword" class="col-sm-2 control-label">学号</label>
                             <div class="col-md-8 col-sm-10">
-                                <input type="text" class="form-control" id="">
-                                <span id="" class="help-block"></span>
+                                <input type="text" class="form-control" id="inputuserid">
+                                <span id="useridspan" class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
