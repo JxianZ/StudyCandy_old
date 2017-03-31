@@ -22,7 +22,7 @@ public class IndexController extends BaseController {
     @RequestMapping(value = {"index", "/"})
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
         logger.info("index");
-        logger.debug(this.getCurrentUser());
-        return "index";
+        logger.debug(this.getCurrentUser(request));
+        return "index/index";
     }
 }

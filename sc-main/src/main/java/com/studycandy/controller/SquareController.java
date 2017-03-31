@@ -32,7 +32,7 @@ public class SquareController extends BaseController {
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
         model.addAttribute("postlist", postService.getAllPost());
-        return null;
+        return "campusSquare";
     }
 
     @Role
@@ -46,7 +46,8 @@ public class SquareController extends BaseController {
         entity.setGmtCreate(
                 new Timestamp(new Date().getTime())
         );
-        entity.setUserId(this.getCurrentUser().getId());
+      
+        entity.setUserId(this.getCurrentUser(request).getId());
 
         try {
             postService.save(entity);
