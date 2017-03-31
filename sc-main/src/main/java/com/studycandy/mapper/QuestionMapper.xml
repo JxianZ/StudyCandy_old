@@ -53,4 +53,10 @@
         question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
         from s_question
     </select>
+    <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, user_id, question_status, question_premise, premise_content, question_content,
+        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
+        from s_question
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -14,4 +14,8 @@ public interface CoachMapper {
     List<Coach> selectAll();
 
     int updateByPrimaryKey(Coach record);
+
+    List<Coach> selectByCoachId(Integer coachId);
+
+    List<Coach> selectByUserId(Integer userId);
 }
