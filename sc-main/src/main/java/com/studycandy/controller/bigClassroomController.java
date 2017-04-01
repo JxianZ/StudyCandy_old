@@ -21,7 +21,7 @@ public class bigClassroomController extends BaseController {
 
     @RequestMapping(value = {"bigClassroom", "/"})
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
-        logger.info("index");
+        logger.info("bigClassroom");
         logger.debug(this.getCurrentUser(request));
         return "classroom/bigClassroom";
     }

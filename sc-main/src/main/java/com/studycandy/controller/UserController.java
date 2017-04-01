@@ -27,12 +27,19 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"mine", "/"})
+    @RequestMapping(value = {"/"})
     public String mine(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
             return "user/user";
         }
         return "user/login";
+    }
+
+    @RequestMapping(value = {"mine"})
+    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+        log.info("mine");
+        log.debug(this.getCurrentUser(request));
+        return "user/mine";
     }
 
     @RequestMapping("/log")
@@ -145,4 +152,5 @@ public class UserController extends BaseController {
 //        userService
         return "search";
     }
+
 }
