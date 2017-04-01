@@ -17,13 +17,11 @@
       where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.studycandy.model.Post">
-      insert into s_post (id, user_id, post_title,
-      post_content, gmt_create, gmt_modified,
-      like_num, today_num, unlike_num
+      insert into s_post (user_id, post_title,
+      post_content, gmt_create, gmt_modified
       )
-      values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR},
-      #{postContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
-      #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, #{unlikeNum,jdbcType=INTEGER}
+      values ( #{userId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR},
+      #{postContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Post">
@@ -48,5 +46,11 @@
       select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
       today_num, unlike_num
       from s_post
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num
+        from s_post
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>

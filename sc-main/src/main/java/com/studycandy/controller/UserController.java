@@ -30,19 +30,19 @@ public class UserController extends BaseController {
     @RequestMapping(value = {"mine", "/"})
     public String mine(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+            return "user/user";
         }
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
 
-            return "user";
+            return "user/user";
         }
         log.info("用户跳转到登录界面");
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = GET)
@@ -67,7 +67,7 @@ public class UserController extends BaseController {
     public String reg(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
 
-            return "user";
+            return "user/user";
         }
         log.info("用户跳转到注册界面");
         return "register";
@@ -84,7 +84,7 @@ public class UserController extends BaseController {
                            @RequestParam String password,
                            @RequestParam String email) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+            return "user/user";
         }
         log.info("用户注册");
         if (userService.getUserByUsername(username) != null) {
@@ -129,13 +129,13 @@ public class UserController extends BaseController {
             }
         }
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
-        return "user";
+        return "user/user";
     }
 
     @RequestMapping("logout")
     public String logout(HttpServletRequest request,Model model){
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, null);
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/search")

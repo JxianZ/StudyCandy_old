@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>校园广场</title>
 	<link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
 			<a href="#">最热</a>
 		</div>
 		<div class="content_inner">
-			<c:forEach items="${postlist}" var="post">
+			<c:forEach items="${allpostlist}" var="post">
 			<div class="post">
 				<h2>${post.postTitle}</h2>
 				<h5>${post.postContent}</h5>

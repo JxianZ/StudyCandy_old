@@ -61,3 +61,4 @@ Temporary Items
 !/**/src/main/resources/application.properties
 !/**/src/main/resources/application-*.properties
 /**/src/main/resources/application-jdbc.properties
+-sc-main/target/

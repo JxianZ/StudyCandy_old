@@ -330,5 +330,20 @@
 <script src="${__static__}/js/carousel.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
 
+<!-- 实现首页校园广场数据读取  未完成 js -->
+<!-- <script type="text/javascript">
+    window.onload = function() {
+        $.ajax({
+            type: "GET",
+            url: "/square/postList",
+            data: "list",
+            dataType:"json",
+            success: null,
+            error: {}
+        });
+    };
+</script>
+-->
+
 </body>
 </html>

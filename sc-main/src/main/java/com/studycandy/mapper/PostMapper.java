@@ -1,6 +1,7 @@
 package com.studycandy.mapper;
 
 import com.studycandy.model.Post;
+import javafx.geometry.Pos;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface PostMapper {
     List<Post> selectAll();
 
     int updateByPrimaryKey(Post record);
+
+    List<Post> selectByUserId(Integer userId);
+
 }

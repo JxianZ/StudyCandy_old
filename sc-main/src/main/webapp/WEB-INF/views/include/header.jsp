@@ -18,15 +18,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand navbar-logo" href="#"><img src="${__static__}/img/logo.png"></a>
-                <a class="navbar-brand navbar-logo" href="#">学糖</a>
+                <a class="navbar-brand navbar-logo" href="/index"><img src="${__static__}/img/logo.png"></a>
+                <a class="navbar-brand navbar-logo" href="/index">学糖</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-ul">
                     <li><a href="#">大教室</a></li>
                     <li><a href="#">辅导室</a></li>
                     <li><a href="#">自习室</a></li>
-                    <li><a href="#">校园广场</a></li>
+                    <li><a href="/square">校园广场</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left">
@@ -39,7 +39,7 @@
                     <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <li><a href="#">消息</a></li>
-                            <li><a href="#">个人中心</a></li>
+                            <li><a href="/user/mine">个人中心</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">退出登录</a></li>
                         </ul>
