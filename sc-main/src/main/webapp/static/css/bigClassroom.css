@@ -1,0 +1,23 @@
+.mycarousel{
+	margin-bottom: 20px;
+}
+
+.mynav{
+	margin-bottom: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.content-main{
+	background: #c8c5ca;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.img-bottom{
+	margin-bottom: 50px;
+}
+
+.mypaging{
+	text-align: center;
+}

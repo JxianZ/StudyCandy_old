@@ -23,7 +23,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-ul">
-                    <li><a href="#">大教室</a></li>
+                    <li><a href="/classroom/">大教室</a></li>
                     <li><a href="#">辅导室</a></li>
                     <li><a href="#">自习室</a></li>
                     <li><a href="/square">校园广场</a></li>
