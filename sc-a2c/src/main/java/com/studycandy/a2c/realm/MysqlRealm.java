@@ -1,5 +1,6 @@
 package com.studycandy.a2c.realm;
 
+import com.studycandy.a2c.constant.Constants;
 import com.studycandy.a2c.model.User;
 import com.studycandy.a2c.service.AuthorizationService;
 import com.studycandy.a2c.service.UserService;
@@ -28,8 +29,12 @@ public class MysqlRealm extends AuthorizingRealm {
         String username = (String) principals.getPrimaryPrincipal();
 
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        authorizationInfo.setRoles(authorizationService.findRoles(Constants.SERVER_APP_KEY, username));
-        authorizationInfo.setStringPermissions(authorizationService.findPermissions(Constants.SERVER_APP_KEY, username));
+        authorizationInfo.setRoles(
+                authorizationService.findRoles(Constants.SERVER_APP_KEY, username)
+        );
+        authorizationInfo.setStringPermissions(
+                authorizationService.findPermissions(Constants.SERVER_APP_KEY, username)
+        );
         return authorizationInfo;
     }
 
@@ -41,19 +46,19 @@ public class MysqlRealm extends AuthorizingRealm {
         User user = userService.getUserByUsername(username);
 
         if (user == null) {
-            throw new UnknownAccountException();//没找到帐号
+            throw new UnknownAccountException();
         }
 
         if (Boolean.FALSE.equals(user.getAvailable())) {
-            throw new LockedAccountException(); //帐号锁定
+            throw new LockedAccountException();
         }
-
-        //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
+        // TODO: 2017/3/27 Created By Chenls
+        // 此处可变更实现方式
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getUsername(), //用户名
-                user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
-                getName()  //realm name
+                user.getUsername(),
+                user.getPassword(),
+                ByteSource.Util.bytes(user.getSalt()),
+                getName()
         );
         return authenticationInfo;
     }

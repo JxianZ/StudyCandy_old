@@ -2,6 +2,8 @@ package com.studycandy.a2c.service;
 
 import com.studycandy.a2c.model.App;
 
+import java.util.List;
+
 /**
  * Coding with Intellij IDEA
  * Author: Chenls
@@ -15,4 +17,8 @@ public interface AppService {
     Integer updateApp(App entity);
 
     App getAppById(Integer id);
+
+    List<App> getAll();
+
+    Integer getAppIdByAppKey(String appkey);
 }

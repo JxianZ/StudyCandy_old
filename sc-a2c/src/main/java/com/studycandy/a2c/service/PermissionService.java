@@ -3,6 +3,7 @@ package com.studycandy.a2c.service;
 import com.studycandy.a2c.model.Permission;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Coding with Intellij IDEA
@@ -18,5 +19,7 @@ public interface PermissionService {
 
     Permission getPermissionById(Long id);
 
-    List<Permission> getListByUserId(Long userid);
+    List<Permission> getAll();
+
+    Set<String> findPermissions(Set<Long> permissionIds);
 }

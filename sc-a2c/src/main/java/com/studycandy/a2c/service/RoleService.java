@@ -3,6 +3,7 @@ package com.studycandy.a2c.service;
 import com.studycandy.a2c.model.Role;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Coding with Intellij IDEA
@@ -18,5 +19,9 @@ public interface RoleService {
 
     Role getRoleById(Long id);
 
-    List<Role> getListByUserId(Long userid);
+    List<Role> getAll();
+
+    Set<String> findRoles(Long... roleIds);
+
+    Set<String> findPermissions(Long[] roleIds);
 }
