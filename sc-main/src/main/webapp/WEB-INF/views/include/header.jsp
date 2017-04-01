@@ -30,10 +30,16 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="搜索...">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="搜索...">
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                     <!--  TODO check and replace -->
                     <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
