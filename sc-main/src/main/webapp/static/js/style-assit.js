@@ -15,5 +15,8 @@ $(function () {
 /* footer */
 $(function () {
     var $height = $(window).height();
+    if($height>$(document.body).height()){
+        $("footer").css("position","fixed");
+    }
     $("footer").css("top", $height-53.2);
 });
