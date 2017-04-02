@@ -14,4 +14,10 @@ public interface CommentNoteMapper {
     List<CommentNote> selectAll();
 
     int updateByPrimaryKey(CommentNote record);
+
+    List<CommentNote> selectByNoteId(Integer noteId);
+
+    List<CommentNote> selectByUserId(Integer noteId);
+
+
 }

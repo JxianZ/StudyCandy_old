@@ -7,6 +7,8 @@ public class Course {
 
     private Integer userId;
 
+    private Integer classId;
+
     private String courseTitle;
 
     private String courseContent;
@@ -35,6 +37,14 @@ public class Course {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 
     public String getCourseTitle() {
