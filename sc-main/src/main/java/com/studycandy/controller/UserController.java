@@ -83,6 +83,7 @@ public class UserController extends BaseController {
     public String register(HttpServletRequest request,HttpServletResponse response, Model model,
                            @RequestParam String username,
                            @RequestParam String password,
+                           @RequestParam String nickname,
                            @RequestParam String email) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
             return "user/mine";
@@ -94,6 +95,7 @@ public class UserController extends BaseController {
         User user = new User();
         user.setUserUsername(username);
         user.setUserPassword(password);
+        user.setUserNickname(nickname);
         user.setUserEmail(email);
         try {
             userService.setUser(user);
