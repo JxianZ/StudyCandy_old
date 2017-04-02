@@ -19,10 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 public class BigClassroomController extends BaseController {
     private Logger logger = Logger.getLogger(this.getClass());
 
-    @RequestMapping(value = {"bigClassroom", "/"})
-    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
-        logger.info("bigClassroom");
-        logger.debug(this.getCurrentUser(request));
+    @RequestMapping(value = {"", "/"})
+    public String classList(HttpServletRequest request, HttpServletResponse response, Model model) {
         return "classroom/bigClassroom";
     }
 }

@@ -1,7 +1,9 @@
 package com.studycandy.controller;
 
 import com.studycandy.core.BaseController;
+import com.studycandy.model.CommentPost;
 import com.studycandy.model.Post;
+import com.studycandy.service.CommentPostService;
 import com.studycandy.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,12 +36,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
      *帖子修改界面 ：modifypostview
      *添加帖子界面 ：addpostview
      *
+     *帖子的所有回复界面：postcomments
+     *
+     *
      */
 @RequestMapping("/square")
 @Controller
 public class SquareController extends BaseController {
     @Autowired
     private PostService postService;
+    @Autowired
+    private CommentPostService commentPostService;
 
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -126,9 +133,39 @@ public class SquareController extends BaseController {
         //修改完之后转到帖子详细界面
         return "redirect:square/postview/"+post.getId();
     }
-
-    @RequestMapping(value = {"/post"})
-    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "square/post";
+    /*评论功能 Start*/
+    //获取帖子的所有回复
+    @RequestMapping(value = "/postcomments/{postId}")
+    public String postComments(HttpServletRequest request, HttpServletResponse response, Model model,
+                               @PathVariable("postId") Integer id){
+        model.addAttribute("postcmments",commentPostService.getCommentPostListByPostId(id));
+        return "postcomments";
     }
+    //添加回复
+    @RequestMapping(value = "addcomment",method = POST)
+    public String addcomment(HttpServletRequest request, HttpServletResponse response, Model model,
+                             @RequestParam Integer postId,
+                             @RequestParam String commentContent,
+                             @RequestParam Integer followId){
+        CommentPost entity = new CommentPost();
+        entity.setPostId(postId);
+        entity.setFollowId(followId);
+        entity.setUserId(this.getCurrentUser(request).getId());
+        entity.setGmtCreate(new Timestamp(new Date().getTime()));
+        entity.setGmtModified(new Timestamp(new Date().getTime()));
+        entity.setCommentContent(commentContent);
+        commentPostService.saveCommentPost(entity);
+        return "postcomments";
+    }
+    //删除回复
+    @RequestMapping(value = "deletecomment",method = POST)
+    public String deleteComment(HttpServletRequest request, HttpServletResponse response, Model model,
+                                @RequestParam Integer commentId){
+        CommentPost t = commentPostService.getCommentPost(commentId);
+        //判断是否是帖子主人要进行修改
+        if(this.getCurrentUser(request).getId()==t.getUserId())
+            commentPostService.deleteCommentPost(commentId);
+        return "postcomments";
+    }
+    /*评论功能 End*/
 }
