@@ -84,27 +84,33 @@
             </ul>
             <div class="post-list">
                 <div class="row post">
-                    <div class="col-xs-12 col-md-3">
-                        <a href="/square/post"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
+                    <div class="col-md-1">
+                        <a href="campusSquare/post">
+                            <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
+                            <span>用户名</span>
+                        </a>
                     </div>
-                    <div class="col-xs-12 col-md-5">
-                        <h2><a href="/square/post">标题</a></h2>
-                        <small>简介</small>
+                    <div class="col-xs-12 col-md-7">
+                        <h5><a href="campusSquare/post">标题</a></h5>
+                        <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        回复发布时间
+                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间</small>
                     </div>
                 </div>
                 <div class="row post">
-                    <div class="col-xs-12 col-md-3">
-                        <a href="#"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
+                    <div class="col-md-1">
+                        <a href="campusSquare/post">
+                            <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
+                            <span>用户名</span>
+                        </a>
                     </div>
-                    <div class="col-xs-12 col-md-5">
-                        <h2><a href="#">标题</a></h2>
-                        <small>简介</small>
+                    <div class="col-xs-12 col-md-7">
+                        <h5><a href="campusSquare/post">标题</a></h5>
+                        <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        回复发布时间
+                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间</small>
                     </div>
                 </div>
             </div>
