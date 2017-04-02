@@ -20,7 +20,17 @@ public class BigClassroomController extends BaseController {
     private Logger logger = Logger.getLogger(this.getClass());
 
     @RequestMapping(value = {"", "/"})
-    public String classList(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String toBigClassroom(HttpServletRequest request, HttpServletResponse response, Model model) {
         return "classroom/bigClassroom";
+    }
+
+    @RequestMapping(value = {"/smallClassroom"})
+    public String toSmallClassroom(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "classroom/smallClassroom";
+    }
+
+    @RequestMapping(value = {"/course"})
+    public String toCourse(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "classroom/course";
     }
 }
