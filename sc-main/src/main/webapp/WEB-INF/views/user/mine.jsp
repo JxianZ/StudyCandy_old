@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="user-details">
-                        <h3><strong>用户名</strong><small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
+                        <h3><strong>用户名:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
                         <div class="row text-left">
                             <div class="col-xs-6">
                                 <strong>学校</strong>

@@ -30,6 +30,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = {"/",""})
     public String mine(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+            model.addAttribute("user",this.getCurrentUser(request));
             return "user/mine";
         }
         return "user/login";
@@ -70,7 +71,7 @@ public class UserController extends BaseController {
             return "user/mine";
         }
         log.info("用户跳转到注册界面");
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = GET)
