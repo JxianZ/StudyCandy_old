@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping("/classroom")
-public class bigClassroomController extends BaseController {
+public class BigClassroomController extends BaseController {
     private Logger logger = Logger.getLogger(this.getClass());
 
     @RequestMapping(value = {"bigClassroom", "/"})
