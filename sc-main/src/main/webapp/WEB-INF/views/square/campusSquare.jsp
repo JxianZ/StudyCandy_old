@@ -1,130 +1,192 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: BlackZXK
+  Date: 4/2/2017
+  Time: 10.31AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>校园广场</title>
-	<link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>campusSquare</title>
+    <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css?v=20161231204509">
 </head>
 <body>
-	<div class="header">
-		<div class="navbar1">
-			<div class="logo">
-				<ul>
-					<li><img src="${__static__}/img/logo.png">&nbsp;</li>
-					<li>学糖</li>
-				</ul>
-			</div>
-			<div class="navbar1_inner">
-				<ul>
-					<li><a href="#">大教室</a>&nbsp;&nbsp;</li>
-					<li><a href="#">辅导室</a>&nbsp;&nbsp;</li>
-					<li><a href="#">校园广场</a>&nbsp;&nbsp;</li>
-					<li><a href="#">学霸名人堂</a>&nbsp;&nbsp;</li>
-					<li><a href="#"><img src="logo.png"></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="content">
-		<div class="ad"></div>
-		<div class="switch">
-			<a href="#">最新</a>&nbsp;&nbsp;
-			<a href="#">最热</a>
-		</div>
-		<div class="content_inner">
-			<c:forEach items="${allpostlist}" var="post">
-			<div class="post">
-				<h2>${post.postTitle}</h2>
-				<h5>${post.postContent}</h5>
-				<h6 style="margin-right: 20px;">发布时间</h6>
-				<h6>回复&nbsp;</h6>
-				<h6>00&nbsp;</h6>
-			</div>
-			</c:forEach>
-		</div>
-		<div class="pageNavbar">
-			<ul class="pageNavbar_inner">
-				<li><a href="#">首页</a></li>
-				<li>&nbsp;&nbsp;</li>
-				<li><a href="#">上一页</a></li>
-				<li>&nbsp;&nbsp;</li>
-				<li>
-					<ul class="pageList">
-						<li><a href="#">1</a></li>
-						<li>&nbsp;&nbsp;</li>
-						<li><a href="#">2</a></li>
-						<li>&nbsp;&nbsp;</li>
-						<li><a href="#">3</a></li>
-						<li>&nbsp;&nbsp;</li>
-						<li><a href="#">4</a></li>
-						<li>&nbsp;&nbsp;</li>
-						<li><a href="#">5</a></li>
-					</ul>
-				</li>
-				<li>&nbsp;&nbsp;</li>
-				<li><a href="#">下一页</a></li>
-				<li>&nbsp;&nbsp;</li>
-				<li><a href="#">尾页</a></li>
-			</ul>
-		</div>
-		<a href="#" style="clear:both;margin-left:200px;" id="ha">发帖</a>
-	<div class="haha">
-		<div><label>标题&nbsp;<input type="text" name="title" id="titlein"></label></div>
-		<div><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="content" id="contentin"> </textarea></label></div>
-		<div class="hahasub" id="hahabtn">提交</div>
-	</div>
-	</div>
-	<div class="footer">
-		<div class="footer_inner">
-			<ul>
-				<li><a href="#">企业合作</a>&nbsp;|&nbsp;</li>
-				<li><a href="#">人才招聘</a>&nbsp;|&nbsp;</li>
-				<li><a href="#">联系我们</a>&nbsp;|&nbsp;</li>
-				<li><a href="#">常见问题</a>&nbsp;|&nbsp;</li>
-				<li><a href="#">一键反馈</a>&nbsp;|&nbsp;</li>
-				<li>Copyright&copy;2017.JxianZ.Company name All Rights Reserved.</li>
-			</ul>
-		</div>
-	</div>
-	<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			$("#ha").click(function () {
-                $(".haha").toggle(600);
-            });
-        });
-		$(function () {
-			$("#hahabtn").click(function () {
-				var title = $("#titlein").val();
-				var content= $("#contentin").val();
-				var data = {
-				    "title":  title,
-					"content":content
-				};
-                $.ajax({
-                    url: "/square/addpost",
-                    data: data,
-                    type: "POST",
-                    dataType: "json",
-                    success: function (r) {
-                        if(r.status==0) {
-                            $(".haha").toggle(100);
-                            window.location.reload();
-                        }
-                        else{
-                            alert(r.info);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert(XMLHttpRequest.status);
-                        alert(XMLHttpRequest.readyState);
-                        alert(textStatus);
-                    },
-                });
-            });
-        });
-	</script>
+
+<%@include file="../include/header.jsp"%>
+
+<content>
+    <div class="content">
+        <div id="carousel-example-generic" class="carousel slide mycarousel" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive" src="${__static__}/img/banner/0.jpg">
+                    <div class="carousel-caption">
+                        testtestetstetstetstetstetst
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="${__static__}/img/banner/1.jpg">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="${__static__}/img/banner/2.jpg">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="${__static__}/img/banner/3.jpg">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="${__static__}/img/banner/4.jpg">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="content-main">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">最新</a></li>
+                <li role="presentation"><a href="#">最热</a></li>
+            </ul>
+            <div class="post-list">
+                <div class="row post">
+                    <div class="col-xs-12 col-md-3">
+                        <a href="/square/post"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
+                    </div>
+                    <div class="col-xs-12 col-md-5">
+                        <h2><a href="/square/post">标题</a></h2>
+                        <small>简介</small>
+                    </div>
+                    <div class="col-xs-12 col-md-4 text-right text-bottom">
+                        回复发布时间
+                    </div>
+                </div>
+                <div class="row post">
+                    <div class="col-xs-12 col-md-3">
+                        <a href="#"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
+                    </div>
+                    <div class="col-xs-12 col-md-5">
+                        <h2><a href="#">标题</a></h2>
+                        <small>简介</small>
+                    </div>
+                    <div class="col-xs-12 col-md-4 text-right text-bottom">
+                        回复发布时间
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Page navigation" class="text-center">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="send-post">
+                <div class="row">
+                    <div class="col-xs-2 col-md-2">
+                        <img class="img-responsive" src="${__static__}/img/user-big.jpeg">
+                    </div>
+                    <div class="col-xs-10 col-md-10">
+                        <div class="input-group post-title">
+                            <span class="input-group-addon" id="basic-addon1">标题</span>
+                            <input id="titlein" type="text" class="form-control" placeholder="标题" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group">
+                            <input id="contentin" type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
+                            <span class="input-group-btn">
+                                    <button id="send" class="btn btn-default" type="button">发帖</button>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</content>
+
+<%@include file="../include/footer.jsp"%>
+
 </body>
+
+<!--  js file  -->
+<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
+<script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/carousel.js"></script>
+<script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#send").click(function () {
+            var title = $("#titlein").val();
+            var content= $("#contentin").val();
+            var data = {
+                "title":  title,
+                "content":content
+            };
+            $.ajax({
+                url: "/square/addpost",
+                data: data,
+                type: "POST",
+                dataType: "json",
+                success: function (r) {
+                    if(r.status==0) {
+                        window.location.reload();
+                    }
+                    else{
+                        alert(r.info);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+            });
+        });
+    });
+</script>
 </html>
