@@ -26,6 +26,6 @@ import javax.servlet.http.HttpServletResponse;
 public class SelfController extends BaseController{
     @RequestMapping(value = {"","/"})
     public String selfstudy(HttpServletRequest request, HttpServletResponse response, Model model){
-        return "selfStudyRoom";
+        return "classroom/selfStudyRoom";
     }
 }
