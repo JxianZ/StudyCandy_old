@@ -14,4 +14,6 @@ public interface NoteMapper {
     List<Note> selectAll();
 
     int updateByPrimaryKey(Note record);
+
+    List<Note> selectByUserId(Integer userId);
 }
