@@ -11,3 +11,9 @@ $(function () {
         $(this).css("background-color","#f38094");
     }) ;
 });
+
+/* footer */
+$(function () {
+    var $height = $(window).height();
+    $("footer").css("top", $height-53.2);
+});
