@@ -1,12 +1,9 @@
 package com.studycandy.controller;
 
-import com.studycandy.annotation.Role;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.Post;
 import com.studycandy.service.PostService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +35,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
      *添加帖子界面 ：addpostview
      *
      */
-@RequestMapping("square")
+@RequestMapping("/square")
 @Controller
 public class SquareController extends BaseController {
     @Autowired
@@ -128,5 +125,10 @@ public class SquareController extends BaseController {
         model.addAttribute("post",post);
         //修改完之后转到帖子详细界面
         return "redirect:square/postview/"+post.getId();
+    }
+
+    @RequestMapping(value = {"/post"})
+    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "square/post";
     }
 }
