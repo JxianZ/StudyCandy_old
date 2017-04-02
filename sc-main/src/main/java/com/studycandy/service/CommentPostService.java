@@ -3,6 +3,7 @@ package com.studycandy.service;
 import com.studycandy.mapper.CommentPostMapper;
 import com.studycandy.model.CommentPost;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Author: Chenls
  * Time: 2017/3/22
  */
+@Service
 public class CommentPostService {
     @Autowired
     private CommentPostMapper mapper;

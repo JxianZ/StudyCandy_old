@@ -83,30 +83,20 @@
                 <li role="presentation" class="navbar-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发帖</button></li>
             </ul>
             <div class="post-list">
-                <div class="row post">
-                    <div class="col-xs-12 col-md-3">
-                        <a href="/square/post"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
-                    </div>
-                    <div class="col-xs-12 col-md-5">
-                        <h2><a href="/square/post">标题</a></h2>
-                        <small>简介</small>
-                    </div>
-                    <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        回复发布时间
-                    </div>
-                </div>
+                <c:forEach items="${allpostlist}" var="post">
                 <div class="row post">
                     <div class="col-xs-12 col-md-3">
                         <a href="#"><img class="img-responsive" src="${__static__}/img/videotest.png"></a>
                     </div>
                     <div class="col-xs-12 col-md-5">
-                        <h2><a href="#">标题</a></h2>
-                        <small>简介</small>
+                        <h2><a href="#">${post.postTitle}</a></h2>
+                        <small>${post.postContent}</small>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        回复发布时间
+                        回复发布时间<small>00</small>
                     </div>
                 </div>
+                </c:forEach>
             </div>
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination">
@@ -138,11 +128,11 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>标题</label>
-                                    <input type="text" class="form-control" placeholder="标题">
+                                    <input id="titlein" type="text" class="form-control" placeholder="标题">
                                 </div>
                                 <div class="form-group">
                                     <label>内容</label>
-                                    <textarea class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                    <textarea id="contentin" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="uplodeImg">图片上传</label>
@@ -163,7 +153,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="submit" class="btn btn-primary">发表</button>
+                                <button id="send" type="submit" class="btn btn-primary">发表</button>
                             </div>
                         </form>
                     </div>
@@ -201,7 +191,11 @@
                         window.location.reload();
                     }
                     else{
-                        alert(r.info);
+                        if(r.info==0){
+                            alert("请先登入");
+                            window.location.href="/user";
+                        }
+
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -212,8 +206,7 @@
             });
         });
     });
-</script>
-<script>
+
     $("#uplodeImg").change(function(){
         $("#showLocation").val($(this).val());
     });
