@@ -80,6 +80,7 @@
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#">最新</a></li>
                 <li role="presentation"><a href="#">最热</a></li>
+                <li role="presentation" class="navbar-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发帖</button></li>
             </ul>
             <div class="post-list">
                 <div class="row post">
@@ -126,22 +127,45 @@
                     </li>
                 </ul>
             </nav>
-            <div class="send-post">
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <img class="img-responsive" src="${__static__}/img/user-big.jpeg">
-                    </div>
-                    <div class="col-xs-10 col-md-10">
-                        <div class="input-group post-title">
-                            <span class="input-group-addon" id="basic-addon1">标题</span>
-                            <input id="titlein" type="text" class="form-control" placeholder="标题" aria-describedby="basic-addon1">
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">发表评论</h4>
                         </div>
-                        <div class="input-group">
-                            <input id="contentin" type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
-                            <span class="input-group-btn">
-                                    <button id="send" class="btn btn-default" type="button">发帖</button>
-                                </span>
-                        </div>
+                        <form>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" class="form-control" placeholder="标题">
+                                </div>
+                                <div class="form-group">
+                                    <label>内容</label>
+                                    <textarea class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="uplodeImg">图片上传</label>
+                                    <input id="uplodeImg" type="file" style="display: none;">
+                                    <div class="input-group">
+                                        <input id="showLocation" type="text" class="form-control" placeholder="文件路径" disabled="disabled">
+                                        <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
+                                            </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">匿名发表
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">发表</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -187,6 +211,11 @@
                 },
             });
         });
+    });
+</script>
+<script>
+    $("#uplodeImg").change(function(){
+        $("#showLocation").val($(this).val());
     });
 </script>
 </html>
