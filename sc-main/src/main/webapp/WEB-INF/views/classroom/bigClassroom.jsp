@@ -96,42 +96,32 @@
                 <li role="presentation"><a href="#">课程6</a></li>
             </ul>
         </div>
+        <div class="mynav">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">最新</a></li>
+                <li role="presentation"><a href="#">最新</a></li>
+            </ul>
+        </div>
         <div class="content-main">
-            <div class="nav">
-                <p class="navbar-text"><a href="#" class="navbar-link">最新</a></p>
-                <p class="navbar-text"><a href="#" class="navbar-link">最热</a></p>
-            </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
+                        <div class="up">
+                            <a href="smallClassroom" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
+                        </div>
+                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
+                        <div class="up">
+                            <a href="smallClassroom" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
+                        </div>
+                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom">
-                        <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
+                        <div class="up">
+                            <a href="smallClassroom" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
+                        </div>
+                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
                     </div>
                 </div>
             </div>
@@ -166,5 +156,6 @@
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/carousel.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/bigClassroom.js"></script>
 
 </html>
