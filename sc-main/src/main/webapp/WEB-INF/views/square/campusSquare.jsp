@@ -83,36 +83,23 @@
                 <li role="presentation" class="navbar-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发帖</button></li>
             </ul>
             <div class="post-list">
+                <c:forEach items="${allpostlist}" var="post">
                 <div class="row post">
                     <div class="col-md-1">
                         <a href="campusSquare/post">
                             <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            <span>用户名</span>
+                            <span>${postusername[post.userId]}</span>
                         </a>
                     </div>
                     <div class="col-xs-12 col-md-7">
-                        <h5><a href="campusSquare/post">标题</a></h5>
-                        <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
+                        <h5><a href="campusSquare/post">${post.postTitle}</a></h5>
+                        <div class="long">${post.postContent}</div>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间</small>
+                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
                     </div>
                 </div>
-                <div class="row post">
-                    <div class="col-md-1">
-                        <a href="campusSquare/post">
-                            <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            <span>用户名</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-md-7">
-                        <h5><a href="campusSquare/post">标题</a></h5>
-                        <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间</small>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination">
@@ -144,11 +131,11 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>标题</label>
-                                    <input type="text" class="form-control" placeholder="标题">
+                                    <input id="titlein" type="text" class="form-control" placeholder="标题">
                                 </div>
                                 <div class="form-group">
                                     <label>内容</label>
-                                    <textarea class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                    <textarea id="contentin" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="uplodeImg">图片上传</label>
@@ -169,7 +156,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="submit" class="btn btn-primary">发表</button>
+                                <button id="send" type="submit" class="btn btn-primary">发表</button>
                             </div>
                         </form>
                     </div>
@@ -207,19 +194,18 @@
                         window.location.reload();
                     }
                     else{
-                        alert(r.info);
+                            alert(r.info);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus);
+                    if(XMLHttpRequest.status==0){
+                        alert("请先登录");
+                    }
                 },
             });
         });
     });
-</script>
-<script>
+
     $("#uplodeImg").change(function(){
         $("#showLocation").val($(this).val());
     });

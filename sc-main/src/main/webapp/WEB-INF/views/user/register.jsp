@@ -63,6 +63,13 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="inputusername" class="col-sm-2 control-label">昵称</label>
+                            <div class="col-md-8 col-sm-10">
+                                <input type="text" class="form-control" id="inputnickname">
+                                <span id="nicknamespan" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="inputemail" class="col-sm-2 control-label">邮箱</label>
                             <div class="col-md-8 col-sm-10">
                                 <input type="email" class="form-control" id="inputemail">
