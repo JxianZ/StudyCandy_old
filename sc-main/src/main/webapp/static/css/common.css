@@ -83,7 +83,10 @@
 	text-decoration: none;
 	background-color: transparent;
 }
-
+footer{
+	position: fixed;
+	width: 100%;
+}
 /* footer-css end */
 
 /* content start */
