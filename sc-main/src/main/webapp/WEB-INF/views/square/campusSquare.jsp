@@ -88,7 +88,7 @@
                     <div class="col-md-1">
                         <a href="campusSquare/post">
                             <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            <span>${post.userId}</span>
+                            <span>${postusername[post.userId]}</span>
                         </a>
                     </div>
                     <div class="col-xs-12 col-md-7">

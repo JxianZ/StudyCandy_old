@@ -5,6 +5,7 @@ import com.studycandy.model.CommentPost;
 import com.studycandy.model.Post;
 import com.studycandy.service.CommentPostService;
 import com.studycandy.service.PostService;
+import com.studycandy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -46,11 +45,25 @@ public class SquareController extends BaseController {
     @Autowired
     private PostService postService;
     @Autowired
+    private UserService userService;
+    @Autowired
     private CommentPostService commentPostService;
 
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
-        model.addAttribute("allpostlist", postService.getAllPost());
+        List<Post> l = postService.getAllPost();
+        Map<Integer,String> m = new HashMap<Integer, String>();
+        String nickname="";
+        for(Post p : l){
+            if(userService.getUserById(p.getUserId())!=null)
+                nickname=userService.getUserById(p.getUserId()).getUserNickname();
+            else
+                nickname="null";
+            m.put(p.getUserId(),nickname);
+        }
+        model.addAttribute("allpostlist", l);
+        model.addAttribute("postusername",m);
+
         return "square/campusSquare";
     }
     @RequestMapping(value = "/addpost", method = POST)
