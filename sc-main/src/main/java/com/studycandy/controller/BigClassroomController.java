@@ -27,9 +27,14 @@ public class BigClassroomController extends BaseController {
         return "classroom/bigClassroom";
     }
     //
-    @RequestMapping(value = "classview/{classId}")
+    @RequestMapping(value = "/smallClassroom/{classId}")
     public String classView(HttpServletRequest request, HttpServletResponse response, Model model,
                             @PathVariable("classId")Integer classId){
-        return null;
+       return "classroom/smallClassroom";
+    }
+    @RequestMapping(value = {"/course"})
+    public String toCourse(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "classroom/course";
+
     }
 }

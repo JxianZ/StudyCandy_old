@@ -10,6 +10,10 @@
 .clear{
 	clear: both;
 }
+.banner-min{
+	margin: 0;
+	padding: 0;
+}
 /* nav-css start */
 .navbar-login{
 	font-size: 16px;

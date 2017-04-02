@@ -47,7 +47,7 @@ public class SelfController extends BaseController{
     @RequestMapping(value = {"","/"})
     public String selfstudy(HttpServletRequest request, HttpServletResponse response, Model model){
         model.addAttribute("notelist",noteService.getAllNote());
-        return "selfStudyRoom";
+        return "classroom/selfStudyRoom";
     }
     //切换到我的自习室
     @RequestMapping(value = "mine/{userId}")
@@ -63,7 +63,6 @@ public class SelfController extends BaseController{
                            @PathVariable("id")Integer id){
         model.addAttribute("note",noteService.getNoteById(id));
         return "noteview";
-
     }
     //添加做笔记
     @RequestMapping(value = "addNote",method = POST)
