@@ -88,7 +88,12 @@
 
 <!-- content -->
 
-
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">我的笔记</a></li>
+        <li role="presentation"><a href="#">垃圾笔记</a></li>
+    </ul>
+</div>
 
 <!-- content end -->
 
