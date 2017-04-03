@@ -15,5 +15,13 @@ public class CourseService {
     @Autowired
     CourseMapper courseMapper;
 
+    public List<Course> getCourseByClassId(Integer classId){
+        return courseMapper.selectByClassId(classId);
+    }
+
+    public Course getCourseById(Integer id){
+        return courseMapper.selectByPrimaryKey(id);
+    }
+
 
 }

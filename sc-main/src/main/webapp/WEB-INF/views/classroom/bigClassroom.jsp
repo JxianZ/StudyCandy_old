@@ -104,37 +104,20 @@
         </div>
         <div class="content-main">
             <div class="container-fluid">
+                <h1>${info}</h1>
                 <div class="row">
+                    <c:forEach items="${classRoomList}" var="classRoom">
                     <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
                         <div class="up">
                             <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
                         </div>
-                        <span class="className"><strong>教室名称</strong></span>
-                        <a class="btn btn-default mybtn" href="smallClassroom" target="_blank">进入教室</a>
+                        <span class="className"><strong>教室名称:</strong>${classRoom.className}</span>
+                        <a class="btn btn-default mybtn" href="smallClassroom/${classRoom.id}" target="_blank">进入教室</a>
                         <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
-                        <span class="lecturerName"><strong>讲师名称</strong></span>
+                        <span class="lecturerName"><strong>管理员名称:</strong>${classRoom.classAdminId}</span>
                         <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
-                        <div class="up">
-                            <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                        </div>
-                        <span class="className"><strong>教室名称</strong></span>
-                        <a class="btn btn-default mybtn" href="smallClassroom" target="_blank">进入教室</a>
-                        <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
-                        <span class="lecturerName"><strong>讲师名称</strong></span>
-                        <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
-                        <div class="up">
-                            <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
-                        </div>
-                        <span class="className"><strong>教室名称</strong></span>
-                        <a class="btn btn-default mybtn" href="smallClassroom" target="_blank">进入教室</a>
-                        <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
-                        <span class="lecturerName"><strong>讲师名称</strong></span>
-                        <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
             <nav aria-label="Page navigation" class="text-center">
