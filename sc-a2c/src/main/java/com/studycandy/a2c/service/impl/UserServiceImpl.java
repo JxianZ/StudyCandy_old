@@ -4,6 +4,8 @@ import com.studycandy.a2c.constant.Constants;
 import com.studycandy.a2c.mapper.UserMapper;
 import com.studycandy.a2c.model.User;
 import com.studycandy.a2c.service.UserService;
+import com.studycandy.a2c.util.PasswordHelper;
+import com.studycandy.a2c.util.impl.SimplePasswordHelper;
 import com.studycandy.core.mybatis.SqlRunner;
 import com.studycandy.core.sql.Row;
 import com.studycandy.core.sql.SQLBuilder;
@@ -30,6 +32,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer addUser(User entity) {
+        PasswordHelper passwordHelper = new SimplePasswordHelper();
+        entity.setPassword(
+                passwordHelper.encryptPassword(entity.getPassword(), entity.getSalt())
+        );
         return mapper.insert(entity);
     }
 
@@ -40,6 +46,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer updateUser(User entity) {
+        PasswordHelper passwordHelper = new SimplePasswordHelper();
+        if (entity.getPassword() != getUserById(entity.getId()).getPassword()) {
+            entity.setPassword(
+                    passwordHelper.encryptPassword(entity.getPassword(), entity.getSalt())
+            );
+        }
         return mapper.updateByPrimaryKey(entity);
     }
 
