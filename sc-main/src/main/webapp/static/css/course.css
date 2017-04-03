@@ -1,5 +1,14 @@
 .content{
 	padding-left: 10%;
 	padding-right: 10%;
-	margin-top: 50px;
+	padding-top: 50px;
+	background: #bab3b2
+}
+
+.video{
+	border: 1px solid;
+}
+
+.rightBar{
+	margin-left: -15px;
 }
