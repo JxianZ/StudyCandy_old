@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.mapper.ClassroomMapper" >
+  <resultMap id="BaseResultMap" type="com.studycandy.model.Classroom" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+    <result column="class_tag" property="classTag" jdbcType="VARCHAR" />
+    <result column="class_school" property="classSchool" jdbcType="INTEGER" />
+    <result column="class_admin_id" property="classAdminId" jdbcType="INTEGER" />
+    <result column="class_price" property="classPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_class
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.studycandy.model.Classroom" >
+    insert into s_class (id, class_name, class_tag, 
+      class_school, class_admin_id, class_price
+      )
+    values (#{id,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, #{classTag,jdbcType=VARCHAR}, 
+      #{classSchool,jdbcType=INTEGER}, #{classAdminId,jdbcType=INTEGER}, #{classPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Classroom" >
+    update s_class
+    set class_name = #{className,jdbcType=VARCHAR},
+      class_tag = #{classTag,jdbcType=VARCHAR},
+      class_school = #{classSchool,jdbcType=INTEGER},
+      class_admin_id = #{classAdminId,jdbcType=INTEGER},
+      class_price = #{classPrice,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, class_name, class_tag, class_school, class_admin_id, class_price
+    from s_class
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, class_name, class_tag, class_school, class_admin_id, class_price
+    from s_class
+  </select>
+</mapper>

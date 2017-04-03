@@ -1,0 +1,121 @@
+.login-wrapper{
+    background: url("../img/bg/log-bg.png");
+}
+.login-cd-body{
+    background: url("../img/bg/log-cd-test.png");
+    height: 500px;
+}
+.login-main{
+    margin-top: 120px;
+    background: rgba(255,255,255, 0.7);
+}
+.login-form{
+    margin:8%;
+}
+.login-assi a:link{
+    text-decoration: none;
+}
+.login-assi a:visited{
+    text-decoration: none;
+}
+.login-assi a:hover{
+    text-decoration: none;
+}
+.login-btn{
+    width: 40%;
+    margin:10px 30% 0 30%;
+}
+.login-more{
+    height: 200px;
+}
+.reg-body{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    background-color: white;
+}
+.reg-nav{
+    color: #5bc0de;
+    text-align: center;
+    line-height: 40px;
+    font-size: 140%;
+    letter-spacing: 2px;
+    height: 40px;
+    width: 100%;
+    border:solid #5bc0de 0.5px;
+}
+.reg-col{
+    padding:0;
+}
+.reg-nav-on{
+    color: #FFFFFF;
+    background-color:  #04b709;
+}
+.reg-form{
+    margin-top: 5%;
+}
+.reg-form span{
+    text-indent: 5px;
+}
+.reg-form .off{
+    display: none;
+}
+.reg-form .on{
+    display: block;
+}
+
+.code-img img{
+    width: 100%;
+    height:100%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.reg-agree{
+    font-size: 13px;
+    color: #9d9d9d;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+.reg-part1-btnarea{
+    margin-top: 5%;
+    width: 80%;
+    border-top: solid 0.5px #5bc0de;
+}
+.reg-part1-btnarea button{
+    width: 90px;
+    font-size: 105%;
+    margin-top: 6%;
+    margin-left: 9%;
+}
+.reg-sex{
+    margin-bottom: 7%;
+}
+.reg-select{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.reg-success{
+    margin-top: 25%;
+    font-size: 18px;
+}
+@media (max-width: 1024px) {
+    .reg-success{
+        font-size: 14px;
+    }
+}
+@media (max-width: 375px) {
+    .reg-success{
+        font-size: 12px;
+    }
+}
+.reg-login{
+    margin-top: 25%;
+    width: 85%;
+    padding-bottom: 10%;
+    border-bottom: solid 0.5px #5bc0de;
+}
+.reg-login button{
+    font-size: 105%;
+    margin-left: 30%;
+}

@@ -39,4 +39,9 @@
     select id, user_id, question_id, answer_content, gmt_create, gmt_modified
     from s_answer
   </select>
+    <select id="selectByQuestionId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, user_id, question_id, answer_content, gmt_create, gmt_modified
+        from s_answer
+        where question_id = #{questionId,jdbcType=INTEGER}
+    </select>
 </mapper>

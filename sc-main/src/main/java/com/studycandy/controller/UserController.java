@@ -27,27 +27,28 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"mine", "/"})
+    @RequestMapping(value = {"/",""})
     public String mine(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+            model.addAttribute("user",this.getCurrentUser(request));
+            return "user/mine";
         }
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
 
-            return "user";
+            return "user/mine";
         }
         log.info("用户跳转到登录界面");
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = GET)
     public String login(HttpServletRequest request, Model model) {
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = POST)
@@ -67,24 +68,25 @@ public class UserController extends BaseController {
     public String reg(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
 
-            return "user";
+            return "user/mine";
         }
         log.info("用户跳转到注册界面");
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = GET)
     public String register(HttpServletRequest request,Model model){
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = POST)
     public String register(HttpServletRequest request,HttpServletResponse response, Model model,
                            @RequestParam String username,
                            @RequestParam String password,
+                           @RequestParam String nickname,
                            @RequestParam String email) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+            return "user/mine";
         }
         log.info("用户注册");
         if (userService.getUserByUsername(username) != null) {
@@ -93,6 +95,7 @@ public class UserController extends BaseController {
         User user = new User();
         user.setUserUsername(username);
         user.setUserPassword(password);
+        user.setUserNickname(nickname);
         user.setUserEmail(email);
         try {
             userService.setUser(user);
@@ -129,13 +132,13 @@ public class UserController extends BaseController {
             }
         }
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
-        return "user";
+        return "user/mine";
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout(HttpServletRequest request,Model model){
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, null);
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/search")
@@ -144,4 +147,5 @@ public class UserController extends BaseController {
 //        userService
         return "search";
     }
+
 }
