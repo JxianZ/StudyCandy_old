@@ -39,4 +39,9 @@
     select id, class_name, class_tag, class_school, class_admin_id, class_price
     from s_class
   </select>
+  <select id="selectBySchoolId" resultMap="BaseResultMap" >
+    select id, class_name, class_tag, class_school, class_admin_id, class_price
+    from s_class
+    where class_school = #{SchoolId,jdbcType=INTEGER}
+  </select>
 </mapper>
