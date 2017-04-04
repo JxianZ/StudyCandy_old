@@ -21,7 +21,7 @@ $(function () {
     }
 });
 
-function listenheight() {
+function heightListener() {
     var $height = $(window).height();
     if($height>$(document.body).height()){
         $("footer").css("position","fixed");

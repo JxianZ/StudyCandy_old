@@ -29,14 +29,14 @@ $(function () {
            $(".self-body>div:first-child").toggle();
            $(".self-body>div:last-child").toggle();
            $(".self-body>div:last-child").html("<h1>hehe</h1>");
-           listenheight();
+           heightListener();
        }
        else {
            $(".nav-pills>li:first-child").removeClass("active");
            $(".nav-pills>li:last-child").addClass("active");
            $(".self-body>div:first-child").toggle();
            $(".self-body>div:last-child").toggle();
-           listenheight();
+           heightListener();
        }
    });
    $("#mynote").click(function () {
@@ -44,6 +44,6 @@ $(function () {
        $(".nav-pills>li:last-child").removeClass("active");
        $(".self-body>div:first-child").toggle();
        $(".self-body>div:last-child").toggle();
-       listenheight();
+       heightListener()();
    });
 });
