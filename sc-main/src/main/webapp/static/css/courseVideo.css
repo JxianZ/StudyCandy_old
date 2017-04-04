@@ -1,0 +1,39 @@
+.content{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 50px;
+	background: #bab3b2
+}
+
+.rightBar{
+	margin-left: -15px;
+}
+
+.course-list .list-group-item{
+	border: 0px;
+}
+
+.comment{
+	margin-top: 20px;
+}
+
+.comment-list .list-group-item{
+	margin-top: 20px;
+}
+
+.long{
+	text-overflow:ellipsis;
+	-moz-text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	line-height: 50px;
+}
+
+.comment img{
+	width: 50px;
+	height: 50px;
+}
+
+.video{
+	background: black;
+}
