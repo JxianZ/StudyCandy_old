@@ -27,6 +27,33 @@
 
 <%@include file="../include/header.jsp"%>
 
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加笔记</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>标题</label>
+                        <input id="notetitle" type="text" class="form-control" placeholder="标题">
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea id="notecontent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="sendnote" type="submit" class="btn btn-primary">发表</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- banner-html start -->
 
 <div class="container-fluid banner-min">
@@ -91,8 +118,9 @@
 
 <div class="container selfroom-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="mynote" class="active"><a href="#">我写的笔记</a></li>
-        <li role="presentation" id="othernote"><a href="#">弱智写的笔记</a></li>
+        <li role="presentation" id="mynote" class="active"><a href="#">我的笔记</a></li>
+        <li role="presentation" id="addnote" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加笔记</button></li>
+        <li role="presentation" id="othernote"><a href="#">所有笔记</a></li>
     </ul>
     <div class="self-body">
         <div id="masonry">
@@ -155,7 +183,11 @@
                     这是一个标题
                 </div>
                 <div class="box-content">
-                    <p>这里是内容这里这里是内容这里是内容这里是内容这里是内容</p>
+                    <br>.box:hover{</br>
+                        -webkit-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;</br>
+                        -moz-box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;</br>
+                        box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;</br>
+                        }</p>
                 </div>
                 <div class="box-foot">
                     <span>666</span>浏览数

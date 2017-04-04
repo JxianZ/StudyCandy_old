@@ -72,3 +72,14 @@
 	color: #3e8f3e;
 	font-size: 14px;
 }
+#addnote{
+	margin-right: 20px;
+}
+.box:hover{
+	-webkit-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
+	-moz-box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
+	box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
+}
+#notecontent{
+	height: 300px;
+}
