@@ -205,7 +205,7 @@
                 </div>
             </div>
         </div><!-- my note end -->
-        <div></div><!-- other note -->
+        <div></div><!-- other note value="" -->
     </div>
 </div>
 
