@@ -31,7 +31,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 /*
      *广场首页 ：campusSquare
      *显示用户所有帖子界面 ：userpostlist
-     *帖子详细界面 ：postview
+     *帖子详细界面 ：post
      *帖子修改界面 ：modifypostview
      *添加帖子界面 ：addpostview
      *
@@ -119,7 +119,8 @@ public class SquareController extends BaseController {
     public String getPost(HttpServletRequest request, HttpServletResponse response, Model model,
                           @PathVariable("id") Integer id) {
         model.addAttribute("post",postService.getPostById(id));
-        return "postview";
+        model.addAttribute("user",userService.getUserById(postService.getPostById(id).getUserId()));
+        return "square/post";
     }
     //进入修改帖子界面
     @RequestMapping(value = "/modify/{id}", method = POST)

@@ -86,13 +86,13 @@
                 <c:forEach items="${allpostlist}" var="post">
                 <div class="row post">
                     <div class="col-md-1">
-                        <a href="campusSquare/post">
+                        <a href="/square/postview/${post.id}">
                             <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
                             <span>${postusername[post.userId]}</span>
                         </a>
                     </div>
                     <div class="col-xs-12 col-md-7">
-                        <h5><a href="campusSquare/post">${post.postTitle}</a></h5>
+                        <h5><a href="/square/postview/${post.id}">${post.postTitle}</a></h5>
                         <div class="long">${post.postContent}</div>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right text-bottom">

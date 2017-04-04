@@ -25,14 +25,14 @@
     <div class="content">
         <button type="button" class="btn btn-primary mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
         <div class="post">
-            <h1>标题<small>作者</small></h1>
+            <h1>${post.postTitle}<small>作者：${user.userNickname}</small></h1>
             <div class="row">
                 <div class="col-md-4">
                     <img class="img-responsive center-block" src="${__static__}/img/videotest.png">
                 </div>
                 <div class="details col-md-8">
-                    <div class="container-fluid ">
-                        描述
+                    <div class="container-fluid">
+                        ${post.postContent}
                     </div>
                 </div>
             </div>
