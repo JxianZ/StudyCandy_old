@@ -1,8 +1,8 @@
 .mynav{
-	margin-bottom: 20px;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 50px;
+    background: url('../img/banner/0.jpg');
 }
 
 .content-main{
@@ -59,3 +59,8 @@
 	z-index: 5;
 	bottom: 0px;
 }
+
+.class-detail{
+	margin-bottom: 20px;
+}
+

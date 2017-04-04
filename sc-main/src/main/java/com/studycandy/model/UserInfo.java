@@ -27,6 +27,10 @@ public class UserInfo {
 
     private Date rankDate;
 
+    private String userRealname;
+
+    private String userStuMajor;
+
     public Integer getId() {
         return id;
     }
@@ -121,5 +125,21 @@ public class UserInfo {
 
     public void setRankDate(Date rankDate) {
         this.rankDate = rankDate;
+    }
+
+    public String getUserRealname() {
+        return userRealname;
+    }
+
+    public void setUserRealname(String userRealname) {
+        this.userRealname = userRealname == null ? null : userRealname.trim();
+    }
+
+    public String getUserStuMajor() {
+        return userStuMajor;
+    }
+
+    public void setUserStuMajor(String userStuMajor) {
+        this.userStuMajor = userStuMajor == null ? null : userStuMajor.trim();
     }
 }
