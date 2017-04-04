@@ -18,14 +18,10 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.studycandy.model.Note">
-        insert into s_note (id, user_id, note_title,
-        note_content, gmt_create, gmt_modified,
-        is_published, like_num, today_num,
-        unlike_num)
-        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR},
-        #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
-        #{isPublished,jdbcType=INTEGER}, #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER},
-        #{unlikeNum,jdbcType=INTEGER})
+        insert into s_note (user_id, note_title,
+        note_content, gmt_create, gmt_modified
+        values (#{userId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR},
+        #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Note">
         update s_note
@@ -50,5 +46,11 @@
         select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published,
         like_num, today_num, unlike_num
         from s_note
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, user_id, note_title, note_content, gmt_create, gmt_modified, is_published,
+        like_num, today_num, unlike_num
+        from s_note
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>

@@ -47,8 +47,20 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
+    select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+    today_num, unlike_num, follow_id
+    from s_comment_note
+    </select>
+    <select id="selectByNoteId" resultMap="BaseResultMap">
         select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
         today_num, unlike_num, follow_id
         from s_comment_note
+        where note_id = #{noteId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, note_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, follow_id
+        from s_comment_note
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>

@@ -14,4 +14,8 @@ public interface CommentPostMapper {
     List<CommentPost> selectAll();
 
     int updateByPrimaryKey(CommentPost record);
+
+    List<CommentPost> selectByPostId(Integer postId);
+
+    List<CommentPost> selectByUserId(Integer userId);
 }

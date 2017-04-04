@@ -18,14 +18,11 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.studycandy.model.CommentPost">
-        insert into s_comment_post (id, post_id, user_id,
-        comment_content, gmt_create, gmt_modified,
-        like_num, today_num, unlike_num,
-        follow_id)
-        values (#{id,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
-        #{commentContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP},
-        #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, #{unlikeNum,jdbcType=INTEGER},
-        #{followId,jdbcType=INTEGER})
+        insert into s_comment_post (post_id, user_id,
+        comment_content, gmt_create, gmt_modified,follow_id)
+        values (#{postId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
+        #{commentContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP},
+        #{gmtModified,jdbcType=TIMESTAMP},#{followId,jdbcType=INTEGER})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.CommentPost">
         update s_comment_post
@@ -50,5 +47,17 @@
         select id, post_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
         today_num, unlike_num, follow_id
         from s_comment_post
+    </select>
+    <select id="selectByPostId" resultMap="BaseResultMap">
+        select id, post_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, follow_id
+        from s_comment_post
+        where post_id = #{postId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, post_id, user_id, comment_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, follow_id
+        from s_comment_post
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
 </mapper>
