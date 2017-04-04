@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
     private static Logger logger = Logger.getLogger(UserService.class);
     @Autowired

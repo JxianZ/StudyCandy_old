@@ -5,6 +5,7 @@ import com.studycandy.model.UserInfo;
 import flybear.hziee.core.mybatis.SqlRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Coding with Intellij IDEA

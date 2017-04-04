@@ -11,10 +11,6 @@ public class UserInfo {
 
     private String userGender;
 
-    private String userRealName;
-
-    private String userStuMajor;
-
     private String userIdCard;
 
     private Integer userLv;
@@ -30,6 +26,10 @@ public class UserInfo {
     private String userRank;
 
     private Date rankDate;
+
+    private String userRealname;
+
+    private String userStuMajor;
 
     public Integer getId() {
         return id;
@@ -61,22 +61,6 @@ public class UserInfo {
 
     public void setUserGender(String userGender) {
         this.userGender = userGender == null ? null : userGender.trim();
-    }
-
-    public String getUserRealName() {
-        return userRealName;
-    }
-
-    public void setUserRealName(String userRealName) {
-        this.userRealName = userRealName == null ? null : userRealName.trim();
-    }
-
-    public String getUserStuMajor() {
-        return userStuMajor;
-    }
-
-    public void setUserStuMajor(String userStuMajor) {
-        this.userStuMajor = userStuMajor == null ? null : userStuMajor.trim();
     }
 
     public String getUserIdCard() {
@@ -141,5 +125,21 @@ public class UserInfo {
 
     public void setRankDate(Date rankDate) {
         this.rankDate = rankDate;
+    }
+
+    public String getUserRealname() {
+        return userRealname;
+    }
+
+    public void setUserRealname(String userRealname) {
+        this.userRealname = userRealname == null ? null : userRealname.trim();
+    }
+
+    public String getUserStuMajor() {
+        return userStuMajor;
+    }
+
+    public void setUserStuMajor(String userStuMajor) {
+        this.userStuMajor = userStuMajor == null ? null : userStuMajor.trim();
     }
 }

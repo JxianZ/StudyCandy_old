@@ -127,7 +127,7 @@ public class UserController extends BaseController {
             try {
                 UserInfo userInfo = new UserInfo();
                 userInfo.setId(userService.getUserByUsername(username).getId());
-                userInfo.setUserRealName(realname);
+                userInfo.setUserRealname(realname);
                 userInfo.setUserGender(gender);
                 if(schoolid!=0) userInfo.setUserSchoolId(schoolid);
                 userInfo.setUserStuMajor(major);

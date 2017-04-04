@@ -125,7 +125,7 @@
                             <label class="col-sm-2 control-label">性别</label>
                             <div class="col-md-8 col-sm-10">
                                 <label class="radio-inline">
-                                    <input type="radio" name="usersex" id="inlineRadio1" value="male"> 男
+                                    <input type="radio" name="usersex" id="inlineRadio1" value="male" checked="checked"> 男
                                 </label>
                                 <label class="radio-inline">
                                     <input type="radio" name="usersex" id="inlineRadio2" value="female"> 女

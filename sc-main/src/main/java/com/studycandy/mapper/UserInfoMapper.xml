@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.studycandy.mapper.UserInfoMapper">
-    <resultMap id="BaseResultMap" type="com.studycandy.model.UserInfo">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="user_school_id" property="userSchoolId" jdbcType="INTEGER"/>
-        <result column="user_stu_id" property="userStuId" jdbcType="INTEGER"/>
-        <result column="user_gender" property="userGender" jdbcType="VARCHAR"/>
-        <result column="user_realname" property="userRealName" jdbcType="VARCHAR"/>
-        <result column="user_stu_major" property="userStuMajor" jdbcType="VARCHAR"/>
-        <result column="user_id_card" property="userIdCard" jdbcType="VARCHAR"/>
-        <result column="user_lv" property="userLv" jdbcType="INTEGER"/>
-        <result column="user_money" property="userMoney" jdbcType="INTEGER"/>
-        <result column="user_integral" property="userIntegral" jdbcType="INTEGER"/>
-        <result column="user_birth" property="userBirth" jdbcType="DATE"/>
-        <result column="user_motto" property="userMotto" jdbcType="VARCHAR"/>
-        <result column="user_rank" property="userRank" jdbcType="VARCHAR"/>
-        <result column="rank_date" property="rankDate" jdbcType="TIMESTAMP"/>
-    </resultMap>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from s_user_info
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-    <insert id="insert" parameterType="com.studycandy.model.UserInfo">
-        insert into s_user_info (id, user_school_id, user_stu_id,
-        user_gender, user_realname, user_id_card, user_lv,
-        user_money, user_integral, user_birth,
-        user_motto, user_rank, rank_date, user_stu_major
-        )
-        values (#{id,jdbcType=INTEGER}, #{userSchoolId,jdbcType=INTEGER}, #{userStuId,jdbcType=INTEGER},
-        #{userGender,jdbcType=VARCHAR}, #{userRealName,jdbcType=VARCHAR}, #{userIdCard,jdbcType=VARCHAR}, #{userLv,jdbcType=INTEGER},
-        #{userMoney,jdbcType=INTEGER}, #{userIntegral,jdbcType=INTEGER}, #{userBirth,jdbcType=DATE},
-        #{userMotto,jdbcType=VARCHAR}, #{userRank,jdbcType=VARCHAR}, #{rankDate,jdbcType=TIMESTAMP}, #{userStuMajor,jdbcType=VARCHAR}
-        )
-    </insert>
-    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.UserInfo">
-        update s_user_info
-        set user_school_id = #{userSchoolId,jdbcType=INTEGER},
-        user_stu_id = #{userStuId,jdbcType=INTEGER},
-        user_gender = #{userGender,jdbcType=VARCHAR},
-        user_realname = #{userRealName,jdbcType=VARCHAR},
-        user_stu_major = #{userStuMajor,jdbcType=VARCHAR},
-        user_id_card = #{userIdCard,jdbcType=VARCHAR},
-        user_lv = #{userLv,jdbcType=INTEGER},
-        user_money = #{userMoney,jdbcType=INTEGER},
-        user_integral = #{userIntegral,jdbcType=INTEGER},
-        user_birth = #{userBirth,jdbcType=DATE},
-        user_motto = #{userMotto,jdbcType=VARCHAR},
-        user_rank = #{userRank,jdbcType=VARCHAR},
-        rank_date = #{rankDate,jdbcType=TIMESTAMP}
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select id, user_school_id, user_stu_id, user_gender, user_realname, user_id_card, user_lv, user_money,
-        user_integral, user_birth, user_motto, user_rank, rank_date, user_stu_major
-        from s_user_info
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-        select id, user_school_id, user_stu_id, user_gender, user_realname, user_id_card, user_lv, user_money,
-        user_integral, user_birth, user_motto, user_rank, rank_date, user_stu_major
-        from s_user_info
-    </select>
+<mapper namespace="com.studycandy.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.studycandy.model.UserInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_school_id" property="userSchoolId" jdbcType="INTEGER" />
+    <result column="user_stu_id" property="userStuId" jdbcType="INTEGER" />
+    <result column="user_gender" property="userGender" jdbcType="VARCHAR" />
+    <result column="user_id_card" property="userIdCard" jdbcType="VARCHAR" />
+    <result column="user_lv" property="userLv" jdbcType="INTEGER" />
+    <result column="user_money" property="userMoney" jdbcType="INTEGER" />
+    <result column="user_integral" property="userIntegral" jdbcType="INTEGER" />
+    <result column="user_birth" property="userBirth" jdbcType="DATE" />
+    <result column="user_motto" property="userMotto" jdbcType="VARCHAR" />
+    <result column="user_rank" property="userRank" jdbcType="VARCHAR" />
+    <result column="rank_date" property="rankDate" jdbcType="TIMESTAMP" />
+    <result column="user_realname" property="userRealname" jdbcType="VARCHAR" />
+    <result column="user_stu_major" property="userStuMajor" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_user_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.studycandy.model.UserInfo" >
+    insert into s_user_info (id, user_school_id, user_stu_id, 
+      user_gender, user_id_card, user_lv, 
+      user_money, user_integral, user_birth, 
+      user_motto, user_rank, rank_date, 
+      user_realname, user_stu_major)
+    values (#{id,jdbcType=INTEGER}, #{userSchoolId,jdbcType=INTEGER}, #{userStuId,jdbcType=INTEGER}, 
+      #{userGender,jdbcType=VARCHAR}, #{userIdCard,jdbcType=VARCHAR}, #{userLv,jdbcType=INTEGER}, 
+      #{userMoney,jdbcType=INTEGER}, #{userIntegral,jdbcType=INTEGER}, #{userBirth,jdbcType=DATE}, 
+      #{userMotto,jdbcType=VARCHAR}, #{userRank,jdbcType=VARCHAR}, #{rankDate,jdbcType=TIMESTAMP}, 
+      #{userRealname,jdbcType=VARCHAR}, #{userStuMajor,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.studycandy.model.UserInfo" >
+    update s_user_info
+    set user_school_id = #{userSchoolId,jdbcType=INTEGER},
+      user_stu_id = #{userStuId,jdbcType=INTEGER},
+      user_gender = #{userGender,jdbcType=VARCHAR},
+      user_id_card = #{userIdCard,jdbcType=VARCHAR},
+      user_lv = #{userLv,jdbcType=INTEGER},
+      user_money = #{userMoney,jdbcType=INTEGER},
+      user_integral = #{userIntegral,jdbcType=INTEGER},
+      user_birth = #{userBirth,jdbcType=DATE},
+      user_motto = #{userMotto,jdbcType=VARCHAR},
+      user_rank = #{userRank,jdbcType=VARCHAR},
+      rank_date = #{rankDate,jdbcType=TIMESTAMP},
+      user_realname = #{userRealname,jdbcType=VARCHAR},
+      user_stu_major = #{userStuMajor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money, 
+    user_integral, user_birth, user_motto, user_rank, rank_date, user_realname, user_stu_major
+    from s_user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money, 
+    user_integral, user_birth, user_motto, user_rank, rank_date, user_realname, user_stu_major
+    from s_user_info
+  </select>
 </mapper>

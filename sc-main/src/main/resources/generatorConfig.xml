@@ -140,25 +140,26 @@
             <property name="rootInterface" value=""/>
              -->
         </javaClientGenerator>
+        <table tableName="s_user_info" domainObjectName="UserInfo"/>
+
+        <!--
         <table tableName="s_answer" domainObjectName="Answer"/>
-        <!--        <table tableName="s_coach" domainObjectName="Coach"/>-->
+        <table tableName="s_coach" domainObjectName="Coach"/>
         <table tableName="s_comment_course" domainObjectName="CommentCourse"/>
         <table tableName="s_comment_note" domainObjectName="CommentNote"/>
         <table tableName="s_comment_post" domainObjectName="CommentPost"/>
         <table tableName="s_course" domainObjectName="Course"/>
-        <!--
         <table tableName="s_credit" domainObjectName="Credit"/>
-        -->
         <table tableName="s_note" domainObjectName="Note"/>
-        <!--
         <table tableName="s_post" domainObjectName="Post"/>
-        <table tableName="s_question" domainObjectName="Question"/>-->
+        <table tableName="s_question" domainObjectName="Question"/>
         <table tableName="s_rank_day" domainObjectName="RankDay"/>
         <table tableName="s_rank_week" domainObjectName="RankWeek"/>
-        <!--<table tableName="s_school" domainObjectName="School"/>
+        <table tableName="s_school" domainObjectName="School"/>
         <table tableName="s_user" domainObjectName="User"/>
-        <table tableName="s_user_info" domainObjectName="UserInfo"/>
-        <table tableName="s_user_sec" domainObjectName="UserSec"/>-->
+
+        <table tableName="s_user_sec" domainObjectName="UserSec"/>
+        -->
         <!-- 选择一个table来生成相关文件，可以有一个或多个table，必须要有table元素
             选择的table会生成一下文件：
             1，SQL map文件
