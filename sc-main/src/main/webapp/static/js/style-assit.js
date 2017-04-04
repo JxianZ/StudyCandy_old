@@ -17,6 +17,20 @@ $(function () {
     var $height = $(window).height();
     if($height>$(document.body).height()){
         $("footer").css("position","fixed");
+        $("footer").css("top", $height-53.2);
     }
-    $("footer").css("top", $height-53.2);
 });
+
+function listenheight() {
+    var $height = $(window).height();
+    if($height>$(document.body).height()){
+        $("footer").css("position","fixed");
+        $("footer").css("top", $height-53.2);
+        $("footer").css("margin-top","0");
+    }
+    else{
+        $("footer").css("position","absolute");
+        $("footer").css("top", $(document.body).height()-53.2);
+        $("footer").css("margin-top","40px");
+    }
+}
