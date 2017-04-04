@@ -49,11 +49,11 @@ public class BigClassroomController extends BaseController {
         model.addAttribute("courseList",courseService.getCourseByClassId(classId));
        return "classroom/smallClassroom";
     }
-    @RequestMapping(value = {"/course/{courseId}"})
+    @RequestMapping(value = {"/courseVideo/{courseId}"})
     public String toCourse(HttpServletRequest request, HttpServletResponse response, Model model,
                            @PathVariable("courseId")Integer courseId) {
             model.addAttribute("Course",courseService.getCourseById(courseId));
-        return "classroom/course";
+        return "classroom/courseVideo";
 
     }
 }
