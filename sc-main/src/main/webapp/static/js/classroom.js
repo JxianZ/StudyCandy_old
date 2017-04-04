@@ -50,11 +50,11 @@ $(function () {
 
 $(function () {
     $("#sendnote").click(function () {
-        var title = $("#notetitle").val();
-        var content= $("#notecontent").val();
+        var notetitle = $("#notetitle").val();
+        var notecontent= $("#notecontent").val();
         var data = {
-            "noteTitle":  title,
-            "noteContent":content
+            "noteTitle":  notetitle,
+            "noteContent":notecontent
         };
         $.ajax({
             url: "/selfstudy/addNote",
@@ -62,12 +62,7 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: function (r) {
-                if(r.status==0) {
-                    window.location.reload();
-                }
-                else{
-                    alert(r.info);
-                }
+                alert("看起来成功了");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Error");
