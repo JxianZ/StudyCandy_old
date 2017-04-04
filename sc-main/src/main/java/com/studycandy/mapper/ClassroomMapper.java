@@ -13,4 +13,6 @@ public interface ClassroomMapper {
     List<Classroom> selectAll();
 
     int updateByPrimaryKey(Classroom record);
+
+    List<Classroom> selectBySchoolId(Integer schoolId);
 }

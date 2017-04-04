@@ -49,4 +49,9 @@
         today_num, unlike_num
         from s_course
     </select>
+    <select id="selectByClassId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+        from s_course
+        where class_id = #{Class_Id,jdbcType=INTEGER}
+    </select>
 </mapper>

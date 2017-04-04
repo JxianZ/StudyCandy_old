@@ -1,7 +1,10 @@
 package com.studycandy.controller;
 
 import com.studycandy.core.BaseController;
+import com.studycandy.service.ClassRoomService;
+import com.studycandy.service.CourseService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,22 +22,38 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/classroom")
 public class BigClassroomController extends BaseController {
     private Logger logger = Logger.getLogger(this.getClass());
+    @Autowired
+    private ClassRoomService classRoomService;
+    @Autowired
+    private CourseService courseService;
 
-    //校区所有的教室列表
+    //大教室临时入口
     @RequestMapping(value = {"", "/"})
     public String classList(HttpServletRequest request, HttpServletResponse response, Model model) {
+        model.addAttribute("info","请您先登录");
+        return "classroom/bigClassroom";
+    }
+
+    //校区所有的教室列表
+    @RequestMapping(value = {"/{schoolId}"})
+    public String classList(HttpServletRequest request, HttpServletResponse response, Model model,
+                            @PathVariable("schoolId")Integer schoolId) {
         //TODO 按校区获取教室
+        model.addAttribute("classRoomList",classRoomService.getClassRoomsBySchoolId(schoolId));
         return "classroom/bigClassroom";
     }
     //
     @RequestMapping(value = "/smallClassroom/{classId}")
     public String classView(HttpServletRequest request, HttpServletResponse response, Model model,
                             @PathVariable("classId")Integer classId){
+        model.addAttribute("courseList",courseService.getCourseByClassId(classId));
        return "classroom/smallClassroom";
     }
-    @RequestMapping(value = {"/course"})
-    public String toCourse(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "classroom/course";
+    @RequestMapping(value = {"/courseVideo/{courseId}"})
+    public String toCourse(HttpServletRequest request, HttpServletResponse response, Model model,
+                           @PathVariable("courseId")Integer courseId) {
+            model.addAttribute("Course",courseService.getCourseById(courseId));
+        return "classroom/courseVideo";
 
     }
 }

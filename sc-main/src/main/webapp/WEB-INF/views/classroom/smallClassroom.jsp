@@ -30,6 +30,10 @@
                     <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
                 </div>
                 <div class="col-md-10">
+                    <div class="class-detail">
+                        <h3>教室名</h3>
+                        <h4>管理员名</h4>
+                    </div>
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="active"><a href="#">系别分类</a></li>
                         <li role="presentation"><a href="#">系别1</a></li>
@@ -53,28 +57,38 @@
         </div>
         <div class="content-main">
             <div class="container-fluid">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="#">最新</a></li>
-                    <li role="presentation"><a href="#">最新</a></li>
-                </ul>
-                <div class="row">
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
-                        <div class="up">
-                            <a href="course" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
+                <div class="collection">
+                    <h2>合集</h2>
+                    <div class="row">
+                        <c:forEach items="${courseList}" var="course">
+                        <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
+                            <div class="up">
+                                <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                            </div>
+                            <span class="className"><strong>课程名称</strong>${course.courseTitle}</span>
+                            <a class="btn btn-default mybtn" href="/classroom/courseVideo/${course.id}" target="_blank">开始学习</a>
+                            <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
+                            <span class="lecturerName"><strong>讲师id</strong>${course.userId}</span>
+                            <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
                         </div>
-                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
+                        </c:forEach>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
-                        <div class="up">
-                            <a href="course" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
-                        </div>
-                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 img-bottom myImg">
-                        <div class="up">
-                            <a href="course" target="_blank"><img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image"></a>
-                        </div>
-                        <a href="#"><img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image"></a>
+                </div>
+                <div class="single">
+                    <h2>单品</h2>
+                    <div class="row">
+                        <c:forEach items="${courseList}" var="course">
+                            <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
+                                <div class="up">
+                                    <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                                </div>
+                                <span class="className"><strong>课程名称</strong>${course.courseTitle}</span>
+                                <a class="btn btn-default mybtn" href="/classroom/courseVideo/${course.id}" target="_blank">开始学习</a>
+                                <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
+                                <span class="lecturerName"><strong>讲师id</strong>${course.userId}</span>
+                                <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -109,5 +123,6 @@
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/carousel.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/smallClassroom.js"></script>
 
 </html>

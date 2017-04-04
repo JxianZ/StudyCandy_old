@@ -1,8 +1,8 @@
 .mynav{
-	margin-bottom: 20px;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 50px;
+    background: url('../img/banner/0.jpg');
 }
 
 .content-main{
@@ -26,4 +26,41 @@
 
 .up{
 	position: absolute;
+	z-index: 5;
+	padding-right: 15px;
 }
+
+.userImg{
+	width: 30%;
+	position: absolute;
+	left: calc(50% - 15%);
+	bottom: 30%;
+	z-index: 2;
+}
+
+.lecturerName{
+	width: calc(100% - 30px);
+	text-align: center;
+	position: absolute;
+	bottom: 20%;
+	z-index: 2;
+	color: white;
+}
+
+.mybtn{
+	position: absolute;
+	left: calc(50% - 40px);
+	bottom: 5%;
+	z-index: 2;
+}
+
+.className{
+	position: absolute;
+	z-index: 5;
+	bottom: 0px;
+}
+
+.class-detail{
+	margin-bottom: 20px;
+}
+
