@@ -181,9 +181,9 @@
                         <div class="form-group reg-select">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-md-8 col-sm-10">
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
+                                <select class="form-control" id="schoolselect">
+                                    <option value="0"></option>
+                                    <option value="1">杭电信工</option>
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>

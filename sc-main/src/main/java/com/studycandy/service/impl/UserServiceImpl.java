@@ -111,4 +111,9 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    @Override
+    public Integer deleteUser(Integer id){
+        return userMapper.deleteByPrimaryKey(id);
+    }
 }

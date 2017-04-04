@@ -29,10 +29,10 @@
                     <img class="img-responsive center-block" src="${__static__}/img/videotest.png">
                 </div>
                 <div class="details col-md-8">
-                    <h1>标题</h1>
-                    <h3>作者</h3>
+                    <h1>${post.postTitle}</h1>
+                    <h3>作者：${user.userNickname}</h3>
                     <div class="container-fluid">
-                        简介
+                        ${post.postContent}
                     </div>
                     <div>
                     </div>
