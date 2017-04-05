@@ -1,11 +1,11 @@
 package com.studycandy.core.sql;
 
 import com.studycandy.core.util.Fn;
+import com.studycandy.core.util.SpringContextUtil;
 import org.apache.log4j.Logger;
+import org.springframework.core.env.Environment;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.Map.Entry;
@@ -59,14 +59,10 @@ public class SQLBuilder {
     }
 
     private static String getPrefix() {
-        Properties p = new Properties();
-        try {
-            InputStream in = new FileInputStream("/jdbc.properties");
-            p.load(in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return Fn.nullToEmpty(p.getProperty("jdbc.prefix"));
+        Environment env = SpringContextUtil.getApplicationContext().getEnvironment();
+        if (env.containsProperty("jdbc.prefix"))
+            return env.getProperty("jdbc.prefix");
+        return null;
     }
 
     /**

@@ -52,8 +52,10 @@ public class MysqlRealm extends AuthorizingRealm {
         if (Boolean.FALSE.equals(user.getAvailable())) {
             throw new LockedAccountException();
         }
-        // TODO: 2017/3/27 Created By Chenls
-        // 此处可变更实现方式
+        /**
+         * TODO: 2017/3/27 Created By Chenls
+         * 此处可变更实现方式
+         */
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(),
                 user.getPassword(),

@@ -1,6 +1,5 @@
 package com.studycandy.a2c.service.impl;
 
-import com.studycandy.a2c.constant.Constants;
 import com.studycandy.a2c.mapper.UserAppPermissionMapper;
 import com.studycandy.a2c.mapper.UserAppRoleMapper;
 import com.studycandy.a2c.model.*;
@@ -94,7 +93,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     @Override
     public List<Role> getRoleByAppUser(Integer appid, Long userid) {
-        SQLBuilder sqlBuilder = new SQLBuilder(UserAppRole.class, Constants.TABLE_PREFIX);
+        SQLBuilder sqlBuilder = new SQLBuilder(UserAppRole.class);
         String sql = sqlBuilder
                 .fields("*")
                 .where("app_id=" + appid)
@@ -117,7 +116,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     @Override
     public List<Permission> getPermissionByAppUser(Integer appid, Long userid) {
-        SQLBuilder sqlBuilder = new SQLBuilder(UserAppPermission.class, Constants.TABLE_PREFIX);
+        SQLBuilder sqlBuilder = new SQLBuilder(UserAppPermission.class);
         String sql = sqlBuilder
                 .fields("*")
                 .where("app_id=" + appid)

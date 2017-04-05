@@ -72,7 +72,7 @@ public class RoleServiceImpl implements RoleService {
         for (Long roleId : roleIds) {
             Role role = getRoleById(roleId);
             if (role == null)
-                permissionsIds.addAll(role.getRolePermissionids());
+                permissionsIds.addAll(role.getRolePermissionIdList());
         }
         return permissionService.findPermissions(permissionsIds);
     }

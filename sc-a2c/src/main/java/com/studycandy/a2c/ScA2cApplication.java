@@ -3,6 +3,8 @@ package com.studycandy.a2c;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
  * Coding with Intellij IDEA
@@ -15,8 +17,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         "com.studycandy.a2c.mapper",
         "com.studycandy.a2c.session.mapper"
 })
-public class ScA2cApplication {
+public class ScA2cApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ScA2cApplication.class, args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(ScA2cApplication.class);
     }
 }

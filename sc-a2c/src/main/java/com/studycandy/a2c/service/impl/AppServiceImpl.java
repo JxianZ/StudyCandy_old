@@ -1,6 +1,5 @@
 package com.studycandy.a2c.service.impl;
 
-import com.studycandy.a2c.constant.Constants;
 import com.studycandy.a2c.mapper.AppMapper;
 import com.studycandy.a2c.model.App;
 import com.studycandy.a2c.service.AppService;
@@ -55,7 +54,7 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public Integer getAppIdByAppKey(String appkey) {
-        SQLBuilder sqlBuilder = new SQLBuilder(App.class, Constants.TABLE_PREFIX);
+        SQLBuilder sqlBuilder = new SQLBuilder(App.class);
         String sql = sqlBuilder.fields("id").where("app_key=", appkey).selectSql();
         List<Row> rowList = sqlRunner.select(sql);
         if (rowList.size() != 0)
