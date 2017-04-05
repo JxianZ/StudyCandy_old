@@ -22,7 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by Administrator on 2017/3/30 0030.
  */
 @Controller
-@RequestMapping(value = "QARoom")
+@RequestMapping(value = "/QARoom")
 public class QAController extends BaseController {
     @Autowired
     private QAService qaService;
@@ -36,8 +36,8 @@ public class QAController extends BaseController {
     //获取所有问题
     @RequestMapping(value = "")
     public String getAllQuestion(HttpServletRequest request, HttpServletResponse response, Model model){
-        model.addAttribute("allquestionlist", qaService.getAllQuestion());
-        return "QuestionAndQuestionRoom";
+        //model.addAttribute("allquestionlist", qaService.getAllQuestion());
+        return "classroom/assistRoom";
     }
     //获取用户提出的所有问题
     @RequestMapping(value = "/userquestionlist", method = POST)

@@ -22,13 +22,13 @@ $(function () {
     });
 });
 $(function () {
-   $("#othernote").click(function () {
+   $("#mynote").click(function () {
        if ($(".self-body>div:last-child").html()==""){
            $(".nav-pills>li:first-child").removeClass("active");
            $(".nav-pills>li:last-child").addClass("active");
            $(".self-body>div:first-child").toggle();
            $(".self-body>div:last-child").toggle();
-           $(".self-body>div:last-child").html("<h1>hehe</h1>");
+           $(".self-body>div:last-child").html("<h1>请先登录</h1>");
            heightListener();
        }
        else {
@@ -39,7 +39,7 @@ $(function () {
            heightListener();
        }
    });
-   $("#mynote").click(function () {
+   $("#othernote").click(function () {
        $(".nav-pills>li:first-child").addClass("active");
        $(".nav-pills>li:last-child").removeClass("active");
        $(".self-body>div:first-child").toggle();
@@ -62,7 +62,15 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: function (r) {
-                alert("看起来成功了");
+                if(r.status==0) {
+                    alert(r.info);
+                }
+                else{
+                    if(r.status==-1){
+                        alert(r.info);
+                        window.location.href="/user";
+                    }
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Error");

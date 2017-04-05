@@ -3,8 +3,10 @@ package com.studycandy.controller;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.CommentNote;
 import com.studycandy.model.Note;
+import com.studycandy.model.User;
 import com.studycandy.service.CommentNoteService;
 import com.studycandy.service.NoteService;
+import com.studycandy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/3 0003.
@@ -42,11 +46,24 @@ public class SelfController extends BaseController{
     private NoteService noteService;
     @Autowired
     private CommentNoteService commentNoteService;
+    @Autowired
+    private UserService userService;
 
     //访问自习室首页
     @RequestMapping(value = {"","/"})
     public String selfstudy(HttpServletRequest request, HttpServletResponse response, Model model){
-        model.addAttribute("notelist",noteService.getAllNote());
+        List<Note> l = noteService.getAllNote();
+        Map<Integer,String> m = new HashMap<Integer, String>();
+        String nickname="";
+        for(Note n : l){
+            if(userService.getUserById(n.getUserId())!=null)
+                nickname=userService.getUserById(n.getUserId()).getUserNickname();
+            else
+                nickname="null";
+            m.put(n.getUserId(),nickname);
+        }
+        model.addAttribute("allnotelist", l);
+        model.addAttribute("noteusername",m);
         return "classroom/selfStudyRoom";
     }
     //切换到我的自习室
@@ -74,10 +91,16 @@ public class SelfController extends BaseController{
         entity.setNoteContent(noteContent);
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
-        entity.setUserId(this.getCurrentUser(request).getId());
-        noteService.save(entity);
-        model.addAttribute("note",entity);
-        return "noteview";
+        try{
+            if(this.getCurrentUser(request)==null) throw new Exception("请您先登录");
+            entity.setUserId(this.getCurrentUser(request).getId());
+            noteService.save(entity);
+            model.addAttribute("note",entity);
+            //TODO return "noteview"; //详细界面
+            return ajaxReturn(response, null, "笔记发布成功！", 0);
+        }catch (Exception e){
+            return ajaxReturn(response, null, e.getMessage(), -1);
+        }
     }
     //删除笔记
     @RequestMapping(value = "deleteNote", method = POST)
