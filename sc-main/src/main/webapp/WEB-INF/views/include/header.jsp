@@ -24,8 +24,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-ul">
                     <li><a href="/classroom/">大教室</a></li>
-                    <li><a href="#">辅导室</a></li>
-                    <li><a href="#">自习室</a></li>
+                    <li><a href="/QARoom">辅导室</a></li>
+                    <li><a href="/selfstudy">自习室</a></li>
                     <li><a href="/square">校园广场</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

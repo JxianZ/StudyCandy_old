@@ -194,12 +194,15 @@
                         window.location.reload();
                     }
                     else{
+                        if(r.status==-1){
+                            window.location.href="/user";
                             alert(r.info);
+                        }
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     if(XMLHttpRequest.status==0){
-                        alert("请先登录");
+                        alert("error");
                     }
                 },
             });

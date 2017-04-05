@@ -77,12 +77,12 @@ public class SquareController extends BaseController {
                 new Timestamp(new Date().getTime())
         );
         entity.setGmtModified(new Timestamp(new Date().getTime()));
-        entity.setUserId(this.getCurrentUser(request).getId());
-
         try {
+            if(this.getCurrentUser(request)==null) throw new Exception("请您先登录");
+            entity.setUserId(this.getCurrentUser(request).getId());
             postService.save(entity);
         } catch (Exception e) {
-            return ajaxReturn(response, null, "", -1);
+            return ajaxReturn(response, null, e.getMessage(), -1);
         }
         return ajaxReturn(response, null, "发帖成功！", 0);
     }
