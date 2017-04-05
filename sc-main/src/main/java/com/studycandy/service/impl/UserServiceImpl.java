@@ -1,9 +1,9 @@
 package com.studycandy.service.impl;
 
+import com.studycandy.core.util.MD5String;
 import com.studycandy.mapper.UserMapper;
 import com.studycandy.model.User;
 import com.studycandy.service.UserService;
-import com.studycandy.util.MD5String;
 import flybear.hziee.core.mybatis.SqlRunner;
 import flybear.hziee.core.sql.Row;
 import flybear.hziee.core.sql.SQLBuilder;

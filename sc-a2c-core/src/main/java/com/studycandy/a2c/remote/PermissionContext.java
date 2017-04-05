@@ -23,7 +23,6 @@ public class PermissionContext implements Serializable {
         this.permissions = permissions;
     }
 
-
     @Override
     public String toString() {
         return "PermissionContext{" +
