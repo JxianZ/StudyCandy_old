@@ -18,11 +18,30 @@ $(function() {
             $(".modal-content textarea").addClass("night-style");
             $.ajax({
                 url: "/square/night",
-                data: data,
+                data: null,
                 type: "POST",
                 dataType: "json",
                 success: function (r) {
-                    alert(r.data.allpostlist);
+                    var str="";
+                    for(var i=0;i<r.data.length;i++){
+                        str+='<div class="row post">'
+                            +'<div class="col-md-1">'
+                            +'<a href="/square/postview/'+r.data[i].id+'">'
+                            +'<img class="img-responsive img-circle" src="../../../static/img/videotest.png">'
+                            +'<span>匿名</span>'
+                            +'</a>'
+                            +'</div>'
+                            +'<div class="col-xs-12 col-md-7">'
+                            +'<h5><a href="/square/postview/'+r.data[i].id+'">'+r.data[i].postTitle+'</a></h5>'
+                            +'<div class="long">'+r.data[i].postContent+'</div>'
+                            +'</div>'
+                            +'<div class="col-xs-12 col-md-4 text-right text-bottom">'
+                            +'<small>回复人数</small>&nbsp;&nbsp;<small>发布时间:'+r.data[i].gmtModified+'</small>'
+                            +'</div>'
+                            +'</div>';
+                    }
+
+                    $(".post-list").html(str);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     if(XMLHttpRequest.status==0){
@@ -38,6 +57,39 @@ $(function() {
             $(".modal-content").removeClass("night-style");
             $(".modal-content input").removeClass("night-style");
             $(".modal-content textarea").removeClass("night-style");
+            $.ajax({
+                url: "/square/night",
+                data: null,
+                type: "POST",
+                dataType: "json",
+                success: function (r) {
+                    var str="";
+                    for(var i=0;i<r.data.length;i++){
+                        str+='<div class="row post">'
+                            +'<div class="col-md-1">'
+                            +'<a href="/square/postview/'+r.data[i].id+'">'
+                            +'<img class="img-responsive img-circle" src="../../../static/img/videotest.png">'
+                            +'<span>匿名</span>'
+                            +'</a>'
+                            +'</div>'
+                            +'<div class="col-xs-12 col-md-7">'
+                            +'<h5><a href="/square/postview/'+r.data[i].id+'">'+r.data[i].postTitle+'</a></h5>'
+                            +'<div class="long">'+r.data[i].postContent+'</div>'
+                            +'</div>'
+                            +'<div class="col-xs-12 col-md-4 text-right text-bottom">'
+                            +'<small>回复人数</small>&nbsp;&nbsp;<small>发布时间:'+r.data[i].gmtModified+'</small>'
+                            +'</div>'
+                            +'</div>';
+                    }
+
+                    $(".post-list").html(str);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    if(XMLHttpRequest.status==0){
+                        alert("error");
+                    }
+                },
+            });
         }
     });
 
@@ -89,5 +141,5 @@ $(function () {
 });
 
 $("#uplodeImg").change(function(){
-    $("#showLocation").val($(this).val());
+    $("#showLocation").html($(this).val());
 });

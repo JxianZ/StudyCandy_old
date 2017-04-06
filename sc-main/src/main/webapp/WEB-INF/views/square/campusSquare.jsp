@@ -79,7 +79,7 @@
         <div class="content-main container">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#">最新</a></li>
-                <li role="presentation"><a href="#">最新</a></li>
+                <li role="presentation"><a href="#">最热</a></li>
                 <li role="presentation" class="navbar-right">
                     <button id="change" type="button" class="btn btn-default">白天</button>
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sendPost">发帖</button>
@@ -145,7 +145,7 @@
                                     <label for="uplodeImg">图片上传</label>
                                     <input id="uplodeImg" type="file" style="display: none;">
                                     <div class="input-group">
-                                        <input id="showLocation" type="text" class="form-control" placeholder="文件路径" disabled="disabled">
+                                        <span id="showLocation">文件路径</span>
                                         <span class="input-group-btn">
                                                 <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
                                             </span>
