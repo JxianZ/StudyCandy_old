@@ -133,7 +133,7 @@
                     <p>${note.noteContent}</p>
                 </div>
                 <div class="box-foot">
-                    作者<span>${noteusername[note.userId]}</span>
+                    作者：<span>${noteusername[note.userId]}</span>
                 </div>
             </div>
             </c:forEach>
@@ -151,7 +151,7 @@
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/carousel.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
-<script src="${__static__}/js/masonry-docs.min.js"></script>
 <script src="${__static__}/js/classroom.js"></script>
+<script src="${__static__}/js/masonry-docs.min.js"></script>
 </body>
 </html>
