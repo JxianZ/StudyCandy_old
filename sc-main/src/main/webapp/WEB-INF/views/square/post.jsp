@@ -57,8 +57,6 @@
                     </div>
                 </li>
                 </c:forEach>
-
-
             </ul>
         </div>
         <nav aria-label="Page navigation" class="text-center">
