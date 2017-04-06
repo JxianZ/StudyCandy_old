@@ -38,54 +38,7 @@
         </div>
         <div class="comment-list">
             <ul class="list-group">
-                <li class="list-group-item">
-                    <div class="row comment">
-                        <div class="col-md-1">
-                            <a href="#">
-                                <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            </a>
-                        </div>
-                        <div class="col-md-9">
-                            <h4>用户名</h4>
-                            <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
-                        </div>
-                        <div class="col-md-2 text-right">
-                            <small>发布时间</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row comment">
-                        <div class="col-md-1">
-                            <a href="#">
-                                <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            </a>
-                        </div>
-                        <div class="col-md-9">
-                            <h4>用户名</h4>
-                            <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
-                        </div>
-                        <div class="col-md-2 text-right">
-                            <small>发布时间</small>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row comment">
-                        <div class="col-md-1">
-                            <a href="#">
-                                <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                            </a>
-                        </div>
-                        <div class="col-md-9">
-                            <h4>用户名</h4>
-                            <div class="long">很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</div>
-                        </div>
-                        <div class="col-md-2 text-right">
-                            <small>发布时间</small>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
         </div>
         <nav aria-label="Page navigation" class="text-center">

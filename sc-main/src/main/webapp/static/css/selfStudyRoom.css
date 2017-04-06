@@ -43,7 +43,7 @@
 	border:solid #c8c5ca 1px;
 	margin-bottom: 20px;
 	float: left;
-	max-width: 260px;
+	width: 260px;
 }
 .box-title{
 	border-radius: 15px 15px 0 0;
