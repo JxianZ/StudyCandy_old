@@ -64,11 +64,14 @@ public class SelfController extends BaseController{
         }
         model.addAttribute("allnotelist", l);
         model.addAttribute("noteusername",m);
+        Integer UserId = this.getCurrentUser(request).getId();
+        List<Note> myNotes = noteService.getUserNoteList(UserId);
+        model.addAttribute("myNotes",myNotes);
         return "classroom/selfStudyRoom";
     }
 
     //切换到我的自习室
-    @RequestMapping(value = "mine")
+    @RequestMapping(value = "/mine" ,method=POST)
     public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model){
         Integer UserId = this.getCurrentUser(request).getId();
         List<Note> myNotes = noteService.getUserNoteList(UserId);

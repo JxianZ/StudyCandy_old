@@ -11,47 +11,6 @@ $(function() {
         });
     });
 });
-$(function () {
-    $(".box").mouseover(function () {
-        $(this).css("border","solid #FFFFFF 0");
-        $(this).find('.box-title').css("background-color","#f38094");
-    });
-    $(".box").mouseout(function () {
-        $(this).css("border","solid #c8c5ca 1px");
-        $(this).find('.box-title').css("background-color","#ce8483");
-    });
-});
-$(function () {
-   $("#mynote").click(function () {
-       if ($(".self-body>div:last-child").html()==""){
-           $.post("/selfstudy/mine","json", function() {
-               $(".self-body>div:first-child").removeAttr("id");
-               $(".self-body>div:last-child").attr("id","masonry");
-               $(".nav-pills>li:first-child").removeClass("active");
-               $(".nav-pills>li:last-child").addClass("active");
-               $(".self-body>div:first-child").hide();
-               $(".self-body>div:last-child").show();
-               heightListener();
-           });
-       }
-       else {
-           $(".nav-pills>li:first-child").removeClass("active");
-           $(".nav-pills>li:last-child").addClass("active");
-           $(".self-body>div:first-child").hide();
-           $(".self-body>div:last-child").show();
-           heightListener();
-       }
-   });
-   $("#othernote").click(function () {
-       $(".self-body>div:last-child").removeAttr("id");
-       $(".self-body>div:first-child").attr("id","masonry");
-       $(".nav-pills>li:first-child").addClass("active");
-       $(".nav-pills>li:last-child").removeClass("active");
-       $(".self-body>div:first-child").show();
-       $(".self-body>div:last-child").hide();
-       heightListener()();
-   });
-});
 
 $(function () {
     $("#sendnote").click(function () {

@@ -153,5 +153,76 @@
 <script src="${__static__}/js/style-assit.js"></script>
 <script src="${__static__}/js/classroom.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".box").mouseover(function () {
+            $(this).css("border","solid #FFFFFF 0");
+            $(this).find('.box-title').css("background-color","#f38094");
+        });
+        $(".box").mouseout(function () {
+            $(this).css("border","solid #c8c5ca 1px");
+            $(this).find('.box-title').css("background-color","#ce8483");
+        });
+    });
+    $(function () {
+        $("#mynote").click(function () {
+            if ($(".self-body>div:last-child").html()==""){
+                $.ajax({
+                    type:"post",
+                    url:"/selfstudy/mine",
+                    dataType:"json",
+                    success:function (myNotes) {
+                        alert("success");
+                        $(".self-body>div:first-child").removeAttr("id");
+                      //  $(".self-body>div:last-child").attr("id","masonry");
+                        $(".nav-pills>li:first-child").removeClass("active");
+                        $(".nav-pills>li:last-child").addClass("active");
+                        $(".self-body>div:first-child").hide();
+                        $(".self-body>div:last-child").show();
+                        heightListener();
+                        var append = '<div id="masonry">'+
+                            '<c:forEach items="${myNotes}" var="unote">'+
+                       ' <div class="box">'+
+                            '<div class="box-title">'+
+                           ' ${unote.noteTitle}'+
+                           ' </div>'+
+                          '  <div class="box-content">'+
+                           ' <p>${unote.noteContent}</p>'+
+                            '</div>'+
+                            '<div class="box-foot">'+
+                            '作者：<span>${userId}</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</c:forEach>'+
+                                '</div>'
+                        $(".self-body>div:last-child").html(append);
+                    },
+                    error:function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus);
+                    }
+                });
+            }
+            else {
+                $(".nav-pills>li:first-child").removeClass("active");
+                $(".nav-pills>li:last-child").addClass("active");
+                $(".self-body>div:first-child").hide();
+                $(".self-body>div:last-child").show();
+                heightListener();
+            }
+        });
+        $("#othernote").click(function () {
+            $(".self-body>div:last-child").removeAttr("id");
+            $(".self-body>div:first-child").attr("id","masonry");
+            $(".nav-pills>li:first-child").addClass("active");
+            $(".nav-pills>li:last-child").removeClass("active");
+            $(".self-body>div:first-child").show();
+            $(".self-body>div:last-child").hide();
+            heightListener()();
+        });
+    });
+
+</script>
 </body>
 </html>
