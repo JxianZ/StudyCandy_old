@@ -68,9 +68,9 @@ public class SelfController extends BaseController{
     }
 
     //切换到我的自习室
-    @RequestMapping(value = "mine/{userId}")
-    public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model,
-                           @PathVariable("userId")Integer UserId){
+    @RequestMapping(value = "mine")
+    public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model){
+        Integer UserId = this.getCurrentUser(request).getId();
         List<Note> myNotes = noteService.getUserNoteList(UserId);
         model.addAttribute("myNotes",myNotes);
         return ajaxReturn(response,myNotes,"我的笔记",0);
