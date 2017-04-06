@@ -106,7 +106,6 @@
 </content>
 
 <%@include file="../include/footer.jsp"%>
-
 </body>
 
 <script src="${__static__}/js/jquery.js"></script>

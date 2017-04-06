@@ -43,16 +43,22 @@
                     </form>
                     <!--
                     TODO check and replace -->
-                    <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">消息</a></li>
-                            <li><a href="/user">个人中心</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="/user/logout">退出登录</a></li>
-                        </ul>
-                    </li>
-                    <!--<li><a class="navbar-login" href="user/login">登录</a></li>-->
-                    <!--<li><a class="navbar-login" href="user/register">注册</a></li>-->
+                    <c:choose>
+                        <c:when test="${userId!=null}">
+                            <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">消息</a></li>
+                                    <li><a href="/user">个人中心</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/user/logout">退出登录</a></li>
+                                </ul>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a class="navbar-login" href="user/login">登录</a></li>
+                            <li><a class="navbar-login" href="user/register">注册</a></li>
+                        </c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
         </div>

@@ -2,8 +2,6 @@ package com.studycandy.conf;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * Coding with Intellij IDEA
  * Author: Chenls
@@ -11,7 +9,6 @@ import javax.validation.constraints.NotNull;
  */
 @ConfigurationProperties(prefix = "sc")
 public class StudyCandyConfig {
-    @NotNull
     private String loginUrl;
 
     public String getLoginUrl() {
