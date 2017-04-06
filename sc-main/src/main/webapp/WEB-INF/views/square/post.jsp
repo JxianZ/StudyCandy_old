@@ -20,7 +20,8 @@
 <body>
 
 <%@include file="../include/header.jsp"%>
-
+<!--传递PostId -->
+<textarea id="postId" style="display: none">${post.id}</textarea>
 <content>
     <div class="content">
         <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
@@ -38,7 +39,24 @@
         </div>
         <div class="comment-list">
             <ul class="list-group">
-
+                <c:forEach items="${postComments}" var="comment">
+                <li class="list-group-item">
+                    <div class="row comment">
+                        <div class="col-md-1">
+                            <a href="#">
+                                <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
+                                    ${postCommentsUserName[comment.userId]}
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="long">${comment.commentContent}</div>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <small>发布时间:${comment.gmtCreate}</small>
+                        </div>
+                    </div>
+                </li>
+                </c:forEach>
             </ul>
         </div>
         <nav aria-label="Page navigation" class="text-center">

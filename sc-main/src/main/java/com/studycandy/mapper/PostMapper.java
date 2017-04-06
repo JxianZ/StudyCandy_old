@@ -18,4 +18,8 @@ public interface PostMapper {
 
     List<Post> selectByUserId(Integer userId);
 
+    List<Post> selectAllDayPost();
+
+    List<Post> selectAllNightPost();
+
 }
