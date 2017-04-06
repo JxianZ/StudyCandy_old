@@ -29,7 +29,7 @@ function heightListener() {
         $("footer").css("margin-top","0");
     }
     else{
-        $("footer").css("position","absolute");
+        $("footer").css("position","none");
         $("footer").css("top", $(document.body).height()-53.2);
         $("footer").css("margin-top","40px");
     }

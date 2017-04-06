@@ -76,6 +76,7 @@ public class UserController extends BaseController {
             return ajaxReturn(response, null, "用户名或密码错误", -1);
         } else {
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, entity);
+            request.getSession().setAttribute("userId",entity.getId());
             return ajaxReturn(response, entity, "登陆成功", 0);
         }
     }
@@ -176,6 +177,7 @@ public class UserController extends BaseController {
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request,Model model){
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, null);
+        request.getSession().setAttribute("userId",null);
         return "user/login";
     }
 
