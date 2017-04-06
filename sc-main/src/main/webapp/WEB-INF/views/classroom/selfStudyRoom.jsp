@@ -174,13 +174,13 @@
                     success:function (myNotes) {
                         alert("success");
                         $(".self-body>div:first-child").removeAttr("id");
-                      //  $(".self-body>div:last-child").attr("id","masonry");
+                        $(".self-body>div:last-child").attr("id","masonry");
                         $(".nav-pills>li:first-child").removeClass("active");
                         $(".nav-pills>li:last-child").addClass("active");
                         $(".self-body>div:first-child").hide();
                         $(".self-body>div:last-child").show();
                         heightListener();
-                        var append = '<div id="masonry">'+
+                        var append =
                             '<c:forEach items="${myNotes}" var="unote">'+
                        ' <div class="box">'+
                             '<div class="box-title">'+
@@ -193,8 +193,7 @@
                             '作者：<span>${userId}</span>'+
                         '</div>'+
                         '</div>'+
-                        '</c:forEach>'+
-                                '</div>'
+                        '</c:forEach>'
                         $(".self-body>div:last-child").html(append);
                     },
                     error:function(XMLHttpRequest, textStatus, errorThrown) {
