@@ -1,0 +1,98 @@
+
+/* some common style*/
+
+.left{
+	float: left;;
+}
+.right{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+.banner-min{
+	margin: 0;
+	padding: 0;
+}
+/* nav-css start */
+.navbar-login{
+	font-size: 16px;
+}
+.navbar-cover{
+	margin-bottom: 0;
+	border-radius: 0;
+}
+.navbar-nav>li{
+	line-height: 34px;
+	font-size: 20px;
+	font-family:"微软雅黑 Light";
+}
+.navbar-logo{
+	height: 50px;
+	padding:7px;
+	font-size: 28px;
+	line-height: 34px;
+	font-family:"微软雅黑 Light";
+	margin: 0 10px; 
+}
+.navbar-logo img{
+	height: 100%;
+}
+.navbar-head img{
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	margin: -11px;
+}
+.navbar-wrapper{
+	padding:0 1%;
+ }
+.navbar-ul {
+	width: 50%;
+	margin-left: 2%;
+}
+.navbar-ul>li{
+	margin-left: 1%;
+}
+/* 修复一些因拉伸而产生的显示问题 */
+@media (max-width: 900px) and (min-width: 767px){
+	.navbar-wrapper{
+		padding:0 -5px;
+	}
+	.navbar-ul {
+		width: 40%;
+		margin-left: 0;
+	}
+	.navbar-ul>li{
+		font-size: 15px;
+		margin-left: -10px;
+	}
+}
+
+/* nav-css end */
+
+
+/* footer-css start */
+.copyright {
+	background: #111;
+	font-size: 13px;
+	text-align: center;
+	color: #555;
+	padding-top: 14px;
+	padding-bottom: 20px;
+	border-top: 1px solid #303030;
+}
+.copyright a {
+	color: #555;
+	text-decoration: none;
+	background-color: transparent;
+}
+footer{
+	width: 100%;
+}
+/* footer-css end */
+
+/* content start */
+
+
+/* content end */

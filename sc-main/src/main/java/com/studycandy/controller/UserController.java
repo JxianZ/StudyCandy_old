@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -26,26 +27,28 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"mine", "/"})
+    @RequestMapping(value = {"/",""})
     public String mine(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+        if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+            model.addAttribute("user",this.getCurrentUser(request));
+            return "user/mine";
         }
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/log")
     public String log(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+        if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+
+            return "user/mine";
         }
         log.info("用户跳转到登录界面");
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = GET)
     public String login(HttpServletRequest request, Model model) {
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping(value = "/login", method = POST)
@@ -56,32 +59,34 @@ public class UserController extends BaseController {
         if (entity == null) {
             return ajaxReturn(response, null, "用户名或密码错误", -1);
         } else {
-            this.getHttpSession().setAttribute(SESSION_CURRENT_USER, entity);
+            this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, entity);
             return ajaxReturn(response, entity, "登陆成功", 0);
         }
     }
 
     @RequestMapping("/reg")
     public String reg(HttpServletRequest request, Model model) {
-        if (request.getSession().getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+        if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+
+            return "user/mine";
         }
         log.info("用户跳转到注册界面");
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = GET)
     public String register(HttpServletRequest request,Model model){
-        return "register";
+        return "user/register";
     }
 
     @RequestMapping(value = "/register",method = POST)
     public String register(HttpServletRequest request,HttpServletResponse response, Model model,
                            @RequestParam String username,
                            @RequestParam String password,
+                           @RequestParam String nickname,
                            @RequestParam String email) {
-        if (request.getSession().getAttribute(SESSION_CURRENT_USER) != null) {
-            return "user";
+        if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
+            return "user/mine";
         }
         log.info("用户注册");
         if (userService.getUserByUsername(username) != null) {
@@ -90,24 +95,30 @@ public class UserController extends BaseController {
         User user = new User();
         user.setUserUsername(username);
         user.setUserPassword(password);
+        user.setUserNickname(nickname);
         user.setUserEmail(email);
-        userService.setUser(user);
-        this.getHttpSession().setAttribute(SESSION_CURRENT_USER, user);
-        return ajaxReturn(response, user, "注册成功", 0);
+        try {
+            userService.setUser(user);
+            this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
+            return ajaxReturn(response, user, "注册成功", 0);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, "注册失败", -1);
+        }
     }
 
     @RequestMapping("/edit")
     public String edit(HttpServletRequest request, Model model){
-        User user = (User)request.getSession().getAttribute(SESSION_CURRENT_USER);
+        User user = (User) this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER);
         if (user == null){
             model.addAttribute("flag","用户未登录");
             return "log";
         }else{
-            String password = (String)request.getSession().getAttribute("password");
-            String editPassword = (String)request.getSession().getAttribute("editpassword");
-            String nickname = (String)request.getSession().getAttribute("nickname");
-            String email = (String)request.getSession().getAttribute("email");
-            String phone = (String)request.getSession().getAttribute("phone");
+            HttpSession session = this.getHttpSession(request);
+            String password = (String) session.getAttribute("password");
+            String editPassword = (String) session.getAttribute("editpassword");
+            String nickname = (String) session.getAttribute("nickname");
+            String email = (String) session.getAttribute("email");
+            String phone = (String) session.getAttribute("phone");
             if (password != null && editPassword!=null){
                 user = userService.editPassword(user.getId(),password,editPassword);
             }else if (nickname != null) {
@@ -120,20 +131,21 @@ public class UserController extends BaseController {
                 model.addAttribute("flag","请将更改信息填写完整");
             }
         }
-        request.getSession().setAttribute(SESSION_CURRENT_USER, user);
-        return "user";
+        this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
+        return "user/mine";
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout(HttpServletRequest request,Model model){
-        request.getSession().setAttribute(SESSION_CURRENT_USER,null);
-        return "login";
+        this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, null);
+        return "user/login";
     }
 
     @RequestMapping("/search")
     public String search(HttpServletRequest request,Model model){
-        String condition = (String)request.getSession().getAttribute("condition");
+        String condition = (String) this.getHttpSession(request).getAttribute("condition");
 //        userService
         return "search";
     }
+
 }

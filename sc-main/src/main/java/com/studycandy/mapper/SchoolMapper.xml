@@ -6,25 +6,25 @@
         <result column="school_name" property="schoolName" jdbcType="VARCHAR"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_school
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_school
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.School">
-    insert into s_school (id, school_name)
-    values (#{id,jdbcType=INTEGER}, #{schoolName,jdbcType=VARCHAR})
-  </insert>
+        insert into s_school (id, school_name)
+        values (#{id,jdbcType=INTEGER}, #{schoolName,jdbcType=VARCHAR})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.School">
-    update s_school
-    set school_name = #{schoolName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update s_school
+        set school_name = #{schoolName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, school_name
-    from s_school
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, school_name
+        from s_school
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, school_name
-    from s_school
-  </select>
+        select id, school_name
+        from s_school
+    </select>
 </mapper>

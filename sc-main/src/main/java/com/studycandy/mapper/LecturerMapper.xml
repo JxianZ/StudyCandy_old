@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.mapper.LecturerMapper" >
+  <resultMap id="BaseResultMap" type="com.studycandy.model.Lecturer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="lecturer_tag" property="lecturerTag" jdbcType="VARCHAR" />
+    <result column="class_id" property="classId" jdbcType="INTEGER" />
+    <result column="lecturer_id" property="lecturerId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_lecturer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.studycandy.model.Lecturer" >
+    insert into s_lecturer (id, lecturer_tag, class_id, 
+      lecturer_id)
+    values (#{id,jdbcType=INTEGER}, #{lecturerTag,jdbcType=VARCHAR}, #{classId,jdbcType=INTEGER}, 
+      #{lecturerId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Lecturer" >
+    update s_lecturer
+    set lecturer_tag = #{lecturerTag,jdbcType=VARCHAR},
+      class_id = #{classId,jdbcType=INTEGER},
+      lecturer_id = #{lecturerId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, lecturer_tag, class_id, lecturer_id
+    from s_lecturer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, lecturer_tag, class_id, lecturer_id
+    from s_lecturer
+  </select>
+</mapper>

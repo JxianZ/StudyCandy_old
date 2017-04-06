@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studycandy.mapper.RankDayMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.model.RankDay">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="sign_score" property="signScore" jdbcType="INTEGER"/>
+        <result column="note_score" property="noteScore" jdbcType="INTEGER"/>
+        <result column="course_score" property="courseScore" jdbcType="INTEGER"/>
+        <result column="task_score" property="taskScore" jdbcType="INTEGER"/>
+        <result column="total_score" property="totalScore" jdbcType="INTEGER"/>
+        <result column="final_score" property="finalScore" jdbcType="INTEGER"/>
+        <result column="rank_day" property="rankDay" jdbcType="INTEGER"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from s_rank_day
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.studycandy.model.RankDay">
+        insert into s_rank_day (id, user_id, sign_score,
+        note_score, course_score, task_score,
+        total_score, final_score, rank_day
+        )
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{signScore,jdbcType=INTEGER},
+        #{noteScore,jdbcType=INTEGER}, #{courseScore,jdbcType=INTEGER}, #{taskScore,jdbcType=INTEGER},
+        #{totalScore,jdbcType=INTEGER}, #{finalScore,jdbcType=INTEGER}, #{rankDay,jdbcType=INTEGER}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.model.RankDay">
+        update s_rank_day
+        set user_id = #{userId,jdbcType=INTEGER},
+        sign_score = #{signScore,jdbcType=INTEGER},
+        note_score = #{noteScore,jdbcType=INTEGER},
+        course_score = #{courseScore,jdbcType=INTEGER},
+        task_score = #{taskScore,jdbcType=INTEGER},
+        total_score = #{totalScore,jdbcType=INTEGER},
+        final_score = #{finalScore,jdbcType=INTEGER},
+        rank_day = #{rankDay,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, user_id, sign_score, note_score, course_score, task_score, total_score,
+        final_score, rank_day
+        from s_rank_day
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, user_id, sign_score, note_score, course_score, task_score, total_score,
+        final_score, rank_day
+        from s_rank_day
+    </select>
+</mapper>

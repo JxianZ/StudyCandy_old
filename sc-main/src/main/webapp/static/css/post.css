@@ -1,0 +1,21 @@
+.post{
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+
+.comment-list{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.comment{
+	margin-bottom: 50px;
+}
+
+.send-comment{
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-bottom: 50px;
+}

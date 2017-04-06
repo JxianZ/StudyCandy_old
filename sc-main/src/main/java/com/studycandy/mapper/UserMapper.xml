@@ -8,11 +8,11 @@
         <result column="user_nickname" property="userNickname" jdbcType="VARCHAR"/>
         <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
         <result column="user_phone" property="userPhone" jdbcType="VARCHAR"/>
-  </resultMap>
+    </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from s_user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.User">
         insert into s_user (id, user_username, user_password,
         user_nickname, user_email, user_phone
@@ -20,25 +20,25 @@
         values (#{id,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR},
         #{userNickname,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}
         )
-  </insert>
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.User">
-    update s_user
+        update s_user
         set user_username = #{userUsername,jdbcType=VARCHAR},
-      user_password = #{userPassword,jdbcType=VARCHAR},
-      user_nickname = #{userNickname,jdbcType=VARCHAR},
-      user_email = #{userEmail,jdbcType=VARCHAR},
-      user_phone = #{userPhone,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        user_password = #{userPassword,jdbcType=VARCHAR},
+        user_nickname = #{userNickname,jdbcType=VARCHAR},
+        user_email = #{userEmail,jdbcType=VARCHAR},
+        user_phone = #{userPhone,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select id, user_username, user_password, user_nickname, user_email, user_phone
-    from s_user
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        from s_user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
         select id, user_username, user_password, user_nickname, user_email, user_phone
-    from s_user
-  </select>
+        from s_user
+    </select>
     <select id="find" resultMap="BaseResultMap">
         SELECT id, user_username, user_password, user_nickname, user_email, user_phone
         from s_user WHERE TRUE

@@ -15,5 +15,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    List<User>find(String condition);
+    List<User> find(String condition);
 }

@@ -1,0 +1,45 @@
+.myuser{
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 50px;
+	background: url('../img/banner/0.jpg') rgb(230, 230, 220);
+	background-size: 100% 200px;
+	background-repeat: no-repeat;
+}
+
+.myuser small{
+	margin-left: 10%;
+}
+
+.user-img{
+	width: 100px;
+	height: 100px;
+	margin-top: 20px;
+}
+
+.user-details{
+	
+}
+
+.briefing{
+	background: transparent;
+	border: transparent;
+	color: #000;
+	width: 100%;
+}
+
+.content-main{
+	padding-right: 5%;
+	padding-top: 50px;
+	min-height: 400px;
+    padding-bottom: 50px;
+}
+
+.nav-left{
+
+}
+
+.content-main-inner{
+	min-height: 400px;
+	background: #e6e6dc;
+}

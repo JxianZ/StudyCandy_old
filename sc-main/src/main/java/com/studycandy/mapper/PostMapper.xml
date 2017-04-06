@@ -13,22 +13,20 @@
         <result column="unlike_num" property="unlikeNum" jdbcType="INTEGER"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from s_post
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+      delete from s_post
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.studycandy.model.Post">
-    insert into s_post (id, user_id, post_title, 
-      post_content, gmt_create, gmt_modified, 
-      like_num, today_num, unlike_num
+      insert into s_post (user_id, post_title,
+      post_content, gmt_create, gmt_modified
       )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR}, 
-      #{postContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{likeNum,jdbcType=INTEGER}, #{todayNum,jdbcType=INTEGER}, #{unlikeNum,jdbcType=INTEGER}
+      values ( #{userId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR},
+      #{postContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
-  </insert>
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Post">
-    update s_post
-    set user_id = #{userId,jdbcType=INTEGER},
+      update s_post
+      set user_id = #{userId,jdbcType=INTEGER},
       post_title = #{postTitle,jdbcType=VARCHAR},
       post_content = #{postContent,jdbcType=VARCHAR},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
@@ -36,17 +34,24 @@
       like_num = #{likeNum,jdbcType=INTEGER},
       today_num = #{todayNum,jdbcType=INTEGER},
       unlike_num = #{unlikeNum,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+      where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num, 
-    today_num, unlike_num
-    from s_post
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+      select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+      today_num, unlike_num
+      from s_post
+      where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num, 
-    today_num, unlike_num
-    from s_post
-  </select>
+      select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+      today_num, unlike_num
+      from s_post
+      ORDER BY id DESC
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num
+        from s_post
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
 </mapper>
