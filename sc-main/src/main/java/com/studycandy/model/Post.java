@@ -21,6 +21,16 @@ public class Post {
 
     private Integer unlikeNum;
 
+    private Integer isNight;
+
+    public Integer getIsNight(){
+        return isNight;
+    }
+
+    public void setIsNight(Integer isNight){
+        this.isNight = isNight;
+    }
+
     public Integer getId() {
         return id;
     }

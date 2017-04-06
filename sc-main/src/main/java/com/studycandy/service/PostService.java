@@ -41,4 +41,8 @@ public class PostService {
     public Post getPostById(Integer id){
         return mapper.selectByPrimaryKey(id);
     }
+
+    public List<Post> getAllDayPost(){ return mapper.selectAllDayPost(); }
+
+    public List<Post> getAllNightPost(){ return mapper.selectAllNightPost(); }
 }

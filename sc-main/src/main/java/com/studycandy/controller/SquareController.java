@@ -51,7 +51,7 @@ public class SquareController extends BaseController {
 
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
-        List<Post> l = postService.getAllPost();
+        List<Post> l = postService.getAllDayPost();
         Map<Integer,String> m = new HashMap<Integer, String>();
         String nickname="";
         for(Post p : l){
@@ -66,8 +66,16 @@ public class SquareController extends BaseController {
 
         return "square/campusSquare";
     }
-    @RequestMapping(value = "/addpost", method = POST)
-    public String addPost(HttpServletRequest request, HttpServletResponse response, Model model,
+    //获取夜间所有帖子
+    @RequestMapping(value = "/night", method = POST)
+    public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
+        List<Post> l = postService.getAllNightPost();
+        model.addAttribute("allpostlist", l);
+        return ajaxReturn(response,l,"",0);
+    }
+    //白天发帖
+    @RequestMapping(value = "/addDayPost", method = POST)
+    public String addDayPost(HttpServletRequest request, HttpServletResponse response, Model model,
                           @RequestParam String title,
                           @RequestParam String content) {
         Post entity = new Post();
@@ -77,6 +85,29 @@ public class SquareController extends BaseController {
                 new Timestamp(new Date().getTime())
         );
         entity.setGmtModified(new Timestamp(new Date().getTime()));
+        entity.setIsNight(0);
+        try {
+            if(this.getCurrentUser(request)==null) throw new Exception("请您先登录");
+            entity.setUserId(this.getCurrentUser(request).getId());
+            postService.save(entity);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, e.getMessage(), -1);
+        }
+        return ajaxReturn(response, null, "发帖成功！", 0);
+    }
+    //黑夜发帖
+    @RequestMapping(value = "/addNightPost", method = POST)
+    public String addNightPost(HttpServletRequest request, HttpServletResponse response, Model model,
+                          @RequestParam String title,
+                          @RequestParam String content) {
+        Post entity = new Post();
+        entity.setPostTitle(title);
+        entity.setPostContent(content);
+        entity.setGmtCreate(
+                new Timestamp(new Date().getTime())
+        );
+        entity.setGmtModified(new Timestamp(new Date().getTime()));
+        entity.setIsNight(1);
         try {
             if(this.getCurrentUser(request)==null) throw new Exception("请您先登录");
             entity.setUserId(this.getCurrentUser(request).getId());
@@ -118,6 +149,13 @@ public class SquareController extends BaseController {
     @RequestMapping(value = "/postview/{id}")
     public String getPost(HttpServletRequest request, HttpServletResponse response, Model model,
                           @PathVariable("id") Integer id) {
+        List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
+        Map<Integer, String> m = new HashMap<Integer, String>();
+        for(CommentPost p : l) {
+            m.put(p.getUserId(),userService.getUserById(p.getUserId()).getUserNickname());
+        }
+        model.addAttribute("postComments",l);
+        model.addAttribute("postCommentsUserName",m);
         model.addAttribute("post",postService.getPostById(id));
         model.addAttribute("user",userService.getUserById(postService.getPostById(id).getUserId()));
         return "square/post";
@@ -152,12 +190,33 @@ public class SquareController extends BaseController {
     @RequestMapping(value = "/postcomments/{postId}")
     public String postComments(HttpServletRequest request, HttpServletResponse response, Model model,
                                @PathVariable("postId") Integer id){
-        model.addAttribute("postcmments",commentPostService.getCommentPostListByPostId(id));
+        List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
+        Map<Integer, String> m = new HashMap<Integer, String>();
+        for(CommentPost p :l) {
+            m.put(p.getId(),userService.getUserById(p.getUserId()).getUserNickname());
+        }
+        model.addAttribute("postComments",l);
+        model.addAttribute("postCommentsUserName",m);
         return "postcomments";
     }
     //添加回复
-    @RequestMapping(value = "addcomment",method = POST)
+    @RequestMapping(value = "/addcomment",method = POST)
     public String addcomment(HttpServletRequest request, HttpServletResponse response, Model model,
+                             @RequestParam Integer postId,
+                             @RequestParam String commentContent){
+        CommentPost entity = new CommentPost();
+        entity.setPostId(postId);
+        entity.setFollowId(-1);
+        entity.setUserId(this.getCurrentUser(request).getId());
+        entity.setGmtCreate(new Timestamp(new Date().getTime()));
+        entity.setGmtModified(new Timestamp(new Date().getTime()));
+        entity.setCommentContent(commentContent);
+        commentPostService.saveCommentPost(entity);
+        return "postcomments";
+    }
+    //添加回复的回复
+    @RequestMapping(value = "/addCommentToComment",method = POST)
+    public String addCommentToComment(HttpServletRequest request, HttpServletResponse response, Model model,
                              @RequestParam Integer postId,
                              @RequestParam String commentContent,
                              @RequestParam Integer followId){
@@ -176,7 +235,7 @@ public class SquareController extends BaseController {
     public String deleteComment(HttpServletRequest request, HttpServletResponse response, Model model,
                                 @RequestParam Integer commentId){
         CommentPost t = commentPostService.getCommentPost(commentId);
-        //判断是否是帖子主人要进行修改
+        //判断是否是评论主人要进行修改
         if(this.getCurrentUser(request).getId()==t.getUserId())
             commentPostService.deleteCommentPost(commentId);
         return "postcomments";
