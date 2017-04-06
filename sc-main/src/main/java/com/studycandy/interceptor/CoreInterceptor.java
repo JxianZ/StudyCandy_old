@@ -28,8 +28,6 @@ public class CoreInterceptor implements HandlerInterceptor {
         String path = request.getServletPath();
         System.out.println("CoreInterceptor:" + path);
         return true;
-
-
     }
 
     public void postHandle(HttpServletRequest request,
