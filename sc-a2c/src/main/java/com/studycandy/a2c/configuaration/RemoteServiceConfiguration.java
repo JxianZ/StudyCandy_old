@@ -22,8 +22,9 @@ public class RemoteServiceConfiguration {
     private AuthorizationService authorizationService;
 
     @Bean
-    private RemoteService getRemoteService() {
-        return new RemoteService(authorizationService, sessionDAO);
+    public RemoteService getRemoteService() {
+        final RemoteService remoteService = new RemoteService(authorizationService, sessionDAO);
+        return remoteService;
     }
 
     @Bean(name = "/remoteService")

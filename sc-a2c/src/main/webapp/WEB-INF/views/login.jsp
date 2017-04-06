@@ -37,7 +37,7 @@
                     </div>
                     <div class="login-assi">
                         <label class="checkbox-inline">
-                            <input type="checkbox" id="" value=""> 记住我
+                            <input type="checkbox" id="rememberMe" value=""> 记住我
                         </label>
                         <a class="right" href="/user/reg">注册账号</a>
                         <p class="right">/</p><a class="right" href="#">忘记密码</a>

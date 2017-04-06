@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.studycandy.a2c.mapper.SessionMapper">
-    <resultMap id="BaseResultMap" type="com.studycandy.a2c.com.studycandy.a2c.client.session.model.Session">
+<mapper namespace="com.studycandy.a2c.session.mapper.SessionMapper">
+    <resultMap id="BaseResultMap" type="com.studycandy.a2c.session.model.Session">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="session" property="session" jdbcType="LONGVARBINARY"/>
     </resultMap>
@@ -9,11 +9,11 @@
         DELETE FROM session
         WHERE id = #{id,jdbcType=VARCHAR}
     </delete>
-    <insert id="insert" parameterType="com.studycandy.a2c.com.studycandy.a2c.client.session.model.Session">
+    <insert id="insert" parameterType="com.studycandy.a2c.session.model.Session">
         INSERT INTO session (id, session)
         VALUES (#{id,jdbcType=VARCHAR}, #{session,jdbcType=LONGVARBINARY})
     </insert>
-    <update id="updateByPrimaryKey" parameterType="com.studycandy.a2c.com.studycandy.a2c.client.session.model.Session">
+    <update id="updateByPrimaryKey" parameterType="com.studycandy.a2c.session.model.Session">
         UPDATE session
         SET session = #{session,jdbcType=LONGVARBINARY}
         WHERE id = #{id,jdbcType=VARCHAR}
