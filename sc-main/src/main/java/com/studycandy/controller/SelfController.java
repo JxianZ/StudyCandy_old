@@ -66,6 +66,7 @@ public class SelfController extends BaseController{
         model.addAttribute("noteusername",m);
         return "classroom/selfStudyRoom";
     }
+
     //切换到我的自习室
     @RequestMapping(value = "mine/{userId}")
     public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model,
