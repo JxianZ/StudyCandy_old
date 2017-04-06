@@ -26,24 +26,24 @@ $(function () {
        if ($(".self-body>div:last-child").html()==""){
            $(".nav-pills>li:first-child").removeClass("active");
            $(".nav-pills>li:last-child").addClass("active");
-           $(".self-body>div:first-child").toggle();
-           $(".self-body>div:last-child").toggle();
+           $(".self-body>div:first-child").hide();
+           $(".self-body>div:last-child").show();
            $(".self-body>div:last-child").html("<h1>请先登录</h1>");
            heightListener();
        }
        else {
            $(".nav-pills>li:first-child").removeClass("active");
            $(".nav-pills>li:last-child").addClass("active");
-           $(".self-body>div:first-child").toggle();
-           $(".self-body>div:last-child").toggle();
+           $(".self-body>div:first-child").hide();
+           $(".self-body>div:last-child").show();
            heightListener();
        }
    });
    $("#othernote").click(function () {
        $(".nav-pills>li:first-child").addClass("active");
        $(".nav-pills>li:last-child").removeClass("active");
-       $(".self-body>div:first-child").toggle();
-       $(".self-body>div:last-child").toggle();
+       $(".self-body>div:first-child").hide();
+       $(".self-body>div:last-child").show();
        heightListener()();
    });
 });

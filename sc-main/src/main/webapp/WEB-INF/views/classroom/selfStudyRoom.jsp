@@ -138,21 +138,7 @@
             </div>
             </c:forEach>
         </div><!-- my note end --><!-- other note value="" -->
-        <div id="masonry_2">
-            <c:forEach items="${allnotelist}" var="note">
-                <div class="box">
-                    <div class="box-title">
-                            ${note.noteTitle}
-                    </div>
-                    <div class="box-content">
-                        <p>${note.noteContent}</p>
-                    </div>
-                    <div class="box-foot">
-                        我的<span>${noteusername[note.userId]}</span>
-                    </div>
-                </div>
-            </c:forEach>
-        </div><!-- my note end -->
+        <div></div><!-- my note end -->
     </div>
 </div>
 
