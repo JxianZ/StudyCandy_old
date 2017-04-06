@@ -1,0 +1,85 @@
+.mycarousel{
+	margin-bottom: 20px;
+}
+
+.mynav{
+	margin-bottom: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.content-main{
+	background: #c8c5ca;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.img-bottom{
+	margin-bottom: 50px;
+}
+
+.mypaging{
+	text-align: center;
+}
+
+
+/* selfroom css */
+.selfroom-wrapper{
+	margin-top:4%;
+}
+.selfroom-wrapper ul{
+	padding-left: 20px;
+}
+.self-body{
+	padding: 20px;
+}
+.self-body>div:last-child{
+	display: none;
+}
+.box {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border:solid #c8c5ca 1px;
+	margin-bottom: 20px;
+	float: left;
+	max-width: 260px;
+}
+.box-title{
+	border-radius: 15px 15px 0 0;
+	-moz-border-radius: 15px 15px 0 0;
+	-webkit-border-radius: 15px 15px 0 0;
+	background-color: #ce8483;
+	padding:10px 20px 10px 20px;
+	color:#FFFFFF;
+	letter-spacing: 2px;
+	text-align: center;
+	font-family: "黑体";
+}
+.box-content{
+	background-color: #f9f9f9;
+	padding:20px;
+	color: #7A797A;
+}
+.box-foot{
+	border-top: solid #c8c5ca 1px;
+	padding: 7px 20px;
+	font-size: 12px;
+	color: #8c8c8c;
+}
+.box-foot span{
+	margin-right: 5px;
+	color: #3e8f3e;
+	font-size: 14px;
+}
+#addnote{
+	margin-right: 20px;
+}
+.box:hover{
+	-webkit-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
+	-moz-box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
+	box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
+}
+#notecontent{
+	height: 300px;
+}
