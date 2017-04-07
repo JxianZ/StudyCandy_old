@@ -2,11 +2,6 @@
 	margin-bottom: 50px;
 }
 
-.content-main{
-	padding-left: 5%;
-	padding-right: 5%;
-}
-
 .post-list{
 	margin-top: 20px;
 }
@@ -46,4 +41,23 @@
 
 .content{
     margin-bottom: 50px;
+}
+
+.night-style {
+	background: #222;
+	color: gray;
+	border-color: black;
+}
+
+.chat {
+	overflow: hidden;
+}
+
+.chat span {
+	line-height: 100px;
+}
+
+.chat-list{
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
