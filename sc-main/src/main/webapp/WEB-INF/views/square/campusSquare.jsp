@@ -185,7 +185,7 @@
                 "content":content
             };
             $.ajax({
-                url: "/square/addpost",
+                url: "/square/addDayPost",
                 data: data,
                 type: "POST",
                 dataType: "json",
