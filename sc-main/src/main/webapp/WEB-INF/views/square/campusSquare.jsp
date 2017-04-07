@@ -16,7 +16,7 @@
 	<title>campusSquare</title>
     <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css?v=20161231204509">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
 </head>
 <body>
 
@@ -76,11 +76,15 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="content-main">
+        <div class="content-main container">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#">最新</a></li>
                 <li role="presentation"><a href="#">最热</a></li>
-                <li role="presentation" class="navbar-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发帖</button></li>
+                <li role="presentation" class="navbar-right">
+                    <button id="change" type="button" class="btn btn-default">白天</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sendPost">发帖</button>
+                    <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
+                </li>
             </ul>
             <div class="post-list">
                 <c:forEach items="${allpostlist}" var="post">
@@ -120,7 +124,7 @@
                     </li>
                 </ul>
             </nav>
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div id="sendPost" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -141,7 +145,7 @@
                                     <label for="uplodeImg">图片上传</label>
                                     <input id="uplodeImg" type="file" style="display: none;">
                                     <div class="input-group">
-                                        <input id="showLocation" type="text" class="form-control" placeholder="文件路径" disabled="disabled">
+                                        <span id="showLocation">文件路径</span>
                                         <span class="input-group-btn">
                                                 <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
                                             </span>
@@ -162,6 +166,43 @@
                     </div>
                 </div>
             </div>
+            <div id="randomModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-xs" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="text-center">偶遇</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="chat-list">
+                                <div class="chat row">
+                                    <div class="col-xs-2 col-md-2">
+                                        <img src="${__static__}/img/user-big.jpeg" class="img-responsive img-circle">
+                                    </div>
+                                    <div class="col-xs-10 col-md-10">
+                                        <span>很高兴见到你</span>
+                                    </div>
+                                </div>
+                                <div class="chat row text-right">
+                                    <div class="col-xs-10 col-md-10">
+                                        <span>玛德，给我滚</span>
+                                    </div>
+                                    <div class="col-xs-2 col-md-2">
+                                        <img src="${__static__}/img/user-big.jpeg" class="img-responsive img-circle">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="input-group">
+                                <input id="msg" type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
+                                <span class="input-group-btn">
+                                        <button id="send-msg" class="btn btn-default" type="button">发送</button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </content>
@@ -175,6 +216,7 @@
 <script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${__static__}/js/carousel.js"></script>
 <script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript" src="${__static__}/js/campusSquare.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#send").click(function () {
@@ -209,8 +251,5 @@
         });
     });
 
-    $("#uplodeImg").change(function(){
-        $("#showLocation").val($(this).val());
-    });
 </script>
 </html>

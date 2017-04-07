@@ -55,8 +55,8 @@
                             </li>
                         </c:when>
                         <c:otherwise>
-                            <li><a class="navbar-login" href="user/login">登录</a></li>
-                            <li><a class="navbar-login" href="user/register">注册</a></li>
+                            <li><a class="navbar-login" href="/user/login">登录</a></li>
+                            <li><a class="navbar-login" href="/user/register">注册</a></li>
                         </c:otherwise>
                     </c:choose>
                 </ul>
