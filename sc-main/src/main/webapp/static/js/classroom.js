@@ -11,7 +11,16 @@ $(function() {
         });
     });
 });
-
+$(function () {
+    $(".box").mouseover(function () {
+        $(this).css("border","solid #FFFFFF 0");
+        $(this).find('.box-title').css("background-color","#f38094");
+    });
+    $(".box").mouseout(function () {
+        $(this).css("border","solid #c8c5ca 1px");
+        $(this).find('.box-title').css("background-color","#ce8483");
+    });
+});
 $(function () {
     $("#sendnote").click(function () {
         var notetitle = $("#notetitle").val();
