@@ -14,11 +14,11 @@
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.studycandy.model.User">
-        insert into s_user (id, user_username, user_password,
-        user_nickname, user_email, user_phone
+        insert into s_user (user_phone, id, user_username, user_password,
+        user_nickname, user_email
         )
-        values (#{id,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR},
-        #{userNickname,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}
+        values (#{userPhone,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{userUsername,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR},
+        #{userNickname,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}
         )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.User">

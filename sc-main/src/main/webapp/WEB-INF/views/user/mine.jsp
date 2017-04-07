@@ -34,7 +34,7 @@
                         <h3><strong>用户名:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
                         <div class="row text-left">
                             <div class="col-xs-6">
-                                <strong>学校</strong>
+                                <strong>学校:${school.schoolName}</strong>
                             </div>
                             <div class="col-xs-6">
                                 <strong>专业</strong>
@@ -48,7 +48,7 @@
                                 <strong>等级</strong>
                             </div>
                             <div class="col-xs-4">
-                                <strong>排名</strong>
+                                <strong>排名:${userInfo.userRank}</strong>
                             </div>
                         </div>
                         <h5><input class="briefing" type="text" name="briefing" placeholder="这个人很懒"></h5>

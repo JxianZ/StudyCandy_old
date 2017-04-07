@@ -20,59 +20,44 @@
 <body>
 
 <%@include file="../include/header.jsp"%>
-
+<!--传递PostId -->
+<textarea id="postId" style="display: none">${post.id}</textarea>
 <content>
     <div class="content">
+        <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
         <div class="post">
+            <h1>${post.postTitle}<small>作者：${user.userNickname}</small></h1>
             <div class="row">
                 <div class="col-md-4">
                     <img class="img-responsive center-block" src="${__static__}/img/videotest.png">
                 </div>
                 <div class="details col-md-8">
-                    <h1>标题</h1>
-                    <h3>作者</h3>
-                    <div class="container-fluid">
-                        简介
-                    </div>
-                    <div>
-                    </div>
+                    <div id="describe">${post.postContent}</div>
                 </div>
             </div>
+            <button type="button" class="btn btn-primary mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
         </div>
-        <div class="container-fluid comment-list">
-            <div class="row comment">
-                <div class="col-xs-1 col-md-1">
-                    <a href="#"><img class="img-responsive img-circle" src="${__static__}/img/user-big.jpeg"></a>
-                </div>
-                <div class="col-xs-8 col-md-8">
-                    <h3>内容</h3>
-                </div>
-                <div class="col-xs-3 col-md-3 text-right text-bottom">
-                    回复发布时间
-                </div>
-            </div>
-            <div class="row comment">
-                <div class="col-xs-1 col-md-1">
-                    <a href="#"><img class="img-responsive img-circle" src="${__static__}/img/user-big.jpeg"></a>
-                </div>
-                <div class="col-xs-8 col-md-8">
-                    <h3>内容</h3>
-                </div>
-                <div class="col-xs-3 col-md-3 text-right text-bottom">
-                    回复发布时间
-                </div>
-            </div>
-            <div class="row comment">
-                <div class="col-xs-1 col-md-1">
-                    <a href="#"><img class="img-responsive img-circle" src="${__static__}/img/user-big.jpeg"></a>
-                </div>
-                <div class="col-xs-8 col-md-8">
-                    <h3>内容</h3>
-                </div>
-                <div class="col-xs-3 col-md-3 text-right text-bottom">
-                    回复发布时间
-                </div>
-            </div>
+        <div class="comment-list">
+            <ul class="list-group">
+                <c:forEach items="${postComments}" var="comment">
+                <li class="list-group-item">
+                    <div class="row comment">
+                        <div class="col-md-1">
+                            <a href="#">
+                                <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
+                                    ${postCommentsUserName[comment.userId]}
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="long">${comment.commentContent}</div>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <small>发布时间:${comment.gmtCreate}</small>
+                        </div>
+                    </div>
+                </li>
+                </c:forEach>
+            </ul>
         </div>
         <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
@@ -93,18 +78,25 @@
                 </li>
             </ul>
         </nav>
-        <div class="send-comment">
-            <div class="row">
-                <div class="col-xs-2 col-md-1">
-                    <img class="img-responsive" src="${__static__}/img/user-big.jpeg">
-                </div>
-                <div class="col-xs-10 col-md-11">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">回复</button>
-                        </span>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">发表评论</h4>
                     </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>内容</label>
+                                <textarea id="postContent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button id="publish" type="button" class="btn btn-primary">发表</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -112,11 +104,11 @@
 </content>
 
 <%@include file="../include/footer.jsp"%>
-
 </body>
 
 <script src="${__static__}/js/jquery.js"></script>
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/post.js"></script>
 
 </html>

@@ -27,4 +27,6 @@ public interface UserService {
     User editPhone(Integer userId, String phone);
 
     List<User> search(String condition);
+
+    Integer deleteUser(Integer integer);
 }

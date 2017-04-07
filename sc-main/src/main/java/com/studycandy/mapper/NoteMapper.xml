@@ -19,9 +19,9 @@
     </delete>
     <insert id="insert" parameterType="com.studycandy.model.Note">
         insert into s_note (user_id, note_title,
-        note_content, gmt_create, gmt_modified
+        note_content, gmt_create, gmt_modified)
         values (#{userId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR},
-        #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+        #{noteContent,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Note">
         update s_note

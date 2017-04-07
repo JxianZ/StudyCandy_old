@@ -1,7 +1,6 @@
 package com.studycandy.mapper;
 
 import com.studycandy.model.UserInfo;
-
 import java.util.List;
 
 public interface UserInfoMapper {

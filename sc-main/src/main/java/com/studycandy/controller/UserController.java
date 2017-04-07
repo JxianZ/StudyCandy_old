@@ -1,8 +1,13 @@
 package com.studycandy.controller;
 
 import com.studycandy.core.BaseController;
+import com.studycandy.model.School;
 import com.studycandy.model.User;
+import com.studycandy.model.UserInfo;
+import com.studycandy.service.SchoolService;
+import com.studycandy.service.UserInfoService;
 import com.studycandy.service.UserService;
+import com.studycandy.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +31,22 @@ public class UserController extends BaseController {
     private Logger log = Logger.getLogger(UserController.class);
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserInfoService userInfoService;
+    @Autowired
+    private SchoolService schoolService;
 
     @RequestMapping(value = {"/",""})
     public String mine(HttpServletRequest request, Model model) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
             model.addAttribute("user",this.getCurrentUser(request));
+            UserInfo userInfo = null;
+            userInfo = userInfoService.getByUserId(this.getCurrentUser(request).getId());
+            if(userInfo!=null){
+                model.addAttribute("userinfo",userInfo);
+                if(userInfo.getUserSchoolId()!=null)
+                    model.addAttribute("school",schoolService.getSchoolByid(userInfo.getUserSchoolId()));
+            }
             return "user/mine";
         }
         return "user/login";
@@ -60,6 +76,7 @@ public class UserController extends BaseController {
             return ajaxReturn(response, null, "用户名或密码错误", -1);
         } else {
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, entity);
+            request.getSession().setAttribute("userId",entity.getId());
             return ajaxReturn(response, entity, "登陆成功", 0);
         }
     }
@@ -80,11 +97,18 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping(value = "/register",method = POST)
-    public String register(HttpServletRequest request,HttpServletResponse response, Model model,
+    public String register(HttpServletRequest request, HttpServletResponse response, Model model,
                            @RequestParam String username,
                            @RequestParam String password,
                            @RequestParam String nickname,
-                           @RequestParam String email) {
+                           @RequestParam String email,
+                           @RequestParam String realname,
+                           @RequestParam String gender,
+                           @RequestParam String phone,
+                           @RequestParam Integer schoolid,
+                           @RequestParam String major,
+                           @RequestParam Integer userid
+                           ) {
         if (this.getHttpSession(request).getAttribute(SESSION_CURRENT_USER) != null) {
             return "user/mine";
         }
@@ -97,8 +121,23 @@ public class UserController extends BaseController {
         user.setUserPassword(password);
         user.setUserNickname(nickname);
         user.setUserEmail(email);
+        user.setUserPhone(phone);
         try {
             userService.setUser(user);
+            //创建userInfo表
+            try {
+                UserInfo userInfo = new UserInfo();
+                userInfo.setId(userService.getUserByUsername(username).getId());
+                userInfo.setUserRealname(realname);
+                userInfo.setUserGender(gender);
+                if(schoolid!=0) userInfo.setUserSchoolId(schoolid);
+                userInfo.setUserStuMajor(major);
+                userInfo.setUserStuId(userid);
+                userInfoService.saveUserInfo(userInfo);
+            }catch (Exception e){
+                userService.deleteUser(userService.getUserByUsername(username).getId());
+                return ajaxReturn(response, null, "注册失败", -1);
+            }
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
             return ajaxReturn(response, user, "注册成功", 0);
         } catch (Exception e) {
@@ -138,6 +177,7 @@ public class UserController extends BaseController {
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request,Model model){
         this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, null);
+        request.getSession().setAttribute("userId",null);
         return "user/login";
     }
 
