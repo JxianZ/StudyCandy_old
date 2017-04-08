@@ -13,7 +13,7 @@ public class Coach {
 
     private Integer coachMode;
 
-    private String coachReward;
+    private Integer coachReward;
 
     public Integer getId() {
         return id;
@@ -63,11 +63,11 @@ public class Coach {
         this.coachMode = coachMode;
     }
 
-    public String getCoachReward() {
+    public Integer getCoachReward() {
         return coachReward;
     }
 
-    public void setCoachReward(String coachReward) {
-        this.coachReward = coachReward == null ? null : coachReward.trim();
+    public void setCoachReward(Integer coachReward) {
+        this.coachReward = coachReward;
     }
 }

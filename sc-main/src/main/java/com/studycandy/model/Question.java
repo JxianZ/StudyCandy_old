@@ -25,6 +25,16 @@ public class Question {
 
     private Date gmtModified;
 
+    private String questionTitle;
+
+    public String getQuestionTitle() {
+        return questionTitle;
+    }
+
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle;
+    }
+
     public Integer getId() {
         return id;
     }
