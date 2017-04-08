@@ -257,11 +257,17 @@
 <script src="${__static__}/js/qa.js"></script>
 <script type="text/javascript">
     $(function () {
-        $("#sendques").click(function () {
+        $("#addques").click(function () {
             if($("#useridtmp").html()==""){
-                $(location).attr('href',"user/login");
+                var c = confirm("登录后才能发布悬赏，是否现在登录？")
+                if(c==true)
+                    $(location).attr('href',"/user/login");
+                else {
+                    window.location.reload();
+                }
             }
-            else {
+        });
+        $("#sendques").click(function () {
                 var content = $("#quescontent").val();
                 var reward = $("#he").val();
                 var data = {
@@ -283,7 +289,6 @@
                         alert(textStatus);
                     },
                 });
-            }
         });
     });
 </script>
