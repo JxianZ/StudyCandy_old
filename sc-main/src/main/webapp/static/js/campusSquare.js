@@ -3,10 +3,15 @@
  */
 $(function() {
     $(".chat-list").css("height",window.innerHeight/2);
+    $(".contentin").css("height",window.innerHeight/3);
 
     $("#uplodeImg").change(function() {
         $("#showLocation").html($(this).val());
     });
+
+    $('#gologin').on('hidden.bs.modal', function (e) {
+        window.location.href="/user";
+    })
 
     $("#change").click(function() {
         if ($(this).html() == "白天") {
@@ -16,6 +21,7 @@ $(function() {
             $(".modal-content").addClass("night-style");
             $(".modal-content input").addClass("night-style");
             $(".modal-content textarea").addClass("night-style");
+            $(".modal-content .wangEditor-menu-container").addClass("night-style");
             $.ajax({
                 url: "/square/night",
                 data: null,
@@ -58,7 +64,7 @@ $(function() {
             $(".modal-content input").removeClass("night-style");
             $(".modal-content textarea").removeClass("night-style");
             $.ajax({
-                url: "/square/night",
+                url: "/square/day",
                 data: null,
                 type: "POST",
                 dataType: "json",
@@ -69,7 +75,7 @@ $(function() {
                             +'<div class="col-md-1">'
                             +'<a href="/square/postview/'+r.data[i].id+'">'
                             +'<img class="img-responsive img-circle" src="../../../static/img/videotest.png">'
-                            +'<span>匿名</span>'
+                            +'<span>'+userNickName[24]+'</span>'
                             +'</a>'
                             +'</div>'
                             +'<div class="col-xs-12 col-md-7">'
@@ -100,23 +106,20 @@ $(function() {
         $(".chat-list").append("<div class='chat row text-right'><div class='col-xs-10 col-md-10'><span>" + $("#msg").val() + "</span></div><div class='col-xs-2 col-md-2' ><img src='../../../static/img/user-big.jpeg' class='img-responsive img-circle'></div></div>");
         setTimeout("test()", 5000);
     });
-});
 
-function test() {
-    $(".chat-list").append("<div class='chat row'><div class='col-xs-2 col-md-2'><img src='../../../static/img/user-big.jpeg' class='img-responsive img-circle'></div><div class='col-xs-10 col-md-10'><span>我喜欢你</span></div></div>");
-}
-
-
-$(function () {
     $("#send").click(function () {
         var title = $("#titlein").val();
-        var content= $("#contentin").val();
+        var content= editor.$txt.html();
+        var str="addDayPost";
+        if($("#change").html()=="黑夜"){
+            str="addNightPost";
+        }
         var data = {
             "title":  title,
             "content":content
         };
         $.ajax({
-            url: "/square/addpost",
+            url: "/square/"+str,
             data: data,
             type: "POST",
             dataType: "json",
@@ -140,6 +143,6 @@ $(function () {
     });
 });
 
-$("#uplodeImg").change(function(){
-    $("#showLocation").html($(this).val());
-});
+function test() {
+    $(".chat-list").append("<div class='chat row'><div class='col-xs-2 col-md-2'><img src='../../../static/img/user-big.jpeg' class='img-responsive img-circle'></div><div class='col-xs-10 col-md-10'><span>我喜欢你</span></div></div>");
+}
