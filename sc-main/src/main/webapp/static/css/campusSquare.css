@@ -32,17 +32,8 @@
 	max-height:200px;
 }
 
-.text-bottom{
-	display: table-cell;
-	vertical-align: bottom;
-}
-
-.send-post{
-
-}
-
 .post-title{
-	margin-bottom: 20px;
+
 }
 
 .send-post .input-content{
