@@ -131,22 +131,26 @@
     </ul>
     <div class="QA-body">
         <div id="masonry"><!-- masonry -->
+
+            <c:forEach items="${allquestionlist}" var="question">
             <a href="#">
                 <div class="box qasuccess">
                     <div class="box-title">
-                            这里是标题
+                            ${question.questionTitle}
                     </div>
                     <div class="box-content">
-                        <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
+                        <p>${question.questionContent}</p>
                     </div>
                     <div class="box-online">线上</div>
                     <div class="box-qastatus">已解决</div>
                     <div class="box-foot">
-                        <div class="left">悬赏：<span>5 糖豆</span></div>
-                        <div class="right">作者：<span>不是我</span></div>
+                        <div class="left">悬赏：<span>${question.questionReward}糖豆</span></div>
+                        <div class="right">作者：<span>${question.userId}</span></div>
                     </div>
                 </div>
             </a>
+            </c:forEach>
+
             <div class="box">
                 <div class="box-title">
                     这里是标题
@@ -160,84 +164,7 @@
                     <div class="right">作者：<span>不是我</span></div>
                 </div>
             </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
+
         </div><!-- my note end --><!-- other note value="" -->
     </div>
 </div>
@@ -264,7 +191,9 @@
             else {
                 var content = $("#quescontent").val();
                 var reward = $("#he").val();
+                var title = $("#questitle").val();
                 var data = {
+                    "title":title,
                     "content":content,
                     "reward":reward
                 };
@@ -275,7 +204,7 @@
                     dataType:"json",
                     async: false,
                     success:function (r) {
-                        alert("success");
+
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         alert(XMLHttpRequest.status);

@@ -5,9 +5,7 @@ import com.studycandy.model.Answer;
 import com.studycandy.model.Coach;
 import com.studycandy.model.Question;
 import com.studycandy.service.QAService;
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -239,7 +237,7 @@ public class QAController extends BaseController {
         return ajaxReturn(response,null,null,0);
     }
     //预约解决
-    @RequestMapping(value = "/acceptCoach/{coachId}", method = POST)
+    @RequestMapping(value = "/solveCoach/{coachId}", method = POST)
     public String solveCoach(HttpServletRequest request, HttpServletResponse response, Model model,
                               @PathVariable("coachId")Integer coachId){
         if(this.getCurrentUser(request).getId()==qaService.getCoach(coachId).getUserId()) {
