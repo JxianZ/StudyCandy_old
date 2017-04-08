@@ -57,7 +57,7 @@ public class QAController extends BaseController {
     public String questionView(HttpServletRequest request, HttpServletResponse response, Model model,
                                @PathVariable("id") Integer id){
         model.addAttribute("question", qaService.getQuestion(id));
-        return "questionview";
+        return "classroom/qaDetail";
     }
     //添加问题
     @RequestMapping(value = "/addquestion", method = POST)
