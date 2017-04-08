@@ -73,12 +73,12 @@ public class SquareController extends BaseController {
         model.addAttribute("allpostlist", l);
         return ajaxReturn(response,l,"",0);
     }
-    //获取夜间所有帖子
-    @RequestMapping(value = "/night", method = POST)
+    //进入黑夜
+    @RequestMapping(value = "/night")
     public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<Post> l = postService.getAllNightPost();
         model.addAttribute("allpostlist", l);
-        return ajaxReturn(response,l,"",0);
+        return "square/campusSquareNight";
     }
     //白天发帖
     @RequestMapping(value = "/addDayPost", method = POST)
@@ -214,7 +214,11 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(-1);
-        entity.setUserId(this.getCurrentUser(request).getId());
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+        }catch (Exception e){
+
+        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);
@@ -230,7 +234,11 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(followId);
-        entity.setUserId(this.getCurrentUser(request).getId());
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+        }catch (Exception e){
+
+        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);

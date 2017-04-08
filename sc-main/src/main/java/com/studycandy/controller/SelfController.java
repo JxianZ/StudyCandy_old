@@ -68,7 +68,7 @@ public class SelfController extends BaseController{
     }
 
     //切换到我的自习室
-    @RequestMapping(value = "/mine")
+    @RequestMapping(value = "myNotes")
     public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model){
         Integer UserId = this.getCurrentUser(request).getId();
         List<Note> myNotes = noteService.getUserNoteList(UserId);
