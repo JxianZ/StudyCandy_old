@@ -32,22 +32,29 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">添加笔记</h4>
+                <h4 class="modal-title">发布悬赏</h4>
             </div>
             <form>
                 <div class="modal-body">
                     <div class="form-group">
                         <label>标题</label>
-                        <input id="notetitle" type="text" class="form-control" placeholder="标题">
+                        <input id="questitle" type="text" class="form-control" placeholder="标题">
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea id="notecontent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                        <textarea id="quescontent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>悬赏&nbsp;</label>
+                        <input type="button" id="jian" value="-">
+                        <input type="text" id="he" value="1">
+                        <input type="button" id="jia" value="+">&nbsp;
+                        糖豆
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button id="sendnote" type="submit" class="btn btn-primary">发表</button>
+                    <button id="sendques" type="submit" class="btn btn-primary">发布</button>
                 </div>
             </form>
         </div>
@@ -248,6 +255,37 @@
 <script src="${__static__}/js/style-assit.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
 <script src="${__static__}/js/qa.js"></script>
-
+<script type="text/javascript">
+    $(function () {
+        $("#sendques").click(function () {
+            if($("#useridtmp").html()==""){
+                $(location).attr('href',"user/login");
+            }
+            else {
+                var content = $("#quescontent").val();
+                var reward = $("#he").val();
+                var data = {
+                    "content":content,
+                    "reward":reward
+                };
+                $.ajax({
+                    url:"/QARoom/addquestion",
+                    data:data,
+                    type:"POST",
+                    dataType:"json",
+                    async: false,
+                    success:function (r) {
+                        alert("success");
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus);
+                    },
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>

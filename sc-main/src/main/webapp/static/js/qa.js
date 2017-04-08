@@ -11,3 +11,14 @@ $(function() {
         });
     });
 });
+$(function(){
+    $("#jian").click(function(){
+        $("#he").val()==1||$("#he").val($("#he").val()-1);
+    });
+})
+$(function(){
+    $("#jia").click(function(){
+        $("#he").val($("#he").val()-(-1));
+    });
+});
+

@@ -79,3 +79,21 @@
     color:#3e8f3e;
     font-size: 14px;
 }
+#quescontent{
+    height: 300px;
+}
+#jian , #jia{
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    color: #333333;
+}
+
+#he{
+    width: 70px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    color: #333333;
+}
