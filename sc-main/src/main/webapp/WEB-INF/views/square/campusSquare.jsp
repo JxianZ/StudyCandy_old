@@ -95,7 +95,7 @@
                                 <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                             </div>
                             <div class="col-xs-12 col-md-7">
-                                <span>${postusername[post.userId]}</span>
+                                <h4>${postusername[post.userId]}</h4>
                                 <p>${post.postTitle}</p>
                             </div>
                             <div class="col-xs-12 col-md-4 text-right text-bottom">
@@ -144,12 +144,12 @@
                                         <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="uplodeImg">图片上传</label>
-                                        <input id="uplodeImg" type="file" style="display: none;">
+                                        <label>图片上传</label>
+                                        <input id="uploadImg" type="file" style="display: none;">
                                         <div class="input-group">
                                             <span id="showLocation">文件路径</span>
                                             <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
+                                                    <button id="upload" class="btn btn-default" type="button">上传图片</button>
                                                 </span>
                                         </div>
                                         <!-- /input-group -->
@@ -207,8 +207,8 @@
                             <div class="input-group">
                                 <input id="msg" type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
                                 <span class="input-group-btn">
-                                        <button id="send-msg" class="btn btn-default" type="button">发送</button>
-                                    </span>
+                                    <button id="send-msg" class="btn btn-default" type="button">发送</button>
+                                </span>
                             </div>
                         </div>
                     </div>

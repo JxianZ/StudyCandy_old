@@ -50,4 +50,18 @@ $(function () {
             },
         });
     });
+
+    $('#gologin').on('hidden.bs.modal', function (e) {
+        window.location.href="/user";
+    })
+});
+
+$(function () {
+    $("#upload").click(function () {
+        $('#uplodeFile').click();
+    });
+
+    $("#uplodeFile").change(function() {
+        $("#showLocation").html($(this).val());
+    });
 });
