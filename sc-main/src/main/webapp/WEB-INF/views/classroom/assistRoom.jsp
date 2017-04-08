@@ -240,6 +240,7 @@
 <%@include file="../include/footer.jsp"%>
 
 <!--  js file  -->
+
 <script src="${__static__}/js/jquery.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
 <script src="${__static__}/js/bootstrap.min.js"></script>
@@ -247,5 +248,6 @@
 <script src="${__static__}/js/style-assit.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
 <script src="${__static__}/js/qa.js"></script>
+
 </body>
 </html>
