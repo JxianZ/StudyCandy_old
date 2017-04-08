@@ -87,23 +87,22 @@
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
             </ul>
-            <div class="post-list">
+            <div class="post-list list-group">
                 <c:forEach items="${allpostlist}" var="post">
-                <div class="row post">
-                    <div class="col-md-1">
-                        <a href="/square/postview/${post.id}">
-                            <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                            <span>${postusername[post.userId]}</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-md-7">
-                        <h5><a href="/square/postview/${post.id}">${post.postTitle}</a></h5>
-                        <div class="long">${post.postContent}</div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
-                    </div>
-                </div>
+                    <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
+                            </div>
+                            <div class="col-xs-12 col-md-7">
+                                <span>${postusername[post.userId]}</span>
+                                <p>${post.postTitle}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4 text-right text-bottom">
+                                <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
+                            </div>
+                        </div>
+                    </a>
                 </c:forEach>
             </div>
             <nav aria-label="Page navigation" class="text-center">

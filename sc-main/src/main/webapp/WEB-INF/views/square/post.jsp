@@ -23,21 +23,20 @@
 <!--传递PostId -->
 <textarea id="postId" style="display: none">${post.id}</textarea>
 <content>
-    <div class="content">
-        <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
+    <div class="content container">
+        <div class="btn-group-vertical mybtn">
+    <c:choose>
+        <c:when test="${userId==post.userId}">
+            <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
+        </c:when>
+    </c:choose>
+            <button type="button" class="btn btn-primary mybtn1" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
+        </div>
         <div class="post">
             <h1>${post.postTitle}<small>作者：${user.userNickname}</small></h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="img-responsive center-block" src="${__static__}/img/videotest.png">
-                </div>
-                <div class="details col-md-8">
-                    <div id="describe">${post.postContent}</div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
+            <div id="describe">${post.postContent}</div>
         </div>
-        <div class="comment-list">
+        <div class="comment-list container">
             <ul class="list-group">
                 <c:forEach items="${postComments}" var="comment">
                 <li class="list-group-item">
