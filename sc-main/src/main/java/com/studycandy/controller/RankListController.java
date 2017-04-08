@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by Yxm on 2017/4/9.
  */
 @Controller
-@RequestMapping(value = "/RankList")
+@RequestMapping(value = "/rankList")
 public class RankListController extends BaseController{
 
 

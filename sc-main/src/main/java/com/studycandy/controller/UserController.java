@@ -1,13 +1,13 @@
 package com.studycandy.controller;
 
 import com.studycandy.core.BaseController;
-import com.studycandy.model.School;
+import com.studycandy.model.Post;
 import com.studycandy.model.User;
 import com.studycandy.model.UserInfo;
+import com.studycandy.service.PostService;
 import com.studycandy.service.SchoolService;
 import com.studycandy.service.UserInfoService;
 import com.studycandy.service.UserService;
-import com.studycandy.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -35,6 +38,8 @@ public class UserController extends BaseController {
     private UserInfoService userInfoService;
     @Autowired
     private SchoolService schoolService;
+    @Autowired
+    private PostService postService;
 
     @RequestMapping(value = {"/",""})
     public String mine(HttpServletRequest request, Model model) {
@@ -188,4 +193,21 @@ public class UserController extends BaseController {
         return "search";
     }
 
+
+    @RequestMapping(value = "/mineHomepage")
+    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+        List<Post> l = postService.getAllDayPost();
+        Map<Integer,String> m = new HashMap<Integer, String>();
+        String nickname="";
+        for(Post p : l){
+            if(userService.getUserById(p.getUserId())!=null)
+                nickname=userService.getUserById(p.getUserId()).getUserNickname();
+            else
+                nickname="null";
+            m.put(p.getUserId(),nickname);
+        }
+        model.addAttribute("allpostlist", l);
+        model.addAttribute("postusername",m);
+        return "user/mineHomepage";
+    }
 }

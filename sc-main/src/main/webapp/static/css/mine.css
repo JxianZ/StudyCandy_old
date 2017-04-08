@@ -15,10 +15,7 @@
 	width: 100px;
 	height: 100px;
 	margin-top: 20px;
-}
-
-.user-details{
-	
+	cursor: pointer;
 }
 
 .briefing{
@@ -35,11 +32,11 @@
     padding-bottom: 50px;
 }
 
-.nav-left{
-
-}
-
 .content-main-inner{
 	min-height: 400px;
 	background: #e6e6dc;
+}
+
+.left-list a{
+    cursor: pointer;
 }

@@ -27,7 +27,7 @@
         <div class="container-fluid myuser">
             <div class="row">
                 <div class="col-xs-12 col-md-3">
-                    <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" alt="Responsive image">
+                    <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" data-toggle="modal" data-target="#userImg">
                 </div>
                 <div class="col-md-4">
                     <div class="user-details">
@@ -73,7 +73,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <div class="list-group left-list">
-                                    <a class="list-group-item active">主页</a>
+                                    <a id="homepage" class="list-group-item active">主页</a>
                                     <a class="list-group-item">课程</a>
                                     <a class="list-group-item">教室</a>
                                     <a class="list-group-item">问答</a>
@@ -85,7 +85,31 @@
                     </nav>
                 </div>
                 <div class="content-main-inner col-xs-9">
-                    <h1 class="text-center">晓明包工头，拖欠工资不给还不让睡觉。T T</h1>
+                    <div id="zxk">
+                        <h1 class="text-center">晓明包工头，拖欠工资不给还不让睡觉。T T</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="userImg" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-center">头像修改</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>图片上传</label>
+                            <input id="uploadImg" type="file" style="display: none;">
+                            <div class="input-group">
+                                <span id="showLocation">文件路径</span>
+                                <span class="input-group-btn">
+                                    <button id="upload" class="btn btn-default" type="button">上传图片</button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,5 +123,6 @@
 <script src="${__static__}/js/jquery.js"></script>
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/mine.js"></script>
 
 </html>

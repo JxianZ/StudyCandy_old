@@ -5,13 +5,17 @@ $(function() {
     $(".chat-list").css("height",window.innerHeight/2);
     $(".contentin").css("height",window.innerHeight/3);
 
-    $("#uplodeImg").change(function() {
-        $("#showLocation").html($(this).val());
-    });
-
     $('#gologin').on('hidden.bs.modal', function (e) {
         window.location.href="/user";
     })
+
+    $("#upload").click(function () {
+        $('#uploadImg').click();
+    });
+
+    $("#uploadImg").change(function() {
+        $("#showLocation").html($(this).val());
+    });
 
     $("#dayChange").click(function() {
         window.location.href="/square/night";

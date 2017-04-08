@@ -119,7 +119,7 @@ public class SquareController extends BaseController {
     }
     //支持ajax取出帖子最新
     @RequestMapping(value = "/postList", method = GET)
-    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String newpostList(HttpServletRequest request, HttpServletResponse response, Model model) {
             List<Post> list= new ArrayList<Post>();
             List<Post> t =  postService.getAllPost();
             int t_size = t.size(),m = 0;
@@ -130,11 +130,15 @@ public class SquareController extends BaseController {
         return ajaxReturn(response, list, "", 0);
     }
     //获取用户发布的所有帖子
-    @RequestMapping(value = "/allpost")
-    public String postList(HttpServletRequest request, HttpServletResponse response, Model model,
-                           @RequestParam Integer userId) {
-        model.addAttribute("allpostlist", postService.getUserPostList(userId));
-        return "userpostlist";
+    @RequestMapping(value = "/alluserpost",  method = POST)
+    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+        try {
+            List<Post> l = postService.getUserPostList(this.getCurrentUser(request).getId());
+            System.out.println(l);
+            return ajaxReturn(response, l, "成功", 0);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, "失败", 0);
+        }
     }
     //删除帖子
     @RequestMapping(value = "/deletePost", method = POST)

@@ -27,6 +27,7 @@
                     <li><a href="/QARoom">辅导室</a></li>
                     <li><a href="/selfstudy">自习室</a></li>
                     <li><a href="/square">校园广场</a></li>
+                    <li><a href="/rankList">学霸名人堂</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left">

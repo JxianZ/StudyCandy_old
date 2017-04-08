@@ -16,7 +16,7 @@
     <title>bigClassroom</title>
     <link rel="stylesheet" type="text/css" href="${__static__}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/tmp.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/bigClassroom.css">
 </head>
 <body>
 
