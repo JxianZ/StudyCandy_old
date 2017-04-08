@@ -81,5 +81,7 @@ public class QAService {
     public int modifyCoach(Coach coach){
         return coachMapper.updateByPrimaryKey(coach);
     }
+    public int acceptCoach(Integer id){return coachMapper.acceptCoach(id);}
+    public int solveCoach(Integer id){return coachMapper.solveCoach(id);}
     /*预约制 End*/
 }
