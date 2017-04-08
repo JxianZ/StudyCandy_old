@@ -118,23 +118,24 @@
 
 <div class="container selfroom-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="myques" class="active"><a href="/selfstudy">我的悬赏</a></li>
-        <li role="presentation" id="addques" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发布悬赏</button></li>
+        <li role="presentation" id="othernote"><a href="/selfstudy">所有笔记</a></li>
+        <li role="presentation" id="addnote" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加笔记</button></li>
+        <li role="presentation" id="mynote"  class="active"><a href="selfstudy/mine">我的笔记</a></li>
     </ul>
     <div class="self-body">
         <div id="masonry"><!-- masonry -->
-            <c:forEach items="${allnotelist}" var="note">
-                <div class="box">
-                    <div class="box-title">
-                            ${note.noteTitle}
-                    </div>
-                    <div class="box-content">
-                        <p>${note.noteContent}</p>
-                    </div>
-                    <div class="box-foot">
-                        作者：<span>${noteusername[note.userId]}</span>
-                    </div>
+            <c:forEach items="${myNotes}" var="note">
+            <div class="box">
+                <div class="box-title">
+                    ${note.noteTitle}
                 </div>
+                <div class="box-content">
+                    <p>${note.noteContent}</p>
+                </div>
+                <div class="box-foot">
+                    作者：<span>${userName}</span>
+                </div>
+            </div>
             </c:forEach>
         </div><!-- my note end --><!-- other note value="" -->
     </div>

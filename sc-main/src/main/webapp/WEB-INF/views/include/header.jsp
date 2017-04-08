@@ -43,6 +43,7 @@
                     </form>
                     <!--
                     TODO check and replace -->
+                    <span id="useridtmp" style="display: none;">${userId}</span>
                     <c:choose>
                         <c:when test="${userId!=null}">
                             <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>

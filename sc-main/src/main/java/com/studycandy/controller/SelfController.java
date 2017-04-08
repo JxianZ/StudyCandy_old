@@ -72,8 +72,11 @@ public class SelfController extends BaseController{
     public String mineNote(HttpServletRequest request, HttpServletResponse response, Model model){
         Integer UserId = this.getCurrentUser(request).getId();
         List<Note> myNotes = noteService.getUserNoteList(UserId);
+        String username = userService.getUserById(UserId).getUserNickname();
+        if(username==null)username=userService.getUserById(UserId).getUserUsername();
         model.addAttribute("myNotes",myNotes);
-        return ajaxReturn(response,myNotes,"我的笔记",0);
+        model.addAttribute("userName",username);
+        return "classroom/myNote";
     }
     //访问笔记详细界面
     @RequestMapping(value = "noteView/{id}")
