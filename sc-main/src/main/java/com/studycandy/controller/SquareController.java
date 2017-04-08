@@ -207,7 +207,11 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(-1);
-        entity.setUserId(this.getCurrentUser(request).getId());
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+        }catch (Exception e){
+
+        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);
@@ -223,7 +227,11 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(followId);
-        entity.setUserId(this.getCurrentUser(request).getId());
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+        }catch (Exception e){
+
+        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);
