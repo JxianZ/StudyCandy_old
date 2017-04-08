@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -60,8 +59,7 @@ public class FileUploadController extends BaseController {
 
     @PostMapping("upload")
     public String handleFileUpload(HttpServletResponse response,
-                                   @RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) {
+                                   @RequestParam("file") MultipartFile file) {
         String filename = "";
         try {
             filename = storageService.store(file);

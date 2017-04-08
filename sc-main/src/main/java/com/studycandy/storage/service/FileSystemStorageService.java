@@ -1,6 +1,6 @@
 package com.studycandy.storage.service;
 
-import com.studycandy.storage.StorageProperties;
+import com.studycandy.conf.StorageProperties;
 import com.studycandy.storage.exception.StorageException;
 import com.studycandy.storage.exception.StorageFileNotFoundException;
 import com.studycandy.storage.util.FilenameUtil;
