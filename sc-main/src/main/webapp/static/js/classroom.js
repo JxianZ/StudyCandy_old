@@ -22,38 +22,6 @@ $(function () {
     });
 });
 $(function () {
-   $("#mynote").click(function () {
-       if ($(".self-body>div:last-child").html()==""){
-           $.post("/selfstudy/mine","json", function() {
-               $(".self-body>div:first-child").removeAttr("id");
-               $(".self-body>div:last-child").attr("id","masonry");
-               $(".nav-pills>li:first-child").removeClass("active");
-               $(".nav-pills>li:last-child").addClass("active");
-               $(".self-body>div:first-child").hide();
-               $(".self-body>div:last-child").show();
-               heightListener();
-           });
-       }
-       else {
-           $(".nav-pills>li:first-child").removeClass("active");
-           $(".nav-pills>li:last-child").addClass("active");
-           $(".self-body>div:first-child").hide();
-           $(".self-body>div:last-child").show();
-           heightListener();
-       }
-   });
-   $("#othernote").click(function () {
-       $(".self-body>div:last-child").removeAttr("id");
-       $(".self-body>div:first-child").attr("id","masonry");
-       $(".nav-pills>li:first-child").addClass("active");
-       $(".nav-pills>li:last-child").removeClass("active");
-       $(".self-body>div:first-child").show();
-       $(".self-body>div:last-child").hide();
-       heightListener()();
-   });
-});
-
-$(function () {
     $("#sendnote").click(function () {
         var notetitle = $("#notetitle").val();
         var notecontent= $("#notecontent").val();

@@ -33,9 +33,6 @@
 .self-body{
 	padding: 20px;
 }
-.self-body>div:last-child{
-	display: none;
-}
 .box {
 	border-radius: 15px;
 	-moz-border-radius: 15px;

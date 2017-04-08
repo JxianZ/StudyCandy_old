@@ -118,7 +118,7 @@
 
 <div class="container selfroom-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="othernote" class="active"><a href="#">所有笔记</a></li>
+        <li role="presentation" id="othernote" class="active"><a href="/selfstudy">所有笔记</a></li>
         <li role="presentation" id="addnote" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加笔记</button></li>
         <li role="presentation" id="mynote"><a href="#">我的笔记</a></li>
     </ul>
@@ -138,7 +138,6 @@
             </div>
             </c:forEach>
         </div><!-- my note end --><!-- other note value="" -->
-        <div></div><!-- my note end -->
     </div>
 </div>
 
@@ -153,5 +152,17 @@
 <script src="${__static__}/js/style-assit.js"></script>
 <script src="${__static__}/js/classroom.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#mynote").click(function () {
+            if($("#useridtmp").html()==""){
+                $(location).attr('href',"user/login");
+            }
+            else {
+                $(location).attr('href',"selfstudy/mine");
+            }
+        }) ;
+    });
+</script>
 </body>
 </html>
