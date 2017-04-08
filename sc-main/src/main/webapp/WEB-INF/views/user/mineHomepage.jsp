@@ -16,17 +16,19 @@
     <title>mine</title>
     <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
 </head>
 <body>
+<h3 class="text-center">动态</h3>
 <div class="post-list list-group">
-    <c:forEach items="${userpostlist}" var="post">
+    <c:forEach items="${allpostlist}" var="post">
         <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
             <div class="row">
                 <div class="col-md-1">
                     <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                 </div>
                 <div class="col-xs-12 col-md-7">
-                    <h4>${post.userId}</h4>
+                    <h4>${postusername[post.userId]}</h4>
                     <p>${post.postTitle}</p>
                 </div>
                 <div class="col-xs-12 col-md-4 text-right text-bottom">
@@ -35,11 +37,13 @@
             </div>
         </a>
     </c:forEach>
-
 </div>
 </body>
 
 <script src="${__static__}/js/jquery.js"></script>
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script>
+
+</script>
 </html>

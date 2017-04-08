@@ -230,38 +230,5 @@
 <script type="text/javascript" src="${__static__}/js/wangEditor.min.js"></script>
 <script type="text/javascript" src="${__static__}/js/myWangEditor.js"></script>
 <script type="text/javascript" src="${__static__}/js/campusSquare.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#send").click(function () {
-            var title = $("#titlein").val();
-            var content= $("#contentin").val();
-            var data = {
-                "title":  title,
-                "content":content
-            };
-            $.ajax({
-                url: "/square/addDayPost",
-                data: data,
-                type: "POST",
-                dataType: "json",
-                success: function (r) {
-                    if(r.status==0) {
-                        window.location.reload();
-                    }
-                    else{
-                        if(r.status==-1){
-                            window.location.href="/user";
-                            alert(r.info);
-                        }
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    if(XMLHttpRequest.status==0){
-                        alert("error");
-                    }
-                },
-            });
-        });
-    });
 
 </html>
