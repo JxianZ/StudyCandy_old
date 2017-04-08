@@ -151,17 +151,19 @@
     <div class="self-body">
         <div id="masonry"><!-- masonry -->
             <c:forEach items="${allnotelist}" var="note">
-            <div class="box">
-                <div class="box-title">
-                    ${note.noteTitle}
-                </div>
-                <div class="box-content">
-                    <p>${note.noteContent}</p>
-                </div>
-                <div class="box-foot">
-                    作者：<span>${noteusername[note.userId]}</span>
-                </div>
-            </div>
+                <a href="selfstudy/noteView/${note.id}">
+                    <div class="box">
+                        <div class="box-title">
+                            ${note.noteTitle}
+                        </div>
+                        <div class="box-content">
+                            <p>${note.noteContent}</p>
+                        </div>
+                        <div class="box-foot">
+                            作者：<span>${noteusername[note.userId]}</span>
+                        </div>
+                    </div>
+                </a>
             </c:forEach>
         </div><!-- my note end --><!-- other note value="" -->
     </div>
