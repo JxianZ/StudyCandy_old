@@ -93,7 +93,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     @Override
     public List<Role> getRoleByAppUser(Integer appid, Long userid) {
-        SQLBuilder sqlBuilder = new SQLBuilder(UserAppRole.class);
+        SQLBuilder sqlBuilder = SQLBuilder.getSQLBuilder(UserAppRole.class);
         String sql = sqlBuilder
                 .fields("*")
                 .where("app_id=" + appid)
@@ -116,7 +116,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     @Override
     public List<Permission> getPermissionByAppUser(Integer appid, Long userid) {
-        SQLBuilder sqlBuilder = new SQLBuilder(UserAppPermission.class);
+        SQLBuilder sqlBuilder = SQLBuilder.getSQLBuilder(UserAppPermission.class);
         String sql = sqlBuilder
                 .fields("*")
                 .where("app_id=" + appid)

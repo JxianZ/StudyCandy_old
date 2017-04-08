@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.studycandy.a2c.starter.A2cClientAutoConfiguration

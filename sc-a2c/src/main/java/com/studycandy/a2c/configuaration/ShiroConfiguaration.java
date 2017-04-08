@@ -38,7 +38,7 @@ public class ShiroConfiguaration {
     }
 
     @Bean
-    private RetryLimitedCredentialMatcher getCredentialMatcher() {
+    public RetryLimitedCredentialMatcher getCredentialMatcher() {
         RetryLimitedCredentialMatcher credentialMatcher = new RetryLimitedCredentialMatcher(getEhCacheManager());
         credentialMatcher.setHashAlgorithmName("md5");
         credentialMatcher.setHashIterations(2);
@@ -47,14 +47,13 @@ public class ShiroConfiguaration {
     }
 
     @Bean("MyRealm")
-    private MysqlRealm getRealm() {
+    public MysqlRealm getRealm() {
         MysqlRealm realm = new MysqlRealm();
         realm.setCredentialsMatcher(getCredentialMatcher());
         realm.setCachingEnabled(false);
         return realm;
     }
 
-    @Bean
     private JavaUuidSessionIdGenerator getSessionIdGenerator() {
         return new JavaUuidSessionIdGenerator();
     }
@@ -68,7 +67,6 @@ public class ShiroConfiguaration {
         return cookie;
     }
 
-    @Bean
     private SimpleCookie getRememberMeCookie() {
         SimpleCookie cookie = new SimpleCookie("rememberMe");
         cookie.setHttpOnly(true);
@@ -86,7 +84,7 @@ public class ShiroConfiguaration {
     }
 
     @Bean("sessionDAO")
-    private MySqlSessionDAO getSessionDAO() {
+    public MySqlSessionDAO getSessionDAO() {
         MySqlSessionDAO sessionDAO = new MySqlSessionDAO();
         sessionDAO.setSessionIdGenerator(getSessionIdGenerator());
         sessionDAO.setActiveSessionsCacheName("shiro-activeSessionCache");
@@ -94,7 +92,7 @@ public class ShiroConfiguaration {
     }
 
     @Bean
-    private MySqlSessionValidationScheduler getSessionValidationScheduler() {
+    public MySqlSessionValidationScheduler getSessionValidationScheduler() {
         MySqlSessionValidationScheduler sessionValidationScheduler = new MySqlSessionValidationScheduler();
         sessionValidationScheduler.setInterval(1800000);
         sessionValidationScheduler.setSessionManager(getSessionManager());
@@ -104,7 +102,7 @@ public class ShiroConfiguaration {
     @Bean
     public DefaultWebSessionManager getSessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setGlobalSessionTimeout(1800000);
+        sessionManager.setGlobalSessionTimeout(1800000);//30min
         sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         sessionManager.setSessionValidationScheduler(getSessionValidationScheduler());
@@ -132,7 +130,7 @@ public class ShiroConfiguaration {
     }
 
     @Bean
-    private CurrentUserInterceptor currentUserInterceptor() {
+    public CurrentUserInterceptor currentUserInterceptor() {
         return new CurrentUserInterceptor();
     }
 
@@ -146,8 +144,10 @@ public class ShiroConfiguaration {
         filters.put("cufilter", currentUserInterceptor());
 
         filterChains.put("/remoteService", "anon");
-        filterChains.put("/login", "authc");
-        filterChains.put("/logout", "logout");
+        filterChains.put("/login", "anon");
+        filterChains.put("/include/**", "anon");
+        filterChains.put("/static/**", "anon");
+        filterChains.put("/logout", "authc");
 
         factoryBean.setSecurityManager(getSecurityManager());
         factoryBean.setLoginUrl("/login");

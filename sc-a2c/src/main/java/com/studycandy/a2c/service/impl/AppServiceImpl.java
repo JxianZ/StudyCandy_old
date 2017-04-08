@@ -54,8 +54,8 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public Integer getAppIdByAppKey(String appkey) {
-        SQLBuilder sqlBuilder = new SQLBuilder(App.class);
-        String sql = sqlBuilder.fields("id").where("app_key=", appkey).selectSql();
+        SQLBuilder sqlBuilder = SQLBuilder.getSQLBuilder(App.class);
+        String sql = sqlBuilder.fields("id").where("app_key='" + appkey + "'").selectSql();
         List<Row> rowList = sqlRunner.select(sql);
         if (rowList.size() != 0)
             return rowList.get(0).getInt("id");

@@ -32,6 +32,8 @@ public class UserServiceImpl implements UserService {
     public Integer addUser(User entity) {
         PasswordHelper passwordHelper = new PasswordHelper();
         passwordHelper.encryptPassword(entity);
+        if (entity.getAvailable() == null)
+            entity.setAvailable(true);
         return mapper.insert(entity);
     }
 
@@ -61,17 +63,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUsername(String username) {
         Long id = this.getIdByUsername(username);
-        if (id.equals(0L))
+        if (!id.equals(0L))
             return this.getUserById(id);
         return null;
     }
 
     @Override
     public Long getIdByUsername(String username) {
-        SQLBuilder sqlBuilder = new SQLBuilder(User.class);
+        SQLBuilder sqlBuilder = SQLBuilder.getSQLBuilder(User.class);
         String sql = sqlBuilder
                 .fields("id")
-                .where("username=", username)
+                .where("username='" + username + "'")
                 .selectSql();
         List<Row> rowList = sqlRunner.select(sql);
         if (rowList.size() != 0)

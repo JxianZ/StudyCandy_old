@@ -6,14 +6,13 @@ import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
-@Service
+
 public class PasswordHelper {
 
     private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
@@ -35,9 +34,11 @@ public class PasswordHelper {
         this.hashIterations = hashIterations;
     }
 
+    //修改用户密码时加密密码
     public void encryptPassword(User user) {
-
-        user.setSalt(randomNumberGenerator.nextBytes().toHex());
+        if (user.getSalt() == null) {
+            user.setSalt(randomNumberGenerator.nextBytes().toHex());
+        }
 
         String newPassword = new SimpleHash(
                 algorithmName,

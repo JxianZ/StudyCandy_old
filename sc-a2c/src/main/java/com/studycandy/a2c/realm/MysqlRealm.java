@@ -4,6 +4,7 @@ import com.studycandy.a2c.constant.Constants;
 import com.studycandy.a2c.model.User;
 import com.studycandy.a2c.service.AuthorizationService;
 import com.studycandy.a2c.service.UserService;
+import org.apache.log4j.Logger;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Time: 2017/3/24
  */
 public class MysqlRealm extends AuthorizingRealm {
+    private Logger logger = Logger.getLogger(MysqlRealm.class);
     @Autowired
     private UserService userService;
 
@@ -42,7 +44,7 @@ public class MysqlRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
         String username = (String) token.getPrincipal();
-
+        logger.debug("username:" + username);
         User user = userService.getUserByUsername(username);
 
         if (user == null) {
