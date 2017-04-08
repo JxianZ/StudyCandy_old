@@ -118,16 +118,16 @@
 
 <div class="container QA-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="ques" class="active"><a href="#">悬赏</a></li>
-        <li role="presentation" id="addques" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发布悬赏</button></li>
-        <li role="presentation" id="order"><a href="#">预约</a></li>
+        <li role="presentation" id="orderbtn" class="active"><a href="#">预约</a></li>
+        <li role="presentation" id="addorder" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发布预约</button></li>
+        <li role="presentation" id="quesbtn"><a href="#">悬赏</a></li>
     </ul>
     <div class="QA-body">
         <div id="masonry"><!-- masonry -->
             <a href="#">
                 <div class="box qasuccess">
                     <div class="box-title">
-                            这里是标题
+                        这里是标题
                     </div>
                     <div class="box-content">
                         <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
@@ -140,97 +140,6 @@
                     </div>
                 </div>
             </a>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box qasuccess">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">已解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
         </div><!-- my note end --><!-- other note value="" -->
     </div>
 </div>
