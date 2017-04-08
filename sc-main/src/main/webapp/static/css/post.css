@@ -1,13 +1,10 @@
 .post{
-	padding-left: 15%;
-	padding-right: 15%;
 	margin-bottom: 50px;
 	margin-top: 20px;
 }
 
 .comment-list{
-	padding-left: 15%;
-	padding-right: 15%;
+    min-height:50px;
 }
 
 .comment img{
@@ -26,16 +23,6 @@
 }
 .mybtn{
 	position: fixed;
-	right: 10%;
-}
-
-.details textarea{
-	width: 100%;
-	min-height: 200px;
-}
-
-.mybtn2{
-	position: absolute;
-	right: 10%;
-	display: none;
+    margin-top:50px;
+	right: 3%;
 }
