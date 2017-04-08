@@ -23,7 +23,7 @@ public class CommonBeans {
 
     @Bean
     public SpringContextUtil springContextUtil() {
-        logger.debug("spring context util loading");
+        logger.debug("spring context storage loading");
         return new SpringContextUtil();
     }
 }

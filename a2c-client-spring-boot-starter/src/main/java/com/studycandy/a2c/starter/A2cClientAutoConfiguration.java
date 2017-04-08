@@ -14,7 +14,6 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Autowire;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -22,10 +21,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean;
-
-import javax.servlet.Filter;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Coding with Intellij IDEA
@@ -35,10 +30,13 @@ import java.util.Map;
 @Configuration
 @EnableConfigurationProperties(A2cClientProperties.class)
 @ConditionalOnClass(ClientRemoteRealm.class)
-@ConditionalOnProperty(prefix = "a2c", name = "loginUrl")
+@ConditionalOnProperty(prefix = "client", name = "appkey")
 public class A2cClientAutoConfiguration {
-    @Autowired
     private A2cClientProperties properties;
+
+    public A2cClientAutoConfiguration(A2cClientProperties properties) {
+        this.properties = properties;
+    }
 
     @Bean
     public Realm getRemoteRealm() {
@@ -207,9 +205,6 @@ public class A2cClientAutoConfiguration {
         return factoryBean;
     }
 
-    /*
-    <bean id="clientAuthenticationFilter" class="com.github.zhangkaitao.shiro.chapter23.client.ClientAuthenticationFilter"/>
-    */
     @Bean("clientAuthenticationFilter")
     public ClientAuthenticationFilter getClientAuthenticationFilter() {
         return new ClientAuthenticationFilter();
@@ -223,28 +218,24 @@ public class A2cClientAutoConfiguration {
         <property name="successUrl" value="${client.success.url}"/>
         <property name="unauthorizedUrl" value="${client.unauthorized.url}"/>
         <property name="filters">
-            <util:map>
+            <storage:map>
                 <entry key="authc" value-ref="clientAuthenticationFilter"/>
-            </util:map>
+            </storage:map>
         </property>
         <property name="filtersStr" value="${client.filters}"/>
         <property name="filterChainDefinitionsStr" value="${client.filter.chain.definitions}"/>
     </bean>
     */
     @Bean("shiroFilter")
-    public ClientShiroFilterFactoryBean getShiroFilter() {
+    public Object getShiroFilter() throws Exception {
         ClientShiroFilterFactoryBean factoryBean = new ClientShiroFilterFactoryBean();
         factoryBean.setSecurityManager(getSecurityManager());
         factoryBean.setLoginUrl(properties.getLoginUrl());
         factoryBean.setSuccessUrl(properties.getSuccessUrl());
         factoryBean.setUnauthorizedUrl(properties.getUnauthorizedUrl());
-
-        Map<String, Filter> filtersMap = new HashMap<>();
-
-        factoryBean.setFilters(filtersMap);
         factoryBean.setFiltersStr(properties.getFilters());
         factoryBean.setFilterChainDefinitionsStr(properties.getFilterChains());
 
-        return factoryBean;
+        return factoryBean.getObject();
     }
 }

@@ -264,7 +264,7 @@
                 那么就可以设置searchString为"^CUST_"，并使用空白替换，那么生成的Customer对象中的属性名称就不是
                 custId,custName等，而是先被替换为ID,NAME,EMAIL,然后变成属性：id，name，email；
 
-                注意，MBG是使用java.util.regex.Matcher.replaceAll来替换searchString和replaceString的，
+                注意，MBG是使用java.storage.regex.Matcher.replaceAll来替换searchString和replaceString的，
                 如果使用了columnOverride元素，该属性无效；
 
             <columnRenamingRule searchString="" replaceString=""/>

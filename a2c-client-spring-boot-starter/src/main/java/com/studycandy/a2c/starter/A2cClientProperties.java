@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Author: Chenls
  * Time: 2017/3/31
  */
+
 @ConfigurationProperties("client")
 public class A2cClientProperties {
     private String appKey;

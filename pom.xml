@@ -13,7 +13,8 @@
         <module>sc-a2c-client</module>
         <module>sc-core</module>
         <module>sc-dpl</module>
-        <module>spring-boot-starter-a2c-client</module>
+        <module>a2c-client-spring-boot-starter</module>
+        <module>sc-admin</module>
     </modules>
 
     <name>StudyCandy</name>
@@ -52,6 +53,16 @@
             <dependency>
                 <groupId>com.studycandy</groupId>
                 <artifactId>sc-dpl</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.studycandy</groupId>
+                <artifactId>sc-a2c-client</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.studycandy</groupId>
+                <artifactId>a2c-client-spring-boot-starter</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
