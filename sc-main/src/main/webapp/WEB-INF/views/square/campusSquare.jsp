@@ -16,12 +16,13 @@
 	<title>campusSquare</title>
     <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/wangEditor.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
 </head>
 <body>
 
 <%@include file="../include/header.jsp"%>
-
+<c:set var="username" value= "${postusername}"  scope="application"/>
 <content>
     <div class="content">
         <div id="carousel-example-generic" class="carousel slide mycarousel" data-ride="carousel">
@@ -82,7 +83,7 @@
                 <li role="presentation"><a href="#">最热</a></li>
                 <li role="presentation" class="navbar-right">
                     <button id="change" type="button" class="btn btn-default">白天</button>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sendPost">发帖</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" ${userId!=null?'data-target="#sendPost"':'data-target="#gologin"'} >发帖</button>
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
             </ul>
@@ -91,7 +92,7 @@
                 <div class="row post">
                     <div class="col-md-1">
                         <a href="/square/postview/${post.id}">
-                            <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
+                            <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                             <span>${postusername[post.userId]}</span>
                         </a>
                     </div>
@@ -124,48 +125,59 @@
                     </li>
                 </ul>
             </nav>
-            <div id="sendPost" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">发表评论</h4>
-                        </div>
-                        <form>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>标题</label>
-                                    <input id="titlein" type="text" class="form-control" placeholder="标题">
-                                </div>
-                                <div class="form-group">
-                                    <label>内容</label>
-                                    <textarea id="contentin" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="uplodeImg">图片上传</label>
-                                    <input id="uplodeImg" type="file" style="display: none;">
-                                    <div class="input-group">
-                                        <span id="showLocation">文件路径</span>
-                                        <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
-                                            </span>
+            <c:choose>
+                <c:when test="${userId!=null}">
+                <div id="sendPost" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">发表评论</h4>
+                            </div>
+                            <form>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>标题</label>
+                                        <input id="titlein" type="text" class="form-control" placeholder="标题">
                                     </div>
-                                    <!-- /input-group -->
+                                    <div class="form-group">
+                                        <label>内容</label>
+                                        <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="uplodeImg">图片上传</label>
+                                        <input id="uplodeImg" type="file" style="display: none;">
+                                        <div class="input-group">
+                                            <span id="showLocation">文件路径</span>
+                                            <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
+                                                </span>
+                                        </div>
+                                        <!-- /input-group -->
+                                    </div>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">匿名发表
-                                    </label>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button id="send" type="submit" class="btn btn-primary">发表</button>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button id="send" type="submit" class="btn btn-primary">发表</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+                </c:when>
+                <c:otherwise>
+                    <div id="gologin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h1 class="modal-title text-center">滚去登陆</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
             <div id="randomModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-xs" role="document">
                     <div class="modal-content">
@@ -216,6 +228,8 @@
 <script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${__static__}/js/carousel.js"></script>
 <script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript" src="${__static__}/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/myWangEditor.js"></script>
 <script type="text/javascript" src="${__static__}/js/campusSquare.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -251,5 +265,4 @@
         });
     });
 
-</script>
 </html>

@@ -66,6 +66,13 @@ public class SquareController extends BaseController {
 
         return "square/campusSquare";
     }
+    //获取白天所有帖子
+    @RequestMapping(value = "/day", method = POST)
+    public String squareDay(HttpServletRequest request, HttpServletResponse response, Model model) {
+        List<Post> l = postService.getAllDayPost();
+        model.addAttribute("allpostlist", l);
+        return ajaxReturn(response,l,"",0);
+    }
     //获取夜间所有帖子
     @RequestMapping(value = "/night", method = POST)
     public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
