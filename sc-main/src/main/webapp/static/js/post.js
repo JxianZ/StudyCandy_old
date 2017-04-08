@@ -12,12 +12,6 @@ $(function() {
     });
 
     $("#publish").click(function() {
-        /*if ("username" == "username") {
-            $("#describe").html($("#postContent").val());
-            $(".modal").modal('toggle');
-        }else{
-            //增加一行
-        }*/
         var postId = $("#postId").val();
         var content = $("#postContent").val();
         var data = {

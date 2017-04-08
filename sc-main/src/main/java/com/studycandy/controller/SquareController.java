@@ -73,12 +73,12 @@ public class SquareController extends BaseController {
         model.addAttribute("allpostlist", l);
         return ajaxReturn(response,l,"",0);
     }
-    //获取夜间所有帖子
-    @RequestMapping(value = "/night", method = POST)
+    //进入黑夜
+    @RequestMapping(value = "/night")
     public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<Post> l = postService.getAllNightPost();
         model.addAttribute("allpostlist", l);
-        return ajaxReturn(response,l,"",0);
+        return "square/campusSquareNight";
     }
     //白天发帖
     @RequestMapping(value = "/addDayPost", method = POST)

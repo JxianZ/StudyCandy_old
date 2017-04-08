@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: BlackZXK
-  Date: 4/2/2017
-  Time: 10.31AM
+  User: Yxm
+  Date: 2017/4/9
+  Time: 1:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,19 +10,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>campusSquare</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>campusSquare</title>
     <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/wangEditor.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
+    <script type="text/javascript">
+        function Night(){
+                $(this).html("黑夜");
+                $("body").addClass("night-style");
+                $(".content-main a").addClass("night-style");
+                $(".modal-content").addClass("night-style");
+                $(".modal-content input").addClass("night-style");
+                $(".modal-content textarea").addClass("night-style");
+                $(".modal-content .wangEditor-menu-container").addClass("night-style");
+        };
+    </script>
 </head>
-<body>
+<body onload="Night()">
 
 <%@include file="../include/header.jsp"%>
-<c:set var="username" value= "${postusername}"  scope="application"/>
 <content>
     <div class="content">
         <div id="carousel-example-generic" class="carousel slide mycarousel" data-ride="carousel">
@@ -82,7 +92,7 @@
                 <li role="presentation" class="active"><a href="#">最新</a></li>
                 <li role="presentation"><a href="#">最热</a></li>
                 <li role="presentation" class="navbar-right">
-                    <button id="dayChange" type="button" class="btn btn-default">白天</button>
+                    <button id="nightChange" type="button" class="btn btn-default">黑夜</button>
                     <button type="button" class="btn btn-default" data-toggle="modal" ${userId!=null?'data-target="#sendPost"':'data-target="#gologin"'} >发帖</button>
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
@@ -95,7 +105,7 @@
                                 <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                             </div>
                             <div class="col-xs-12 col-md-7">
-                                <span>${postusername[post.userId]}</span>
+                                <span>匿名</span>
                                 <p>${post.postTitle}</p>
                             </div>
                             <div class="col-xs-12 col-md-4 text-right text-bottom">
@@ -126,43 +136,43 @@
             </nav>
             <c:choose>
                 <c:when test="${userId!=null}">
-                <div id="sendPost" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">发表评论</h4>
-                            </div>
-                            <form>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label>标题</label>
-                                        <input id="titlein" type="text" class="form-control" placeholder="标题">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>内容</label>
-                                        <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="uplodeImg">图片上传</label>
-                                        <input id="uplodeImg" type="file" style="display: none;">
-                                        <div class="input-group">
-                                            <span id="showLocation">文件路径</span>
-                                            <span class="input-group-btn">
+                    <div id="sendPost" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">发表评论</h4>
+                                </div>
+                                <form>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>标题</label>
+                                            <input id="titlein" type="text" class="form-control" placeholder="标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>内容</label>
+                                            <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="uplodeImg">图片上传</label>
+                                            <input id="uplodeImg" type="file" style="display: none;">
+                                            <div class="input-group">
+                                                <span id="showLocation">文件路径</span>
+                                                <span class="input-group-btn">
                                                     <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
                                                 </span>
+                                            </div>
+                                            <!-- /input-group -->
                                         </div>
-                                        <!-- /input-group -->
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    <button id="send" type="submit" class="btn btn-primary">发表</button>
-                                </div>
-                            </form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button id="send" type="submit" class="btn btn-primary">发表</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:when>
                 <c:otherwise>
                     <div id="gologin" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -240,7 +250,7 @@
                 "content":content
             };
             $.ajax({
-                url: "/square/addDayPost",
+                url: "/square/addNightPost",
                 data: data,
                 type: "POST",
                 dataType: "json",
@@ -264,4 +274,4 @@
         });
     });
 
-</html>
+    </html>

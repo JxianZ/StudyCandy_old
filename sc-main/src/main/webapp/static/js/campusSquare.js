@@ -13,90 +13,11 @@ $(function() {
         window.location.href="/user";
     })
 
-    $("#change").click(function() {
-        if ($(this).html() == "白天") {
-            $(this).html("黑夜");
-            $("body").addClass("night-style");
-            $(".content-main a").addClass("night-style");
-            $(".modal-content").addClass("night-style");
-            $(".modal-content input").addClass("night-style");
-            $(".modal-content textarea").addClass("night-style");
-            $(".modal-content .wangEditor-menu-container").addClass("night-style");
-            $.ajax({
-                url: "/square/night",
-                data: null,
-                type: "POST",
-                dataType: "json",
-                success: function (r) {
-                    var str="";
-                    for(var i=0;i<r.data.length;i++){
-                        str+='<div class="row post">'
-                            +'<div class="col-md-1">'
-                            +'<a href="/square/postview/'+r.data[i].id+'">'
-                            +'<img class="img-responsive img-circle" src="../../../static/img/videotest.png">'
-                            +'<span>匿名</span>'
-                            +'</a>'
-                            +'</div>'
-                            +'<div class="col-xs-12 col-md-7">'
-                            +'<h5><a href="/square/postview/'+r.data[i].id+'">'+r.data[i].postTitle+'</a></h5>'
-                            +'<div class="long">'+r.data[i].postContent+'</div>'
-                            +'</div>'
-                            +'<div class="col-xs-12 col-md-4 text-right text-bottom">'
-                            +'<small>回复人数</small>&nbsp;&nbsp;<small>发布时间:'+r.data[i].gmtModified+'</small>'
-                            +'</div>'
-                            +'</div>';
-                    }
-
-                    $(".post-list").html(str);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    if(XMLHttpRequest.status==0){
-                        alert("error");
-                    }
-                },
-            });
-
-        } else {
-            $(this).html("白天");
-            $("body").removeClass("night-style");
-            $(".content-main a").removeClass("night-style");
-            $(".modal-content").removeClass("night-style");
-            $(".modal-content input").removeClass("night-style");
-            $(".modal-content textarea").removeClass("night-style");
-            $.ajax({
-                url: "/square/day",
-                data: null,
-                type: "POST",
-                dataType: "json",
-                success: function (r) {
-                    var str="";
-                    for(var i=0;i<r.data.length;i++){
-                        str+='<div class="row post">'
-                            +'<div class="col-md-1">'
-                            +'<a href="/square/postview/'+r.data[i].id+'">'
-                            +'<img class="img-responsive img-circle" src="../../../static/img/videotest.png">'
-                            +'<span>'+userNickName[24]+'</span>'
-                            +'</a>'
-                            +'</div>'
-                            +'<div class="col-xs-12 col-md-7">'
-                            +'<h5><a href="/square/postview/'+r.data[i].id+'">'+r.data[i].postTitle+'</a></h5>'
-                            +'<div class="long">'+r.data[i].postContent+'</div>'
-                            +'</div>'
-                            +'<div class="col-xs-12 col-md-4 text-right text-bottom">'
-                            +'<small>回复人数</small>&nbsp;&nbsp;<small>发布时间:'+r.data[i].gmtModified+'</small>'
-                            +'</div>'
-                            +'</div>';
-                    }
-
-                    $(".post-list").html(str);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    if(XMLHttpRequest.status==0){
-                        alert("error");
-                    }
-                },
-            });
-        }
+    $("#dayChange").click(function() {
+        window.location.href="/square/night";
+    });
+    $("#nightChange").click(function() {
+        window.location.href="/square";
     });
 
     $("#send-msg").click(function() {
