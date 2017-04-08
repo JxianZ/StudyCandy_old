@@ -12,18 +12,20 @@ $(function () {
 
     $("#homepage").click(function () {
         $.ajax({
-            url: "/user/mineHomepage",
-            data: data,
+            url: "/square/alluserpost",
+            data: null,
             type: "POST",
             dataType: "json",
             success: function (r) {
                 if(r.status==0) {
                     alert(r.info);
+                    $("#zxk").load("mineHomepage.jsp",{"userpostlist":r.data});
+                    alert(r.data);
                 }
                 else{
                     if(r.status==-1){
                         alert(r.info);
-                        $("#").load("mineHomepage.jsp");
+                        $("#").load("mineHomepage.jsp",{"userpostlist":r.data});
                     }
                 }
             },
