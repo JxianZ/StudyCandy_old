@@ -14,10 +14,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>campusSquare</title>
-    <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/wangEditor.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
+    <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/campusSquare.css">
 </head>
 <body>
 
@@ -87,7 +87,7 @@
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
             </ul>
-            <div class="post-list list-group">
+            <div id="post-list" class="post-list list-group">
                 <c:forEach items="${allpostlist}" var="post">
                     <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
                         <div class="row">
