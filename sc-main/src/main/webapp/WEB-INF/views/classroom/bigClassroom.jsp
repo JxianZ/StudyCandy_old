@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>bigClassroom</title>
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/bigClassroom.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/classroom/bigClassroom.css">
 </head>
 <body>
 

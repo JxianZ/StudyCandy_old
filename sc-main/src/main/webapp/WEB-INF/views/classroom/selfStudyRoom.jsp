@@ -14,10 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录</title>
-    <link href="${__static__}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${__static__}/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/selfStudyRoom.css">
+    <link href="${__static__}/css/main/bootstrap.min.css" rel="stylesheet">
+    <link href="${__static__}/css/main/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/selfRoom/selfStudyRoom.css">
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
