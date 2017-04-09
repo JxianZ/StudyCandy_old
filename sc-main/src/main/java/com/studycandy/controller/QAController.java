@@ -57,6 +57,7 @@ public class QAController extends BaseController {
     public String questionView(HttpServletRequest request, HttpServletResponse response, Model model,
                                @PathVariable("id") Integer id){
         model.addAttribute("question", qaService.getQuestion(id));
+        model.addAttribute("answerList",qaService.getAnswersByQuestionId(id));
         return "classroom/qaDetail";
     }
     //添加问题
@@ -115,10 +116,10 @@ public class QAController extends BaseController {
         return "redirect:QARoom/questionview/"+question.getId();
     }
     //回答问题
-    @RequestMapping(value = "/addAnswer/{questionId}", method = POST)
+    @RequestMapping(value = "/addAnswer", method = POST)
     public String addAnswer(HttpServletRequest request, HttpServletResponse response, Model model,
                             @RequestParam String answerContent,
-                            @PathVariable("questionId") Integer questionId){
+                            @RequestParam Integer questionId){
         Answer answer = new Answer();
         answer.setAnswerContent(answerContent);
         answer.setGmtCreate(new Timestamp(new Date().getTime()));
@@ -158,10 +159,10 @@ public class QAController extends BaseController {
     * 预约模式 CoachMode 0:线上 1:线下
     * */
     //进入预约
-    @RequestMapping(value = "/coach")
+    @RequestMapping(value = "/order")
     public String getAllOrder(HttpServletRequest request, HttpServletResponse response, Model model){
         model.addAttribute("allquestionlist", qaService.getAllCoach());
-        return "classroom/coachRoom";
+        return "classroom/orderRoom";
     }
     //获取用户提出的所有预约
     @RequestMapping(value = "/usercoachlist", method = POST)

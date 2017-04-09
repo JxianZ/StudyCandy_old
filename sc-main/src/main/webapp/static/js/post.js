@@ -26,7 +26,9 @@ $(function() {
             type: "POST",
             dataType: "json",
             success: function (r) {
+                alert(r.info);
                 if(r.status==0) {
+                    alert("hah");
                     window.location.reload();
                 }
                 else{
