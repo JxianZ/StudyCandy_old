@@ -88,7 +88,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>内容</label>
-                                <textarea id="postContent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                <div id="contentin" class="form-control contentin"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -105,9 +105,11 @@
 <%@include file="../include/footer.jsp"%>
 </body>
 
-<script src="${__static__}/js/jquery.js"></script>
-<script src="${__static__}/js/bootstrap.min.js"></script>
-<script src="${__static__}/js/style-assit.js"></script>
-<script src="${__static__}/js/post.js"></script>
+<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
+<script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript" src="${__static__}/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/myWangEditor.js"></script>
+<script type="text/javascript" src="${__static__}/js/post.js"></script>
 
 </html>
