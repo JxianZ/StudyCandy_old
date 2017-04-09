@@ -216,7 +216,7 @@
             var content = $("#coachcontent").val();
             var reward = $("#he").val();
             var title = $("#coachtitle").val();
-            var mode =("input[name = 'coachmode']:checked").val();
+            var mode =$("input[name = 'coachmode']:checked").val();
             var data = {
 //                "title":title,
                 "content":content,
