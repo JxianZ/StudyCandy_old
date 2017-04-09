@@ -3,17 +3,19 @@
  */
 $(function() {
 
+    $(".contentin").css("height",window.innerHeight/2);
+
     $(".mybtn2").click(function() {
-        $("#postContent").val($("#describe").html());
+        $("#contentin").html($("#describe").html());
     });
 
     $(".mybtn1").click(function() {
-        $("#postContent").val('');
+        $("#contentin").html('');
     });
 
     $("#publish").click(function() {
         var postId = $("#postId").val();
-        var content = $("#postContent").val();
+        var content = editor.$txt.html();
         var data = {
             "commentContent":content,
             "postId": postId,

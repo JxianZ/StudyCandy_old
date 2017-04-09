@@ -15,13 +15,14 @@
     <title>post</title>
     <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/square/post.css">
 </head>
 <body>
 
 <%@include file="../include/header.jsp"%>
 <!--传递PostId -->
-<textarea id="postId" style="display: none">${post.id}</textarea>
+<%--<textarea id="postId" style="display: none">${post.id}</textarea>--%>
 <content>
     <div class="content container">
         <div class="btn-group-vertical mybtn">
@@ -78,7 +79,7 @@
             </ul>
         </nav>
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -88,7 +89,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>内容</label>
-                                <textarea id="postContent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                <div id="contentin" class="form-control contentin"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -105,9 +106,10 @@
 <%@include file="../include/footer.jsp"%>
 </body>
 
-<script src="${__static__}/js/jquery.js"></script>
-<script src="${__static__}/js/bootstrap.min.js"></script>
-<script src="${__static__}/js/style-assit.js"></script>
-<script src="${__static__}/js/post.js"></script>
-
+<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
+<script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript" src="${__static__}/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/myWangEditor.js"></script>
+<script type="text/javascript" src="${__static__}/js/post.js"></script>
 </html>

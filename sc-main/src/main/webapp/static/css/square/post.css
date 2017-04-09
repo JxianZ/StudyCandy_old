@@ -26,3 +26,8 @@
     margin-top:50px;
 	right: 2%;
 }
+
+.contentin {
+	overflow-y:scroll;
+	max-height:300px;
+}
