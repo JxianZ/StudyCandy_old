@@ -127,7 +127,7 @@
     <ul class="nav nav-pills">
         <li role="presentation" id="ques" class="active"><a href="#">悬赏</a></li>
         <li role="presentation" id="addques" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发布悬赏</button></li>
-        <li role="presentation" id="order"><a href="#">预约</a></li>
+        <li role="presentation" id="order"><a href="/QARoom/order">预约</a></li>
     </ul>
     <div class="QA-body">
         <div id="masonry"><!-- masonry -->

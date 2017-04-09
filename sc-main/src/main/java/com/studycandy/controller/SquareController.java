@@ -211,16 +211,16 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(-1);
-        try {
-            entity.setUserId(this.getCurrentUser(request).getId());
-        }catch (Exception e){
-
-        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);
-        commentPostService.saveCommentPost(entity);
-        return "postcomments";
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+            commentPostService.saveCommentPost(entity);
+        }catch (Exception e){
+            return ajaxReturn(response,null,"失败",-1);
+        }
+        return ajaxReturn(response,null,"成功",0);
     }
     //添加回复的回复
     @RequestMapping(value = "/addCommentToComment",method = POST)

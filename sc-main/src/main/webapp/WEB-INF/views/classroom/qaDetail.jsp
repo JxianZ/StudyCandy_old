@@ -26,7 +26,8 @@
 <body>
 
 <%@include file="../include/header.jsp"%>
-
+<!--传递QuestionId -->
+<textarea id="questionId" style="display: none">${question.id}</textarea>
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -38,12 +39,12 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>回答内容</label>
-                        <textarea id="quescontent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                        <textarea id="answercontent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button id="sendques" type="submit" class="btn btn-primary">回答</button>
+                    <button id="sendanswer" type="submit" class="btn btn-primary">回答</button>
                 </div>
             </form>
         </div>
@@ -121,59 +122,30 @@
         <div class="qa-question-body">
             <div class="qa-detail-head">
                 <div class="qa-detail-title">
-                    <span>50糖豆</span>
-                    标题标题标题标题标题标题标题
+                    <span>${question.questionReward}</span>
+                    ${question.questionTitle}
                 </div>
             </div>
             <div class="qa-detail-content">
-                <p>你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗你们能吃点屎吗</p>
+                <p>${question.questionContent}</p>
             </div>
             <div class="qa-detail-user right">
-                提问者：<span>林天培</span>
+                提问者：<span>${question.userId}</span>
             </div>
         </div>
         <div class="answer-nav">回答：</div>
+        <c:forEach items="${answerList}" var="answer">
         <div class="qa-answer-body">
             <div class="qa-answer-content">
-                <p>谢邀，不吃</p>
+                <p>${answer.answerContent}</p>
             </div>
             <div class="qa-answer-user">
                 <div class="right">
-                    回答者：<span>徐建国</span>
+                    回答者：<span>${answer.userId}</span>
                 </div>
             </div>
         </div>
-
-        <div class="qa-answer-body">
-            <div class="qa-answer-content">
-                <p>谢邀，不吃</p>
-            </div>
-            <div class="qa-answer-user">
-                <div class="right">
-                    回答者：<span>徐建国</span>
-                </div>
-            </div>
-        </div>
-        <div class="qa-answer-body">
-            <div class="qa-answer-content">
-                <p>谢邀，不吃</p>
-            </div>
-            <div class="qa-answer-user">
-                <div class="right">
-                    回答者：<span>徐建国</span>
-                </div>
-            </div>
-        </div>
-        <div class="qa-answer-body">
-            <div class="qa-answer-content">
-                <p>谢邀，不吃</p>
-            </div>
-            <div class="qa-answer-user">
-                <div class="right">
-                    回答者：<span>徐建国</span>
-                </div>
-            </div>
-        </div>
+        </c:forEach>
     </div>
 </div>
 

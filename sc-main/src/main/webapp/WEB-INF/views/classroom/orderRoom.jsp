@@ -118,9 +118,9 @@
 
 <div class="container QA-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="orderbtn" class="active"><a href="#">预约</a></li>
+        <li role="presentation" id="quesbtn"><a href="/QARoom">悬赏</a></li>
         <li role="presentation" id="addorder" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">发布预约</button></li>
-        <li role="presentation" id="quesbtn"><a href="#">悬赏</a></li>
+        <li role="presentation" id="orderbtn" class="active"><a href="#">预约</a></li>
     </ul>
     <div class="QA-body">
         <div id="masonry"><!-- masonry -->

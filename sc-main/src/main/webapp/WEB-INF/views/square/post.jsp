@@ -22,7 +22,7 @@
 
 <%@include file="../include/header.jsp"%>
 <!--传递PostId -->
-<%--<textarea id="postId" style="display: none">${post.id}</textarea>--%>
+<textarea id="postId" style="display: none">${post.id}</textarea>
 <content>
     <div class="content container">
         <div class="btn-group-vertical mybtn">
