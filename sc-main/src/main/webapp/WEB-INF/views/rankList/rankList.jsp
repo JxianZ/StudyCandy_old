@@ -31,57 +31,28 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="rank-list list-group">
+                    <c:forEach items="${rankList}" var="userInfo" varStatus="st">
                     <a id="1" class="list-group-item" href="/square/postview/" target="_blank">
                         <div id="username1" class="row">
                             <div class="col-xs-1 col-md-1">
-                                <h1>1.</h1>
+                                <h1>${st.count}</h1>
                             </div>
                             <div class="col-xs-1 col-md-1">
                                 <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                             </div>
                             <div class="col-xs-6 col-md-6">
-                                <h4>用户名<small>（昵称）</small></h4>
-                                <p>用户签名</p>
+                                <h4>${userList[userInfo.id].userNickname}</h4>
+                                <p>${userInfo.userMotto}</p>
                             </div>
                             <div class="col-xs-4 col-md-4 text-right text-bottom">
                                 <small>学校</small>&nbsp;&nbsp;<small>专业</small>
                             </div>
-                        </div>
-                    </a>
-                    <a id="2" class="list-group-item" href="/square/postview/" target="_blank">
-                        <div id="username2" class="row">
-                            <div class="col-xs-1 col-md-1">
-                                <h1>2.</h1>
-                            </div>
-                            <div class="col-xs-1 col-md-1">
-                                <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                            </div>
-                            <div class="col-xs-6 col-md-6">
-                                <h4>用户名<small>（昵称）</small></h4>
-                                <p>用户签名</p>
-                            </div>
                             <div class="col-xs-4 col-md-4 text-right text-bottom">
-                                <small>学校</small>&nbsp;&nbsp;<small>专业</small>
+                                <small>糖豆</small>&nbsp;&nbsp;<small>${userInfo.userIntegral}</small>
                             </div>
                         </div>
                     </a>
-                    <a id="3" class="list-group-item" href="/square/postview/" target="_blank">
-                        <div id="username3" class="row">
-                            <div class="col-xs-1 col-md-1">
-                                <h1>3.</h1>
-                            </div>
-                            <div class="col-xs-1 col-md-1">
-                                <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                            </div>
-                            <div class="col-xs-6 col-md-6">
-                                <h4>用户名<small>（昵称）</small></h4>
-                                <p>用户签名</p>
-                            </div>
-                            <div class="col-xs-4 col-md-4 text-right text-bottom">
-                                <small>学校</small>&nbsp;&nbsp;<small>专业</small>
-                            </div>
-                        </div>
-                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <div class="col-md-2">

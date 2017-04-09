@@ -141,7 +141,7 @@
             </div>
             <div class="qa-answer-user">
                 <div class="right">
-                    回答者：<span>${answer.userId}</span>
+                    回答者：<span>${userList[answer.userId].userNickname}</span>
                 </div>
             </div>
         </div>

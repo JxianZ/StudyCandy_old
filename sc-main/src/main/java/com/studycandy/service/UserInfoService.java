@@ -30,4 +30,9 @@ public class UserInfoService {
     public Integer saveUserInfo(UserInfo userInfo){
         return userInfoMapper.insert(userInfo);
     }
+
+    public Integer changeUserIntegral(Integer id, Integer userIntegral){
+        System.out.println("shit\n"+id+"\n"+userIntegral);
+        return userInfoMapper.updateUserIntegral(id, userIntegral);
+    }
 }
