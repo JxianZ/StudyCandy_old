@@ -151,7 +151,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>内容</label>
-                                            <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
+                                            <div id="contentin" class="form-control contentin"></div>
                                         </div>
                                         <div class="form-group">
                                             <label for="uplodeImg">图片上传</label>
