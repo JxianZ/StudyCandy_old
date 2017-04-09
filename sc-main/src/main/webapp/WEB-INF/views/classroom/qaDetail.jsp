@@ -162,5 +162,45 @@
 <script src="${__static__}/js/style-assit.js"></script>
 <script src="${__static__}/js/masonry-docs.min.js"></script>
 <script src="${__static__}/js/qa.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#addans").click(function () {
+            if($("#useridtmp").html()==""){
+                var c = confirm("登录后才能回答问题，是否现在登录？")
+                if(c==true)
+                    $(location).attr('href',"/user/login");
+                else {
+                    window.location.reload();
+                }
+            }
+        });
+        $("#sendanswer").click(function () {
+            var content = $("#answercontent").val();
+            var questionId = $("#questionId").val();
+            var data = {
+                "answerContent":content,
+                "questionId":questionId
+            };
+            $.ajax({
+                url:"/QARoom/addAnswer",
+                data:data,
+                type:"POST",
+                dataType:"json",
+                async: false,
+                success:function (r) {
+                    window.location.reload();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+            });
+        });
+    })
+
+
+
+</script>
 </body>
 </html>
