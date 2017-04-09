@@ -15,9 +15,6 @@
     margin-right: 20px;
 }
 .box {
-    border-radius: 9px;
-    -moz-border-radius: 9px;
-    -webkit-border-radius: 9px;
     transition:background-color 0.7s ease-out;
     -moz-transition:background-color 0.7s ease-out;
     -webkit-transition:background-color 0.7s ease-out;
