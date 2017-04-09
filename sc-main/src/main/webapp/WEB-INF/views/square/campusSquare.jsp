@@ -87,7 +87,7 @@
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
             </ul>
-            <div class="post-list list-group">
+            <div id="post-list" class="post-list list-group">
                 <c:forEach items="${allpostlist}" var="post">
                     <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
                         <div class="row">

@@ -74,19 +74,18 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <div class="list-group left-list">
                                     <a id="homepage" class="list-group-item active">主页</a>
-                                    <a class="list-group-item">课程</a>
+                                    <a id="course" class="list-group-item">课程</a>
                                     <a class="list-group-item">教室</a>
                                     <a class="list-group-item">问答</a>
-                                    <a class="list-group-item">笔记</a>
+                                    <a id="note" class="list-group-item">笔记</a>
                                     <a class="list-group-item">收藏</a>
                                 </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="content-main-inner col-xs-9">
-                    <div id="zxk">
-                        <h1 class="text-center">晓明包工头，拖欠工资不给还不让睡觉。T T</h1>
+                <div class="col-xs-9">
+                    <div id="contentMainInner" class="content-main-inner">
                     </div>
                 </div>
             </div>
