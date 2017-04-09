@@ -122,7 +122,7 @@
         <div class="qa-question-body">
             <div class="qa-detail-head">
                 <div class="qa-detail-title">
-                    <span>${question.questionReward}</span>
+                    <span>${question.questionReward}糖豆</span>
                     ${question.questionTitle}
                 </div>
             </div>
