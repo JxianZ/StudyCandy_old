@@ -10,33 +10,50 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("client")
 public class A2cClientProperties {
+    /**
+     * 应用AppKey
+     */
     private String appKey;
-    //远程服务URL地址 client.app.key client.remote.service.url
-    private String remoteServiceUrl;
-    //登录地址 client.login.url
-    private String loginUrl;
-    //登录成功后，默认重定向到的地址  client.success.url
-    private String successUrl;
-    //未授权重定向到的地址 client.unauthorized.url
-    private String unauthorizedUrl;
-    //session id 域名 client.cookie.domain
+    /**
+     * 远程服务URL地址
+     */
+    private String remoteServiceUrl = "http://localhost:9080/remoteService";
+    /**
+     * 登录地址
+     */
+    private String loginUrl = "http://localhost:9080/login";
+    /**
+     * 登录成功后，默认重定向到的地址
+     */
+    private String successUrl = "/";
+    /**
+     * 未授权重定向到的地址
+     */
+    private String unauthorizedUrl = "http://localhost:9080/unauthorized";
+    /**
+     * session id 域名
+     */
     private String cookieDomain;
-    //session id 路径  client.cookie.path
-    private String cookiePath;
-    //cookie中的session id名称 client.session.id
-    private String sessionId;
-    //cookie中的remember me名称 client.rememberMe.id
-    private String rememberMeCookieId;
-    /*
+    /**
+     * session id 路径
+     */
+    private String cookiePath = "/";
+    /**
+     * cookie中的session id名称
+     */
+    private String sessionId = "sid";
+    /**
+     * cookie中的remember me名称
+     */
+    private String rememberMeCookieId = "rememberMe";
+    /**
      * 过滤器 name=filter-ref;name=filter-ref
-     * client.filters
      */
     private String filters;
-    /*
+    /**
      * 过滤器链 格式 url=filters;url=filters
-     * client.filter.chain.definitions=/**=anon
      */
-    private String filterChains;
+    private String filterChains = "/**=anon";
 
     public String getAppKey() {
         return appKey;

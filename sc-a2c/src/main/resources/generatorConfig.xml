@@ -46,14 +46,12 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--        <table tableName="s_a2c_app" domainObjectName="App"/>
-                <table tableName="s_a2c_permission" domainObjectName="Permission"/>
-                <table tableName="s_a2c_role" domainObjectName="Role"/>
-                <table tableName="s_a2c_user" domainObjectName="User"/>
-                <table tableName="s_a2c_user_app_permission" domainObjectName="UserAppPermission"/>
-                <table tableName="s_a2c_user_app_role" domainObjectName="UserAppRole"/>-->
-        <table tableName="session" domainObjectName="Session">
-            <property name="" value=""/>
-        </table>
+        <table tableName="s_a2c_app" domainObjectName="App"/>
+        <table tableName="s_a2c_permission" domainObjectName="Permission"/>
+        <table tableName="s_a2c_role" domainObjectName="Role"/>
+        <table tableName="s_a2c_user" domainObjectName="User"/>
+        <table tableName="s_a2c_user_app_permission" domainObjectName="UserAppPermission"/>
+        <table tableName="s_a2c_user_app_role" domainObjectName="UserAppRole"/>
+        <table tableName="sessions" domainObjectName="Session"/>
     </context>
 </generatorConfiguration>

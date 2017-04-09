@@ -34,6 +34,7 @@ mybatis:
   type-aliases-package: com.studycandy.a2c.model
   mapper-locations: classpath*:com/studycandy/a2c/mapper/*.xml
 
+
 jdbc:
   prefix: s_a2c_
 
