@@ -120,7 +120,7 @@
     <ul class="nav nav-pills">
         <li role="presentation" id="othernote"><a href="/selfstudy">所有笔记</a></li>
         <li role="presentation" id="addnote" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加笔记</button></li>
-        <li role="presentation" id="mynote"  class="active"><a href="selfstudy/mine">我的笔记</a></li>
+        <li role="presentation" id="mynote"  class="active"><a href="#">我的笔记</a></li>
     </ul>
     <div class="self-body">
         <div id="masonry"><!-- masonry -->

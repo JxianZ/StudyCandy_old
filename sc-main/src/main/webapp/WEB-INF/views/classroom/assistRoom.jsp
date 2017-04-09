@@ -133,38 +133,36 @@
         <div id="masonry"><!-- masonry -->
 
             <c:forEach items="${allquestionlist}" var="question">
-            <a href="#">
-                <div class="box qasuccess">
-                    <div class="box-title">
-                            ${question.questionTitle}
+                <a href="/QARoom/questionview/${question.id}">
+                    <c:choose>
+                        <c:when test="${question.questionStatus==0}">
+                             <div class="box">
+                        </c:when>
+                        <c:otherwise>
+                            <div class="box qasuccess">
+                        </c:otherwise>
+                    </c:choose>
+                        <div class="box-title">
+                                ${question.questionTitle}
+                        </div>
+                        <div class="box-content">
+                            <p>${question.questionContent}</p>
+                        </div>
+                    <c:choose>
+                        <c:when test="${question.questionStatus==1}">
+                            <div class="box-qastatus">已解决</div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="box-qastatus">未解决</div>
+                        </c:otherwise>
+                    </c:choose>
+                        <div class="box-foot">
+                            <div class="left">悬赏：<span>${question.questionReward}糖豆</span></div>
+                            <div class="right">作者：<span>${question.userId}</span></div>
+                        </div>
                     </div>
-                    <div class="box-content">
-                        <p>${question.questionContent}</p>
-                    </div>
-                    <div class="box-online">线上</div>
-                    <div class="box-qastatus">已解决</div>
-                    <div class="box-foot">
-                        <div class="left">悬赏：<span>${question.questionReward}糖豆</span></div>
-                        <div class="right">作者：<span>${question.userId}</span></div>
-                    </div>
-                </div>
-            </a>
+                </a>
             </c:forEach>
-
-            <div class="box">
-                <div class="box-title">
-                    这里是标题
-                </div>
-                <div class="box-content">
-                    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
-                </div>
-                <div class="box-qastatus">未解决</div>
-                <div class="box-foot">
-                    <div class="left">悬赏：<span>5 糖豆</span></div>
-                    <div class="right">作者：<span>不是我</span></div>
-                </div>
-            </div>
-
         </div><!-- my note end --><!-- other note value="" -->
     </div>
 </div>

@@ -1,5 +1,9 @@
+
+/* QARoom css */
+
 .QA-wrapper{
     margin-top: 4%;
+    margin-bottom: 4%;
 }
 .QA-wrapper ul{
     padding-left: 20px;
@@ -11,9 +15,6 @@
     margin-right: 20px;
 }
 .box {
-    border-radius: 9px;
-    -moz-border-radius: 9px;
-    -webkit-border-radius: 9px;
     transition:background-color 0.7s ease-out;
     -moz-transition:background-color 0.7s ease-out;
     -webkit-transition:background-color 0.7s ease-out;
@@ -56,6 +57,8 @@
     color:#5e5e5e;
 }
 .box-qastatus{
+    font-family: "黑体";
+    font-weight: bold;
     padding:0 20px;
     color:#8c8c8c;
     font-size: 16px;
@@ -96,4 +99,72 @@
     font-size: 18px;
     text-align: center;
     color: #333333;
+}
+
+/* QADetail css */
+
+.qa-detail-wrapper{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.qa-detail-body{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.qa-question-body{
+    background-color: #f9f2f4;
+}
+.qa-detail-head{
+    padding:20px;
+    border-bottom: solid #adadad 1px;
+    min-height: 80px;
+}
+.qa-detail-title{
+    font-family: "黑体";
+    font-weight: bold;
+    font-size: 255%;
+}
+.qa-detail-title span{
+    color:#eb9316;
+    font-size: 20px;
+}
+.qa-detail-content{
+    padding:20px;
+    color:#7e7e7e;
+}
+#addans{
+    margin-right: 20px;
+}
+.qa-detail-user{
+    margin-right: 20px;
+    color: #adadad;
+    font-size: 12px;
+}
+.qa-detail-user span{
+    color:#3e8f3e;
+    font-size: 16px;
+}
+.answer-nav{
+    margin:5% 0 0 0;
+    padding:20px;
+    font-size: 156%;
+}
+.qa-answer-body{
+    padding:20px;
+    margin-top: 10px;
+    border-bottom: solid #e5e5e5 1px;
+}
+.qa-answer-content{
+    padding:20px;
+    color:#5e5e5e;
+}
+.qa-answer-user{
+    margin-right: 20px;
+    margin-bottom: 8px;
+    color: #adadad;
+    font-size: 12px;
+}
+.qa-answer-user span{
+    color:#3e8f3e;
+    font-size: 16px;
 }
