@@ -117,7 +117,7 @@
     <ul class="nav nav-pills">
         <li role="presentation" class="active"><a href="/QARoom">返回</a></li>
         <c:choose>
-            <c:when test="${question.userId!=userId}">
+            <c:when test="${question.userId!=userId&&question.questionStatus==0}">
                 <li role="presentation" id="addans" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">回答</button></li>
             </c:when>
         </c:choose>
@@ -126,7 +126,14 @@
         <div class="qa-question-body">
             <div class="qa-detail-head">
                 <div class="qa-detail-title">
-                    <span>${question.questionReward}糖豆</span>
+                    <c:choose>
+                        <c:when test="${question.questionStatus==0}">
+                            <span>${question.questionReward}糖豆</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span>问题已被解决</span>
+                        </c:otherwise>
+                    </c:choose>
                     ${question.questionTitle}
                 </div>
             </div>
