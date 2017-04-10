@@ -32,7 +32,6 @@ public class UserInfoService {
     }
 
     public Integer changeUserIntegral(Integer id, Integer userIntegral){
-        System.out.println("shit\n"+id+"\n"+userIntegral);
         return userInfoMapper.updateUserIntegral(id, userIntegral);
     }
 }

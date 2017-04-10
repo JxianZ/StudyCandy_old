@@ -4,10 +4,13 @@ import com.studycandy.mapper.UserInfoMapper;
 import com.studycandy.mapper.UserMapper;
 import com.studycandy.model.User;
 import com.studycandy.model.UserInfo;
+import com.studycandy.service.Tools.ComparatorRank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +21,11 @@ public class RankListService {
     @Autowired
     private UserInfoMapper userInfoMapper;
     public List<UserInfo> getRankList(){
-        return userInfoMapper.selectByIntegral();
+        List<UserInfo> l = userInfoMapper.selectByIntegral();
+        Collections.sort(l, new ComparatorRank());
+        for(UserInfo u : l){
+            System.out.println(u.getId());
+        }
+        return l;
     }
 }

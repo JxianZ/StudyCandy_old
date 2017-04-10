@@ -45,10 +45,10 @@
                                 <p>${userInfo.userMotto}</p>
                             </div>
                             <div class="col-xs-4 col-md-4 text-right text-bottom">
-                                <small>学校</small>&nbsp;&nbsp;<small>专业</small>
+                                <small>学校:${school[userInfo.userSchoolId]}</small>
                             </div>
                             <div class="col-xs-4 col-md-4 text-right text-bottom">
-                                <small>糖豆</small>&nbsp;&nbsp;<small>${userInfo.userIntegral}</small>
+                                <small>积分</small>&nbsp;&nbsp;<small>${userInfo.userIntegral+userInfo.userMoney*10}</small>
                             </div>
                         </div>
                     </a>

@@ -3,6 +3,7 @@ package com.studycandy.controller;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.UserInfo;
 import com.studycandy.service.RankListService;
+import com.studycandy.service.SchoolService;
 import com.studycandy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +24,15 @@ public class RankListController extends BaseController{
     RankListService rankListService;
     @Autowired
     UserService userService;
+    @Autowired
+    SchoolService schoolService;
 
     @RequestMapping(value = {"","/"})
     public String rankList(HttpServletRequest request, HttpServletResponse response, Model model){
         List<UserInfo> l = rankListService.getRankList();
         model.addAttribute("rankList",l);
         model.addAttribute("userList",userService.getUserByUserInfo(l));
+        model.addAttribute("school", schoolService.getSchoolMap());
         return "rankList/rankList";
     }
 
