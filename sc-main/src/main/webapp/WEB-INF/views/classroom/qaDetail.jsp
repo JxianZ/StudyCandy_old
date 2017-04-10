@@ -116,7 +116,11 @@
 <div class="container qa-detail-wrapper">
     <ul class="nav nav-pills">
         <li role="presentation" class="active"><a href="/QARoom">返回</a></li>
-        <li role="presentation" id="addans" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">回答</button></li>
+        <c:choose>
+            <c:when test="${question.userId!=userId}">
+                <li role="presentation" id="addans" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">回答</button></li>
+            </c:when>
+        </c:choose>
     </ul>
     <div class="qa-detail-body">
         <div class="qa-question-body">
@@ -133,13 +137,34 @@
                 提问者：<span>${question.userId}</span>
             </div>
         </div>
-        <div class="answer-nav">回答：</div>
+        <c:choose>
+            <c:when test="${question.userId!=userId}">
+                <div class="answer-nav" id="showallans">点击显示其他回答↓</div>
+            </c:when>
+            <c:otherwise>
+                <div class="answer-nav">所有回答</div>
+            </c:otherwise>
+        </c:choose>
         <c:forEach items="${answerList}" var="answer">
-        <div class="qa-answer-body">
+            <c:choose>
+                <c:when test="${question.userId!=userId}">
+                    <div class="qa-answer-body hide">
+                </c:when>
+                <c:otherwise>
+                    <div class="qa-answer-body">
+                </c:otherwise>
+            </c:choose>
             <div class="qa-answer-content">
                 <p>${answer.answerContent}</p>
             </div>
             <div class="qa-answer-user">
+                <c:choose>
+                    <c:when test="${question.userId==userId&&question.questionStatus==0}">
+                        <div class="right ans-accept">
+                            采纳回答<span style="display:none;">${answer.id}</span>
+                        </div>
+                    </c:when>
+                </c:choose>
                 <div class="right">
                     回答者：<span>${userList[answer.userId].userNickname}</span>
                 </div>
@@ -199,8 +224,34 @@
         });
     })
 
-
-
+$(function () {
+   $(".ans-accept").click(function () {
+       var answerId = $(this).children("span").html();
+       var questionid=$("#questionId").html();
+       var data={
+           "answerId":answerId
+       };
+       $.ajax({
+           url:"/QARoom/setBestAnswer/"+questionid,
+           data:data,
+           type:"POST",
+           dataType:"JSON",
+           success:function (r) {
+               alert("ok "+r.info);
+               window.location.reload();
+           },
+           error:function (r) {
+               alert("error "+r.info);
+           }
+       });
+   }) ;
+});
+$(function () {
+   $("#showallans").click(function () {
+       $(".qa-answer-body").removeClass("hide");
+       $("#showallans").html("全部回答");
+   }) ;
+});
 </script>
 </body>
 </html>
