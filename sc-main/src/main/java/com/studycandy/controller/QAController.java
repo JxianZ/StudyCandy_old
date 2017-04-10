@@ -159,9 +159,7 @@ public class QAController extends BaseController {
         Question question = qaService.getQuestion(questionId);
         try {
             if(question.getUserId()==this.getCurrentUser(request).getId()) {
-                question.setQuestionAnswerId(answerId);
-                question.setQuestionStatus(1);
-                qaService.modifyQuestion(question);
+                qaService.setBestAnswer(questionId, answerId);
                 UserInfo u = userInfoService.getByUserId(qaService.getAnswer(answerId).getUserId());
                 userInfoService.changeUserIntegral(u.getId(),u.getUserIntegral()+question.getQuestionReward());
             }

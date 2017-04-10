@@ -7,6 +7,8 @@ import java.util.Comparator;
 /**
  * Created by Yxm on 2017/4/10.
  */
+
+//用户排名的比较方法
 public class ComparatorRank implements Comparator {
     @Override
     public int compare(Object o1, Object o2) {
