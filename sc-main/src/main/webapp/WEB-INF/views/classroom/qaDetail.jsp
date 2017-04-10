@@ -28,6 +28,7 @@
 <%@include file="../include/header.jsp"%>
 <!--传递QuestionId -->
 <textarea id="questionId" style="display: none">${question.id}</textarea>
+<textarea id="questionUserId" style="display: none">${question.userId}</textarea>
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -123,8 +124,15 @@
         </c:choose>
     </ul>
     <div class="qa-detail-body">
-        <div class="qa-question-body">
-            <div class="qa-detail-head">
+        <c:choose>
+            <c:when test="${question.questionStatus==1}">
+            <div class="qa-question-body sucbody">
+            </c:when>
+                <c:otherwise>
+                <div class="qa-question-body">
+                </c:otherwise>
+        </c:choose>
+                <div class="qa-detail-head">
                 <div class="qa-detail-title">
                     <c:choose>
                         <c:when test="${question.questionStatus==0}">
@@ -152,7 +160,36 @@
                 <div class="answer-nav">所有回答</div>
             </c:otherwise>
         </c:choose>
+                <c:choose>
+                    <c:when test="${question.questionStatus==1}">
+                        <div class="answer-nav" id="">最佳回答</div>
+                             <c:choose>
+                                <c:when test="${question.userId!=userId}">
+                                    <div class="qa-answer-body hide">
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="qa-answer-body">
+                                </c:otherwise>
+                            </c:choose>
+                            <div class="qa-answer-content">
+                                 <p>${questionAnswerId.answerContent}</p>
+                            </div>
+                            <div class="qa-answer-user">
+                                <div class="right">
+                                    回答者：<span>${userList[questionAnswerId.userId].userNickname}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </c:when>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${question.questionStatus==1}">
+                        <div class="answer-nav">其他回答</div>
+
+                    </c:when>
+                </c:choose>
         <c:forEach items="${answerList}" var="answer">
+
             <c:choose>
                 <c:when test="${question.userId!=userId}">
                     <div class="qa-answer-body hide">
