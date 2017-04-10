@@ -48,7 +48,7 @@ public class UserController extends BaseController {
             UserInfo userInfo = null;
             userInfo = userInfoService.getByUserId(this.getCurrentUser(request).getId());
             if(userInfo!=null){
-                model.addAttribute("userinfo",userInfo);
+                model.addAttribute("userInfo",userInfo);
                 if(userInfo.getUserSchoolId()!=null)
                     model.addAttribute("school",schoolService.getSchoolByid(userInfo.getUserSchoolId()));
             }

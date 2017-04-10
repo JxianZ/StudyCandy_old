@@ -42,7 +42,10 @@ public class QAService {
     public int modifyQuestion(Question question){
         return questionMapper.updateByPrimaryKey(question);
     }
-
+    public int setBestAnswer(Integer id, Integer answerId){
+        System.out.println("shit"+id+" "+answerId);
+        return questionMapper.updateByAnswer(id,answerId);
+    }
     public List<Answer> getAnswersByQuestionId(Integer questionId){
         return answerMapper.selectByQuestionId(questionId);
     }

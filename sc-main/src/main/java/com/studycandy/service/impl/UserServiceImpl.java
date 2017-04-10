@@ -2,7 +2,10 @@ package com.studycandy.service.impl;
 
 import com.studycandy.core.util.MD5String;
 import com.studycandy.mapper.UserMapper;
+import com.studycandy.model.Answer;
+import com.studycandy.model.Question;
 import com.studycandy.model.User;
+import com.studycandy.model.UserInfo;
 import com.studycandy.service.UserService;
 import flybear.hziee.core.mybatis.SqlRunner;
 import flybear.hziee.core.sql.Row;
@@ -14,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -114,5 +118,32 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer deleteUser(Integer id){
         return userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Map<Integer,User> getUserByUserInfo(List<UserInfo> l){
+        Map<Integer,User> m = new HashMap<Integer,User>();
+        for(UserInfo u : l){
+            m.put(u.getId(),userMapper.selectByPrimaryKey(u.getId()));
+        }
+        return m;
+    }
+
+    @Override
+    public Map<Integer, User> getUserByQuestion(List<Question> l) {
+        Map<Integer,User> m = new HashMap<Integer,User>();
+        for(Question q : l){
+            m.put(q.getUserId(),userMapper.selectByPrimaryKey(q.getUserId()));
+        }
+        return m;
+    }
+
+    @Override
+    public Map<Integer, User> getUserByAnswer(List<Answer> l) {
+        Map<Integer,User> m = new HashMap<Integer,User>();
+        for(Answer a : l){
+            m.put(a.getUserId(),userMapper.selectByPrimaryKey(a.getUserId()));
+        }
+        return m;
     }
 }

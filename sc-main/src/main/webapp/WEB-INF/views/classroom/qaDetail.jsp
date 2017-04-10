@@ -173,7 +173,7 @@
                     </c:when>
                 </c:choose>
                 <div class="right">
-                    回答者：<span>${answer.userId}</span>
+                    回答者：<span>${userList[answer.userId].userNickname}</span>
                 </div>
             </div>
         </div>

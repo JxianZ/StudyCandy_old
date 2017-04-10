@@ -1,8 +1,10 @@
 package com.studycandy.mapper;
 
 import com.studycandy.model.User;
+import com.studycandy.model.UserInfo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
