@@ -29,6 +29,8 @@
 <!--传递QuestionId -->
 <textarea id="questionId" style="display: none">${question.id}</textarea>
 <textarea id="questionUserId" style="display: none">${question.userId}</textarea>
+<textarea id="bestanswer" style="display: none">${question.questionAnswerId}</textarea>
+<textarea id="status" style="display: none">${question.questionStatus}</textarea>
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -124,24 +126,10 @@
         </c:choose>
     </ul>
     <div class="qa-detail-body">
-        <c:choose>
-            <c:when test="${question.questionStatus==1}">
-            <div class="qa-question-body sucbody">
-            </c:when>
-                <c:otherwise>
-                <div class="qa-question-body">
-                </c:otherwise>
-        </c:choose>
+            <div class="qa-question-body">
                 <div class="qa-detail-head">
                 <div class="qa-detail-title">
-                    <c:choose>
-                        <c:when test="${question.questionStatus==0}">
-                            <span>${question.questionReward}糖豆</span>
-                        </c:when>
-                        <c:otherwise>
-                            <span>问题已被解决</span>
-                        </c:otherwise>
-                    </c:choose>
+                    <span>${question.questionReward}糖豆</span>
                     ${question.questionTitle}
                 </div>
             </div>
@@ -152,69 +140,46 @@
                 提问者：<span>${question.userId}</span>
             </div>
         </div>
-        <c:choose>
-            <c:when test="${question.userId!=userId}">
                 <div class="answer-nav" id="showallans">点击显示其他回答↓</div>
-            </c:when>
-            <c:otherwise>
-                <div class="answer-nav">所有回答</div>
-            </c:otherwise>
-        </c:choose>
-                <c:choose>
-                    <c:when test="${question.questionStatus==1}">
-                        <div class="answer-nav" id="">最佳回答</div>
-                             <c:choose>
-                                <c:when test="${question.userId!=userId}">
-                                    <div class="qa-answer-body hide">
-                                </c:when>
-                                <c:otherwise>
-                                    <div class="qa-answer-body">
-                                </c:otherwise>
-                            </c:choose>
-                            <div class="qa-answer-content">
-                                 <p>${questionAnswerId.answerContent}</p>
-                            </div>
-                            <div class="qa-answer-user">
-                                <div class="right">
-                                    回答者：<span>${userList[questionAnswerId.userId].userNickname}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </c:when>
-                </c:choose>
-                <c:choose>
-                    <c:when test="${question.questionStatus==1}">
-                        <div class="answer-nav">其他回答</div>
+                    <div class="questioncontrol">
 
-                    </c:when>
-                </c:choose>
         <c:forEach items="${answerList}" var="answer">
-
-            <c:choose>
-                <c:when test="${question.userId!=userId}">
-                    <div class="qa-answer-body hide">
-                </c:when>
-                <c:otherwise>
-                    <div class="qa-answer-body">
-                </c:otherwise>
-            </c:choose>
-            <div class="qa-answer-content">
-                <p>${answer.answerContent}</p>
-            </div>
-            <div class="qa-answer-user">
-                <c:choose>
-                    <c:when test="${question.userId==userId&&question.questionStatus==0}">
-                        <div class="right ans-accept">
-                            采纳回答<span style="display:none;">${answer.id}</span>
-                        </div>
-                    </c:when>
-                </c:choose>
-                <div class="right">
-                    回答者：<span>${userList[answer.userId].userNickname}</span>
-                </div>
-            </div>
-        </div>
-        </c:forEach>
+                        <c:choose>
+                            <c:when test="${question.questionStatus==1&&answer.id==question.questionAnswerId}">
+                                <div class="qa-answer-body">
+                                    <div class="qa-answer-content">
+                                        <p>${answer.answerContent}</p>
+                                    </div>
+                                    <div class="qa-answer-user">
+                                        <div class="right">
+                                            回答者：<span>${userList[answer.userId].userNickname}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="answer-nav">所有回答</div>
+                            </c:when>
+                        </c:choose>
+                    </c:forEach>
+                        <c:forEach items="${answerList}" var="answer">
+                            <c:choose>
+                                <c:when test="${answer.id!=question.questionAnswerId}">
+                                    <div class="qa-answer-body">
+                                        <div class="qa-answer-content">
+                                            <p>${answer.answerContent}</p>
+                                        </div>
+                                        <div class="qa-answer-user">
+                                            <div class="right ans-accept hide">
+                                                采纳回答<span style="display:none;">${answer.id}</span>
+                                            </div>
+                                            <div class="right">
+                                                回答者：<span>${userList[answer.userId].userNickname}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </div>
     </div>
 </div>
 
@@ -288,12 +253,6 @@ $(function () {
                alert("error "+r.info);
            }
        });
-   }) ;
-});
-$(function () {
-   $("#showallans").click(function () {
-       $(".qa-answer-body").removeClass("hide");
-       $("#showallans").html("全部回答");
    }) ;
 });
 </script>
