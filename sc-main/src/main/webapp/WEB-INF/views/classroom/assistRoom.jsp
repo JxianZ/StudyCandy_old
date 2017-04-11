@@ -158,7 +158,7 @@
                     </c:choose>
                         <div class="box-foot">
                             <div class="left">悬赏：<span>${question.questionReward}糖豆</span></div>
-                            <div class="right">作者：<span>${question.userId}</span></div>
+                            <div class="right">作者：<span>${questionUserList[question.userId].userNickname}</span></div>
                         </div>
                     </div>
                 </a>
@@ -208,7 +208,8 @@
                     dataType:"json",
                     async: false,
                     success:function (r) {
-
+                        if(r.status!=0)
+                            alert(r.info);
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         alert(XMLHttpRequest.status);

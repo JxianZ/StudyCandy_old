@@ -4,7 +4,10 @@ import com.studycandy.core.BaseController;
 import com.studycandy.model.Answer;
 import com.studycandy.model.Coach;
 import com.studycandy.model.Question;
+import com.studycandy.model.UserInfo;
 import com.studycandy.service.QAService;
+import com.studycandy.service.UserInfoService;
+import com.studycandy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -28,6 +32,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class QAController extends BaseController {
     @Autowired
     private QAService qaService;
+    @Autowired
+    private UserInfoService userInfoService;
+    @Autowired
+    private UserService userService;
     /*
      *辅导室首页 ：QuestionAndQuestionRoom
      *显示用户提问界面 ：userquestions
@@ -42,7 +50,9 @@ public class QAController extends BaseController {
     //获取所有问题
     @RequestMapping(value = {"/","","/allquestion"})
     public String getAllQuestion(HttpServletRequest request, HttpServletResponse response, Model model){
-        model.addAttribute("allquestionlist", qaService.getAllQuestion());
+        List<Question> l = qaService.getAllQuestion();
+        model.addAttribute("allquestionlist", l);
+        model.addAttribute("questionUserList", userService.getUserByQuestion(l));
         return "classroom/assistRoom";
     }
     //获取用户提出的所有问题
@@ -56,8 +66,10 @@ public class QAController extends BaseController {
     @RequestMapping(value = "/questionview/{id}")
     public String questionView(HttpServletRequest request, HttpServletResponse response, Model model,
                                @PathVariable("id") Integer id){
+        List<Answer> l = qaService.getAnswersByQuestionId(id);
         model.addAttribute("question", qaService.getQuestion(id));
-        model.addAttribute("answerList",qaService.getAnswersByQuestionId(id));
+        model.addAttribute("answerList",l);
+        model.addAttribute("userList",userService.getUserByAnswer(l));
         return "classroom/qaDetail";
     }
     //添加问题
@@ -74,11 +86,17 @@ public class QAController extends BaseController {
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setQuestionReward(reward);
         try {
-            entity.setUserId(this.getCurrentUser(request).getId());
+            Integer u = this.getCurrentUser(request).getId();
+            entity.setUserId(u);
+            userInfoService.getByUserId(u);
+            UserInfo userInfo = userInfoService.getByUserId(u);
+            int integral = userInfo.getUserIntegral()-reward;
+            if(integral<0) throw new Exception("糖豆不足");
+            userInfoService.changeUserIntegral(u, integral);
             qaService.saveQuestion(entity);
             return ajaxReturn(response,null,"成功",0);
         }catch (Exception e){
-            return ajaxReturn(response,null,"无效",-1);
+            return ajaxReturn(response,null,e.getMessage(),-1);
         }
     }
     //删除问题
@@ -141,9 +159,9 @@ public class QAController extends BaseController {
         Question question = qaService.getQuestion(questionId);
         try {
             if(question.getUserId()==this.getCurrentUser(request).getId()) {
-                question.setQuestionAnswerId(answerId);
-                question.setQuestionStatus(1);
-                qaService.modifyQuestion(question);
+                qaService.setBestAnswer(questionId, answerId);
+                UserInfo u = userInfoService.getByUserId(qaService.getAnswer(answerId).getUserId());
+                userInfoService.changeUserIntegral(u.getId(),u.getUserIntegral()+question.getQuestionReward());
             }
             else throw new Exception("非问题主人");
             return ajaxReturn(response,null,"成功",0);

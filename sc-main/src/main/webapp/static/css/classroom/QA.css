@@ -171,3 +171,38 @@
     color:#3e8f3e;
     font-size: 16px;
 }
+.ans-accept{
+    transition:border-color 0.5s ease-out;
+    -moz-transition:border-color 0.5s ease-out;
+    -webkit-transition:border-color 0.5s ease-out;
+    transition:color 0.2s ease-out;
+    -moz-transition:color 0.2s ease-out;
+    -webkit-transition:color 0.2s ease-out;
+    transition:background-color 0.5s ease-out;
+    -moz-transition:background-color 0.5s ease-out;
+    -webkit-transition:background-color 0.5s ease-out;
+    width: 80px;
+    height: 25px;
+    border:solid #3e8f3e 1px;
+    color: #3e8f3e;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 15px;
+}
+.ans-accept:hover{
+    cursor: pointer;
+    color:#FFF;
+    background-color: #3e8f3e;
+}
+#showallans:hover{
+    cursor: pointer;
+}
+.qa-detail-body .sucbody{
+    border:solid #3e8f3e 1px;
+}
+.sucbody .qa-detail-title>span{
+    color: #3e8f3e;
+}
+#bestans{
+
+}
