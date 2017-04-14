@@ -110,7 +110,7 @@ public class SqlRunner {
      */
     private SOMap createSOM(String sql, Object... params) {
         SOMap somap = new SOMap();
-        somap.put("com/studycandy/mu/sql", sql);
+        somap.put("sql", sql);
         for (Integer i = 0; i < params.length; i++) {
             somap.put(i.toString(), params[i]);
         }

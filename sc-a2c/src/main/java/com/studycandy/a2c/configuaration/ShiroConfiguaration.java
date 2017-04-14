@@ -8,6 +8,7 @@ import com.studycandy.a2c.web.intercepter.CurrentUserInterceptor;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
@@ -84,7 +85,7 @@ public class ShiroConfiguaration {
     }
 
     @Bean("sessionDAO")
-    public MySqlSessionDAO getSessionDAO() {
+    public SessionDAO getSessionDAO() {
         MySqlSessionDAO sessionDAO = new MySqlSessionDAO();
         sessionDAO.setSessionIdGenerator(getSessionIdGenerator());
         sessionDAO.setActiveSessionsCacheName("shiro-activeSessionCache");
@@ -95,7 +96,6 @@ public class ShiroConfiguaration {
     public MySqlSessionValidationScheduler getSessionValidationScheduler() {
         MySqlSessionValidationScheduler sessionValidationScheduler = new MySqlSessionValidationScheduler();
         sessionValidationScheduler.setInterval(1800000);
-        sessionValidationScheduler.setSessionManager(getSessionManager());
         return sessionValidationScheduler;
     }
 

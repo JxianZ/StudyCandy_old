@@ -23,7 +23,7 @@ public class RemoteServiceConfiguration {
 
     @Bean
     public RemoteService getRemoteService() {
-        final RemoteService remoteService = new RemoteService(authorizationService, sessionDAO);
+        final RemoteService remoteService = new RemoteService(authorizationService, sessionDAO, appService);
         return remoteService;
     }
 

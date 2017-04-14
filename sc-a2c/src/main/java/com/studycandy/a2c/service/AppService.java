@@ -21,4 +21,6 @@ public interface AppService {
     List<App> getAll();
 
     Integer getAppIdByAppKey(String appkey);
+
+    Integer getAppIdByAppName(String appname);
 }

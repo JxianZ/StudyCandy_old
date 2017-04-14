@@ -58,4 +58,8 @@
             <artifactId>shiro-core</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>sc-core</finalName>
+    </build>
 </project>

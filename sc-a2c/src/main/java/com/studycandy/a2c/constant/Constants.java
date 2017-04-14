@@ -6,7 +6,7 @@ package com.studycandy.a2c.constant;
  * Time: 2017/3/27
  */
 public class Constants {
-    public static final String SERVER_APP_KEY = "";
+    public static final String SERVER_APP_KEY = "94a08f70-658f-4774-8e27-b1153e8c3669";
     public static final String SALT = "StudyC@ndy#";
     public static final String TABLE_PREFIX = "a2c_";
     public static final String CURRENT_USER = "current_user";

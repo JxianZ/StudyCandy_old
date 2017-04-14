@@ -31,12 +31,20 @@ public class AppManageController extends BaseController {
         this.appService = appService;
     }
 
+    @PostMapping("")
+    public String get(HttpServletResponse response,
+                      @RequestParam String appname) {
+        Integer appid = appService.getAppIdByAppName(appname);
+        App entity = appService.getAppById(appid);
+
+        return ajaxReturn(response, entity, "success", 1);
+    }
 
     @PostMapping("create")
     public String test(HttpServletResponse response,
                        @RequestParam String appname) {
         App entity = AppUtils.getApp(appname);
         appService.addApp(entity);
-        return ajaxReturn(response, null, "", 0);
+        return ajaxReturn(response, entity, "", 0);
     }
 }

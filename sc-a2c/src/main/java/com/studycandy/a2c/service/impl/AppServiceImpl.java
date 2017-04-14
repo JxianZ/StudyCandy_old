@@ -61,4 +61,14 @@ public class AppServiceImpl implements AppService {
             return rowList.get(0).getInt("id");
         return null;
     }
+
+    @Override
+    public Integer getAppIdByAppName(String appname) {
+        SQLBuilder sqlBuilder = SQLBuilder.getSQLBuilder(App.class);
+        String sql = sqlBuilder.fields("id").where("app_name='" + appname + "'").selectSql();
+        List<Row> rowList = sqlRunner.select(sql);
+        if (rowList.size() != 0)
+            return rowList.get(0).getInt("id");
+        return null;
+    }
 }
