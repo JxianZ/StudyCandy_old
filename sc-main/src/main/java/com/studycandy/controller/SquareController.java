@@ -66,19 +66,12 @@ public class SquareController extends BaseController {
 
         return "square/campusSquare";
     }
-    //获取白天所有帖子
-    @RequestMapping(value = "/day", method = POST)
-    public String squareDay(HttpServletRequest request, HttpServletResponse response, Model model) {
-        List<Post> l = postService.getAllDayPost();
-        model.addAttribute("allpostlist", l);
-        return ajaxReturn(response,l,"",0);
-    }
-    //获取夜间所有帖子
-    @RequestMapping(value = "/night", method = POST)
+    //进入黑夜
+    @RequestMapping(value = "/night")
     public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<Post> l = postService.getAllNightPost();
         model.addAttribute("allpostlist", l);
-        return ajaxReturn(response,l,"",0);
+        return "square/campusSquareNight";
     }
     //白天发帖
     @RequestMapping(value = "/addDayPost", method = POST)
@@ -126,7 +119,7 @@ public class SquareController extends BaseController {
     }
     //支持ajax取出帖子最新
     @RequestMapping(value = "/postList", method = GET)
-    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String newpostList(HttpServletRequest request, HttpServletResponse response, Model model) {
             List<Post> list= new ArrayList<Post>();
             List<Post> t =  postService.getAllPost();
             int t_size = t.size(),m = 0;
@@ -137,11 +130,15 @@ public class SquareController extends BaseController {
         return ajaxReturn(response, list, "", 0);
     }
     //获取用户发布的所有帖子
-    @RequestMapping(value = "/allpost")
-    public String postList(HttpServletRequest request, HttpServletResponse response, Model model,
-                           @RequestParam Integer userId) {
-        model.addAttribute("allpostlist", postService.getUserPostList(userId));
-        return "userpostlist";
+    @RequestMapping(value = "/alluserpost",  method = POST)
+    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+        try {
+            List<Post> l = postService.getUserPostList(this.getCurrentUser(request).getId());
+            System.out.println(l);
+            return ajaxReturn(response, l, "成功", 0);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, "失败", 0);
+        }
     }
     //删除帖子
     @RequestMapping(value = "/deletePost", method = POST)
@@ -214,12 +211,16 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(-1);
-        entity.setUserId(this.getCurrentUser(request).getId());
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);
-        commentPostService.saveCommentPost(entity);
-        return "postcomments";
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+            commentPostService.saveCommentPost(entity);
+        }catch (Exception e){
+            return ajaxReturn(response,null,"失败",-1);
+        }
+        return ajaxReturn(response,null,"成功",0);
     }
     //添加回复的回复
     @RequestMapping(value = "/addCommentToComment",method = POST)
@@ -230,7 +231,11 @@ public class SquareController extends BaseController {
         CommentPost entity = new CommentPost();
         entity.setPostId(postId);
         entity.setFollowId(followId);
-        entity.setUserId(this.getCurrentUser(request).getId());
+        try {
+            entity.setUserId(this.getCurrentUser(request).getId());
+        }catch (Exception e){
+
+        }
         entity.setGmtCreate(new Timestamp(new Date().getTime()));
         entity.setGmtModified(new Timestamp(new Date().getTime()));
         entity.setCommentContent(commentContent);

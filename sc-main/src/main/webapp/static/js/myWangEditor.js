@@ -4,7 +4,7 @@
 
 /*富文本框内容 start*/
 
-var editor = new wangEditor("contentin");
+var editor = new wangEditor($("#contentin"));
 
 
 editor.config.menus = $.map(wangEditor.config.menus, function(item, key) {

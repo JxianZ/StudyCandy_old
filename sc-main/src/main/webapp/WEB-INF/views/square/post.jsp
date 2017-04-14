@@ -13,9 +13,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>post</title>
-    <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/post.css">
+    <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/post.css">
 </head>
 <body>
 
@@ -23,21 +24,20 @@
 <!--传递PostId -->
 <textarea id="postId" style="display: none">${post.id}</textarea>
 <content>
-    <div class="content">
-        <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
+    <div class="content container">
+        <div class="btn-group-vertical mybtn">
+    <c:choose>
+        <c:when test="${userId==post.userId}">
+            <button type="button" class="btn btn-primary mybtn2" data-toggle="modal" data-target=".bs-example-modal-lg">修改</button>
+        </c:when>
+    </c:choose>
+            <button type="button" class="btn btn-primary mybtn1" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
+        </div>
         <div class="post">
             <h1>${post.postTitle}<small>作者：${user.userNickname}</small></h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="img-responsive center-block" src="${__static__}/img/videotest.png">
-                </div>
-                <div class="details col-md-8">
-                    <div id="describe">${post.postContent}</div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary mybtn" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
+            <div id="describe">${post.postContent}</div>
         </div>
-        <div class="comment-list">
+        <div class="comment-list container">
             <ul class="list-group">
                 <c:forEach items="${postComments}" var="comment">
                 <li class="list-group-item">
@@ -79,7 +79,7 @@
             </ul>
         </nav>
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -89,7 +89,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>内容</label>
-                                <textarea id="postContent" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                                <div id="contentin" class="form-control contentin"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -106,9 +106,10 @@
 <%@include file="../include/footer.jsp"%>
 </body>
 
-<script src="${__static__}/js/jquery.js"></script>
-<script src="${__static__}/js/bootstrap.min.js"></script>
-<script src="${__static__}/js/style-assit.js"></script>
-<script src="${__static__}/js/post.js"></script>
-
+<script type="text/javascript" src="${__static__}/js/jquery.js"></script>
+<script type="text/javascript" src="${__static__}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/style-assit.js"></script>
+<script type="text/javascript" src="${__static__}/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="${__static__}/js/myWangEditor.js"></script>
+<script type="text/javascript" src="${__static__}/js/post.js"></script>
 </html>

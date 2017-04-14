@@ -42,7 +42,10 @@ public class QAService {
     public int modifyQuestion(Question question){
         return questionMapper.updateByPrimaryKey(question);
     }
-
+    public int setBestAnswer(Integer id, Integer answerId){
+        System.out.println("shit"+id+" "+answerId);
+        return questionMapper.updateByAnswer(id,answerId);
+    }
     public List<Answer> getAnswersByQuestionId(Integer questionId){
         return answerMapper.selectByQuestionId(questionId);
     }
@@ -81,5 +84,7 @@ public class QAService {
     public int modifyCoach(Coach coach){
         return coachMapper.updateByPrimaryKey(coach);
     }
+    public int acceptCoach(Integer id){return coachMapper.acceptCoach(id);}
+    public int solveCoach(Integer id){return coachMapper.solveCoach(id);}
     /*预约制 End*/
 }

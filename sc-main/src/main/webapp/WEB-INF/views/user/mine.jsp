@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>mine</title>
-    <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/mine.css">
+    <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/user/mine.css">
 </head>
 <body>
 
@@ -27,11 +27,11 @@
         <div class="container-fluid myuser">
             <div class="row">
                 <div class="col-xs-12 col-md-3">
-                    <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" alt="Responsive image">
+                    <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" data-toggle="modal" data-target="#userImg">
                 </div>
                 <div class="col-md-4">
                     <div class="user-details">
-                        <h3><strong>用户名:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
+                        <h3><strong>昵称:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
                         <div class="row text-left">
                             <div class="col-xs-6">
                                 <strong>学校:${school.schoolName}</strong>
@@ -42,13 +42,10 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-4">
-                                <strong>经验</strong>
+                                <strong>金豆豆:${userInfo.userMoney}</strong>
                             </div>
                             <div class="col-xs-4">
-                                <strong>等级</strong>
-                            </div>
-                            <div class="col-xs-4">
-                                <strong>排名:${userInfo.userRank}</strong>
+                                <strong>银豆豆:${userInfo.userIntegral}</strong>
                             </div>
                         </div>
                         <h5><input class="briefing" type="text" name="briefing" placeholder="这个人很懒"></h5>
@@ -73,19 +70,42 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <div class="list-group left-list">
-                                    <a class="list-group-item active">主页</a>
-                                    <a class="list-group-item">课程</a>
+                                    <a id="homepage" class="list-group-item active">主页</a>
+                                    <a id="course" class="list-group-item">课程</a>
                                     <a class="list-group-item">教室</a>
                                     <a class="list-group-item">问答</a>
-                                    <a class="list-group-item">笔记</a>
+                                    <a id="note" class="list-group-item">笔记</a>
                                     <a class="list-group-item">收藏</a>
                                 </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="content-main-inner col-xs-9">
-                    <h1 class="text-center">晓明包工头，拖欠工资不给还不让睡觉。T T</h1>
+                <div class="col-xs-9">
+                    <div id="contentMainInner" class="content-main-inner">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="userImg" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-center">头像修改</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>图片上传</label>
+                            <input id="uploadImg" type="file" style="display: none;">
+                            <div class="input-group">
+                                <span id="showLocation">文件路径</span>
+                                <span class="input-group-btn">
+                                    <button id="upload" class="btn btn-default" type="button">上传图片</button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,5 +119,6 @@
 <script src="${__static__}/js/jquery.js"></script>
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
+<script src="${__static__}/js/mine.js"></script>
 
 </html>

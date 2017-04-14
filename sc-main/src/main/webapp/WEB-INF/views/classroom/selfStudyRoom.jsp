@@ -14,10 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录</title>
-    <link href="${__static__}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${__static__}/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/selfStudyRoom.css">
+    <link href="${__static__}/css/main/bootstrap.min.css" rel="stylesheet">
+    <link href="${__static__}/css/main/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/selfRoom/selfStudyRoom.css">
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -109,6 +109,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+
     </div>
 </div>
 
@@ -118,9 +119,9 @@
 
 <div class="container selfroom-wrapper">
     <ul class="nav nav-pills">
-        <li role="presentation" id="othernote" class="active"><a href="/selfstudy">所有笔记</a></li>
+        <li role="presentation" id="othernote" class="active"><a href="#">所有笔记</a></li>
         <li role="presentation" id="addnote" class="navbar-right active" ><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加笔记</button></li>
-        <li role="presentation" id="mynote"><a href="#">我的笔记</a></li>
+        <li role="presentation" id="mynote"><a href="/selfstudy/myNotes">我的笔记</a></li>
     </ul>
     <div class="self-body">
         <div id="masonry"><!-- masonry -->

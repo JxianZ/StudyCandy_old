@@ -1,6 +1,8 @@
 package com.studycandy.mapper;
 
 import com.studycandy.model.UserInfo;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface UserInfoMapper {
@@ -13,4 +15,8 @@ public interface UserInfoMapper {
     List<UserInfo> selectAll();
 
     int updateByPrimaryKey(UserInfo record);
+
+    List<UserInfo> selectByIntegral();
+
+    int updateUserIntegral(@Param("id") Integer id, @Param("userIntegral")Integer userIntegral);
 }

@@ -1,6 +1,7 @@
 package com.studycandy.controller;
 
 import com.studycandy.core.BaseController;
+import com.studycandy.model.Classroom;
 import com.studycandy.service.ClassRoomService;
 import com.studycandy.service.CourseService;
 import org.apache.log4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Coding with Intellij IDEA
@@ -30,7 +33,13 @@ public class BigClassroomController extends BaseController {
     //大教室临时入口
     @RequestMapping(value = {"", "/"})
     public String classList(HttpServletRequest request, HttpServletResponse response, Model model) {
-        model.addAttribute("info","请您先登录");
+        //推荐课表 TODO 获取推荐课程列表
+        List<Classroom> l = new ArrayList<Classroom>();
+        l.add(classRoomService.getClassRoomById(1));
+        l.add(classRoomService.getClassRoomById(3));
+
+        model.addAttribute("classRoomList",l);
+        
         return "classroom/bigClassroom";
     }
 

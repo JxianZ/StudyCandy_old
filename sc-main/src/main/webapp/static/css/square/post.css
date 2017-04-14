@@ -1,0 +1,33 @@
+.post{
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+
+.comment-list{
+    min-height:50px;
+}
+
+.comment img{
+	width: 50px;
+	height: 50px;
+}
+
+.send-comment{
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-bottom: 50px;
+}
+
+.post small{
+	margin-left: 10%;
+}
+.mybtn{
+	position: fixed;
+    margin-top:50px;
+	right: 2%;
+}
+
+.contentin {
+	overflow-y:scroll;
+	max-height:300px;
+}

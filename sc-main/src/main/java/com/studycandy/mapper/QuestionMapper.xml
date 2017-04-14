@@ -12,7 +12,7 @@
         <result column="question_reward" property="questionReward" jdbcType="INTEGER"/>
         <result column="question_answer_id" property="questionAnswerId" jdbcType="INTEGER"/>
         <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
-        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="question_title" property="questionTitle" jdbcType="VARCHAR"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from s_question
@@ -22,11 +22,11 @@
         insert into s_question (id, user_id, question_status,
         question_premise, premise_content, question_content,
         question_mode, question_reward, question_answer_id,
-        gmt_create, gmt_modified)
+        gmt_create, gmt_modified, question_title)
         values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{questionStatus,jdbcType=INTEGER},
         #{questionPremise,jdbcType=INTEGER}, #{premiseContent,jdbcType=VARCHAR}, #{questionContent,jdbcType=VARCHAR},
         #{questionMode,jdbcType=INTEGER}, #{questionReward,jdbcType=INTEGER}, #{questionAnswerId,jdbcType=INTEGER},
-        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+        #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{questionTitle,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.studycandy.model.Question">
         update s_question
@@ -39,24 +39,32 @@
         question_reward = #{questionReward,jdbcType=INTEGER},
         question_answer_id = #{questionAnswerId,jdbcType=INTEGER},
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+        question_title = #{questionTitle,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select id, user_id, question_status, question_premise, premise_content, question_content,
-        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
+        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified, question_title
         from s_question
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
         select id, user_id, question_status, question_premise, premise_content, question_content,
-        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
+        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified, question_title
         from s_question
     </select>
     <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select id, user_id, question_status, question_premise, premise_content, question_content,
-        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified
+        question_mode, question_reward, question_answer_id, gmt_create, gmt_modified, question_title
         from s_question
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
+    <update id="updateByAnswer" >
+        update s_question
+        set
+        question_status = 1,
+        question_answer_id = #{answerId}
+        where id = #{id}
+    </update>
 </mapper>

@@ -18,4 +18,8 @@ public interface CoachMapper {
     List<Coach> selectByCoachId(Integer coachId);
 
     List<Coach> selectByUserId(Integer userId);
+
+    int acceptCoach(Integer coachId);
+
+    int solveCoach(Integer coachId);
 }

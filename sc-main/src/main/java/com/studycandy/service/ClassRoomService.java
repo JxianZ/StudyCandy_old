@@ -14,7 +14,12 @@ import java.util.List;
 public class ClassRoomService {
     @Autowired
     ClassroomMapper classroomMapper;
+
     public List<Classroom> getClassRoomsBySchoolId(Integer schoolId){
         return classroomMapper.selectBySchoolId(schoolId);
+    }
+
+    public Classroom getClassRoomById(Integer id){
+        return classroomMapper.selectByPrimaryKey(id);
     }
 }

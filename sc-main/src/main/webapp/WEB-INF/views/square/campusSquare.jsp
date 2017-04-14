@@ -14,10 +14,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>campusSquare</title>
-    <link rel="stylesheet" href="${__static__}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/wangEditor.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/campusSquare.css">
+    <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/campusSquare.css">
 </head>
 <body>
 
@@ -82,28 +82,27 @@
                 <li role="presentation" class="active"><a href="#">最新</a></li>
                 <li role="presentation"><a href="#">最热</a></li>
                 <li role="presentation" class="navbar-right">
-                    <button id="change" type="button" class="btn btn-default">白天</button>
+                    <button id="dayChange" type="button" class="btn btn-default">白天</button>
                     <button type="button" class="btn btn-default" data-toggle="modal" ${userId!=null?'data-target="#sendPost"':'data-target="#gologin"'} >发帖</button>
                     <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
                 </li>
             </ul>
-            <div class="post-list">
+            <div id="post-list" class="post-list list-group">
                 <c:forEach items="${allpostlist}" var="post">
-                <div class="row post">
-                    <div class="col-md-1">
-                        <a href="/square/postview/${post.id}">
-                            <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                            <span>${postusername[post.userId]}</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-md-7">
-                        <h5><a href="/square/postview/${post.id}">${post.postTitle}</a></h5>
-                        <div class="long">${post.postContent}</div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 text-right text-bottom">
-                        <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
-                    </div>
-                </div>
+                    <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
+                            </div>
+                            <div class="col-xs-12 col-md-7">
+                                <h4>${postusername[post.userId]}</h4>
+                                <p>${post.postTitle}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-4 text-right text-bottom">
+                                <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
+                            </div>
+                        </div>
+                    </a>
                 </c:forEach>
             </div>
             <nav aria-label="Page navigation" class="text-center">
@@ -142,15 +141,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label>内容</label>
-                                        <div id="contentin" class="form-control contentin" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></div>
+                                        <div id="contentin" class="form-control contentin"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="uplodeImg">图片上传</label>
-                                        <input id="uplodeImg" type="file" style="display: none;">
+                                        <label>图片上传</label>
+                                        <input id="uploadImg" type="file" style="display: none;">
                                         <div class="input-group">
                                             <span id="showLocation">文件路径</span>
                                             <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button" onclick="$('#uplodeImg').click();">上传图片</button>
+                                                    <button id="upload" class="btn btn-default" type="button">上传图片</button>
                                                 </span>
                                         </div>
                                         <!-- /input-group -->
@@ -208,8 +207,8 @@
                             <div class="input-group">
                                 <input id="msg" type="text" class="form-control" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。">
                                 <span class="input-group-btn">
-                                        <button id="send-msg" class="btn btn-default" type="button">发送</button>
-                                    </span>
+                                    <button id="send-msg" class="btn btn-default" type="button">发送</button>
+                                </span>
                             </div>
                         </div>
                     </div>

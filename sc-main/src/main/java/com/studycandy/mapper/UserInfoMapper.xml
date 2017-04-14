@@ -61,4 +61,16 @@
     user_integral, user_birth, user_motto, user_rank, rank_date, user_realname, user_stu_major
     from s_user_info
   </select>
+  <select id="selectByIntegral" resultMap="BaseResultMap" >
+    select id, user_school_id, user_stu_id, user_gender, user_id_card, user_lv, user_money,
+    user_integral, user_birth, user_motto, user_rank, rank_date, user_realname, user_stu_major
+    from s_user_info
+    ORDER BY user_integral DESC
+  </select>
+  <update id="updateUserIntegral">
+    update s_user_info
+    set
+    user_integral = #{userIntegral}
+    where id = #{id}
+  </update>
 </mapper>

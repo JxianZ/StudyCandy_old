@@ -2,28 +2,20 @@
  * Created by BlackZXK on 4/5/2017.
  */
 $(function() {
-    //判断当前的登录用户是不是文章的作者
-    if ("username" == "username") {
-        $(".mybtn2").toggle();
-    }
+
+    $(".contentin").css("height",window.innerHeight/2);
 
     $(".mybtn2").click(function() {
-        $("#postContent").val($("#describe").html());
+        $("#contentin").html($("#describe").html());
     });
 
-    $(".mybtn").click(function() {
-        $("#postContent").val('');
+    $(".mybtn1").click(function() {
+        $("#contentin").html('');
     });
 
     $("#publish").click(function() {
-        /*if ("username" == "username") {
-            $("#describe").html($("#postContent").val());
-            $(".modal").modal('toggle');
-        }else{
-            //增加一行
-        }*/
         var postId = $("#postId").val();
-        var content = $("#postContent").val();
+        var content = editor.$txt.html();
         var data = {
             "commentContent":content,
             "postId": postId,
@@ -34,7 +26,9 @@ $(function() {
             type: "POST",
             dataType: "json",
             success: function (r) {
+                alert(r.info);
                 if(r.status==0) {
+                    alert("hah");
                     window.location.reload();
                 }
                 else{

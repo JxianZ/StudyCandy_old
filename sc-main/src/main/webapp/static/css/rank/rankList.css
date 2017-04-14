@@ -1,0 +1,10 @@
+.rank-list .user-img{
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-rank{
+    position: fixed;
+    right: 5%;
+    width: 15%;
+}
