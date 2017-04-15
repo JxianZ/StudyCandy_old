@@ -8,12 +8,8 @@
 
     <modules>
         <module>sc-main</module>
-        <module>sc-a2c</module>
-        <module>sc-a2c-core</module>
-        <module>sc-a2c-client</module>
         <module>sc-core</module>
         <module>sc-dpl</module>
-        <module>a2c-client-spring-boot-starter</module>
         <module>sc-admin</module>
     </modules>
 
@@ -47,22 +43,7 @@
             </dependency>
             <dependency>
                 <groupId>com.studycandy</groupId>
-                <artifactId>sc-a2c-core</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.studycandy</groupId>
                 <artifactId>sc-dpl</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.studycandy</groupId>
-                <artifactId>sc-a2c-client</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.studycandy</groupId>
-                <artifactId>a2c-client-spring-boot-starter</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
@@ -244,7 +225,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 

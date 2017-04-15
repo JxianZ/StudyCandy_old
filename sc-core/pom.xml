@@ -10,6 +10,9 @@
     </parent>
 
     <artifactId>sc-core</artifactId>
+    <version>1.0</version>
+    <groupId>com.studycandy</groupId>
+
     <dependencies>
         <dependency>
             <groupId>log4j</groupId>
@@ -24,14 +27,8 @@
             <artifactId>fastjson</artifactId>
         </dependency>
         <dependency>
-            <artifactId>spring-context</artifactId>
-            <groupId>org.springframework</groupId>
-            <version>4.3.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>4.3.7.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
