@@ -42,8 +42,6 @@
                             </div>
                         </div>
                     </form>
-                    <!--
-                    TODO check and replace -->
                     <span id="useridtmp" style="display: none;">${userId}</span>
                     <c:choose>
                         <c:when test="${userId!=null}">
