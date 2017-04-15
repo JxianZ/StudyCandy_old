@@ -34,19 +34,19 @@
 	padding: 20px;
 }
 .box {
-	border-radius: 15px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border:solid #c8c5ca 1px;
 	margin-bottom: 20px;
 	float: left;
 	width: 260px;
 }
 .box-title{
-	border-radius: 15px 15px 0 0;
-	-moz-border-radius: 15px 15px 0 0;
-	-webkit-border-radius: 15px 15px 0 0;
-	background-color: #ce8483;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	background-color: #75c1d0;
 	padding:10px 20px 10px 20px;
 	color:#FFFFFF;
 	letter-spacing: 2px;
@@ -73,9 +73,9 @@
 	margin-right: 20px;
 }
 .box:hover{
-	-webkit-box-shadow: 0 0 8px #f38094, 0 0 8px #f38094;
-	-moz-box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
-	box-shadow: 0 0 8px #f38094,  0 0 8px #f38094;
+	-webkit-box-shadow: 0 0 8px #55aaba, 0 0 8px #55aaba;
+	-moz-box-shadow: 0 0 8px #55aaba,  0 0 8px #55aaba;
+	box-shadow: 0 0 8px #55aaba,  0 0 8px #55aaba;
 }
 #notecontent{
 	height: 250px;

@@ -14,11 +14,11 @@ $(function() {
 $(function () {
     $(".box").mouseover(function () {
         $(this).css("border","solid #FFFFFF 0");
-        $(this).find('.box-title').css("background-color","#f38094");
+        $(this).find('.box-title').css("background-color","#55aaba");
     });
     $(".box").mouseout(function () {
         $(this).css("border","solid #c8c5ca 1px");
-        $(this).find('.box-title').css("background-color","#ce8483");
+        $(this).find('.box-title').css("background-color","#75c1d0");
     });
 });
 $(function () {

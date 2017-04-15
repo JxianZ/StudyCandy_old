@@ -224,7 +224,7 @@
 
 <!-- square-html start -->
 
-<div class="square-wrapper">
+<div class="square-wrapper hidden-xs">
     <div class="container">
         <h1 class="mod-title">校园广场</h1>
         <div class="row">

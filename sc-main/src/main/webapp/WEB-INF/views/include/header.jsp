@@ -47,7 +47,7 @@
                     <span id="useridtmp" style="display: none;">${userId}</span>
                     <c:choose>
                         <c:when test="${userId!=null}">
-                            <li><a id="haha" href="#" class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
+                            <li><a id="haha"  class="navbar-head haha"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="${__static__}/img/user-test.jpg"></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="#">消息</a></li>
                                     <li><a href="/user">个人中心</a></li>
