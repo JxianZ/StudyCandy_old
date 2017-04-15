@@ -41,6 +41,9 @@
 	margin-bottom: 20px;
 	float: left;
 	width: 260px;
+	-webkit-box-shadow: 0 5px 5px #c8c5ca;
+	-moz-box-shadow:0 5px 5px #c8c5ca;
+	box-shadow:0 5px 5px #c8c5ca;
 }
 .box-title{
 	border-radius: 5px 5px 0 0;
