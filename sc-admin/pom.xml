@@ -10,24 +10,16 @@
     </parent>
 
     <artifactId>sc-admin</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
+
+    <properties>
+        <start-class>com.studycandy.admin.ServletInitializer</start-class>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.studycandy</groupId>
             <artifactId>sc-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.studycandy</groupId>
-            <artifactId>sc-a2c-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.studycandy</groupId>
-            <artifactId>sc-a2c-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.studycandy</groupId>
-            <artifactId>a2c-client-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,6 +67,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -108,18 +101,18 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.2.RELEASE</version>
-                <type>pom</type>
+                <version>${spring.boot.parent.version}</version>
                 <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
         <resources>
             <resource>
@@ -141,18 +134,18 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <configuration>
                     <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
                     <overwrite>true</overwrite>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
                 </configuration>
             </plugin>
         </plugins>
