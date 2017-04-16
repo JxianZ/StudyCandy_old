@@ -37,24 +37,19 @@
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	border:solid #c8c5ca 1px;
 	margin-bottom: 20px;
 	float: left;
 	width: 260px;
-	-webkit-box-shadow: 0 5px 5px #c8c5ca;
-	-moz-box-shadow:0 5px 5px #c8c5ca;
-	box-shadow:0 5px 5px #c8c5ca;
 }
 .box-title{
 	border-radius: 5px 5px 0 0;
 	-moz-border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
-	background-color: #75c1d0;
 	padding:10px 20px 10px 20px;
-	color:#FFFFFF;
+	color:#2b2525;
 	letter-spacing: 2px;
 	text-align: center;
-	font-family: "黑体";
+	font-family: "微软雅黑";
 }
 .box-content{
 	background-color: #f9f9f9;
@@ -74,11 +69,6 @@
 }
 #addnote{
 	margin-right: 20px;
-}
-.box:hover{
-	-webkit-box-shadow: 0 0 8px #55aaba, 0 0 8px #55aaba;
-	-moz-box-shadow: 0 0 8px #55aaba,  0 0 8px #55aaba;
-	box-shadow: 0 0 8px #55aaba,  0 0 8px #55aaba;
 }
 #notecontent{
 	height: 250px;

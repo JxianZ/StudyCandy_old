@@ -1,6 +1,15 @@
 /**
  * Created by Administrator on 2017/4/3.
  */
+$(function () {
+    var divarr = $(".box");
+    var styarr = new Array("boxs1","boxs2","boxs3","boxs4","boxs5","boxs6","boxs7","boxs8","boxs9","boxs10");
+    $(divarr).each(function () {
+        var rannum = parseInt(Math.random()*10);
+       $(this).attr('id',styarr[rannum]);
+    });
+});
+
 $(function() {
     var $container = $('#masonry');
     $container.imagesLoaded(function() {
@@ -9,16 +18,6 @@ $(function() {
             gutter: 20,
             isAnimated: true,
         });
-    });
-});
-$(function () {
-    $(".box").mouseover(function () {
-        $(this).css("border","solid #FFFFFF 0");
-        $(this).find('.box-title').css("background-color","#55aaba");
-    });
-    $(".box").mouseout(function () {
-        $(this).css("border","solid #c8c5ca 1px");
-        $(this).find('.box-title').css("background-color","#75c1d0");
     });
 });
 $(function () {
@@ -65,3 +64,4 @@ $(function () {
         $("#showLocation").html($(this).val());
     });
 });
+
