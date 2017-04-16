@@ -5,8 +5,7 @@ $(function () {
     var divarr = $(".box");
     var styarr = new Array("boxs1","boxs2","boxs3","boxs4","boxs5","boxs6","boxs7","boxs8","boxs9","boxs10");
     $(divarr).each(function () {
-        var rannum = parseInt(Math.random()*10);
-       $(this).attr('id',styarr[rannum]);
+       $(this).attr('id',styarr[parseInt(Math.random()*10)]);
     });
 });
 
