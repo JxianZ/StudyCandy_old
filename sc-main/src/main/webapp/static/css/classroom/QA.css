@@ -15,6 +15,7 @@
     margin-right: 20px;
 }
 .box {
+    background-color: #FFF;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -24,11 +25,11 @@
     -webkit-box-shadow: 0 5px 5px #c8c5ca;
     -moz-box-shadow:0 5px 5px #c8c5ca;
     box-shadow:0 5px 5px #c8c5ca;
-    background-color: #FFF;
     border:solid #c8c5ca 1px;
     margin-bottom: 20px;
     float: left;
     width: 260px;
+
 }
 
 #masonry .qasuccess{
