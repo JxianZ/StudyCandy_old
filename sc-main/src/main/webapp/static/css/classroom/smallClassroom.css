@@ -1,12 +1,10 @@
 .mynav{
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-top: 50px;
+	padding: 50px 5% 30px 5%;
     background: url('../../img/banner/0.jpg');
 }
 
 .content-main{
-	background: #c8c5ca;
+	background: #f4f5f7;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 20px;
@@ -30,11 +28,11 @@
 	padding-right: 15px;
 }
 
-.userImg{
+.user-img{
 	width: 30%;
 	position: absolute;
 	left: calc(50% - 15%);
-	bottom: 30%;
+	bottom: 36%;
 	z-index: 2;
 }
 
@@ -42,7 +40,7 @@
 	width: calc(100% - 30px);
 	text-align: center;
 	position: absolute;
-	bottom: 20%;
+	bottom: 28%;
 	z-index: 2;
 	color: white;
 }
@@ -57,10 +55,30 @@
 .className{
 	position: absolute;
 	z-index: 5;
-	bottom: 0px;
+	width: calc(100% - 30px);
+	bottom: 0;
+	height:20%;
+	font-size: 24px;
+	background: #999999;
+	opacity: 0.8;
+	line-height: 50px;
+	border-radius: 0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
 }
 
 .class-detail{
 	margin-bottom: 20px;
 }
 
+.upImg{
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.downImg{
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}

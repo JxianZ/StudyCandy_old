@@ -20,19 +20,19 @@
 </head>
 <body>
 <h3 class="text-center">动态</h3>
-<div class="post-list list-group">
+<div id="post-list" class="post-list list-group">
     <c:forEach items="${allpostlist}" var="post">
         <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
             <div class="row">
-                <div class="col-md-1">
-                    <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                </div>
-                <div class="col-xs-12 col-md-7">
-                    <h4>${postusername[post.userId]}</h4>
-                    <p>${post.postTitle}</p>
+                <div class="col-xs-12 col-md-8">
+                    <h3>${post.postTitle}</h3>
+                    <div class="user-details">
+                        <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png" align="left">
+                        <span>${postusername[post.userId]}</span>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-md-4 text-right text-bottom">
-                    <small>发布时间:${post.gmtModified}</small>
+                    <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
                 </div>
             </div>
         </a>

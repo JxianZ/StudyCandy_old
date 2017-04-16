@@ -109,13 +109,13 @@
                     <c:forEach items="${classRoomList}" var="classRoom">
                     <div class="col-xs-12 col-sm-4 col-md-3 img-bottom myImg">
                         <div class="up">
-                            <img src="${__static__}/img/course-test.jpg" class="img-responsive" alt="Responsive image">
+                            <img src="${__static__}/img/course-test.jpg" class="img-responsive upImg">
                         </div>
-                        <span class="className"><strong>教室名称:</strong>${classRoom.className}</span>
+                        <span class="className text-center"><strong>${classRoom.className}</strong></span>
                         <a class="btn btn-default mybtn" href="smallClassroom/${classRoom.id}" target="_blank">进入教室</a>
-                        <img src="${__static__}/img/user-big.jpeg" class="img-circle userImg">
-                        <span class="lecturerName"><strong>管理员名称:</strong>${classRoom.classAdminId}</span>
-                        <img src="${__static__}/img/course-test2.jpg" class="img-responsive" alt="Responsive image">
+                        <img src="${__static__}/img/user-big.jpeg" class="img-circle user-img">
+                        <span class="lecturerName"><strong>${classRoom.classAdminId}</strong></span>
+                        <img src="${__static__}/img/course-test2.jpg" class="img-responsive downImg">
                     </div>
                     </c:forEach>
                 </div>
