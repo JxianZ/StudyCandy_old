@@ -7,7 +7,34 @@ $(function() {
 
     $('#gologin').on('hidden.bs.modal', function (e) {
         window.location.href="/user";
-    })
+    });
+
+    $("#change").click(function () {
+        if($(this).html()=="黑夜"){
+            $(this).html("白天");
+            $(".content").addClass("night-style-content");
+            $(".post").addClass("night-style-post");
+        }else {
+            $(this).html("黑夜");
+            $(".content").removeClass("night-style-content");
+            $(".post").removeClass("night-style-post");
+            $(".post").css("background","");
+        }
+
+    });
+
+
+    $(".post").mouseenter(function () {
+        if($("#change").html()=="白天") {
+            $(this).css("background", "#444");
+        }
+    });
+    $(".post").mouseleave(function () {
+        if($("#change").html()=="白天") {
+            $(this).css("background", "#333");
+        }
+    });
+
 
     $("#upload").click(function () {
         $('#uploadImg').click();
@@ -15,13 +42,6 @@ $(function() {
 
     $("#uploadImg").change(function() {
         $("#showLocation").html($(this).val());
-    });
-
-    $("#dayChange").click(function() {
-        window.location.href="/square/night";
-    });
-    $("#nightChange").click(function() {
-        window.location.href="/square";
     });
 
     $("#send-msg").click(function() {
@@ -32,11 +52,12 @@ $(function() {
         setTimeout("test()", 5000);
     });
 
+
     $("#send").click(function () {
         var title = $("#titlein").val();
         var content= editor.$txt.html();
         var str="addDayPost";
-        if($("#change").html()=="黑夜"){
+        if($("#change").html()=="白天"){
             str="addNightPost";
         }
         var data = {

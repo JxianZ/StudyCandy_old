@@ -31,21 +31,24 @@
                 </div>
                 <div class="col-md-4">
                     <div class="user-details">
-                        <h3><strong>昵称:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
-                        <div class="row text-left">
-                            <div class="col-xs-6">
-                                <strong>学校:${school.schoolName}</strong>
+                        <div class="row">
+                            <div class="col-md-6 username">${user.userNickname}</div>
+                            <div class="col-md-6 follow">关注 99&nbsp;&nbsp;粉丝 99</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 left">
+                                学校:${school.schoolName}
                             </div>
-                            <div class="col-xs-6">
-                                <strong>专业</strong>
+                            <div class="col-xs-6 right">
+                                专业
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <strong>金豆豆:${userInfo.userMoney}</strong>
+                            <div class="col-xs-6">
+                                金豆豆:${userInfo.userMoney}
                             </div>
-                            <div class="col-xs-4">
-                                <strong>银豆豆:${userInfo.userIntegral}</strong>
+                            <div class="col-xs-6">
+                                银豆豆:${userInfo.userIntegral}
                             </div>
                         </div>
                         <h5><input class="briefing" type="text" name="briefing" placeholder="这个人很懒"></h5>
@@ -70,12 +73,12 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <div class="list-group left-list">
-                                    <a id="homepage" class="list-group-item active">主页</a>
-                                    <a id="course" class="list-group-item">课程</a>
-                                    <a class="list-group-item">教室</a>
-                                    <a class="list-group-item">问答</a>
-                                    <a id="note" class="list-group-item">笔记</a>
-                                    <a class="list-group-item">收藏</a>
+                                    <a id="homepage" class="list-group-item active">主页<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a id="course" class="list-group-item">课程<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">教室<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">问答<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a id="note" class="list-group-item">笔记<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">收藏<span class="glyphicon glyphicon-chevron-right right"></span></a>
                                 </div>
                             </div>
                         </div>

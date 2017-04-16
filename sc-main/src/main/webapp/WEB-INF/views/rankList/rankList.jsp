@@ -24,16 +24,21 @@
 
 <content>
     <div class="content container">
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">日排名</a></li>
-            <li role="presentation"><a href="#">周排名</a></li>
-        </ul>
+        <img class="center-block" src="${__static__}/img/rankList.png" alt="">
         <div class="row">
             <div class="col-md-10">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#">综合</a></li>
+                    <li role="presentation"><a href="#">课程学习</a></li>
+                    <li role="presentation"><a href="#">问答</a></li>
+                    <li role="presentation"><a href="#">笔记</a></li>
+                    <li role="presentation" class="navbar-right"><a href="#">周排名</a></li>
+                    <li role="presentation" class="active navbar-right"><a href="#">日排名</a></li>
+                </ul>
                 <div class="rank-list list-group">
                     <c:forEach items="${rankList}" var="userInfo" varStatus="st">
-                    <a id="1" class="list-group-item" href="/square/postview/" target="_blank">
-                        <div id="username1" class="row">
+                    <a id="${st.count}" class="list-group-item" href="/square/postview/" target="_blank">
+                        <div class="row">
                             <div class="col-xs-1 col-md-1">
                                 <h1>${st.count}</h1>
                             </div>
@@ -41,7 +46,7 @@
                                 <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
                             </div>
                             <div class="col-xs-6 col-md-6">
-                                <h4>${userList[userInfo.id].userNickname}</h4>
+                                <h4 id="${userInfo.id}">${userList[userInfo.id].userNickname}</h4>
                                 <p>${userInfo.userMotto}</p>
                             </div>
                             <div class="col-xs-4 col-md-4 text-right text-bottom">

@@ -103,6 +103,7 @@
 </content>
 
 <%@include file="../include/footer.jsp"%>
+
 </body>
 
 <script type="text/javascript" src="${__static__}/js/jquery.js"></script>

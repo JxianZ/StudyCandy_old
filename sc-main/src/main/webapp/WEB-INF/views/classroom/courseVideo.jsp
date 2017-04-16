@@ -13,10 +13,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>smallClassroom</title>
+    <title>courseVideo</title>
     <link rel="stylesheet" type="text/css" href="${__static__}/css/main/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/courseVideo.css">
+    <link rel="stylesheet" type="text/css" href="${__static__}/css/classroom/courseVideo.css">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
 
 <content>
     <div class="content">
+        <h2>当前视频名称</h2>
         <div class="row">
             <div class="col-md-8">
                 <div class="video">
@@ -132,7 +133,6 @@
                 </nav>
             </div>
             <div class="col-md-4 rightBar">
-                <h2>当前视频名称</h2>
                 <div class="course-list">
                     <div class="list-group">
                         <li class="list-group-item">

@@ -2,7 +2,7 @@
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-top: 50px;
-	background: #bab3b2
+	background: #f4f5f7
 }
 
 .rightBar{
@@ -10,15 +10,15 @@
 }
 
 .course-list .list-group-item{
-	border: 0px;
+	border: 0;
 }
 
-.comment{
+.comment-list{
 	margin-top: 20px;
 }
 
 .comment-list .list-group-item{
-	margin-top: 20px;
+	border-bottom: 1px;
 }
 
 .long{
@@ -36,4 +36,7 @@
 
 .video{
 	background: black;
+	-webkit-border-radius:1%;
+	-moz-border-radius:1%;
+	border-radius:1%;
 }
