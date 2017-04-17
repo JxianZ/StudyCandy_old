@@ -13,7 +13,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>campusSquare</title>
+	<title>校园广场</title>
     <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
@@ -22,7 +22,7 @@
 <body>
 
 <%@include file="../include/header.jsp"%>
-<c:set var="username" value= "${postusername}"  scope="application"/>
+
 <content>
     <div class="content">
         <div id="carousel-example-generic" class="carousel slide mycarousel" data-ride="carousel">
@@ -78,32 +78,17 @@
             </a>
         </div>
         <div class="content-main container">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">最新</a></li>
-                <li role="presentation"><a href="#">最热</a></li>
+            <ul class="nav nav-pills">
+                <li role="presentation"><button type="button" class="btn btn-primary">最新</button></li>
+                <li role="presentation"><button type="button" class="btn btn-default">最热</button></li>
                 <li role="presentation" class="navbar-right">
-                    <button id="dayChange" type="button" class="btn btn-default">白天</button>
+                    <div id="change" class="btn change">黑夜</div>
                     <button type="button" class="btn btn-default" data-toggle="modal" ${userId!=null?'data-target="#sendPost"':'data-target="#gologin"'} >发帖</button>
-                    <button id="random" type="button" class="btn btn-primary" data-toggle="modal" data-target="#randomModal">偶遇</button>
+                    <div id="random" class="btn random" data-toggle="modal" data-target="#randomModal">偶遇</div>
                 </li>
             </ul>
-            <div id="post-list" class="post-list list-group">
-                <c:forEach items="${allpostlist}" var="post">
-                    <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png">
-                            </div>
-                            <div class="col-xs-12 col-md-7">
-                                <h4>${postusername[post.userId]}</h4>
-                                <p>${post.postTitle}</p>
-                            </div>
-                            <div class="col-xs-12 col-md-4 text-right text-bottom">
-                                <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
-                            </div>
-                        </div>
-                    </a>
-                </c:forEach>
+            <div id="postList" class="post-list list-group">
+
             </div>
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination">
@@ -181,6 +166,7 @@
                 <div class="modal-dialog modal-xs" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="text-center">偶遇</h4>
                         </div>
                         <div class="modal-body">

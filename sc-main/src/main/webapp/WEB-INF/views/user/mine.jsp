@@ -27,25 +27,29 @@
         <div class="container-fluid myuser">
             <div class="row">
                 <div class="col-xs-12 col-md-3">
+                    <span class="glyphicon glyphicon-cog"></span>
                     <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" data-toggle="modal" data-target="#userImg">
                 </div>
                 <div class="col-md-4">
                     <div class="user-details">
-                        <h3><strong>昵称:</strong>${user.userNickname}<small>关注 99&nbsp;&nbsp;粉丝 99</small></h3>
-                        <div class="row text-left">
-                            <div class="col-xs-6">
-                                <strong>学校:${school.schoolName}</strong>
+                        <div class="row">
+                            <div class="col-md-6 username">${user.userNickname}</div>
+                            <div class="col-md-6 follow">关注 99&nbsp;&nbsp;粉丝 99</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 left">
+                                学校:${school.schoolName}
                             </div>
-                            <div class="col-xs-6">
-                                <strong>专业</strong>
+                            <div class="col-xs-6 right">
+                                专业
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <strong>金豆豆:${userInfo.userMoney}</strong>
+                            <div class="col-xs-6">
+                                金豆豆:${userInfo.userMoney}
                             </div>
-                            <div class="col-xs-4">
-                                <strong>银豆豆:${userInfo.userIntegral}</strong>
+                            <div class="col-xs-6">
+                                银豆豆:${userInfo.userIntegral}
                             </div>
                         </div>
                         <h5><input class="briefing" type="text" name="briefing" placeholder="这个人很懒"></h5>
@@ -54,8 +58,20 @@
             </div>
         </div>
         <div class="content-main">
+            <div class="nav visible-xs">
+                <ul class="nav nav-pills row">
+                    <li role="presentation" class="col-xs-4"><a href="#">主页</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">笔记</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">收藏</a></li>
+                </ul>
+                <ul class="nav nav-pills row">
+                    <li role="presentation" class="col-xs-4"><a href="#">课程</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">教室</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">问答</a></li>
+                </ul>
+            </div>
             <div class="row">
-                <div class="nav-left col-xs-3">
+                <div class="nav-left col-md-3 hidden-xs">
                     <nav class="navbar">
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,18 +86,18 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                 <div class="list-group left-list">
-                                    <a id="homepage" class="list-group-item active">主页</a>
-                                    <a id="course" class="list-group-item">课程</a>
-                                    <a class="list-group-item">教室</a>
-                                    <a class="list-group-item">问答</a>
-                                    <a id="note" class="list-group-item">笔记</a>
-                                    <a class="list-group-item">收藏</a>
+                                    <a id="homepage" class="list-group-item active">主页<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a id="course" class="list-group-item">课程<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">教室<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">问答<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a id="note" class="list-group-item">笔记<span class="glyphicon glyphicon-chevron-right right"></span></a>
+                                    <a class="list-group-item">收藏<span class="glyphicon glyphicon-chevron-right right"></span></a>
                                 </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="col-xs-9">
+                <div class="col-md-9 col-xs-12">
                     <div id="contentMainInner" class="content-main-inner">
                     </div>
                 </div>

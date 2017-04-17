@@ -2,12 +2,38 @@
  * Created by BlackZXK on 4/7/2017.
  */
 $(function() {
+    $("#postList").load("square/postListDay",function () {
+        $("#postList").fadeIn(500);
+    });
+
+
     $(".chat-list").css("height",window.innerHeight/2);
     $(".contentin").css("height",window.innerHeight/3);
 
     $('#gologin').on('hidden.bs.modal', function (e) {
         window.location.href="/user";
-    })
+    });
+
+    $("#change").click(function () {
+        if($(this).html()=="黑夜"){
+            $(this).html("白天");
+            $("#postList").load("square/postListNight",function () {
+                $(".content").addClass("night-style-content");
+                $(".post").addClass("night-style-post");
+                $("#postList").fadeIn(500);
+            });
+        }else {
+            $(this).html("黑夜");
+            $("#postList").load("/square/postListDay",function () {
+                $(".content").removeClass("night-style-content");
+                $(".post").removeClass("night-style-post");
+                $(".post").css("background","");
+                $("#postList").fadeIn(500);
+            });
+        }
+
+    });
+
 
     $("#upload").click(function () {
         $('#uploadImg').click();
@@ -15,13 +41,6 @@ $(function() {
 
     $("#uploadImg").change(function() {
         $("#showLocation").html($(this).val());
-    });
-
-    $("#dayChange").click(function() {
-        window.location.href="/square/night";
-    });
-    $("#nightChange").click(function() {
-        window.location.href="/square";
     });
 
     $("#send-msg").click(function() {
@@ -32,11 +51,12 @@ $(function() {
         setTimeout("test()", 5000);
     });
 
+
     $("#send").click(function () {
         var title = $("#titlein").val();
         var content= editor.$txt.html();
         var str="addDayPost";
-        if($("#change").html()=="黑夜"){
+        if($("#change").html()=="白天"){
             str="addNightPost";
         }
         var data = {

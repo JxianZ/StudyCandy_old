@@ -21,10 +21,25 @@
 .post small{
 	margin-left: 10%;
 }
+
+.post .describe{
+    word-wrap:break-word;
+    overflow:hidden;
+}
+
+.post .user-details{
+    margin-top: 50px;
+}
+
+.post .user-img img{
+    width: 150px;
+    height: 150px;
+}
+
 .mybtn{
 	position: fixed;
-    margin-top:50px;
-	right: 2%;
+    margin-top:200px;
+	right: 0;
 }
 
 .contentin {

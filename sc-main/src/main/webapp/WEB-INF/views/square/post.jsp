@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>post</title>
+    <title>${post.postTitle}</title>
     <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
     <link rel="stylesheet" type="text/css" href="${__static__}/css/square/wangEditor.min.css">
@@ -34,8 +34,19 @@
             <button type="button" class="btn btn-primary mybtn1" data-toggle="modal" data-target=".bs-example-modal-lg">评论</button>
         </div>
         <div class="post">
-            <h1>${post.postTitle}<small>作者：${user.userNickname}</small></h1>
-            <div id="describe">${post.postContent}</div>
+            <h1>${post.postTitle}</h1>
+            <div class="row">
+                <div id="describe" class="col-md-8 col-xs-12 describe">${post.postContent}</div>
+                <div class="col-md-4 hidden-xs user-details text-center">
+                    <div class="user-img"><img class="img-responsive center-block" src="${__static__}/img/videotest.png" alt="none"></div>
+                    <h3 class="text-center">${user.userNickname}</h3>
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></span>&nbsp;关注</button>
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span>&nbsp;私信</button>
+                    <h4>关注&nbsp;&nbsp;粉丝</h4>
+                    <h5>学校</h5>
+                    <h5>专业</h5>
+                </div>
+            </div>
         </div>
         <div class="comment-list container">
             <ul class="list-group">
@@ -45,13 +56,13 @@
                         <div class="col-md-1">
                             <a href="#">
                                 <img class="img-responsive img-circle" src="${__static__}/img/videotest.png">
-                                    ${postCommentsUserName[comment.userId]}
                             </a>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-7">
+                            <h4>${postCommentsUserName[comment.userId]}</h4>
                             <div class="long">${comment.commentContent}</div>
                         </div>
-                        <div class="col-md-2 text-right">
+                        <div class="col-md-4 text-right">
                             <small>发布时间:${comment.gmtCreate}</small>
                         </div>
                     </div>
