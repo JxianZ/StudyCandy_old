@@ -2,10 +2,10 @@
  * Created by Administrator on 2017/4/3.
  */
 $(function () {
-    var divarr = $(".box");
-    var styarr = new Array("boxs1","boxs2","boxs3","boxs4","boxs5","boxs6","boxs7","boxs8","boxs9","boxs10");
-    $(divarr).each(function () {
-       $(this).attr('id',styarr[parseInt(Math.random()*10)]);
+    var $divArr = $(".box");
+    var styleArr = new Array("boxs1","boxs2","boxs3","boxs4","boxs5","boxs6","boxs7","boxs8","boxs9","boxs10");
+    $($divArr).each(function () {
+       $(this).attr('id',styleArr[parseInt(Math.random()*10)]);
     });
 });
 
