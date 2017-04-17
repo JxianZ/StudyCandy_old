@@ -7,18 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mine</title>
-    <link rel="stylesheet" href="${__static__}/css/main/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/main/common.css">
-    <link rel="stylesheet" type="text/css" href="${__static__}/css/square/campusSquare.css">
-</head>
-<body>
+<link rel="stylesheet" type="text/css" href="${__static__}/css/square/campusSquare.css">
 <h3 class="text-center">动态</h3>
 <div id="post-list" class="post-list list-group">
     <c:forEach items="${allpostlist}" var="post">
@@ -38,12 +27,3 @@
         </a>
     </c:forEach>
 </div>
-</body>
-
-<script src="${__static__}/js/jquery.js"></script>
-<script src="${__static__}/js/bootstrap.min.js"></script>
-<script src="${__static__}/js/style-assit.js"></script>
-<script>
-
-</script>
-</html>

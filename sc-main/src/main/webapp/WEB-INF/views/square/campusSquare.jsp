@@ -22,7 +22,7 @@
 <body>
 
 <%@include file="../include/header.jsp"%>
-<c:set var="username" value= "${postusername}"  scope="application"/>
+
 <content>
     <div class="content">
         <div id="carousel-example-generic" class="carousel slide mycarousel" data-ride="carousel">
@@ -87,23 +87,8 @@
                     <div id="random" class="btn random" data-toggle="modal" data-target="#randomModal">偶遇</div>
                 </li>
             </ul>
-            <div id="post-list" class="post-list list-group">
-                <c:forEach items="${allpostlist}" var="post">
-                    <a class="list-group-item post" href="/square/postview/${post.id}" target="_blank">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8">
-                                <h3>${post.postTitle}</h3>
-                                <div class="user-details">
-                                    <img class="img-responsive img-circle user-img" src="${__static__}/img/videotest.png" align="left">
-                                    <span>${postusername[post.userId]}</span>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-md-4 text-right text-bottom">
-                                <small>回复人数</small>&nbsp;&nbsp;<small>发布时间:${post.gmtModified}</small>
-                            </div>
-                        </div>
-                    </a>
-                </c:forEach>
+            <div id="postList" class="post-list list-group">
+
             </div>
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination">

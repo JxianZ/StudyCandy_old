@@ -51,6 +51,11 @@ public class SquareController extends BaseController {
 
     @RequestMapping(value = "", method = GET)
     public String square(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "square/campusSquare";
+    }
+
+    @RequestMapping(value = "/postListDay", method = GET)
+    public String postListDay(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<Post> l = postService.getAllDayPost();
         Map<Integer,String> m = new HashMap<Integer, String>();
         String nickname="";
@@ -64,15 +69,17 @@ public class SquareController extends BaseController {
         model.addAttribute("allpostlist", l);
         model.addAttribute("postusername",m);
 
-        return "square/campusSquare";
+        return "square/postListDay";
     }
+
     //进入黑夜
-    @RequestMapping(value = "/night")
+    @RequestMapping(value = "/postListNight")
     public String squareNight(HttpServletRequest request, HttpServletResponse response, Model model) {
         List<Post> l = postService.getAllNightPost();
         model.addAttribute("allpostlist", l);
-        return "square/campusSquareNight";
+        return "square/postListNight";
     }
+
     //白天发帖
     @RequestMapping(value = "/addDayPost", method = POST)
     public String addDayPost(HttpServletRequest request, HttpServletResponse response, Model model,
