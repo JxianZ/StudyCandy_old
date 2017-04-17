@@ -2,6 +2,11 @@
  * Created by BlackZXK on 4/7/2017.
  */
 $(function() {
+    $("#postList").load("square/postListDay",function () {
+        $("#postList").fadeIn(500);
+    });
+
+
     $(".chat-list").css("height",window.innerHeight/2);
     $(".contentin").css("height",window.innerHeight/3);
 
@@ -12,27 +17,21 @@ $(function() {
     $("#change").click(function () {
         if($(this).html()=="黑夜"){
             $(this).html("白天");
-            $(".content").addClass("night-style-content");
-            $(".post").addClass("night-style-post");
+            $("#postList").load("square/postListNight",function () {
+                $(".content").addClass("night-style-content");
+                $(".post").addClass("night-style-post");
+                $("#postList").fadeIn(500);
+            });
         }else {
             $(this).html("黑夜");
-            $(".content").removeClass("night-style-content");
-            $(".post").removeClass("night-style-post");
-            $(".post").css("background","");
+            $("#postList").load("/square/postListDay",function () {
+                $(".content").removeClass("night-style-content");
+                $(".post").removeClass("night-style-post");
+                $(".post").css("background","");
+                $("#postList").fadeIn(500);
+            });
         }
 
-    });
-
-
-    $(".post").mouseenter(function () {
-        if($("#change").html()=="白天") {
-            $(this).css("background", "#444");
-        }
-    });
-    $(".post").mouseleave(function () {
-        if($("#change").html()=="白天") {
-            $(this).css("background", "#333");
-        }
     });
 
 

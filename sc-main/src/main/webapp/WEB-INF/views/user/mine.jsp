@@ -27,6 +27,7 @@
         <div class="container-fluid myuser">
             <div class="row">
                 <div class="col-xs-12 col-md-3">
+                    <span class="glyphicon glyphicon-cog"></span>
                     <img src="${__static__}/img/user-big.jpeg" class="center-block img-circle user-img" data-toggle="modal" data-target="#userImg">
                 </div>
                 <div class="col-md-4">
@@ -57,8 +58,20 @@
             </div>
         </div>
         <div class="content-main">
+            <div class="nav visible-xs">
+                <ul class="nav nav-pills row">
+                    <li role="presentation" class="col-xs-4"><a href="#">主页</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">笔记</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">收藏</a></li>
+                </ul>
+                <ul class="nav nav-pills row">
+                    <li role="presentation" class="col-xs-4"><a href="#">课程</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">教室</a></li>
+                    <li role="presentation" class="col-xs-4"><a href="#">问答</a></li>
+                </ul>
+            </div>
             <div class="row">
-                <div class="nav-left col-xs-3">
+                <div class="nav-left col-md-3 hidden-xs">
                     <nav class="navbar">
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
@@ -84,7 +97,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-xs-9">
+                <div class="col-md-9 col-xs-12">
                     <div id="contentMainInner" class="content-main-inner">
                     </div>
                 </div>

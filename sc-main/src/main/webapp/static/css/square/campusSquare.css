@@ -4,6 +4,7 @@
 
 .post-list{
 	margin-top: 20px;
+    display: none;
 }
 
 .post{
@@ -93,4 +94,8 @@
 .change:hover{
     background: #111;
     color: #999999;
+}
+
+.content-main{
+    min-height: 500px;
 }
